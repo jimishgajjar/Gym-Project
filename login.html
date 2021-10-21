@@ -27,8 +27,6 @@
 
 	<link rel="stylesheet" href="assets/css/responsive.css" />
 
-	<!-- Bootstrap 5 -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 </head>
 
 <body>
@@ -37,7 +35,7 @@
 	<![endif]-->
 
 
-	<header class="elementskit-header xs-header">
+	<header class="elementskit-header xs-header fixed-top">
 		<div class="xs-container">
 			<div class="xs-navbar">
 				<a class="xs-navbar-brand" href="index-2.html">
@@ -154,8 +152,6 @@
 		</div>
 	</div>
 
-
-
 	<div class="xs-sidebar-group cart-group">
 		<div class="xs-overlay xs-bg-black"></div>
 		<div class="xs-sidebar-widget">
@@ -180,8 +176,6 @@
 			</div>
 		</div>
 	</div>
-
-
 
 	<div class="xs-sidebar-group info-group">
 		<div class="xs-overlay xs-bg-black"></div>
@@ -226,9 +220,29 @@
 		</div>
 	</div>
 
-	<section class="mt-5">
-		<div class="login">
-
+	<section class="section-login">
+		<div class="container">
+			<div class="d-flex justify-content-center">
+				<div class="login">
+					<form>
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Email address</label>
+							<input type="email" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp">
+							<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputPassword1" class="form-label">Password</label>
+							<input type="password" class="form-control" id="exampleInputPassword1">
+						</div>
+						<div class="mb-3 form-check">
+							<input type="checkbox" class="form-check-input" id="exampleCheck1">
+							<label class="form-check-label" for="exampleCheck1">Check me out</label>
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+			</div>
 		</div>
 	</section>
 
@@ -339,7 +353,6 @@
 	<script src="assets/js/parallaxie.js"></script>
 	<script src="assets/js/vivus.min.js"></script>
 	<script src="assets/js/main.js"></script>
-	<script src="assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
