@@ -994,7 +994,7 @@ button:focus {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        height: 90px
+        height: 75px;
     }
 
     .elementskit-navbar-nav>li>a {
@@ -3646,9 +3646,10 @@ button:focus {
 }
 
 .btn-primary {
-    padding: 15px 30px;
+    width: 100%;
+    padding: 10px;
     border: 0;
-    border-radius: 0;
+    border-radius: 5px;
     font-family: barlow, sans-serif;
     font-size: 15px;
     font-weight: 700;
@@ -4837,7 +4838,9 @@ a {
 }
 
 .elementskit-header {
+    height: 4.5rem;
     background-color: #fff;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
 }
 
 .elementskit-header ul {
@@ -4847,5 +4850,6 @@ a {
 .login {
     padding: 20px;
     border-radius: 10px;
-    /* background-color: #0096ff; */
+    width: 380px;
+    box-shadow: 0px 10px 20px rgb(0 0 0 / 10%);
 }
