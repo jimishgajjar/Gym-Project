@@ -222,16 +222,34 @@
         <div class="container">
             <div class="d-flex justify-content-center">
                 <div class="login">
+                    <?php
+                    if (!empty($_REQUEST['alert_type']) && !empty($_REQUEST['alert_message'])) { ?>
+                        <div class="form-group">
+                            <div class="alert <?php echo $_REQUEST['alert_type'] ?> alert-dismissible fade show" role="alert">
+                                <?php echo $_REQUEST['alert_message']; ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                        <script>
+                            window.setTimeout(function() {
+                                $(".alert").fadeTo(500, 0).slideUp(500, function() {
+                                    $(this).remove();
+                                });
+                            }, 4000);
+                        </script>
+                    <?php } ?>
                     <form action="include/SubmitData.php" method="POST">
-                        <input type="hidden" name="module" value="user">
-                        <input type="hidden" name="moduleMethod" value="user_login">
+                        <input type="hidden" name="module" value="userLogin">
+                        <input type="hidden" name="moduleMethod" value="user">
                         <div class="mb-3">
                             <label for="userEmail" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="userEmail" name="userEmail">
+                            <input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="Email" required>
                         </div>
                         <div class="mb-3">
                             <label for="userPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="userPassword" name="userPassword">
+                            <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="Password" required>
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg">Log In</button>
                     </form>
@@ -242,8 +260,8 @@
                                 Password</a>
                         </div>
                         <div class="mt-10">
-                            <span>Don't have an account? </span><a class="sign-link" href="/join/signup-popup/">
-                                <b>Sign up</b>
+                            <span>Don't have an account? </span><a class="sign-link" href="userSignUp.php">
+                                <b>Sign Up</b>
                             </a>
                         </div>
                     </div>
