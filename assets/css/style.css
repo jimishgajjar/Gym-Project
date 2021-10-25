@@ -15,7 +15,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-family: barlow, sans-serif;
     font-weight: 400;
-    line-height: 1.625;
+    /* line-height: 1.625; */
     color: #666565
 }
 
@@ -27,7 +27,7 @@ h5,
 h6 {
     font-family: barlow, sans-serif;
     font-weight: 800;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: #101010
 }
 
@@ -228,7 +228,7 @@ button:focus {
     padding-left: 15px;
     padding-right: 15px;
     position: relative;
-    max-width: 1140px
+    max-width: 1340px
 }
 
 .xs-navbar {
@@ -4832,11 +4832,6 @@ a {
     text-decoration: none !important;
 }
 
-.section-login {
-    margin-top: 150px;
-    margin-bottom: 100px;
-}
-
 .elementskit-header {
     height: 4.5rem;
     background-color: #fff;
@@ -4847,9 +4842,37 @@ a {
     margin-bottom: 0px;
 }
 
+/* ***************************************
+        Login & Registration
+*************************************** */
+
+.section-login {
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
+
 .login {
     padding: 20px;
     border-radius: 10px;
     width: 380px;
     box-shadow: 0px 10px 20px rgb(0 0 0 / 10%);
+}
+
+/* ***************************************
+        Course View
+*************************************** */
+.course {
+    height: 100%;
+    box-shadow: 0px 10px 20px rgb(0 0 0 / 10%);
+    transition: 0.3s;
+}
+
+.course-content {
+    padding: 10px;
+}
+
+.course .course-title {
+    font-size: 1rem;
+    font-weight: 550;
+    color: #000;
 }
