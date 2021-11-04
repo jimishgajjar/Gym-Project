@@ -240,7 +240,7 @@
                             }, 4000);
                         </script>
                     <?php } ?>
-                    <form action="include/SubmitData.php" method="POST">
+                    <form action="include/UserSubmitData.php" method="POST">
                         <input type="hidden" name="module" value="userSignup">
                         <input type="hidden" name="moduleMethod" value="user">
                         <div class="mb-3">
