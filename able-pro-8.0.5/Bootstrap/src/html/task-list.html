@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layouts/head.html')
+    @@include('./layouts/head-bottom-link.html')
+    <!-- data tables css -->
+    <link rel="stylesheet" href="assets/css/plugins/dataTables.bootstrap4.min.css">
+</head>
+@@include('./layouts/main.html')
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Task List</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Task</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Task List</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- [ task-list ] start -->
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Task List</h5>
+                    </div>
+                    <div class="card-body task-data">
+                        <div class="table-responsive form-material">
+                            <table id="simpletable" class="table dt-responsive task-list-table table-striped table-bordered nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Task list</th>
+                                        <th>Last Commit</th>
+                                        <th>Status</th>
+                                        <th>Assigned User</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="task-page">
+                                    <tr>
+                                        <td>#12</td>
+                                        <td>Add Proper Cursor In Sortable Page</td>
+                                        <td>
+                                            <div class="form-group form-primary mb-0">
+                                                <input type="date" class="form-control" />
+                                                <span class="form-bar"></span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group form-primary mb-0">
+                                                <select name="select" class="form-control form-control-sm">
+                                                    <option value="opt1">Open</option>
+                                                    <option value="opt2">Resolved</option>
+                                                    <option value="opt3">Invalid</option>
+                                                    <option value="opt4">On hold</option>
+                                                    <option value="opt5">Close</option>
+                                                </select>
+                                                <span class="form-bar"></span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="#!"><img class="img-fluid img-radius mr-1" src="assets/images/user/avatar-1.jpg" alt=""></a>
+                                            <a href="#!"><img class="img-fluid img-radius" src="assets/images/user/avatar-2.jpg" alt=""></a>
+                                            <a href="#!"><i class="fas fa-plus f-w-600 m-l-5"></i></a>
+                                        </td>
+                                        <td class="text-center">
+                                            <a class="dropdown-toggle addon-btn" data-toggle="dropdown" aria-expanded="true">
+                                                <i class="fas fa-cog"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="#!"><i class="icofont icofont-attachment"></i>Attach File</a>
+                                                <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-edit"></i>Edit Task</a>
+                                                <div role="separator" class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#!"><i class="icofont icofont-refresh"></i>Reassign Task</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#56</td>
+                                        <td>Edit the draft for the icons</td>
+                                        <td>
+                                            <div class="form-group form-primary mb-0">
+                                                <input type="date" class="form-control" />
+                                                <span class="form-bar"></span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group form-primary mb-0">
+                                                <select name="select" class="form-control form-control-sm">
+                                                    <option value="opt1">Open</option>
+                                                    <option value="opt2">Resolved</option>
+                                                    <option value="opt3">Invalid</option>
+                                                    <option value="opt4">On hold</option>
+                                                    <option value="opt5">Close</option>
+                                                </select>
+                                                <span class="form-bar"></span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="#!"><img class="img-fluid img-radius mr-1" src="assets/images/user/avatar-1.jpg" alt=""></a>
+                                            <a href="#!"><img class="img-fluid img-radius" src="assets/images/user/avatar-2.jpg" alt=""></a>
+                                            <a href="#!"><i class="fas fa-plus f-w-600 m-l-5"></i></a>
+                                        </td>
+                                        <td class="text-center">
+                                            <a class="dropdown-toggle addon-btn" data-toggle="dropdown" aria-expanded="true">
+                                                <i class="fas fa-cog"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="#!"><i class="icofont icofont-attachment"></i>Attach File</a>
+                                                <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-edit"></i>Edit Task</a>
+                                                <div role="separator" class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#!"><i class="icofont icofont-refresh"></i>Reassign Task</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#78</td>
+                                        <td>Create UI design model</td>
+                                        <td>
+                                            <div class="form-group form-primary mb-0">
+                                                <input type="date" class="form-control" />
+                                                <span class="form-bar"></span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group form-primary mb-0">
+                                                <select name="select" class="form-control form-control-sm">
+                                                    <option value="opt1">Open</option>
+                                                    <option value="opt2">Resolved</option>
+                                                    <option value="opt3">Invalid</option>
+                                                    <option value="opt4">On hold</option>
+                                                    <option value="opt5">Close</option>
+                                                </select>
+                                                <span class="form-bar"></span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="#!"><img class="img-fluid img-radius mr-1" src="assets/images/user/avatar-1.jpg" alt=""></a>
+                                            <a href="#!"><img class="img-fluid img-radius mr-1" src="assets/images/user/avatar-2.jpg" alt=""></a>
+                                            <a href="#!"><img class="img-fluid img-radius" src="assets/images/user/avatar-3.jpg" alt=""></a>
+                                            <a href="#!"><i class="fas fa-plus f-w-600 m-l-5"></i></a>
+                                        </td>
+                                        <td class="text-center">
+                                            <a class="dropdown-toggle addon-btn" data-toggle="dropdown" aria-expanded="true">
+                                                <i class="fas fa-cog"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="#!"><i class="icofont icofont-attachment"></i>Attach File</a>
+                                                <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-edit"></i>Edit Task</a>
+                                                <div role="separator" class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#!"><i class="icofont icofont-refresh"></i>Reassign Task</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#35</td>
+                                        <td>Checkbox Design issue</td>
+                                        <td>
+                                            <div class="form-group form-primary mb-0">
+                                                <input type="date" class="form-control" />
+                                                <span class="form-bar"></span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group form-primary mb-0">
+                                                <select name="select" class="form-control form-control-sm">
+                                                    <option value="opt1">Open</option>
+                                                    <option value="opt2">Resolved</option>
+                                                    <option value="opt3">Invalid</option>
+                                                    <option value="opt4">On hold</option>
+                                                    <option value="opt5">Close</option>
+                                                </select>
+                                                <span class="form-bar"></span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="#!"><img class="img-fluid img-radius" src="assets/images/user/avatar-1.jpg" alt=""></a>
+                                            <a href="#!"><i class="fas fa-plus f-w-600 m-l-5"></i></a>
+                                        </td>
+                                        <td class="text-center">
+                                            <a class="dropdown-toggle addon-btn" data-toggle="dropdown" aria-expanded="true">
+                                                <i class="fas fa-cog"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="#!"><i class="icofont icofont-attachment"></i>Attach File</a>
+                                                <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-edit"></i>Edit Task</a>
+                                                <div role="separator" class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#!"><i class="icofont icofont-refresh"></i>Reassign Task</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#20</td>
+                                        <td>Create UI design model</td>
+                                        <td>
+                                            <div class="form-group form-primary mb-0">
+                                                <input type="date" class="form-control" />
+                                                <span class="form-bar"></span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group form-primary mb-0">
+                                                <select name="select" class="form-control form-control-sm">
+                                                    <option value="opt1">Open</option>
+                                                    <option value="opt2">Resolved</option>
+                                                    <option value="opt3">Invalid</option>
+                                                    <option value="opt4">On hold</option>
+                                                    <option value="opt5">Close</option>
+                                                </select>
+                                                <span class="form-bar"></span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="#!"><img class="img-fluid img-radius mr-1" src="assets/images/user/avatar-2.jpg" alt=""></a>
+                                            <a href="#!"><img class="img-fluid img-radius" src="assets/images/user/avatar-3.jpg" alt=""></a>
+                                            <a href="#!"><i class="fas fa-plus f-w-600 m-l-5"></i></a>
+                                        </td>
+                                        <td class="text-center">
+                                            <a class="dropdown-toggle addon-btn" data-toggle="dropdown" aria-expanded="true">
+                                                <i class="fas fa-cog"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="#!"><i class="icofont icofont-attachment"></i>Attach File</a>
+                                                <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-edit"></i>Edit Task</a>
+                                                <div role="separator" class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#!"><i class="icofont icofont-refresh"></i>Reassign Task</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h5>To Do List</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control add_task_todo" placeholder="Create your task list">
+                            <div class="input-group-append">
+                                <button class="btn waves-effect waves-light btn-primary btn-msg-send" type="button"><i class="fa fa-plus"></i></button>
+                            </div>
+                        </div>
+                        <div class="new-task">
+                            <div class="to-do-list mb-4">
+                                <div class="checkbox-fade fade-in-primary">
+                                    <label class="check-task done-task">
+                                        <input type="checkbox" checked>
+                                        <span class="cr mr-3">
+                                            <i class="cr-icon fas fa-check txt-primary"></i>
+                                        </span>
+                                        <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</span>
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="to-do-list mb-4">
+                                <div class="checkbox-fade fade-in-primary">
+                                    <label class="check-task">
+                                        <input type="checkbox" value="">
+                                        <span class="cr mr-3">
+                                            <i class="cr-icon fas fa-check txt-primary"></i>
+                                        </span>
+                                        <span>scrambled it to make a type specimen book. It has survived not only five centuries</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="to-do-list mb-4">
+                                <div class="checkbox-fade fade-in-primary">
+                                    <label class="check-task">
+                                        <input type="checkbox" value="">
+                                        <span class="cr mr-3">
+                                            <i class="cr-icon fas fa-check txt-primary"></i>
+                                        </span>
+                                        <span>It is a long established fact that a reader will be distracted by the readable content of a page</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="to-do-list mb-4">
+                                <div class="checkbox-fade fade-in-primary">
+                                    <label class="check-task">
+                                        <input type="checkbox" value="">
+                                        <span class="cr mr-3">
+                                            <i class="cr-icon fas fa-check txt-primary"></i>
+                                        </span>
+                                        <span>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="to-do-list mb-4">
+                                <div class="checkbox-fade fade-in-primary">
+                                    <label class="check-task">
+                                        <input type="checkbox" value="">
+                                        <span class="cr mr-3">
+                                            <i class="cr-icon fas fa-check txt-primary"></i>
+                                        </span>
+                                        <span>The standard chunk of Lorem Ipsum used since the 1500s is reproduced</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ task-list ] end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</section>
+<!-- [ Main Content ] end -->
+@@include('./layouts/footer.html')
+<!-- datatable Js -->
+<script src="assets/js/plugins/jquery.dataTables.min.js"></script>
+<script src="assets/js/plugins/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript">
+    setTimeout(function() {
+        $('#simpletable').DataTable();
+    }, 600);
+</script>
+@@include('./layouts/footer-bottom-link.html')
+</body>
+</html>

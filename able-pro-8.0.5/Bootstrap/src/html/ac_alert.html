@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('./layouts/head.html')
+    @@include('./layouts/head-bottom-link.html')
+</head>
+@@include('./layouts/main.html')
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Alert</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Advance Components</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Alert</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- [ sweetalert ] start -->
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Alerts</h5>
+                        <div class="card-header-right">
+                            <div class="btn-group card-option">
+                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="feather icon-more-horizontal"></i>
+                                </button>
+                                <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                                    <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                                    <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                                    <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
+                                    <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body btn-page">
+                        <div class="">
+                            <button type="button" class="btn  btn-primary sweet-basic">Basic</button>
+                            <button type="button" class="btn  btn-success sweet-success">Success</button>
+                            <button type="button" class="btn  btn-warning sweet-warning">Warning</button>
+                            <button type="button" class="btn  btn-danger sweet-error">Error</button>
+                            <button type="button" class="btn  btn-info sweet-info">Info</button>
+                            <button type="button" class="btn  btn-primary sweet-multiple">Success or Cancel</button>
+                            <button type="button" class="btn  btn-primary sweet-prompt">Prompt</button>
+                            <button type="button" class="btn  btn-primary sweet-ajax">Ajax</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ sweetalert ] end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</section>
+<!-- [ Main Content ] end -->
+@@include('./layouts/footer.html')
+<!-- sweet alert Js -->
+<script src="assets/js/plugins/sweetalert.min.js"></script>
+<script src="assets/js/pages/ac-alert.js"></script>
+@@include('./layouts/footer-bottom-link.html')
+</body>
+
+</html>

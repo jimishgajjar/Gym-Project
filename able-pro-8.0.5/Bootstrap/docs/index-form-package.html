@@ -1,0 +1,3056 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ablepro v8.0 bootstrap admin template by Phoenixcoded</title>
+    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 10]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Gradient Able Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
+    <meta name="keywords"
+        content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, Gradient Able, Gradient Able bootstrap admin template">
+    <meta name="author" content="Codedthemes" />
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- prism css -->
+    <link rel="stylesheet" href="assets/css/plugins/prism-coy.css">
+    <!-- bootstrap-tagsinput-latest css -->
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap-tagsinput-typeahead.css">
+    <!-- minicolors css -->
+    <link rel="stylesheet" href="assets/css/plugins/jquery.minicolors.css">
+    <!-- select2 css -->
+    <link rel="stylesheet" href="assets/css/plugins/select2.min.css">
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- ======================= -->
+    <!-- ======= PLUGIN js ===== -->
+    <!-- ======================= -->
+    <script src="assets/js/vendor-all.min.js"></script>
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="assets/js/plugins/clipboard.min.js"></script>
+    <!-- prism Js -->
+    <script src="assets/js/plugins/prism.js"></script>
+    <!-- bootstrap-tagsinput-latest Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+    <script src="assets/js/plugins/bootstrap-tagsinput.min.js"></script>
+    <!-- bootstrap-maxlength Js -->
+    <script src="assets/js/plugins/bootstrap-maxlength.js"></script>
+    <!-- jquery-validation Js -->
+    <script src="assets/js/plugins/jquery.validate.min.js"></script>
+    <!-- Input mask Js -->
+    <script src="assets/js/plugins/jquery.mask.min.js"></script>
+    <!-- Form wizard -->
+    <script src="assets/js/plugins/jquery.bootstrap.wizard.min.js"></script>
+    <!-- minicolors Js -->
+    <script src="assets/js/plugins/jquery.minicolors.min.js"></script>
+    <!-- select2 Js -->
+    <script src="assets/js/plugins/select2.full.min.js"></script>
+
+
+    <style>
+        body {
+            background: #ecf0f5;
+        }
+
+        .docs-page-header {
+            font-weight: 400;
+            font-size: 27px;
+            margin: 0;
+            padding: 15px 50px;
+            line-height: 40px;
+            height: 70px;
+        }
+
+        .docs-page-header li {
+            line-height: 1;
+        }
+
+        .docs-page-header li a {
+            display: block;
+            padding: 10px 8px;
+        }
+
+        .docs-page-header.bg-dark {
+            background-color: rgb(63, 77, 103) !important;
+            position: fixed;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .docs-header-path {
+            opacity: 1;
+        }
+
+        .docs-wrapper {
+            min-height: calc(100vh - 70px);
+            position: relative;
+            padding-top: 70px;
+        }
+
+        .docs-inner {
+            padding: 40px;
+        }
+
+        .docs-sections {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+        }
+
+        .docs-sections-inner {
+            padding-top: 32px;
+            padding-left: 32px;
+            padding-right: 32px;
+            margin: 0;
+        }
+
+        .docs-sections-inner>li:first-child {
+            padding-top: 0 !important;
+        }
+
+        .docs-sections-inner li {
+            list-style: none;
+            padding: 5px 0;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .docs-sections,
+        .docs-sections li a,
+        .docs-sections li a:focus,
+        .docs-sections li a:active {
+            color: #6c757d;
+            line-height: 1.3;
+            padding: 0;
+        }
+
+        .docs-sections li a:hover {
+            color: #333;
+            position: relative;
+        }
+
+        .docs-sections li a.active {
+            color: #333;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .docs-sections li a.active:before,
+        .docs-sections li a:hover:before {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #000;
+            border-radius: 50%;
+            top: 8px;
+            left: -15px;
+        }
+
+        .docs-page-header,
+        .docs-wrapper {
+            min-width: 1200px;
+        }
+
+        .docs-sections {
+            width: 230px;
+            background: rgba(63, 77, 103, 0.05);
+        }
+
+        .docs-wrapper {
+            padding-left: 230px;
+        }
+
+        h2.docs-header {
+            margin-bottom: 32px;
+            font-size: 24px;
+            position: relative;
+        }
+
+        h2.docs-header~h2.docs-header {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="docs-page-header bg-dark text-white">
+        <div class="dropdown d-inline-block">
+            <a href="#!" class="dropdown-toggle text-white" data-toggle="dropdown">
+                Form Components
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="index-bc-package.html">Basic components</a></li>
+                <li><a href="index-ac-package.html">Advance components</a></li>
+                <li><a href="index-form-package.html">Form components</a></li>
+                <li><a href="index-widget-package.html">Widgets</a></li>
+                <li><a href="index-chart-package.html">Charts</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="docs-wrapper">
+        <div class="docs-sections">
+            <ul class="docs-sections-inner">
+                <li class="nav-item"><a class="nav-link active" href="#page-element">Basic Component</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page-input">Input Group</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page-switches">Switches</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page-bootstrap">Bootstrap Tags</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page-maxlength">Bootstrap maxlength</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page-validation">Validation</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page-masking">Masking</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page-wizard">Wizard</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page-colorpicker">Color picker</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page-select">Select</a></li>
+            </ul>
+            <a href="index.html" class="btn btn-outline-danger m-l-30 m-t-20">Back to docs</a>
+        </div>
+        <div class="docs-inner">
+            <!-- [ basic-Component ] start -->
+            <h2 class="docs-header" id="page-element">Form Components</h2>
+            <div class="row">
+                <div class="col-sm-12 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Basic Component</h5>
+                        </div>
+                        <div class="card-body">
+                            <h5>Form controls</h5>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Email address</label>
+                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Password</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                    <form>
+                                        <div class="form-group">
+                                            <label>Text</label>
+                                            <input type="text" class="form-control" placeholder="Text">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Example select</label>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Example textarea</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <h5 class="mt-5">Sizing</h5>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input class="mb-3 form-control form-control-lg" type="text" placeholder=".form-control-lg">
+                                    <input class="mb-3 form-control" type="text" placeholder="Default input">
+                                    <input class="mb-3 form-control form-control-sm" type="text" placeholder=".form-control-sm">
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="mb-3 form-control form-control-lg">
+                                        <option>Large select</option>
+                                    </select>
+                                    <select class="mb-3 form-control">
+                                        <option>Default select</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <h5 class="mt-5">Range Inputs</h5>
+                            <hr>
+                            <form>
+                                <div class="form-group">
+                                    <label for="formControlRange">Example Range input</label>
+                                    <input type="range" class="form-control-range" id="formControlRange">
+                                </div>
+                            </form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="mt-5">Readonly</h5>
+                                    <hr>
+                                    <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="mt-5">Readonly plain Text</h5>
+                                    <hr>
+                                    <form>
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col-sm-3 col-form-label">Email</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
+                                            <div class="col-sm-9">
+                                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <h5 class="mt-5">Inline</h5>
+                            <hr>
+                            <form class="form-inline">
+                                <div class="form-group mb-2">
+                                    <label for="staticEmail2" class="sr-only">Email</label>
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <label for="inputPassword2" class="sr-only">Password</label>
+                                    <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+                                </div>
+                                <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+                            </form>
+                            <h5 class="mt-5">Form Grid</h5>
+                            <hr>
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEmail4">Email</label>
+                                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputPassword4">Password</label>
+                                        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputAddress">Address</label>
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputAddress2">Address 2</label>
+                                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCity">City</label>
+                                        <input type="text" class="form-control" id="inputCity">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputState">State</label>
+                                        <select id="inputState" class="form-control">
+                                            <option selected>select</option>
+                                            <option>Large select</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputZip">Zip</label>
+                                        <input type="text" class="form-control" id="inputZip">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                                        <label class="form-check-label" for="gridCheck">Check me out</label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Sign in</button>
+                            </form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="mt-5">Horizontal Form</h5>
+                                    <hr>
+                                    <form>
+                                        <div class="form-group row">
+                                            <label for="inputEmail3" class="col-sm-3 col-form-label">Email</label>
+                                            <div class="col-sm-9">
+                                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputPassword3" class="col-sm-3 col-form-label">Password</label>
+                                            <div class="col-sm-9">
+                                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <fieldset class="form-group">
+                                            <div class="row">
+                                                <label for="inputPassword3" class="col-sm-3 col-form-label">Radios</label>
+                                                <div class="col-sm-9">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                                                        <label class="form-check-label" for="gridRadios1">First radio</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                                                        <label class="form-check-label" for="gridRadios2">Second radio</label>
+                                                    </div>
+                                                    <div class="form-check disabled">
+                                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+                                                        <label class="form-check-label" for="gridRadios3">Third disabled radio</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <div class="form-group row">
+                                            <div class="col-sm-3">Checkbox</div>
+                                            <div class="col-sm-9">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                                    <label class="form-check-label" for="gridCheck1">Example checkbox</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-10">
+                                                <button type="submit" class="btn btn-primary">Sign in</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="mt-5">Horizontal Form Label Sizing</h5>
+                                    <hr>
+                                    <form>
+                                        <div class="form-group row">
+                                            <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Email</label>
+                                            <div class="col-sm-9">
+                                                <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="col-form-label-sm">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="colFormLabel" class="col-sm-3 col-form-label">Email</label>
+                                            <div class="col-sm-9">
+                                                <input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg">Email</label>
+                                            <div class="col-sm-9">
+                                                <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="col-form-label-lg">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <h5 class="mt-5">Help Text</h5>
+                            <hr>
+                            <label for="inputPassword5">Password</label>
+                            <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+                            <small id="passwordHelpBlock" class="form-text text-muted">Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</small>
+                            <form class="form-inline">
+                                <div class="form-group mt-3">
+                                    <label for="inputPassword6">Password</label>
+                                    <input type="password" id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
+                                    <small id="passwordHelpInline" class="text-muted">Must be 8-20 characters long.</small>
+                                </div>
+                            </form>
+                            <h5 class="mt-5">Validation</h5>
+                            <hr>
+                            <form class="needs-validation" novalidate>
+                                <div class="form-row">
+                                    <div class="col-md-4 mb-3">
+                                        <label for="validationCustom01">First name</label>
+                                        <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="validationCustom02">Last name</label>
+                                        <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="validationCustomUsername">Username</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                                            <div class="invalid-feedback">
+                                                Please choose a username.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom03">City</label>
+                                        <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid city.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="validationCustom04">State</label>
+                                        <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid state.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="validationCustom05">Zip</label>
+                                        <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid zip.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                        <label class="form-check-label" for="invalidCheck">Agree to terms and conditions</label>
+                                        <div class="invalid-feedback">
+                                            You must agree before submitting.
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Submit form</button>
+                            </form>
+                            <script>
+                                // Example starter JavaScript for disabling form submissions if there are invalid fields
+                                (function() {
+                                    window.addEventListener('load', function() {
+                                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                        var forms = document.getElementsByClassName('needs-validation');
+                                        // Loop over them and prevent submission
+                                        var validation = Array.prototype.filter.call(forms, function(form) {
+                                            form.addEventListener('submit', function(event) {
+                                                if (form.checkValidity() === false) {
+                                                    event.preventDefault();
+                                                    event.stopPropagation();
+                                                }
+                                                form.classList.add('was-validated');
+                                            }, false);
+                                        });
+                                    }, false);
+                                })();
+                            </script>
+                            <h5 class="mt-5">Supported Elements</h5>
+                            <hr>
+                            <form class="was-validated">
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+                                    <label class="custom-control-label" for="customControlValidation1">Check this custom checkbox</label>
+                                    <div class="invalid-feedback">Example invalid feedback text</div>
+                                </div>
+
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+                                    <label class="custom-control-label" for="customControlValidation2">Toggle this custom radio</label>
+                                </div>
+                                <div class="custom-control custom-radio mb-3">
+                                    <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
+                                    <label class="custom-control-label" for="customControlValidation3">Or toggle this other custom radio</label>
+                                    <div class="invalid-feedback">More example invalid feedback text</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="custom-select" required>
+                                        <option value="">Open this select menu</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                    <div class="invalid-feedback">Example invalid custom select feedback</div>
+                                </div>
+
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                                    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                    <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                </div>
+                            </form>
+                            <h5 class="mt-5">Tooltips</h5>
+                            <hr>
+                            <form class="needs-validation" novalidate>
+                                <div class="form-row">
+                                    <div class="col-md-4 mb-3">
+                                        <label for="validationTooltip01">First name</label>
+                                        <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="Mark" required>
+                                        <div class="valid-tooltip">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="validationTooltip02">Last name</label>
+                                        <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="Otto" required>
+                                        <div class="valid-tooltip">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="validationTooltipUsername">Username</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
+                                            <div class="invalid-tooltip">
+                                                Please choose a unique and valid username.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationTooltip03">City</label>
+                                        <input type="text" class="form-control" id="validationTooltip03" placeholder="City" required>
+                                        <div class="invalid-tooltip">
+                                            Please provide a valid city.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="validationTooltip04">State</label>
+                                        <input type="text" class="form-control" id="validationTooltip04" placeholder="State" required>
+                                        <div class="invalid-tooltip">
+                                            Please provide a valid state.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="validationTooltip05">Zip</label>
+                                        <input type="text" class="form-control" id="validationTooltip05" placeholder="Zip" required>
+                                        <div class="invalid-tooltip">
+                                            Please provide a valid zip.
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Submit form</button>
+                            </form>
+                            <h3 class="mt-5">Checkboxes and Radios</h3>
+                            <h5 class="mt-3">Checkboxes</h5>
+                            <hr>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="mt-5">Radios</h5>
+                                    <hr>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
+                                    </div>
+                                    <h5 class="mt-5">Inline</h5>
+                                    <hr>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadioInline1">Toggle this custom radio</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadioInline2">Or toggle this other custom radio</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="mt-5">Range</h5>
+                                    <hr>
+                                    <label for="customRange1">Example range</label>
+                                    <input type="range" class="custom-range" id="customRange1">
+                                    <label for="customRange2">Example range</label>
+                                    <input type="range" class="custom-range" min="0" max="5" id="customRange2">
+                                    <label for="customRange3">Example range</label>
+                                    <input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ basic-Component ] end -->
+            <!-- [ input-group ] start -->
+            <h2 class="docs-header" id="page-input">Input Group</h2>
+            <div class="row">
+                <div class="col-sm-12 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Input Group</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">@</span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2">@example.com</span>
+                                </div>
+                            </div>
+                            <label for="basic-url">Your vanity URL</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+                                </div>
+                                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.00</span>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">With textarea</span>
+                                </div>
+                                <textarea class="form-control" aria-label="With textarea"></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="mt-5">Sizing</h5>
+                                    <hr>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                    </div>
+                                    <div class="input-group input-group-lg">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-lg">Large</span>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="mt-5">Checkboxes and radios</h5>
+                                    <hr>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <input type="checkbox" aria-label="Checkbox for following text input">
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Text input with checkbox">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <input type="radio" aria-label="Radio button for following text input">
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Text input with radio button">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="mt-5">Multiple inputs</h5>
+                                    <hr>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">First and last name</span>
+                                        </div>
+                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="mt-5">Multiple addons</h5>
+                                    <hr>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                            <span class="input-group-text">0.00</span>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">$</span>
+                                            <span class="input-group-text">0.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="mt-5">Button Addons</h5>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-primary" type="button">Button</button>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">Button</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-primary" type="button">Button</button>
+                                            <button class="btn btn-secondary" type="button">Button</button>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-secondary" type="button">Button</button>
+                                            <button class="btn btn-primary" type="button">Button</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="mt-5">Buttons With Dropdowns</h5>
+                                    <hr>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="#!">Action</a>
+                                                <a class="dropdown-item" href="#!">Another action</a>
+                                                <a class="dropdown-item" href="#!">Something else here</a>
+                                                <div role="separator" class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#!">Separated link</a>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="#!">Action</a>
+                                                <a class="dropdown-item" href="#!">Another action</a>
+                                                <a class="dropdown-item" href="#!">Something else here</a>
+                                                <div role="separator" class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#!">Separated link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="mt-5">Segmented Buttons</h5>
+                                    <hr>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="btn btn-secondary">Action</button>
+                                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="#!">Action</a>
+                                                <a class="dropdown-item" href="#!">Another action</a>
+                                                <a class="dropdown-item" href="#!">Something else here</a>
+                                                <div role="separator" class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#!">Separated link</a>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+                                        <div class="input-group-append">
+                                            <button type="button" class="btn btn-secondary">Action</button>
+                                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="#!">Action</a>
+                                                <a class="dropdown-item" href="#!">Another action</a>
+                                                <a class="dropdown-item" href="#!">Something else here</a>
+                                                <div role="separator" class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#!">Separated link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="mt-5">Custom Forms</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="mt-3">Custom Select</h5>
+                                    <hr>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                                        </div>
+                                        <select class="custom-select" id="inputGroupSelect01">
+                                            <option selected>Choose...</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <select class="custom-select" id="inputGroupSelect02">
+                                            <option selected>Choose...</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <label class="input-group-text" for="inputGroupSelect02">Options</label>
+                                        </div>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-primary" type="button">Button</button>
+                                        </div>
+                                        <select class="custom-select" id="inputGroupSelect03">
+                                            <option selected>Choose...</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <select class="custom-select" id="inputGroupSelect04">
+                                            <option selected>Choose...</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">Button</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="mt-3">Custom File Input</h5>
+                                    <hr>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Upload</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                        </div>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile02">
+                                            <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Upload</span>
+                                        </div>
+                                    </div>
+                                    <div class="input-group cust-file-button mb-3">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-primary" type="button">Button</button>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile03">
+                                            <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
+                                        </div>
+                                    </div>
+                                    <div class="input-group cust-file-button">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile04">
+                                            <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">Button</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ input-group ] end -->
+            <!-- [ switches ] start -->
+            <h2 class="docs-header" id="page-switches">Switches</h2>
+            <div class="row">
+                <div class="col-sm-12 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Switches</h5>
+                            <span class="d-block m-t-5">Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <h5>Primary Switch</h5>
+                                    <hr>
+                                    <div class="form-group">
+                                        <div class="switch switch-primary d-inline m-r-10">
+                                            <input type="checkbox" id="switch-p-1" checked>
+                                            <label for="switch-p-1" class="cr"></label>
+                                        </div>
+                                        <label>Checked</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="switch switch-primary d-inline m-r-10">
+                                            <input type="checkbox" id="switch-p-2">
+                                            <label for="switch-p-2" class="cr"></label>
+                                        </div>
+                                        <label>Uncheck</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="switch switch-primary d-inline m-r-10">
+                                            <input type="checkbox" id="switch-p-3" disabled>
+                                            <label for="switch-p-3" class="cr"></label>
+                                        </div>
+                                        <label>Disabled</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="switch switch-primary d-inline m-r-10">
+                                            <input type="checkbox" id="switch-p-4" disabled checked>
+                                            <label for="switch-p-4" class="cr"></label>
+                                        </div>
+                                        <label>Disabled Checked</label>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <h5>Danger Switch</h5>
+                                    <hr>
+                                    <div class="form-group">
+                                        <div class="switch switch-danger d-inline m-r-10">
+                                            <input type="checkbox" id="switch-d-1" checked>
+                                            <label for="switch-d-1" class="cr"></label>
+                                        </div>
+                                        <label>Checked</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="switch switch-danger d-inline m-r-10">
+                                            <input type="checkbox" id="switch-d-2">
+                                            <label for="switch-d-2" class="cr"></label>
+                                        </div>
+                                        <label>Uncheck</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="switch switch-danger d-inline m-r-10">
+                                            <input type="checkbox" id="switch-d-3" disabled>
+                                            <label for="switch-d-3" class="cr"></label>
+                                        </div>
+                                        <label>Disabled</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="switch switch-danger d-inline m-r-10">
+                                            <input type="checkbox" id="switch-d-4" disabled checked>
+                                            <label for="switch-d-4" class="cr"></label>
+                                        </div>
+                                        <label>Disabled Checked</label>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <h5>Success Switch</h5>
+                                    <hr>
+                                    <div class="form-group">
+                                        <div class="switch switch-success d-inline m-r-10">
+                                            <input type="checkbox" id="switch-s-1" checked>
+                                            <label for="switch-s-1" class="cr"></label>
+                                        </div>
+                                        <label>Checked</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="switch switch-success d-inline m-r-10">
+                                            <input type="checkbox" id="switch-s-2">
+                                            <label for="switch-s-2" class="cr"></label>
+                                        </div>
+                                        <label>Uncheck</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="switch switch-success d-inline m-r-10">
+                                            <input type="checkbox" id="switch-s-3" disabled>
+                                            <label for="switch-s-3" class="cr"></label>
+                                        </div>
+                                        <label>Disabled</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="switch switch-success d-inline m-r-10">
+                                            <input type="checkbox" id="switch-s-4" disabled checked>
+                                            <label for="switch-s-4" class="cr"></label>
+                                        </div>
+                                        <label>Disabled Checked</label>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6 mb-3">
+                                    <h5>Warning Switch</h5>
+                                    <hr>
+                                    <div class="form-group">
+                                        <div class="switch switch-warning d-inline m-r-10">
+                                            <input type="checkbox" id="switch-w-1" checked>
+                                            <label for="switch-w-1" class="cr"></label>
+                                        </div>
+                                        <label>Checked</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="switch switch-warning d-inline m-r-10">
+                                            <input type="checkbox" id="switch-w-2">
+                                            <label for="switch-w-2" class="cr"></label>
+                                        </div>
+                                        <label>Uncheck</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="switch switch-warning d-inline m-r-10">
+                                            <input type="checkbox" id="switch-w-3" disabled>
+                                            <label for="switch-w-3" class="cr"></label>
+                                        </div>
+                                        <label>Disabled</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="switch switch-warning d-inline m-r-10">
+                                            <input type="checkbox" id="switch-w-4" disabled checked>
+                                            <label for="switch-w-4" class="cr"></label>
+                                        </div>
+                                        <label>Disabled Checked</label>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6 mb-3">
+                                    <h5>Info Switch</h5>
+                                    <hr>
+                                    <div class="form-group">
+                                        <div class="switch switch-info d-inline m-r-10">
+                                            <input type="checkbox" id="switch-i-1" checked>
+                                            <label for="switch-i-1" class="cr"></label>
+                                        </div>
+                                        <label>Checked</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="switch switch-info d-inline m-r-10">
+                                            <input type="checkbox" id="switch-i-2">
+                                            <label for="switch-i-2" class="cr"></label>
+                                        </div>
+                                        <label>Uncheck</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="switch switch-info d-inline m-r-10">
+                                            <input type="checkbox" id="switch-i-3" disabled>
+                                            <label for="switch-i-3" class="cr"></label>
+                                        </div>
+                                        <label>Disabled</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="switch switch-info d-inline m-r-10">
+                                            <input type="checkbox" id="switch-i-4" disabled checked>
+                                            <label for="switch-i-4" class="cr"></label>
+                                        </div>
+                                        <label>Disabled Checked</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ switches ] end -->
+            <!-- [ bootstrap-tags ] start -->
+            <h2 class="docs-header" id="page-bootstrap">Bootstrap Tags</h2>
+            <div class="row">
+                <div class="col-sm-12 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Bootstrap Tags Input</h5>
+                            <span class="d-block m-t-5">Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-5">
+                                <h5>Markup</h5>
+                                <hr>
+                                <p>Just add <code>data-role="tagsinput"</code> to your input field to automatically change it to a tags input field.</p>
+                                <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" />
+                            </div>
+                            <div class="mb-5">
+                                <h5 class="mt-5">True Multi Value</h5>
+                                <hr>
+                                <p>Use a <code>&lt;select multiple /&gt;</code> as your input element for a tags input, to gain true multi value support. Instead of a comma separated string, the values will be set in an array.
+                                    Existing <code>&lt;option /&gt;</code>elements will automatically be set as tags. This makes it also possible to create tags containing a comma.</p>
+                                <select multiple data-role="tagsinput">
+                                    <option value="Amsterdam">Amsterdam</option>
+                                    <option value="Washington">Washington</option>
+                                    <option value="Sydney">Sydney</option>
+                                    <option value="Beijing">Beijing</option>
+                                    <option value="Cairo">Cairo</option>
+                                </select>
+                            </div>
+                            <div class="mb-5">
+                                <h5 class="mt-5">Typeahead</h5>
+                                <hr>
+                                <p>Typeahead is not included in Bootstrap 3, so you'll have to include your own typeahead library. I'd recommed <a href="http://twitter.github.io/typeahead.js/">typeahead.js</a>. An example of using
+                                    this is shown below.</p>
+                                <input type="text" value="Amsterdam,Washington" class="typeahead" />
+                            </div>
+                            <div class="mb-5">
+                                <h5>Categorizing Tags</h5>
+                                <hr>
+                                <p>You can set a fixed css class for your tags, or determine dynamically by providing a custom function.</p>
+                                <input type="text" class="category-tag" />
+                            </div>
+                            <div class="mb-5">
+                                <h5>Objects As Tags</h5>
+                                <hr>
+                                <p>Instead of just adding strings as tags, bind objects to your tags. This makes it possible to set id values in your input field's value, instead of just the tag's text.</p>
+                                <input type="text" class="objects-tag" />
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            // [ Typeahead ] start
+                            var citynames = new Bloodhound({
+                                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+                                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                                prefetch: {
+                                    url: 'assets/json/citynames.json',
+                                    filter: function(list) {
+                                        return $.map(list, function(cityname) {
+                                            return {
+                                                name: cityname
+                                            };
+                                        });
+                                    }
+                                }
+                            });
+                            citynames.initialize();
+                            $('.typeahead').tagsinput({
+                                typeaheadjs: {
+                                    name: 'citynames',
+                                    displayKey: 'name',
+                                    valueKey: 'name',
+                                    source: citynames.ttAdapter()
+                                }
+                            });
+
+                            // [ Categorizing tag ] start
+                            var cities = new Bloodhound({
+                                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
+                                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                                prefetch: 'assets/json/cities.json'
+                            });
+                            cities.initialize();
+
+                            var elt = $('.category-tag');
+                            elt.tagsinput({
+                                tagClass: function(item) {
+                                    switch (item.continent) {
+                                        case 'Europe':
+                                            return 'label label-primary';
+                                        case 'America':
+                                            return 'label label-danger label-important';
+                                        case 'Australia':
+                                            return 'label label-success';
+                                        case 'Africa':
+                                            return 'label label-default';
+                                        case 'Asia':
+                                            return 'label label-warning';
+                                    }
+                                },
+                                itemValue: 'value',
+                                itemText: 'text',
+                                typeaheadjs: {
+                                    name: 'cities',
+                                    displayKey: 'text',
+                                    source: cities.ttAdapter()
+                                }
+                            });
+                            elt.tagsinput('add', {
+                                "value": 1,
+                                "text": "Amsterdam",
+                                "continent": "Europe"
+                            });
+                            elt.tagsinput('add', {
+                                "value": 4,
+                                "text": "Washington",
+                                "continent": "America"
+                            });
+                            elt.tagsinput('add', {
+                                "value": 7,
+                                "text": "Sydney",
+                                "continent": "Australia"
+                            });
+                            elt.tagsinput('add', {
+                                "value": 10,
+                                "text": "Beijing",
+                                "continent": "Asia"
+                            });
+                            elt.tagsinput('add', {
+                                "value": 13,
+                                "text": "Cairo",
+                                "continent": "Africa"
+                            });
+
+                            // [ object tag ] start
+                            var cities = new Bloodhound({
+                                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
+                                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                                prefetch: 'assets/json/cities.json'
+                            });
+                            cities.initialize();
+
+                            var elt = $('.objects-tag');
+                            elt.tagsinput({
+                                itemValue: 'value',
+                                itemText: 'text',
+                                typeaheadjs: {
+                                    name: 'cities',
+                                    displayKey: 'text',
+                                    source: cities.ttAdapter()
+                                }
+                            });
+                            elt.tagsinput('add', {
+                                "value": 1,
+                                "text": "Amsterdam",
+                                "continent": "Europe"
+                            });
+                            elt.tagsinput('add', {
+                                "value": 4,
+                                "text": "Washington",
+                                "continent": "America"
+                            });
+                            elt.tagsinput('add', {
+                                "value": 7,
+                                "text": "Sydney",
+                                "continent": "Australia"
+                            });
+                            elt.tagsinput('add', {
+                                "value": 10,
+                                "text": "Beijing",
+                                "continent": "Asia"
+                            });
+                            elt.tagsinput('add', {
+                                "value": 13,
+                                "text": "Cairo",
+                                "continent": "Africa"
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+            <pre>
+<code class="language-markup">
+    &lt;!-- Tags input css --&gt;
+    &lt;link href="assets/css/plugins/bootstrap-tagsinput.css" rel="stylesheet"&gt;<br>
+    &lt;link href="assets/css/plugins/bootstrap-tagsinput-typeahead.css" rel="stylesheet"&gt;<br>
+    &lt;!-- Tags input Js --&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"&gt;&lt;/script&gt;
+    &lt;script src="assets/js/plugins/bootstrap-tagsinput.min.js"&gt;&lt;/script&gt;
+
+</code>
+            </pre>
+            <!-- [ bootstrap-tags ] end -->
+            <!-- [ bootstrap-maxlength ] start -->
+            <h2 class="docs-header" id="page-maxlength">Bootstrap maxlength</h2>
+            <div class="row">
+                <div class="col-sm-12 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>bootstrap Maxlength</h5>
+                            <span class="d-block m-t-5">Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12 col-xl-4 mb-5">
+                                    <h5>Default</h5>
+                                    <hr>
+                                    <p>The badge will show up by default when the remaining chars are <code>10</code> or <code>less</code>:</p>
+                                    <input type="text" class="form-control" placeholder="Type your keywords..." maxlength="10">
+                                </div>
+                                <div class="col-sm-12 col-xl-4 mb-5">
+                                    <h5>Threshold</h5>
+                                    <hr>
+                                    <p>Do you want the badge to show up when there are <code>20 chars</code> or less? Use the <code>threshold</code> option:</p>
+                                    <input type="text" class="form-control thresold-i" placeholder="Type your keywords..." maxlength="20">
+                                </div>
+                                <div class="col-sm-12 col-xl-4 mb-5">
+                                    <h5>Color-Lables</h5>
+                                    <hr>
+                                    <p>Just add <code>color-class</code>with <code>input</code></p>
+                                    <input type="text" class="form-control color-class" placeholder="Type your keywords..." maxlength="25">
+                                </div>
+                                <div class="col-sm-12 col-xl-4 mb-5">
+                                    <h5>Play With Positions</h5>
+                                    <hr>
+                                    <p>All you need to do is specify the <code>placement option</code>, with one of those strings. If none is specified, the positioning will be defauted to <code>'top-right'</code>.</p>
+                                    <input type="text" class="form-control position-class" placeholder="Type your keywords..." maxlength="25">
+                                </div>
+                                <div class="col-sm-12 col-xl-8">
+                                    <h5>Also Working With Textarea</h5>
+                                    <hr>
+                                    <p>Bootstrap maxlength supports textarea as well as inputs. Even on old IE.</p>
+                                    <textarea class="form-control max-textarea" maxlength="255" rows="4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            // [ defult length ] start
+                            $('input[maxlength]').maxlength();
+
+                            // [ Threshold ] start
+                            $('input.thresold-i').maxlength({
+                                threshold: 20
+                            });
+
+                            // [ Color-lables ] start
+                            $('input.color-class').maxlength({
+                                alwaysShow: true,
+                                threshold: 10,
+                                warningClass: "label label-success",
+                                limitReachedClass: "label label-danger"
+                            });
+
+                            // [ Play With Positions ] start
+                            $('input.position-class').maxlength({
+                                alwaysShow: true,
+                                placement: 'top-right'
+                            });
+
+                            // [ Working With Textarea ] start
+                            $('textarea.max-textarea').maxlength({
+                                alwaysShow: true
+                            });
+                        });
+                    </script>
+                </div>
+
+            </div>
+            <pre>
+<code class="language-markup">
+    &lt;!-- Bootstrap tags Js --&gt;
+    &lt;script src="assets/js/plugins/bootstrap-maxlength.js"&gt;&lt;/script&gt;
+
+</code>
+            </pre>
+            <!-- [ bootstrap-maxlength ] end -->
+            <!-- [ validation ] start -->
+            <h2 class="docs-header" id="page-validation">Validation</h2>
+            <div class="row">
+                <div class="col-sm-12 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Form Validation</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="validation-form123" action="#!">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Email</label>
+                                            <input type="text" class="form-control" name="validation-email" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Password</label>
+                                            <input type="password" class="form-control" name="validation-password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Confirm password</label>
+                                            <input type="password" class="form-control" name="validation-password-confirmation" placeholder="Confirm password">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Required</label>
+                                            <input type="text" class="form-control" name="validation-required" placeholder="Required">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">URL</label>
+                                            <input type="text" class="form-control" name="validation-url" placeholder="Url">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Phone</label>
+                                            <input type="text" class="form-control" name="validation-phone" placeholder="Phone: (999) 999-9999">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Select</label>
+                                            <select class="form-control" name="validation-select">
+                                                <option value>Select gear...</option>
+                                                <optgroup label="Climbing">
+                                                    <option value="pitons">Pitons</option>
+                                                    <option value="cams">Cams</option>
+                                                    <option value="nuts">Nuts</option>
+                                                    <option value="bolts">Bolts</option>
+                                                    <option value="stoppers">Stoppers</option>
+                                                    <option value="sling">Sling</option>
+                                                </optgroup>
+                                                <optgroup label="Skiing">
+                                                    <option value="skis">Skis</option>
+                                                    <option value="skins">Skins</option>
+                                                    <option value="poles">Poles</option>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Text</label>
+                                            <textarea class="form-control" name="validation-text"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">File</label>
+                                            <div>
+                                                <input type="file" class="validation-file" name="validation-file">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="switch switch-primary d-inline m-r-10">
+                                                <input type="checkbox" id="switch-20" name="validation-switcher">
+                                                <label for="switch-20" class="cr"></label>
+                                            </div>
+                                            <label>Check me</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Radios</label>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="radio" name="validation-radios"> Option one is this and that—be sure to include why it's great
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="radio" name="validation-radios"> Option two can be something else and selecting it will deselect option one
+                                                </label>
+                                            </div>
+                                            <div class="form-check disabled">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="radio" name="validation-radios"> Option three is disabled
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Custom radios</label>
+                                            <div class="custom-controls-stacked">
+                                                <label class="custom-control custom-radio">
+                                                    <input name="validation-radios-custom" type="radio" class="custom-control-input">
+                                                    <span class="custom-control-label">Option one is this and that—be sure to include why it's great</span>
+                                                </label>
+                                                <label class="custom-control custom-radio">
+                                                    <input name="validation-radios-custom" type="radio" class="custom-control-input">
+                                                    <span class="custom-control-label">Option two can be something else and selecting it will deselect option one</span>
+                                                </label>
+                                                <label class="custom-control custom-radio">
+                                                    <input name="validation-radios-custom" type="radio" class="custom-control-input">
+                                                    <span class="custom-control-label">Option three is disabled</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Checkbox</label>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" name="validation-checkbox"> Check me out
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Custom checkbox</label>
+                                            <br>
+                                            <label class="custom-control custom-checkbox d-block">
+                                                <input type="checkbox" class="custom-control-input" name="validation-checkbox-custom">
+                                                <span class="custom-control-label">Check me</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $(function() {
+                                // [ Add phone validator ] start
+                                $.validator.addMethod(
+                                    'phone_format',
+                                    function(value, element) {
+                                        return this.optional(element) || /^\(\d{3}\)[ ]\d{3}\-\d{4}$/.test(value);
+                                    },
+                                    'Invalid phone number.'
+                                );
+
+                                // [ Initialize validation ] start
+                                $('#validation-form123').validate({
+                                    ignore: '.ignore, .select2-input',
+                                    focusInvalid: false,
+                                    rules: {
+                                        'validation-email': {
+                                            required: true,
+                                            email: true
+                                        },
+                                        'validation-password': {
+                                            required: true,
+                                            minlength: 6,
+                                            maxlength: 20
+                                        },
+                                        'validation-password-confirmation': {
+                                            required: true,
+                                            minlength: 6,
+                                            equalTo: 'input[name="validation-password"]'
+                                        },
+                                        'validation-required': {
+                                            required: true
+                                        },
+                                        'validation-url': {
+                                            required: true,
+                                            url: true
+                                        },
+                                        'validation-phone': {
+                                            required: true,
+                                            phone_format: true
+                                        },
+                                        'validation-select': {
+                                            required: true
+                                        },
+                                        'validation-bs-tagsinput': {
+                                            required: true
+                                        },
+                                        'validation-text': {
+                                            required: true
+                                        },
+                                        'validation-file': {
+                                            required: true
+                                        },
+                                        'validation-switcher': {
+                                            required: true
+                                        },
+                                        'validation-radios': {
+                                            required: true
+                                        },
+                                        'validation-radios-custom': {
+                                            required: true
+                                        },
+                                        'validation-checkbox': {
+                                            required: true
+                                        },
+                                        'validation-checkbox-custom': {
+                                            required: true
+                                        },
+
+                                        // Checkbox groups  //
+                                    },
+
+                                    // Errors //
+
+                                    errorPlacement: function errorPlacement(error, element) {
+                                        var $parent = $(element).parents('.form-group');
+
+                                        // Do not duplicate errors
+                                        if ($parent.find('.jquery-validation-error').length) {
+                                            return;
+                                        }
+
+                                        $parent.append(
+                                            error.addClass('jquery-validation-error small form-text invalid-feedback')
+                                        );
+                                    },
+                                    highlight: function(element) {
+                                        var $el = $(element);
+                                        var $parent = $el.parents('.form-group');
+
+                                        $el.addClass('is-invalid');
+
+                                        // Select2 and Tagsinput
+                                        if ($el.hasClass('select2-hidden-accessible') || $el.attr('data-role') === 'tagsinput') {
+                                            $el.parent().addClass('is-invalid');
+                                        }
+                                    },
+                                    unhighlight: function(element) {
+                                        $(element).parents('.form-group').find('.is-invalid').removeClass('is-invalid');
+                                    }
+                                });
+
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+            <pre>
+<code class="language-markup">
+    &lt;!-- Validation Js --&gt;
+    &lt;script src="dist/assets/js/plugins/jquery.validate.min.js"&gt;&lt;/script&gt;
+
+</code>
+            </pre>
+            <!-- [ validation ] end -->
+            <!-- [ masking ] start -->
+            <h2 class="docs-header" id="page-masking">Masking</h2>
+            <div class="row">
+                <div class="col-lg-12 col-xl-6 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Date</h5>
+                            <span class="d-block m-t-5">Add class of <code>.date</code> with <code>data-mask</code> attribute</span>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="row form-group">
+                                    <div class="col-sm-3">
+                                        <label class="col-form-label">Insert Date 1</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control date" data-mask="99/99/9999">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label class="col-form-label">Insert Date 2</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control date2" data-mask="99-99-9999">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        // [ date masking ]
+                        $('.date').mask('00/00/0000');
+                        // [ date2 masking ]
+                        $('.date2').mask('00-00-0000');
+                    </script>
+                </div>
+                <div class="col-lg-12 col-xl-6 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Time</h5>
+                            <span class="d-block m-t-5">Add class of <code>.hour</code> with <code>data-mask</code> attribute</span>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="row form-group">
+                                    <div class="col-sm-3">
+                                        <label class="col-form-label">Hour</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control hour" data-mask="99:99:99">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label class="col-form-label">Date & Hour</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control dateHour" data-mask="99/99/9999 99:99:99">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        // [ hour masking ]
+                        $('.hour').mask('00:00:00');
+                        // [ date-Hour masking ]
+                        $('.dateHour').mask('00/00/0000 00:00:00');
+                    </script>
+                </div>
+                <div class="col-lg-12 col-xl-6 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Phone no.</h5>
+                            <span class="d-block m-t-5">Add class of <code>.mob_no</code> with <code>data-mask</code> attribute</span>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="row form-group">
+                                    <div class="col-sm-3">
+                                        <label class="col-form-label">Mobile No.</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control mob_no" data-mask="9999-999-999">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-3">
+                                        <label class="col-form-label">Telephone</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control phone" data-mask="9999-9999">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-3">
+                                        <label class="col-form-label">Tel. with Code Area</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control telphone_with_code" data-mask="(99) 9999-9999">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label class="col-form-label">US Telephone</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control us_telephone" data-mask="(999) 999-9999">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        // [ mobile-num masking ]
+                        $('.mob_no').mask('0000-000-000');
+                        // [ phone masking ]
+                        $('.phone').mask('0000-0000');
+                        // [ telphone-code masking ]
+                        $('.telphone_with_code').mask('(00) 0000-0000');
+                        // [ us-telphone masking ]
+                        $('.us_telephone').mask('(000) 000-0000');
+                    </script>
+                </div>
+                <div class="col-lg-12 col-xl-6 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Network</h5>
+                            <span class="d-block m-t-5">Add class of <code>.ip</code> with <code>data-mask</code> attribute</span>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="row form-group">
+                                    <div class="col-sm-3">
+                                        <label class="col-form-label">IP Address</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control ip" data-mask="999.999.999.999">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-3">
+                                        <label class="col-form-label">IPV4</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control ipv4" data-mask="99/99/9999 99:99:99">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label class="col-form-label">IPV6</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control ipv6" data-mask="9999:9999:9999:9:999:9999:9999:9999">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        // [ Ip masking ]
+                        $('.ip').mask('000.000.000.000');
+                        // [ Ipv4 masking ]
+                        $('.ipv4').mask('000.000.000.0000');
+                        // [ Ipv6 masking ]
+                        $('.ipv6').mask('0000:0000:0000:0:000:0000:0000:0000');
+                    </script>
+                </div>
+            </div>
+            <pre>
+<code class="language-markup">
+    &lt;!-- Input mask Js --&gt;
+    &lt;script src="assets/js/plugins/jquery.mask.min.js"&gt;&lt;/script&gt;
+
+</code>
+            </pre>
+            <!-- [ masking ] end -->
+            <!-- [ wizard ] start -->
+            <h2 class="docs-header" id="page-wizard">Wizard</h2>
+            <div class="row">
+                <!-- [ Smart-Wizard ] start -->
+                <div class="col-md-6 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Besic Wizard</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="bt-wizard" id="besicwizard">
+                                <ul class="nav nav-pills nav-fill mb-3">
+                                    <li class="nav-item"><a href="#b-w-tab1" class="nav-link" data-toggle="tab">Profile</a></li>
+                                    <li class="nav-item"><a href="#b-w-tab2" class="nav-link" data-toggle="tab">Address</a></li>
+                                    <li class="nav-item"><a href="#b-w-tab3" class="nav-link" data-toggle="tab">Final</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active show" id="b-w-tab1">
+                                        <form>
+                                            <div class="form-group row">
+                                                <label for="b-t-name" class="col-sm-3 col-form-label">Name</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="b-t-name" placeholder="Password">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="b-t-email" class="col-sm-3 col-form-label">Email</label>
+                                                <div class="col-sm-9">
+                                                    <input type="email" class="form-control" id="b-t-email" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="b-t-pwd" class="col-sm-3 col-form-label">Password</label>
+                                                <div class="col-sm-9">
+                                                    <input type="password" class="form-control" id="b-t-pwd" placeholder="Password">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="b-w-tab2">
+                                        <form>
+                                            <div class="form-group row">
+                                                <label for="b-t-sate" class="col-sm-3 col-form-label">State</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" id="b-t-sate">
+                                                        <option>Select State</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="b-t-address" class="col-sm-3 col-form-label">Address</label>
+                                                <div class="col-sm-9">
+                                                    <textarea class="form-control" id="b-t-address" rows="3" spellcheck="false"></textarea>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="b-w-tab3">
+                                        <form class="text-center">
+                                            <i class="feather icon-check-circle display-3 text-success"></i>
+                                            <h5 class="mt-3">Registration Done! . .</h5>
+                                            <p>Lorem Ipsum is simply dummy text of the printing</p>
+                                            <div class="custom-control custom-checkbox mb-3">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                <label class="custom-control-label" for="customCheck1">Subscribe Newslatter</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="row justify-content-between">
+                                        <div class="col-sm-6">
+                                            <a href="#!" class="btn btn-primary button-previous">Previous</a>
+                                        </div>
+                                        <div class="col-sm-6 text-md-right">
+                                            <a href="#!" class="btn btn-primary button-next">Next</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('#besicwizard').bootstrapWizard({
+                                'withVisible': false,
+                                'nextSelector': '.button-next',
+                                'previousSelector': '.button-previous',
+                                'firstSelector': '.button-first',
+                                'lastSelector': '.button-last'
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="col-md-6 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Wizard with Button</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="bt-wizard" id="btnwizard">
+                                <ul class="nav nav-pills nav-fill mb-3">
+                                    <li class="nav-item"><a href="#btn-t-tab1" class="nav-link" data-toggle="tab">Profile</a></li>
+                                    <li class="nav-item"><a href="#btn-t-tab2" class="nav-link" data-toggle="tab">Address</a></li>
+                                    <li class="nav-item"><a href="#btn-t-tab3" class="nav-link" data-toggle="tab">Final</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active show" id="btn-t-tab1">
+                                        <form>
+                                            <div class="form-group row">
+                                                <label for="btn-t-name" class="col-sm-3 col-form-label">Name</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="btn-t-name" placeholder="Password">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="btn-t-email" class="col-sm-3 col-form-label">Email</label>
+                                                <div class="col-sm-9">
+                                                    <input type="email" class="form-control" id="btn-t-email" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="btn-t-pwd" class="col-sm-3 col-form-label">Password</label>
+                                                <div class="col-sm-9">
+                                                    <input type="password" class="form-control" id="btn-t-pwd" placeholder="Password">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="btn-t-tab2">
+                                        <form>
+                                            <div class="form-group row">
+                                                <label for="btn-t-sate" class="col-sm-3 col-form-label">State</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" id="btn-t-sate">
+                                                        <option>Select State</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="btn-t-address" class="col-sm-3 col-form-label">Address</label>
+                                                <div class="col-sm-9">
+                                                    <textarea class="form-control" id="btn-t-address" rows="3" spellcheck="false"></textarea>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="btn-t-tab3">
+                                        <form class="text-center">
+                                            <i class="feather icon-check-circle display-3 text-success"></i>
+                                            <h5 class="mt-3">Registration Done! . .</h5>
+                                            <p>Lorem Ipsum is simply dummy text of the printing</p>
+                                            <div class="custom-control custom-checkbox mb-3">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                                <label class="custom-control-label" for="customCheck2">Subscribe Newslatter</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="row justify-content-between">
+                                        <div class="col-sm-6">
+                                            <a href="#!" class="btn btn-primary button-first">First</a>
+                                            <a href="#!" class="btn btn-primary button-previous">Previous</a>
+                                        </div>
+                                        <div class="col-sm-6 text-md-right">
+                                            <a href="#!" class="btn btn-primary button-last">Last</a>
+                                            <a href="#!" class="btn btn-primary button-next">Next</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('#btnwizard').bootstrapWizard({
+                                'withVisible': false,
+                                'nextSelector': '.button-next',
+                                'previousSelector': '.button-previous',
+                                'firstSelector': '.button-first',
+                                'lastSelector': '.button-last'
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="col-md-6 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Wizard with Progress</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="bt-wizard" id="progresswizard">
+                                <ul class="nav nav-pills nav-fill mb-3">
+                                    <li class="nav-item"><a href="#progress-t-tab1" class="nav-link" data-toggle="tab">Profile</a></li>
+                                    <li class="nav-item"><a href="#progress-t-tab2" class="nav-link" data-toggle="tab">Address</a></li>
+                                    <li class="nav-item"><a href="#progress-t-tab3" class="nav-link" data-toggle="tab">Final</a></li>
+                                </ul>
+                                <div id="bar" class="bt-wizard progress mb-3">
+                                    <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                                </div>
+                                <div class="tab-content">
+                                    <div class="tab-pane active show" id="progress-t-tab1">
+                                        <form>
+                                            <div class="form-group row">
+                                                <label for="progress-t-name" class="col-sm-3 col-form-label">Name</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="progress-t-name" placeholder="Password">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="progress-t-email" class="col-sm-3 col-form-label">Email</label>
+                                                <div class="col-sm-9">
+                                                    <input type="email" class="form-control" id="progress-t-email" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="progress-t-pwd" class="col-sm-3 col-form-label">Password</label>
+                                                <div class="col-sm-9">
+                                                    <input type="password" class="form-control" id="progress-t-pwd" placeholder="Password">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="progress-t-tab2">
+                                        <form>
+                                            <div class="form-group row">
+                                                <label for="progress-t-sate" class="col-sm-3 col-form-label">State</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" id="progress-t-sate">
+                                                        <option>Select State</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="progress-t-address" class="col-sm-3 col-form-label">Address</label>
+                                                <div class="col-sm-9">
+                                                    <textarea class="form-control" id="progress-t-address" rows="3" spellcheck="false"></textarea>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="progress-t-tab3">
+                                        <form class="text-center">
+                                            <i class="feather icon-check-circle display-3 text-success"></i>
+                                            <h5 class="mt-3">Registration Done! . .</h5>
+                                            <p>Lorem Ipsum is simply dummy text of the printing</p>
+                                            <div class="custom-control custom-checkbox mb-3">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                                <label class="custom-control-label" for="customCheck2">Subscribe Newslatter</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="row justify-content-between">
+                                        <div class="col-sm-6">
+                                            <a href="#!" class="btn btn-primary button-previous">Previous</a>
+                                        </div>
+                                        <div class="col-sm-6 text-md-right">
+                                            <a href="#!" class="btn btn-primary button-next">Next</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('#progresswizard').bootstrapWizard({
+                                withVisible: false,
+                                'nextSelector': '.button-next',
+                                'previousSelector': '.button-previous',
+                                'firstSelector': '.button-first',
+                                'lastSelector': '.button-last',
+                                onTabShow: function(tab, navigation, index) {
+                                    var $total = navigation.find('li').length;
+                                    var $current = index + 1;
+                                    var $percent = ($current / $total) * 100;
+                                    $('#progresswizard .progress-bar').css({
+                                        width: $percent + '%'
+                                    });
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="col-md-6 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Wizard with Validation</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="bt-wizard" id="validationwizard">
+                                <ul class="nav nav-pills nav-fill mb-3">
+                                    <li class="nav-item"><a href="#validation-t-tab1" class="nav-link" data-toggle="tab">Profile</a></li>
+                                    <li class="nav-item"><a href="#validation-t-tab2" class="nav-link" data-toggle="tab">Address</a></li>
+                                    <li class="nav-item"><a href="#validation-t-tab3" class="nav-link" data-toggle="tab">Final</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active show" id="validation-t-tab1">
+                                        <form class="form-1 needs-validation" novalidate>
+                                            <div class="form-group row">
+                                                <label for="validation-t-name" class="col-sm-3 col-form-label">Name</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="validation-t-name" placeholder="Password" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="validation-t-email" class="col-sm-3 col-form-label">Email</label>
+                                                <div class="col-sm-9">
+                                                    <input type="email" class="form-control" id="validation-t-email" placeholder="Email" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="validation-t-pwd" class="col-sm-3 col-form-label">Password</label>
+                                                <div class="col-sm-9">
+                                                    <input type="password" class="form-control" id="validation-t-pwd" placeholder="Password" required>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="validation-t-tab2">
+                                        <form class="form-2 needs-validation" novalidate>
+                                            <div class="form-group row">
+                                                <label for="validation-t-sate" class="col-sm-3 col-form-label">State</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" id="validation-t-sate" required>
+                                                        <option>Select State</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="validation-t-address" class="col-sm-3 col-form-label">Address</label>
+                                                <div class="col-sm-9">
+                                                    <textarea class="form-control" id="validation-t-address" rows="3" spellcheck="false" required></textarea>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="validation-t-tab3">
+                                        <form class="text-center">
+                                            <i class="feather icon-check-circle display-3 text-success"></i>
+                                            <h5 class="mt-3">Registration Done! . .</h5>
+                                            <p>Lorem Ipsum is simply dummy text of the printing</p>
+                                            <div class="custom-control custom-checkbox mb-3">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                                <label class="custom-control-label" for="customCheck2">Subscribe Newslatter</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="row justify-content-between">
+                                        <div class="col-sm-6">
+                                            <a href="#!" class="btn btn-primary button-previous">Previous</a>
+                                        </div>
+                                        <div class="col-sm-6 text-md-right">
+                                            <a href="#!" class="btn btn-primary button-next">Next</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('#validationwizard').bootstrapWizard({
+                                withVisible: false,
+                                'nextSelector': '.button-next',
+                                'previousSelector': '.button-previous',
+                                'firstSelector': '.button-first',
+                                'lastSelector': '.button-last',
+                                onNext: function(tab, navigation, index) {
+                                    if (index == 1) {
+                                        if (!$('#validation-t-name').val()) {
+                                            $('#validation-t-name').focus();
+                                            $('.form-1').addClass('was-validated');
+                                            return false;
+                                        }
+                                        if (!$('#validation-t-email').val()) {
+                                            $('#validation-t-email').focus();
+                                            $('.form-1').addClass('was-validated');
+                                            return false;
+                                        }
+                                        if (!$('#validation-t-pwd').val()) {
+                                            $('#validation-t-pwd').focus();
+                                            $('.form-1').addClass('was-validated');
+                                            return false;
+                                        }
+                                    }
+                                    if (index == 2) {
+                                        if (!$('#validation-t-address').val()) {
+                                            $('#validation-t-address').focus();
+                                            $('.form-2').addClass('was-validated');
+                                            return false;
+                                        }
+                                    }
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="col-lg-5 datta-example">
+                    <h5 class="mb-3 mt-4">Wizard with tabs</h5>
+                    <div class="bt-wizard" id="tabswizard">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item"><a href="#tabs-t-tab1" class="nav-link rounded-0" data-toggle="tab">Profile</a></li>
+                            <li class="nav-item"><a href="#tabs-t-tab2" class="nav-link rounded-0" data-toggle="tab">Address</a></li>
+                            <li class="nav-item"><a href="#tabs-t-tab3" class="nav-link rounded-0" data-toggle="tab">Final</a></li>
+                        </ul>
+                        <div class="tab-content card">
+                            <div class="pt-1 bg-primary"></div>
+                            <div class="tab-pane card-body pt-4 active show" id="tabs-t-tab1">
+                                <form>
+                                    <div class="form-group row">
+                                        <label for="tabs-t-name" class="col-sm-3 col-form-label">Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="tabs-t-name" placeholder="Password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="tabs-t-email" class="col-sm-3 col-form-label">Email</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" id="tabs-t-email" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="tabs-t-pwd" class="col-sm-3 col-form-label">Password</label>
+                                        <div class="col-sm-9">
+                                            <input type="password" class="form-control" id="tabs-t-pwd" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane card-body pt-4" id="tabs-t-tab2">
+                                <form>
+                                    <div class="form-group row">
+                                        <label for="tabs-t-sate" class="col-sm-3 col-form-label">State</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="tabs-t-sate">
+                                                <option>Select State</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="tabs-t-address" class="col-sm-3 col-form-label">Address</label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control" id="tabs-t-address" rows="3" spellcheck="false"></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane card-body pt-4" id="tabs-t-tab3">
+                                <form class="text-center">
+                                    <i class="feather icon-check-circle display-3 text-success"></i>
+                                    <h5 class="mt-3">Registration Done! . .</h5>
+                                    <p>Lorem Ipsum is simply dummy text of the printing</p>
+                                    <div class="custom-control custom-checkbox mb-3">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                        <label class="custom-control-label" for="customCheck2">Subscribe Newslatter</label>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="row card-footer justify-content-between mx-0">
+                                <div class="col-sm-6 pl-0">
+                                    <a href="#!" class="btn btn-primary button-previous">Previous</a>
+                                </div>
+                                <div class="col-sm-6 text-md-right pr-0">
+                                    <a href="#!" class="btn btn-primary button-next">Next</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('#tabswizard').bootstrapWizard({
+                                'nextSelector': '.button-next',
+                                'previousSelector': '.button-previous',
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="col-lg-7 datta-example">
+                    <h5 class="mb-3 mt-4">Wizard vertical</h5>
+                    <div class="bt-wizard" id="verticalwizard">
+                        <div class="row align-items-stratched mb-4">
+                            <div class="col-12 col-md-auto col-sm-12">
+                                <div class="card h-100 mb-0">
+                                    <div class="card-body">
+                                        <ul class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+                                            <li class="nav-item"><a href="#v-tabs-t-tab1" class="nav-link active" data-toggle="tab">Profile</a></li>
+                                            <li class="nav-item"><a href="#v-tabs-t-tab2" class="nav-link" data-toggle="tab">Address</a></li>
+                                            <li class="nav-item"><a href="#v-tabs-t-tab3" class="nav-link" data-toggle="tab">Final</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="tab-content card mb-0" id="v-pills-tabContent">
+                                    <div class="tab-pane card-body active show" id="v-tabs-t-tab1">
+                                        <form>
+                                            <div class="form-group row">
+                                                <label for="v-tabs-t-name" class="col-sm-3 col-form-label">Name</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="v-tabs-t-name" placeholder="Password">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="v-tabs-t-email" class="col-sm-3 col-form-label">Email</label>
+                                                <div class="col-sm-9">
+                                                    <input type="email" class="form-control" id="v-tabs-t-email" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="v-tabs-t-pwd" class="col-sm-3 col-form-label">Password</label>
+                                                <div class="col-sm-9">
+                                                    <input type="password" class="form-control" id="v-tabs-t-pwd" placeholder="Password">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane card-body" id="v-tabs-t-tab2">
+                                        <form>
+                                            <div class="form-group row">
+                                                <label for="v-tabs-t-sate" class="col-sm-3 col-form-label">State</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" id="v-tabs-t-sate">
+                                                        <option>Select State</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="v-tabs-t-address" class="col-sm-3 col-form-label">Address</label>
+                                                <div class="col-sm-9">
+                                                    <textarea class="form-control" id="v-tabs-t-address" rows="3" spellcheck="false"></textarea>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane card-body" id="v-tabs-t-tab3">
+                                        <form class="text-center">
+                                            <i class="feather icon-check-circle display-3 text-success"></i>
+                                            <h5 class="mt-3">Registration Done! . .</h5>
+                                            <p>Lorem Ipsum is simply dummy text of the printing</p>
+                                            <div class="custom-control custom-checkbox mb-3">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                                <label class="custom-control-label" for="customCheck2">Subscribe Newslatter</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="row justify-content-between card-footer mx-0">
+                                        <div class="col-sm-6 pl-0">
+                                            <a href="#!" class="btn btn-primary button-previous">Previous</a>
+                                        </div>
+                                        <div class="col-sm-6 text-md-right pr-0">
+                                            <a href="#!" class="btn btn-primary button-next">Next</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('#verticalwizard').bootstrapWizard({
+                                'nextSelector': '.button-next',
+                                'previousSelector': '.button-previous',
+                            });
+                        });
+                    </script>
+                </div>
+                <!-- [ Smart-Wizard ] end -->
+            </div>
+            <pre>
+<code class="language-markup">
+    &lt;!-- Smart Wizard Js --&gt;
+    &lt;script src="assets/js/plugins/jquery.bootstrap.wizard.min.js"&gt;&lt;/script&gt;
+
+</code>
+            </pre>
+            <!-- [ wizard ] end -->
+            <!-- [ color-picker ] start -->
+            <h2 class="docs-header" id="page-colorpicker">Color picker</h2>
+            <div class="row">
+                <div class="col-sm-12 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Color Picker</h5>
+                        </div>
+                        <div class="card-body">
+                            <h5>Control Types</h5>
+                            <hr>
+                            <div class="row">
+                                <div class="col-xl-4 col-md-6 mb-3">
+                                    <h6>Hue (default)</h6>
+                                    <input type="text" id="hue-demo" class="form-control demo" data-control="hue" value="#ff6161">
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-3">
+                                    <h6>Saturation</h6>
+                                    <input type="text" id="saturation-demo" class="form-control demo" data-control="saturation" value="#0088cc">
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-3">
+                                    <h6>Brightness</h6>
+                                    <input type="text" id="brightness-demo" class="form-control demo" data-control="brightness" value="#00ffff">
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-3">
+                                    <h6>Wheel</h6>
+                                    <input type="text" id="wheel-demo" class="form-control demo" data-control="wheel" value="#ff99ee">
+                                </div>
+                            </div>
+                            <h5 class="mt-4">Input Modes</h5>
+                            <hr>
+                            <div class="row">
+                                <div class="col-xl-4 col-md-6 mb-3">
+                                    <h6>Text Field</h6>
+                                    <input type="text" id="text-field" class="form-control demo" value="#70c24a">
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-3">
+                                    <h6>Hidden Input</h6>
+                                    <input type="hidden" id="hidden-input" class="demo" value="#f4f7fa">
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-3">
+                                    <h6>Inline</h6>
+                                    <input type="text" id="inline" class="form-control demo" data-inline="true" value="#4fc8db">
+                                </div>
+                            </div>
+                            <h5>Positions</h5>
+                            <p class="mb-0">Valid positions include <code>bottom left</code>, <code>bottom right</code>, <code>top left</code>, and <code>top right</code>.</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-xl-4 col-md-6 mb-3">
+                                    <h6>Bottom Left (default)</h6>
+                                    <input type="text" id="position-bottom-left" class="form-control demo" data-position="bottom left" value="#0088cc">
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-3">
+                                    <h6>Top Left</h6>
+                                    <input type="text" id="position-top-left" class="form-control demo" data-position="top left" value="#0088cc">
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-3">
+                                    <h6>Bottom Right</h6>
+                                    <input type="text" id="position-bottom-right" class="form-control demo" data-position="bottom right" value="#0088cc">
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-3">
+                                    <h6>Top Right</h6>
+                                    <input type="text" id="position-top-right" class="form-control demo" data-position="top right" value="#0088cc">
+                                </div>
+                            </div>
+                            <h5>RGB(A)</h5>
+                            <hr>
+                            <div class="row">
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <h6>RGB</h6>
+                                    <input type="text" id="rgb" class="form-control demo" data-format="rgb" value="rgb(33, 147, 58)">
+                                    <span class="help-block mt-1 d-block">RGB input can be assigned by setting the <code>format</code> option to <code>rgb</code>.</span>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <h6>RGBA</h6>
+                                    <input type="text" id="rgba" class="form-control demo" data-format="rgb" data-opacity=".5" value="rgba(52, 64, 158, 0.5)">
+                                    <span class="help-block mt-1 d-block">RGBA input can be assigned by setting the <code>format</code>option to <code>rgb</code> and <code>opacity</code> option to<code>true</code>.</span>
+                                </div>
+                            </div>
+                            <h5>&hellip;And More!</h5>
+                            <hr>
+                            <div class="row">
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <h6>Opacity</h6>
+                                    <input type="text" id="opacity" class="form-control demo mb-1" data-opacity=".5" value="#766fa8">
+                                    <span class="help-block">Opacity can be assigned by including the <code>data-opacity</code>attribute or by setting the <code>opacity</code> option to<code>true</code>.</span>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <h6>Keywords</h6>
+                                    <input type="text" id="keywords" class="form-control demo mb-1" data-keywords="transparent, initial, inherit" value="transparent">
+                                    <span class="help-block">CSS-wide keywords can be assigned by setting the <code>keywords</code>option to a comma-separated list of valid keywords: <code>transparent,initial, inherit</code>.</span>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <h6>Default Value</h6>
+                                    <input type="text" id="default-value" class="form-control demo mb-1" data-defaultValue="#ff6600">
+                                    <span class="help-block">This field has a default value assigned to it, so it will never be empty.</span>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <h6>Letter Case</h6>
+                                    <input type="text" id="letter-case" class="form-control demo mb-1" data-letterCase="uppercase" value="#abcdef">
+                                    <span class="help-block">This field will always be uppercase.</span>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <h6>Input Groups</h6>
+                                    <div class="input-group">
+                                        <input type="text" id="input-group" class="form-control demo" value="#ff0000" />
+                                    </div>
+                                    <span class="help-block mt-1 d-block">Example using Bootstrap's input groups.</span>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <h6 class="input-group-addon">Color</h6>
+                                    <input type="text" id="more-input-group" class="form-control demo mb-1" value="#1a5ef0" />
+                                    <span class="help-block">Input group example with addon.</span>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <h6>Swatches</h6>
+                                    <div class="form-group">
+                                        <input type="text" id="swatches" class="form-control demo mb-1" data-swatches="#ef9a9a|#90caf9|#a5d6a7|#fff59d|#ffcc80|#bcaaa4|#eeeeee|#f44336|#2196f3|#4caf50|#ffeb3b|#ff9800|#795548|#9e9e9e" value="#abcdef">
+                                        <span class="help-block">Example with swatches.</span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <h6>Swatches and Opacity</h6>
+                                    <div class="form-group">
+                                        <input type="text" id="swatchesandop" class="form-control demo mb-1" data-format="rgb" data-opacity="1" data-swatches="#fff|#000|#f00|#0f0|#00f|#ff0|rgba(0,0,255,0.5)" value="rgba(14, 206, 235, .5)">
+                                        <span class="help-block">Example with swatches and opacity.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $('.demo').each(function() {
+                            $(this).minicolors({
+                                control: $(this).attr('data-control') || 'hue',
+                                defaultValue: $(this).attr('data-defaultValue') || '',
+                                format: $(this).attr('data-format') || 'hex',
+                                keywords: $(this).attr('data-keywords') || '',
+                                inline: $(this).attr('data-inline') === 'true',
+                                letterCase: $(this).attr('data-letterCase') || 'lowercase',
+                                opacity: $(this).attr('data-opacity'),
+                                position: $(this).attr('data-position') || 'bottom',
+                                swatches: $(this).attr('data-swatches') ? $(this).attr('data-swatches').split('|') : [],
+                                change: function(value, opacity) {
+                                    if (!value) return;
+                                    if (opacity) value += ', ' + opacity;
+                                    if (typeof console === 'object') {}
+                                },
+                                theme: 'bootstrap'
+                            });
+                        });
+                    });
+                </script>
+            </div>
+            <pre>
+<code class="language-markup">
+    &lt;!-- Minicolors css --&gt;
+    &lt;link href="assets/css/plugins/jquery.minicolors.css" rel="stylesheet"&gt;<br>
+    &lt;!-- Minicolors Js --&gt;
+    &lt;script src="assets/js/plugins/jquery.minicolors.min.js"&gt;&lt;/script&gt;
+
+</code>
+            </pre>
+            <!-- [ color-picker ] end -->
+            <!-- [ select ] start -->
+            <h2 class="docs-header" id="page-select">Select</h2>
+            <div class="row">
+                <div class="col-sm-12 datta-example">
+                    <div class="card select-card">
+                        <div class="card-header">
+                            <h5>Select2</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-xl-4 col-md-6 mb-5">
+                                    <h5>Single Select</h5>
+                                    <hr>
+                                    <p>The<code>select2</code> can take a regular select box like this...</p>
+                                    <select class="js-example-basic-single form-control">
+                                        <optgroup label="Developer">
+                                            <option value="AL">Alabama</option>
+                                            <option value="WY">Wyoming</option>
+                                        </optgroup>
+                                        <optgroup label="Designer">
+                                            <option value="WY">Peter</option>
+                                            <option value="WY">Hanry Die</option>
+                                            <option value="WY">John Doe</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-5">
+                                    <h5>Multi Select</h5>
+                                    <hr>
+                                    <p>The select below is declared with the<code>multiple</code> attribute</p>
+                                    <select class="js-example-basic-multiple col-sm-12" multiple="multiple">
+                                        <option value="AL">Alabama</option>
+                                        <option value="WY">Wyoming</option>
+                                        <option value="WY">Coming</option>
+                                        <option value="WY">Hanry Die</option>
+                                        <option value="WY">John Doe</option>
+                                    </select>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-5">
+                                    <h5>With Placeholder</h5>
+                                    <hr>
+                                    <p><code>select2</code> uses the <code>placeholder</code> attribute on multiple select boxes</p>
+                                    <select class="js-example-placeholder-multiple col-sm-12">
+                                        <option value="AL">Alabama</option>
+                                        <option value="WY">Wyoming</option>
+                                        <option value="WY">Coming</option>
+                                        <option value="WY">Hanry Die</option>
+                                        <option value="WY">John Doe</option>
+                                    </select>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-5">
+                                    <h5>Tagging Support</h5>
+                                    <hr>
+                                    <p>The select below is declared with the class<code>.js-example-tags</code></p>
+                                    <select class="js-example-tags col-sm-12" multiple="multiple">
+                                        <option value="AL">Alabama</option>
+                                        <option value="WY">Wyoming</option>
+                                        <option value="WY">Coming</option>
+                                        <option value="WY">Hanry Die</option>
+                                        <option value="WY">John Doe</option>
+                                    </select>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-5">
+                                    <h5>Automatic Tokenization</h5>
+                                    <hr>
+                                    <p>The select below is declared with the class<code>.js-example-tokenizer</code></p>
+                                    <select class="js-example-tokenizer col-sm-12" multiple="multiple">
+                                        <option value="AL">Alabama</option>
+                                        <option value="WY">Wyoming</option>
+                                        <option value="WY">Coming</option>
+                                        <option value="WY">Hanry Die</option>
+                                        <option value="WY">John Doe</option>
+                                    </select>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-5">
+                                    <h5>RTL Support</h5>
+                                    <hr>
+                                    <p>The select below is declared with the class<code>.js-example-rtl</code></p>
+                                    <select class="js-example-rtl col-sm-12" multiple="multiple">
+                                        <option value="AL">Alabama</option>
+                                        <option value="WY">Wyoming</option>
+                                        <option value="WY">Coming</option>
+                                        <option value="WY">Hanry Die</option>
+                                        <option value="WY">John Doe</option>
+                                    </select>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-5">
+                                    <h5>Limiting The Number Of Selections</h5>
+                                    <hr>
+                                    <p>The select below is declared with the class<code>.js-example-basic-multiple-limit</code></p>
+                                    <select class="js-example-basic-multiple-limit col-sm-12" multiple="multiple">
+                                        <option value="AL">Alabama</option>
+                                        <option value="WY">Wyoming</option>
+                                        <option value="WY">Coming</option>
+                                        <option value="WY">Hanry Die</option>
+                                        <option value="WY">John Doe</option>
+                                    </select>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-5">
+                                    <h5>Diacritics Support</h5>
+                                    <hr>
+                                    <p>The select below is declared with the class<code>.js-example-diacritics</code></p>
+                                    <select class="js-example-diacritics col-sm-12" multiple="multiple">
+                                        <option value="AL">Alabama</option>
+                                        <option value="WY">Wyoming</option>
+                                        <option value="WY">Coming</option>
+                                        <option value="WY">Hanry Die</option>
+                                        <option value="WY">John Doe</option>
+                                    </select>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-5">
+                                    <h5>Responsive Width</h5>
+                                    <hr>
+                                    <p>The select below is declared with the class<code>.js-example-responsive</code></p>
+                                    <select class="js-example-responsive col-sm-12" multiple="multiple" style="width:75%;">
+                                        <option value="AL">Alabama</option>
+                                        <option value="WY">Wyoming</option>
+                                        <option value="WY">Coming</option>
+                                        <option value="WY">Hanry Die</option>
+                                        <option value="WY">John Doe</option>
+                                    </select>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-5">
+                                    <h5>Loading With Array</h5>
+                                    <hr>
+                                    <p>The select below is declared with the class<code>.js-example-data-array</code></p>
+                                    <select class="js-example-data-array col-sm-12"></select>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-5">
+                                    <h5>Load Remote Data ( Ajax )</h5>
+                                    <hr>
+                                    <p>The select below is declared with the class<code>.js-data-example-ajax</code>
+                                    </p>
+                                    <select class="js-data-example-ajax col-sm-12">
+                                        <option value="3620194" selected="selected">select2</option>
+                                    </select>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-5">
+                                    <h5>Disabled Results</h5>
+                                    <hr>
+                                    <p>The select below is declared with the class<code>.js-example-disabled-results</code></p>
+                                    <select class="js-example-disabled-results col-sm-12">
+                                        <option value="one">First</option>
+                                        <option value="two" disabled="disabled">Second (disabled)
+                                        </option>
+                                        <option value="three">Third</option>
+                                    </select>
+                                </div>
+                                <div class="col-xl-4 col-md-6 mb-5">
+                                    <h5 class="sub-title">Hiding The Search Box</h5>
+                                    <hr>
+                                    <p>The select below is declared with the class<code>.js-example-basic-hide-search</code></p>
+                                    <select class="js-example-basic-hide-search col-sm-12" multiple="multiple" style="width: 75%">
+                                        <optgroup label="Developer">
+                                            <option value="AL">Smith</option>
+                                            <option value="WY">Peter</option>
+                                            <option value="WY">James</option>
+                                            <option value="WY">Hanry Die</option>
+                                            <option value="WY">John Doe</option>
+                                            <option value="WY">Harry Poter</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="col-xl-8 col-md-6">
+                                    <h5>Enable-Disable</h5>
+                                    <hr>
+                                    <p>The select below is declared with the class<code>.js-example-disabled</code></p>
+                                    <select class="js-example-disabled col-sm-8">
+                                        <option value="AL">Smith</option>
+                                        <option value="WY">Peter</option>
+                                        <option value="WY">James</option>
+                                        <option value="WY">Hanry Die</option>
+                                        <option value="WY">John Doe</option>
+                                        <option value="WY">Harry Poter</option>
+                                    </select>
+                                    <button class="btn btn-success m-t-20 m-b-20 m-l-10   js-programmatic-enable">Enable</button>
+                                    <button class="btn btn-danger m-t-20 m-b-20 m-l-10   js-programmatic-disable">Disable</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            // [ Single Select ] start
+                            $(".js-example-basic-single").select2();
+
+                            // [ Multi Select ] start
+                            $(".js-example-basic-multiple").select2();
+
+                            // [ With Placeholder ] start
+                            $(".js-example-placeholder-multiple").select2({
+                                placeholder: "Select Your Name"
+                            });
+
+                            // [ Tagging Support ] start
+                            $(".js-example-tags").select2({
+                                tags: true
+                            });
+
+                            // [ Automatic Select ] start
+                            $(".js-example-tokenizer").select2({
+                                tags: true,
+                                tokenSeparators: [',', ' ']
+                            });
+
+                            // [ RTL Support ] start
+                            $(".js-example-rtl").select2({
+                                dir: "rtl"
+                            });
+
+                            // [ limiting selection ] start
+                            $(".js-example-basic-multiple-limit").select2({
+                                maximumSelectionLength: 2
+                            });
+
+                            // [ diacritics select ] start
+                            $(".js-example-diacritics").select2();
+
+                            // [ Responsive select ] start
+                            $(".js-example-responsive").select2();
+
+                            // [ loading array ] start
+                            var data = [{
+                                id: 0,
+                                text: 'enhancement'
+                            }, {
+                                id: 1,
+                                text: 'bug'
+                            }, {
+                                id: 2,
+                                text: 'duplicate'
+                            }, {
+                                id: 3,
+                                text: 'invalid'
+                            }, {
+                                id: 4,
+                                text: 'wontfix'
+                            }];
+                            $(".js-example-data-array").select2({
+                                data: data
+                            });
+
+                            // [ loading data ] start
+                            function formatRepo(repo) {
+                                if (repo.loading) return repo.text;
+
+                                var markup = "<div class='select2-result-repository clearfix'>" +
+                                    "<div class='select2-result-repository__avatar'><img src='" + repo.owner.avatar_url + "' /></div>" +
+                                    "<div class='select2-result-repository__meta'>" +
+                                    "<div class='select2-result-repository__title'>" + repo.full_name + "</div>";
+
+                                if (repo.description) {
+                                    markup += "<div class='select2-result-repository__description'>" + repo.description + "</div>";
+                                }
+
+                                markup += "<div class='select2-result-repository__statistics'>" +
+                                    "<div class='select2-result-repository__forks'><i class='icofont icofont-flash'></i> " + repo.forks_count + " Forks</div>" +
+                                    "<div class='select2-result-repository__stargazers'><i class='icofont icofont-star'></i> " + repo.stargazers_count + " Stars</div>" +
+                                    "<div class='select2-result-repository__watchers'><i class='icofont icofont-eye-alt'></i> " + repo.watchers_count + " Watchers</div>" +
+                                    "</div>" +
+                                    "</div></div>";
+
+                                return markup;
+                            }
+
+                            function formatRepoSelection(repo) {
+                                return repo.full_name || repo.text;
+                            }
+                            $(".js-data-example-ajax").select2({
+                                ajax: {
+                                    url: "https://api.github.com/search/repositories",
+                                    dataType: 'json',
+                                    delay: 250,
+                                    data: function(params) {
+                                        return {
+                                            q: params.term, // search term
+                                            page: params.page
+                                        };
+                                    },
+                                    processResults: function(data, params) {
+                                        params.page = params.page || 1;
+
+                                        return {
+                                            results: data.items,
+                                            pagination: {
+                                                more: (params.page * 30) < data.total_count
+                                            }
+                                        };
+                                    },
+                                    cache: true
+                                },
+                                escapeMarkup: function(markup) {
+                                    return markup;
+                                }, // let our custom formatter work
+                                minimumInputLength: 1,
+                                templateResult: formatRepo, // omitted for brevity, see the source of this page
+                                templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
+                            });
+
+                            // [ disable result ] start
+                            $(".js-example-disabled-results").select2();
+
+                            // [ hide search ] start
+                            $(".js-example-basic-hide-search").select2({
+                                minimumResultsForSearch: Infinity
+                            });
+
+                            // [ enable disable ] start
+                            $(".js-example-disabled").select2({
+                                disabled: false
+                            });
+                            $(".js-programmatic-enable").on("click", function() {
+                                $(".js-example-disabled").prop("disabled", false);
+                            });
+                            $(".js-programmatic-disable").on("click", function() {
+                                $(".js-example-disabled").prop("disabled", true);
+                            });
+                        });
+                    </script>
+                </div>
+
+            </div>
+            <pre>
+<code class="language-markup">
+    &lt;!-- Select2 css --&gt;
+    &lt;link href="assets/css/plugins/select2.min.css" rel="stylesheet"&gt;<br>
+    &lt;!-- Select2 Js --&gt;
+    &lt;script src="assets/js/plugins/select2.full.min.js"&gt;&lt;/script&gt;
+
+</code>
+            </pre>
+            <!-- [ select ] end -->
+        </div>
+    </div>
+
+    <div class="datta-example-modal">
+        <a href="javascript:void(0)" class="md-datta-example-modal-copy">
+            <span class="feather icon-clipboard"></span>
+        </a>
+        <a href="javascript:void(0)" class="datta-example-modal-close">&times;</a>
+        <div class="scroll-div">
+            <div class="datta-example-modal-content"></div>
+        </div>
+    </div>
+    <script src="assets/js/ripple.js"></script>
+    <script src="assets/js/uikit.min.js"></script>
+
+    <script>
+        $(function() {
+            $('body').scrollspy({
+                target: ".docs-sections-inner"
+            });
+            $(".docs-sections-inner a").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 1500, function() {
+                        window.location.hash = hash;
+                    });
+                }
+            });
+        });
+        // wave effect start
+        $.ripple(".btn, .pcoded-navbar a,.pcoded-header .navbar-nav > li > .dropdown > a,.page-link, .nav .nav-link", {
+            debug: false,
+            on: 'mousedown',
+            opacity: 0.4,
+            color: "auto",
+            multi: false,
+            duration: 0.7,
+            rate: function(pxPerSecond) {
+                return pxPerSecond;
+            },
+            easing: 'linear'
+        });
+        // wave effect end
+    </script>
+    <script src="assets/js/analytics.js"></script>
+
+</body>
+
+</html>

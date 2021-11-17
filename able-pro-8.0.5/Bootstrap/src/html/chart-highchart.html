@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layouts/head.html')
+    @@include('./layouts/head-bottom-link.html')
+</head>
+@@include('./layouts/main.html')
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Highchart Chart</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Chart</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Highchart Chart</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- [ bar-Chart ] start -->
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Bar [ Basic ] Chart</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="chart-highchart-bar1" style="width: 100%; height: 450px;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ bar-Chart ] end -->
+            <!-- [ line-Chart ] start -->
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Line [ Basic ] Chart</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="chart-highchart-line1" style="width: 100%; height: 350px;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ line-Chart ] end -->
+            <!-- [ area-Chart ] start -->
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Area [ Zoom ] Chart</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="chart-highchart-area2" style="width: 100%; height: 350px;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ area-Chart ] end -->
+            <!-- [ pie-Chart ] start -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Pie [ Basic ] Chart</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="chart-highchart-pie1" style="width: 100%; height: 350px;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ pie-Chart ] end -->
+            <!-- [ donut-Chart ] start -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Pie [ Donut ] Chart</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="chart-highchart-pie2" style="width: 100%; height: 350px;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ donut-Chart ] end -->
+            <!-- [ pie-3d-Chart ] start -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Pie [ 3D ] Chart</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="chart-highchart-pie-3d1" style="width: 100%; height: 350px;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ pie-3d-Chart ] end -->
+            <!-- [ donut-3d-Chart ] start -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Pie [ Donut 3D ] Chart</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="chart-highchart-pie-3d2" style="width: 100%; height: 350px;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ donut-3d-Chart ] end -->
+            <!-- [ combinations-Chart ] start -->
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Combinations [ Column, Line & Pie ] Chart</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="chart-highchart-combo1" style="width: 100%; height: 450px;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ combinations-Chart ] end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+@@include('./layouts/footer.html')
+<!-- highchart chart -->
+<script src="assets/js/plugins/highcharts.js"></script>
+<script src="assets/js/plugins/highcharts-3d.js"></script>
+<script src="assets/js/pages/chart-highchart-custom.js"></script>
+@@include('./layouts/footer-bottom-link.html')
+</body>
+</html>

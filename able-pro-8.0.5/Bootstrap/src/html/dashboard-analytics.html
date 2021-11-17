@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('./layouts/head.html')
+    @@include('./layouts/head-bottom-link.html')
+</head>
+@@include('./layouts/main.html')
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard sale</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Dashboard sale</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- amount start -->
+            <div class="col-md-6 col-xl-4">
+                <div class="card amount-card overflow-hidden">
+                    <div class="card-body">
+                        <h2 class="f-w-400">$23,567</h2>
+                        <p class="text-muted f-w-600 f-16"><span class="text-c-blue">Amount</span> Processed</p>
+                    </div>
+                    <div id="amount-processed"></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card amount-card overflow-hidden">
+                    <div class="card-body">
+                        <h2 class="f-w-400">$14,552</h2>
+                        <p class="text-muted f-w-600 f-16"><span class="text-c-green">Amount</span> Spent</p>
+                    </div>
+                    <div id="amount-spent"></div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xl-4">
+                <div class="card amount-card overflow-hidden">
+                    <div class="card-body">
+                        <h2 class="f-w-400">$31,156</h2>
+                        <p class="text-muted f-w-600 f-16"><span class="text-c-yellow">Profit</span> Processed
+                        </p>
+                    </div>
+                    <div id="profit-processed"></div>
+                </div>
+            </div>
+            <!-- amount end -->
+            <!-- page statustic card start -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h4 class="text-c-yellow">$30200</h4>
+                                <h6 class="text-muted m-b-0">All Earnings</h6>
+                            </div>
+                            <div class="col-4 text-right">
+                                <i class="feather icon-bar-chart-2 f-28"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-c-yellow">
+                        <div class="row align-items-center">
+                            <div class="col-9">
+                                <p class="text-white m-b-0">% change</p>
+                            </div>
+                            <div class="col-3 text-right">
+                                <i class="feather icon-trending-up text-white f-16"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h4 class="text-c-green">290+</h4>
+                                <h6 class="text-muted m-b-0">Page Views</h6>
+                            </div>
+                            <div class="col-4 text-right">
+                                <i class="feather icon-file-text f-28"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-c-green">
+                        <div class="row align-items-center">
+                            <div class="col-9">
+                                <p class="text-white m-b-0">% change</p>
+                            </div>
+                            <div class="col-3 text-right">
+                                <i class="feather icon-trending-up text-white f-16"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h4 class="text-c-red">145</h4>
+                                <h6 class="text-muted m-b-0">Task</h6>
+                            </div>
+                            <div class="col-4 text-right">
+                                <i class="feather icon-calendar f-28"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-c-red">
+                        <div class="row align-items-center">
+                            <div class="col-9">
+                                <p class="text-white m-b-0">% change</p>
+                            </div>
+                            <div class="col-3 text-right">
+                                <i class="feather icon-trending-down text-white f-16"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h4 class="text-c-blue">500</h4>
+                                <h6 class="text-muted m-b-0">Downloads</h6>
+                            </div>
+                            <div class="col-4 text-right">
+                                <i class="feather icon-thumbs-down f-28"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-c-blue">
+                        <div class="row align-items-center">
+                            <div class="col-9">
+                                <p class="text-white m-b-0">% change</p>
+                            </div>
+                            <div class="col-3 text-right">
+                                <i class="feather icon-trending-down text-white f-16"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- page statustic card end -->
+            <!-- Realtime Data of Visits end -->
+            <div class="col-xl-8 col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Realtime Data of Visits</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row my-2">
+                            <div class="col-auto">
+                                <h4 class="m-0">563,756<i class="feather icon-arrow-up text-c-green"></i></h4>
+                                <span>Visits per Day</span>
+                            </div>
+                            <div class="col-auto">
+                                <h4 class="m-0">78,569<i class="feather icon-arrow-down text-c-red"></i></h4>
+                                <span>Total Visitors</span>
+                            </div>
+                            <div class="col">
+                                <h4 class="m-0">40.05%<i class="feather icon-arrow-up text-c-green"></i></h4>
+                                <span>Bounce Rate</span>
+                            </div>
+                        </div>
+                        <div id="realtime-visit-chart"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>20500</h3>
+                        <p class="text-muted">Site Analysis</p>
+                        <div id="seo-anlytics51"></div>
+                    </div>
+                </div>
+                <div class="card bg-c-blue text-white widget-visitor-card">
+                    <div class="card-body text-center">
+                        <h2 class="text-white">5,678</h2>
+                        <h6 class="text-white">Daily visitor</h6>
+                        <i class="feather icon-file-text"></i>
+                    </div>
+                </div>
+                <div class="card bg-c-yellow text-white widget-visitor-card">
+                    <div class="card-body text-center">
+                        <h2 class="text-white">5,678</h2>
+                        <h6 class="text-white">Last month visitor</h6>
+                        <i class="feather icon-award"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Realtime Data of Visits end -->
+            <!-- Traffic-section start -->
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Marketing campaign</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="traffic-chart1"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <h3>$16,756</h3>
+                                <h6 class="text-muted m-b-0">Visits<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
+                            </div>
+                            <div class="col-6">
+                                <div id="seo-chart1" class="d-flex align-items-end"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <h3>49.54%</h3>
+                                <h6 class="text-muted m-b-0">Bounce Rate<i class="fa fa-caret-up text-c-green m-l-10"></i></h6>
+                            </div>
+                            <div class="col-6">
+                                <div id="seo-chart2" class="d-flex align-items-end"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <h3>1,62,564</h3>
+                                <h6 class="text-muted m-b-0">Products<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
+                            </div>
+                            <div class="col-6">
+                                <div id="seo-chart3" class="d-flex align-items-end"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Traffic-section end -->
+
+        </div>
+        <!-- [ Main Content ] end -->
+
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+@@include('./layouts/footer.html')
+<!-- Apex Chart -->
+<script src="assets/js/plugins/apexcharts.min.js"></script>
+@@include('./layouts/footer-bottom-link.html')
+<!-- custom-chart js -->
+<script src="assets/js/pages/dashboard-analytics.js"></script>
+</body>
+
+</html>

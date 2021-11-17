@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ablepro v8.0 bootstrap admin template by Phoenixcoded</title>
+    <!--[if lt IE 10]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- meta -->
+    <meta name="description" content="Ablepro v8.0 Bootstrap Admin Template Documentation helper file." />
+    <meta name="author" content="Phoenixcoded" />
+    <!-- favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <!-- required CSS -->
+    <link rel="stylesheet" href="assets/css/plugins/prism-coy.css">
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Internal CSS -->
+    <style>
+        .pcoded-navbar .pcoded-inner-navbar>li.active>a,
+        .pcoded-navbar .pcoded-inner-navbar>li>a.active:hover,
+        .pcoded-navbar .pcoded-inner-navbar>li>a.active {
+            background: #4680ff;
+            color: #fff;
+            box-shadow: 0 10px 5px -8px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+
+        .pcoded-navbar .pcoded-inner-navbar>li.active>a,
+        .pcoded-navbar .pcoded-inner-navbar>li>a.active>.pcoded-micon {
+            color: #fff;
+        }
+
+        .pcoded-content {
+            margin-top: 0;
+        }
+
+        .nav-pills .nav-link.active,
+        .nav-pills .show>.nav-link {
+            background: #4680ff;
+            box-shadow: none;
+        }
+
+        pre[class*=language-]>code {
+            border-left: 5px solid #4680ff;
+        }
+
+        .nav-pills {
+            /* padding: 15px 25px; */
+        }
+
+        .nav-pills>li i {
+            display: inline-block;
+            font-size: 15px;
+            padding: 0px 0;
+        }
+
+        #gulp pre[class*=language-].line-numbers.line-numbers code {
+            padding-left: 1.5em;
+        }
+    </style>
+</head>
+
+<nav class="pcoded-navbar menupos-fixed menu-light">
+    <div class="navbar-wrapper">
+        <div class="navbar-content scroll-div">
+            <ul class="nav pcoded-inner-navbar">
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Getting started</label>
+                </li>
+                <li class="nav-item"><a href="#home" class="nav-link active"><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Ablepro v8.0</span></a></li>
+                <li class="nav-item"><a href="gulp.html" class="nav-link"><span class="pcoded-micon"><i class="fab fa-gulp"></i></span><span class="pcoded-mtext">Gulp setup</span></a></li>
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Structure</label>
+                </li>
+                <li class="nav-item"><a href="#filestruct" class="nav-link"><span class="pcoded-micon"><i class="far fa-folder-open"></i></span><span class="pcoded-mtext">Directory Structure</span></a></li>
+                <li class="nav-item"><a href="#filestruct" class="nav-link"><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Page Structure</span></a></li>
+                <li class="nav-item pcoded-menu-caption">
+                    <label>layouts</label>
+                </li>
+                <li class="nav-item"><a href="#layouts" class="nav-link"><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Layout</span></a></li>
+                <li class="nav-item"><a href="#menucust" class="nav-link"><span class="pcoded-micon"><i class="feather icon-scissors"></i></span><span class="pcoded-mtext">Theme Customizer</span></a></li>
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Uikits</label>
+                </li>
+                <li class="nav-item"><a href="index-bc-package.html" class="nav-link"><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Basic component</span></a></li>
+                <li class="nav-item"><a href="index-ac-package.html" class="nav-link"><span class="pcoded-micon"><i class="feather icon-gitlab"></i></span><span class="pcoded-mtext">Advance component</span></a></li>
+                <li class="nav-item"><a href="index-form-package.html" class="nav-link"><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Form component</span></a></li>
+                <li class="nav-item"><a href="index-widget-package.html" class="nav-link"><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Widgets</span></a></li>
+                <li class="nav-item"><a href="index-chart-package.html" class="nav-link"><span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Charts</span></a></li>
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Resources & References</label>
+                </li>
+                <li class="nav-item"><a href="#plugins" class="nav-link"><span class="pcoded-micon"><i class="fas fa-plug"></i></span><span class="pcoded-mtext">Plugins</span></a></li>
+                <li class="nav-item"><a href="#references" class="nav-link"><span class="pcoded-micon"><i class="fas fa-plug"></i></span><span class="pcoded-mtext">Extra References</span></a></li>
+                <li class="nav-item"><a href="#faq" class="nav-link"><span class="pcoded-micon"><i class="feather icon-help-circle"></i></span><span class="pcoded-mtext">FAQ</span></a></li>
+                <li class="nav-item"><a href="#cl" class="nav-link"><span class="pcoded-micon"><i class="feather icon-book"></i></span><span class="pcoded-mtext">Change Log</span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<header class="navbar pcoded-header navbar-expand-lg navbar-light headerpos-fixed brand-blue header-blue">
+    <div class="m-header">
+        <a href="index.html">
+            <img class="img-fluid" src="assets/images/logo.png" alt="Ablepro v8.0 Logo" />
+        </a>
+    </div>
+    <a class="mobile-menu" id="mobile-header" href="#!">
+        <i class="feather icon-more-horizontal"></i>
+    </a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            
+        </ul>
+    </div>
+</header>
+<div class="pcoded-main-container" id="home">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Ablepro v8.0 - Documentation</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Helper Documentation of Able Pro Bootstrap Admin Template.
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="d-inline">Version : </h6>
+                                                    </td>
+                                                    <td><a href="#cl">v8.0.0</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="d-inline">Last Update : </h6>
+                                                    </td>
+                                                    <td>12-08-2019</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="d-inline">Author : </h6>
+                                                    </td>
+                                                    <td><a href="https://themeforest.net/user/phoenixcoded" target="_blank">Phoenixcoded</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="d-inline">Support : </h6>
+                                                    </td>
+                                                    <td><a href="https://phoenixcoded.ticksy.com" target="_blank">Ticksy</a></td>
+                                                </tr>
+                                            </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="card" id="filestruct">
+                                    <div class="card-header">
+                                        <h5>Structure</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Following is default directory structure along with page structure. That helps you understanding the entire Ablepro v8.0 template structure.</p>
+                                        <ul class="nav nav-pills mb-0" id="pills-tab-struct" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active show" id="pills-filestruct-tab" data-toggle="pill" href="#pills-filestruct" role="tab">Directory Structure</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-pagestruct-tab" data-toggle="pill" href="#pills-page-struct" role="tab">Page Structure</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content mb-0 pt-2" id="pills-tabContent-struct">
+                                            <div class="tab-pane active show" id="pills-filestruct" role="tabpanel" aria-labelledby="pills-filestruct-tab">
+                                                <pre>
+<code class="language-markup">
+    src/
+    ├── assets/
+    │   ├── fonts/
+    │   ├── images/
+    │   ├── js/
+    │   ├── json/
+    │   ├── scss/
+    │   ├── html/
+    ├── .babelrc
+    ├── gulpfile.js
+    ├── package.json
+    ├── package-lock.json
+	├── README.MD
+
+</code>
+                                                </pre>
+                                            </div>
+                                            <div class="tab-pane" id="pills-page-struct" role="tabpanel" aria-labelledby="pills-pagestruct-tab">
+                                                <pre>
+<code class="language-markup">
+
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+
+    &lt;head&gt;
+        &lt;title&gt;Ablepro v8.0 bootstrap admin template by Phoenixcoded&lt;/title&gt;
+        &lt;!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries --&gt;
+        &lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&gt;
+        &lt;!--[if lt IE 11]&gt;
+        	&lt;script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"&gt;&lt;/script&gt;
+        	&lt;script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"&gt;&lt;/script&gt;
+        	&lt;![endif]--&gt;
+        &lt;!-- Meta --&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui"&gt;
+        &lt;meta http-equiv="X-UA-Compatible" content="IE=edge" /&gt;
+        &lt;meta name="description" content="" /&gt;
+        &lt;meta name="keywords" content=""&gt;
+        &lt;meta name="author" content="Phoenixcoded" /&gt;
+
+        &lt;!-- Favicon icon --&gt;
+        &lt;link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"&gt;
+
+        &lt;!-- vendor css --&gt;
+        &lt;link rel="stylesheet" href="assets/css/style.css"&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+
+        &lt;!-- [ Pre-loader ] start --&gt;
+        &lt;div class="loader-bg"&gt;
+        &lt;/div&gt;
+        &lt;!-- [ Pre-loader ] End --&gt;
+
+        &lt;!-- [ navigation menu ] start --&gt;
+        &lt;nav class="pcoded-navbar menu-light "&gt;
+        &lt;/nav&gt;
+        &lt;!-- [ navigation menu ] end --&gt;
+
+        &lt;!-- [ Header ] start --&gt;
+        &lt;header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue"&gt;
+        &lt;/header&gt;
+        &lt;!-- [ Header ] end --&gt;
+
+        &lt;!-- [ Main Content ] start --&gt;
+        &lt;div class="pcoded-main-container"&gt;
+            &lt;div class="pcoded-content"&gt;
+
+                &lt;!-- [ breadcrumb ] start --&gt;
+                &lt;div class="page-header"&gt;
+                &lt;/div&gt;
+                &lt;!-- [ breadcrumb ] end --&gt;
+
+                &lt;!-- [ Main Content ] start --&gt;
+                &lt;div class="row"&gt;
+                &lt;/div&gt;
+                &lt;!-- [ Main Content ] end --&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- [ Main Content ] end --&gt;
+
+        &lt;!-- Warning Section start --&gt;
+        &lt;!-- Older IE warning message --&gt;
+        &lt;!--[if lt IE 11]&gt;
+            &lt;div class="ie-warning"&gt;
+            &lt;/div&gt;
+        &lt;![endif]--&gt;
+        &lt;!-- Warning Section Ends --&gt;
+
+        &lt;!-- Required Js --&gt;
+        &lt;script src="assets/js/vendor-all.min.js"&gt;&lt;/script&gt;
+        &lt;script src="assets/js/plugins/bootstrap.min.js"&gt;&lt;/script&gt;
+        &lt;script src="assets/js/ripple.js"&gt;&lt;/script&gt;
+        &lt;script src="assets/js/pcoded.min.js"&gt;&lt;/script&gt;
+
+    &lt;/body&gt;
+
+    &lt;/html&gt;
+
+</code>
+                                                </pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="card " id="layouts">
+                                    <div class="card-header">
+                                        <h5>Layouts</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>This Section explains everything about <code> Page Layouts</code> with its extra available options. Copy code snippet for each options carefully. </p>
+                                        <ul class="nav nav-pills mb-0 mt-3" id="pills-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="pills-vertical-tab" data-toggle="pill" href="#pills-vertical" role="tab" aria-controls="pills-vertical" aria-selected="true">Vertical</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-horizontal-tab" data-toggle="pill" href="#pills-horizontal" role="tab" aria-controls="pills-horizontal" aria-selected="false">Horizontal</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-box-tab" data-toggle="pill" href="#pills-box" role="tab">Box layout</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-rtl-tab" data-toggle="pill" href="#pills-rtl" role="tab">rtl layout</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-light-tab" data-toggle="pill" href="#pills-light" role="tab">light layout</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-dark-tab" data-toggle="pill" href="#pills-dark" role="tab">dark layout</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content mb-0 pt-2" id="pills-tabContent">
+                                            <div class="tab-pane show active" id="pills-vertical" role="tabpanel" aria-labelledby="pills-vertical-tab">
+                                                <p>This table contains all classes related to the vertical layout.</p>
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Layout</th>
+                                                                <th>Description</th>
+                                                                <th>Page link</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>navbar Static</td>
+                                                                <td><code>This is default layout so you don't need to put any settings</code></td>
+                                                                <td><a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/layout-static.html" target="_blank">more detail</a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Navbar fixed</td>
+                                                                <td>add <code>menupos-fixed</code> class in <code>&lt;nav&gt;</code> tag</td>
+                                                                <td><a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/layout-menu-fixed.html" target="_blank">more detail</a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Header Fixed</td>
+                                                                <td>
+                                                                    add <code>headerpos-fixed</code> class in <code>&lt;header&gt;</code> tag
+                                                                </td>
+                                                                <td><a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/layout-fixed.html" target="_blank">more detail</a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Collapse menu</td>
+                                                                <td>add <code>navbar-collapsed</code> class in <code>&lt;nav&gt;</code> tag</td>
+                                                                <td><a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/layout-mini-menu.html" target="_blank">more detail</a></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <p>This snippet contains HTML Markup to create vertical layout.</p>
+                                                <pre>
+<code class="language-markup">
+    &lt;!-- [ navigation menu ] start --&gt;
+    &lt;nav class="pcoded-navbar"&gt;
+    	&lt;div class="navbar-wrapper"&gt;
+    		&lt;div class="navbar-content scroll-div"&gt;
+    			&lt;ul class="nav pcoded-inner-navbar"&gt;
+    				&lt;li class="nav-item pcoded-menu-caption"&gt;&lt;label&gt;Menu Title&lt;/label&gt;&lt;/li&gt;
+    				&lt;li class="nav-item"&gt;&lt;a href="#!" class="nav-link "&gt;&lt;span class="pcoded-micon"&gt;&lt;i class="feather icon-menu"&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class="pcoded-mtext"&gt;Single Link&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    				&lt;li class="nav-item pcoded-hasmenu"&gt;
+    					&lt;a href="#!" class="nav-link "&gt;&lt;span class="pcoded-micon"&gt;&lt;i class="feather icon-sidebar"&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class="pcoded-mtext"&gt;Menu Levels 1.1&lt;/span&gt;&lt;/a&gt;
+    					&lt;ul class="pcoded-submenu"&gt;
+    						&lt;li class="pcoded-hasmenu"&gt;&lt;a href="#!" class=""&gt;Menu Levels 2.1&lt;/a&gt;
+    							&lt;ul class="pcoded-submenu"&gt;
+    								&lt;li class=""&gt;&lt;a href="#!" class=""&gt;Menu Levels 3.1&lt;/a&gt;&lt;/li&gt;
+    								&lt;li class=""&gt;&lt;a href="#!" class=""&gt;Menu Levels 3.2&lt;/a&gt;&lt;/li&gt;
+    								&lt;li class=""&gt;&lt;a href="#!" class=""&gt;Menu Levels 3.3&lt;/a&gt;&lt;/li&gt;
+    								&lt;li class=""&gt;&lt;a href="#!" class=""&gt;Menu Levels 3.4&lt;/a&gt;&lt;/li&gt;
+    							&lt;/ul&gt;
+    						&lt;/li&gt;
+    						&lt;li class="pcoded-hasmenu"&gt;&lt;a href="#!" class=""&gt;Menu Levels 2.2&lt;/a&gt;
+    							&lt;ul class="pcoded-submenu"&gt;
+    								&lt;li class=""&gt;&lt;a href="#!" class=""&gt;Menu Levels 3.1&lt;/a&gt;&lt;/li&gt;
+    								&lt;li class=""&gt;&lt;a href="#!" class=""&gt;Menu Levels 3.2&lt;/a&gt;&lt;/li&gt;
+    							&lt;/ul&gt;
+    						&lt;/li&gt;
+    						&lt;li class=""&gt;&lt;a href="#!" class=""&gt;Menu Levels 2.3&lt;/a&gt;&lt;/li&gt;
+    						&lt;li class=""&gt;&lt;a href="#!" class=""&gt;Menu Levels 2.4&lt;/a&gt;&lt;/li&gt;
+    					&lt;/ul&gt;
+    				&lt;/li&gt;
+    			&lt;/ul&gt;
+    		&lt;/div&gt;
+    	&lt;/div&gt;
+    &lt;/nav&gt;
+    &lt;!-- [ navigation menu ] end --&gt;
+
+</code>
+                                                </pre>
+                                            </div>
+                                            <div class="tab-pane" id="pills-horizontal" role="tabpanel" aria-labelledby="pills-horizontal-tab">
+                                                <pre>
+<code class="language-markup">
+    &lt;!-- [ navigation menu ] start --&gt;
+    &lt;nav class="pcoded-navbar theme-horizontal"&gt;
+    	&lt;div class="navbar-wrapper"&gt;
+    		&lt;div class="navbar-content sidenav-horizontal" id="layout-sidenav"&gt;
+    			&lt;ul class="nav pcoded-inner-navbar sidenav-inner"&gt;
+    				&lt;li class="nav-item pcoded-menu-caption"&gt;&lt;label&gt;Menu Title&lt;/label&gt;&lt;/li&gt;
+    				&lt;li class="nav-item"&gt;&lt;a href="#!" class="nav-link "&gt;&lt;span class="pcoded-micon"&gt;&lt;i class="feather icon-menu"&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class="pcoded-mtext"&gt;Single Link&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    				&lt;li class="nav-item pcoded-hasmenu"&gt;
+    					&lt;a href="#!" class="nav-link "&gt;&lt;span class="pcoded-micon"&gt;&lt;i class="feather icon-sidebar"&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class="pcoded-mtext"&gt;Menu Levels 1.1&lt;/span&gt;&lt;/a&gt;
+    					&lt;ul class="pcoded-submenu"&gt;
+    						&lt;li class="pcoded-hasmenu"&gt;&lt;a href="#!" class=""&gt;Menu Levels 2.1&lt;/a&gt;
+    							&lt;ul class="pcoded-submenu"&gt;
+    								&lt;li class=""&gt;&lt;a href="#!" class=""&gt;Menu Levels 3.1&lt;/a&gt;&lt;/li&gt;
+    								&lt;li class=""&gt;&lt;a href="#!" class=""&gt;Menu Levels 3.2&lt;/a&gt;&lt;/li&gt;
+    								&lt;li class=""&gt;&lt;a href="#!" class=""&gt;Menu Levels 3.3&lt;/a&gt;&lt;/li&gt;
+    								&lt;li class=""&gt;&lt;a href="#!" class=""&gt;Menu Levels 3.4&lt;/a&gt;&lt;/li&gt;
+    							&lt;/ul&gt;
+    						&lt;/li&gt;
+    						&lt;li class="pcoded-hasmenu"&gt;&lt;a href="#!" class=""&gt;Menu Levels 2.2&lt;/a&gt;
+    							&lt;ul class="pcoded-submenu"&gt;
+    								&lt;li class=""&gt;&lt;a href="#!" class=""&gt;Menu Levels 3.1&lt;/a&gt;&lt;/li&gt;
+    								&lt;li class=""&gt;&lt;a href="#!" class=""&gt;Menu Levels 3.2&lt;/a&gt;&lt;/li&gt;
+    							&lt;/ul&gt;
+    						&lt;/li&gt;
+    						&lt;li class=""&gt;&lt;a href="#!" class=""&gt;Menu Levels 2.3&lt;/a&gt;&lt;/li&gt;
+    						&lt;li class=""&gt;&lt;a href="#!" class=""&gt;Menu Levels 2.4&lt;/a&gt;&lt;/li&gt;
+    					&lt;/ul&gt;
+    				&lt;/li&gt;
+    			&lt;/ul&gt;
+    		&lt;/div&gt;
+    	&lt;/div&gt;
+    &lt;/nav&gt;
+    &lt;!-- [ navigation menu ] end --&gt;
+
+    // ***************************************************************
+    //  Add Below Line of code at bottom of page when body tag in over
+    // ***************************************************************
+    &lt;script src="assets/js/horizontal-menu.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript"&gt;
+          //Collapse menu
+          (function() {
+              if ($('#layout-sidenav').hasClass('sidenav-horizontal') || window.layoutHelpers.isSmallScreen()) {
+                  return;
+              }
+              try {
+                  window.layoutHelpers.setCollapsed(
+                      localStorage.getItem('layoutCollapsed') === 'true',
+                      false
+                  );
+              } catch (e) {}
+          })();
+          $(function() {
+              // Initialize sidenav
+              $('#layout-sidenav').each(function() {
+                  new SideNav(this, {
+                      orientation: $(this).hasClass('sidenav-horizontal') ? 'horizontal' : 'vertical'
+                  });
+              });
+
+              // Initialize sidenav togglers
+              $('body').on('click', '.layout-sidenav-toggle', function(e) {
+                  e.preventDefault();
+                  window.layoutHelpers.toggleCollapsed();
+                  if (!window.layoutHelpers.isSmallScreen()) {
+                      try {
+                          localStorage.setItem('layoutCollapsed', String(window.layoutHelpers.isCollapsed()));
+                      } catch (e) {}
+                  }
+              });
+          });
+          $(document).ready(function() {
+              $("#pcoded").pcodedmenu({
+                  themelayout: 'horizontal',
+                  MenuTrigger: 'hover',
+                  SubMenuTrigger: 'hover',
+              });
+          });
+      &lt;/script&gt;
+
+</code>
+                                                </pre>
+                                            </div>
+                                            <div class="tab-pane" id="pills-box" role="tabpanel" aria-labelledby="pills-box-tab">
+                                                <p>add <code>container</code> & <code>box-layout</code> class in <code>&lt;body&gt;</code> tag</p>
+                                                <pre>
+<code class="language-markup">
+    &lt;body class="container box-layout"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                </pre>
+                                            </div>
+                                            <div class="tab-pane" id="pills-rtl" role="tabpanel" aria-labelledby="pills-rtl-tab">
+                                                <p>add <code>rtl stylesheet link</code> is below the style.css</p>
+                                                <pre>
+<code class="language-markup">
+    &lt;!-- rtl layouts --&gt;
+    &lt;link rel="stylesheet" href="assets/css/layout-rtl.css"&gt;
+
+</code>
+                                                </pre>
+                                            </div>
+                                            <div class="tab-pane" id="pills-light" role="tabpanel" aria-labelledby="pills-light-tab">
+                                                <p>add <code>menu-light</code> class in <code>&lt;nav&gt;</code> tag</p>
+                                                <pre>
+<code class="language-markup">
+    &lt;!-- [ navigation menu ] start --&gt;
+    &lt;nav class="pcoded-navbar menu-light"&gt;
+    &lt;/nav&gt;
+    &lt;!-- [ navigation menu ] end --&gt;
+
+</code>
+                                                </pre>
+                                            </div>
+                                            <div class="tab-pane" id="pills-dark" role="tabpanel" aria-labelledby="pills-dark-tab">
+                                                <p>add <code>dark stylesheet link</code> is below the style.css</p>
+                                                <pre>
+<code class="language-markup">
+    &lt;!-- dark layouts --&gt;
+    &lt;link rel="stylesheet" href="assets/css/layout-dark.css"&gt;
+
+</code>
+                                                </pre>
+                                                <p>add <code>navbar-dark</code> class in <code>&lt;nav&gt;</code> tag</p>
+                                                <pre>
+<code class="language-markup">
+    &lt;!-- [ header menu ] start --&gt;
+    &lt;nav class="pcoded-header header-blue"&gt;
+    &lt;/nav&gt;
+    &lt;!-- [ header menu ] end --&gt;
+
+</code>
+                                                </pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" id="menucust">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Background color</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="nav nav-pills" id="hcol-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="hcol-default-tab" data-toggle="pill" href="#hcol-default" role="tab" aria-controls="hcol-default" aria-selected="true">Blue</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-blue" id="hcol-primary-tab" data-toggle="pill" href="#hcol-primary" role="tab" aria-controls="hcol-primary" aria-selected="false">Red</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-red" id="hcol-danger-tab" data-toggle="pill" href="#hcol-danger" role="tab" aria-controls="hcol-danger" aria-selected="false">Purple</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-purple" id="hcol-success-tab" data-toggle="pill" href="#hcol-success" role="tab" aria-controls="hcol-success" aria-selected="false">info</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-info" id="hcol-warning-tab" data-toggle="pill" href="#hcol-warning" role="tab" aria-controls="hcol-warning" aria-selected="false">Green</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-dark" id="hcol-info-tab" data-toggle="pill" href="#hcol-info" role="tab" aria-controls="hcol-info" aria-selected="false">Dark</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content pt-2" id="hcol-tabContent">
+                                            <div class="tab-pane show active" id="hcol-default" role="tabpanel" aria-labelledby="hcol-default-tab">
+                                                <p>add <code>background-blue</code> class in <code>&lt;body&gt;</code> to set Blue background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-blue"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color flat">
+                                                            <a href="#!" data-value="background-blue"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hcol-primary" role="tabpanel" aria-labelledby="hcol-primary-tab">
+                                                <p>add <code>background-red</code> class in <code>&lt;body&gt;</code> to set Red background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-red"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color flat">
+                                                            <a href="#!" data-value="background-red"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hcol-danger" role="tabpanel" aria-labelledby="hcol-danger-tab">
+                                                <p>add <code>background-purple</code> class in <code>&lt;body&gt;</code> to set Purple background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-purple"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color flat">
+                                                            <a href="#!" data-value="background-purple"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hcol-success" role="tabpanel" aria-labelledby="hcol-success-tab">
+                                                <p>add <code>background-info</code> class in <code>&lt;body&gt;</code> to set Info background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-info"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color flat">
+                                                            <a href="#!" data-value="background-info"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hcol-warning" role="tabpanel" aria-labelledby="hcol-warning-tab">
+                                                <p>add <code>background-green</code> class in <code>&lt;body&gt;</code> to set Green background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-green"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color flat">
+                                                            <a href="#!" data-value="background-green"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hcol-info" role="tabpanel" aria-labelledby="hcol-info-tab">
+                                                <p>add <code>background-dark</code> class in <code>&lt;body&gt;</code> to set Dark background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-dark"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color flat">
+                                                            <a href="#!" data-value="background-dark"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Background gradient</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="nav nav-pills" id="hgrdcol-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="hgrdcol-default-tab" data-toggle="pill" href="#hgrdcol-default" role="tab" aria-controls="hgrdcol-default" aria-selected="true">Blue</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-blue" id="hgrdcol-primary-tab" data-toggle="pill" href="#hgrdcol-primary" role="tab" aria-controls="hgrdcol-primary" aria-selected="false">Red</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-red" id="hgrdcol-danger-tab" data-toggle="pill" href="#hgrdcol-danger" role="tab" aria-controls="hgrdcol-danger" aria-selected="false">Purple</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-purple" id="hgrdcol-success-tab" data-toggle="pill" href="#hgrdcol-success" role="tab" aria-controls="hgrdcol-success" aria-selected="false">info</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-info" id="hgrdcol-warning-tab" data-toggle="pill" href="#hgrdcol-warning" role="tab" aria-controls="hgrdcol-warning" aria-selected="false">Green</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-dark" id="hgrdcol-info-tab" data-toggle="pill" href="#hgrdcol-info" role="tab" aria-controls="hgrdcol-info" aria-selected="false">Dark</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content pt-2" id="hgrdcol-tabContent">
+                                            <div class="tab-pane show active" id="hgrdcol-default" role="tabpanel" aria-labelledby="hgrdcol-default-tab">
+                                                <p>add <code>background-grd-blue</code> class in <code>&lt;body&gt;</code> to set Blue background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-grd-blue"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color gradient">
+                                                            <a href="#!" data-value="background-grd-blue"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hgrdcol-primary" role="tabpanel" aria-labelledby="hgrdcol-primary-tab">
+                                                <p>add <code>background-grd-red</code> class in <code>&lt;body&gt;</code> to set Red background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-grd-red"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color gradient">
+                                                            <a href="#!" data-value="background-grd-red"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hgrdcol-danger" role="tabpanel" aria-labelledby="hgrdcol-danger-tab">
+                                                <p>add <code>background-grd-purple</code> class in <code>&lt;body&gt;</code> to set Purple background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-grd-purple"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color gradient">
+                                                            <a href="#!" data-value="background-grd-purple"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hgrdcol-success" role="tabpanel" aria-labelledby="hgrdcol-success-tab">
+                                                <p>add <code>background-grd-info</code> class in <code>&lt;body&gt;</code> to set Info background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-grd-info"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color gradient">
+                                                            <a href="#!" data-value="background-grd-info"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hgrdcol-warning" role="tabpanel" aria-labelledby="hgrdcol-warning-tab">
+                                                <p>add <code>background-grd-green</code> class in <code>&lt;body&gt;</code> to set Green background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-grd-green"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color gradient">
+                                                            <a href="#!" data-value="background-grd-green"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hgrdcol-info" role="tabpanel" aria-labelledby="hgrdcol-info-tab">
+                                                <p>add <code>background-grd-dark</code> class in <code>&lt;body&gt;</code> to set Dark background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-grd-dark"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color gradient">
+                                                            <a href="#!" data-value="background-grd-dark"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Background image</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="nav nav-pills" id="mbrand-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="mbrand-default-tab" data-toggle="pill" href="#mbrand-default" role="tab" aria-controls="mbrand-default" aria-selected="true">Default</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-blue" id="mbrand-primary-tab" data-toggle="pill" href="#mbrand-primary" role="tab" aria-controls="mbrand-primary" aria-selected="false">blue</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-red" id="mbrand-danger-tab" data-toggle="pill" href="#mbrand-danger" role="tab" aria-controls="mbrand-danger" aria-selected="false">red</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-purple" id="mbrand-success-tab" data-toggle="pill" href="#mbrand-success" role="tab" aria-controls="mbrand-success" aria-selected="false">purple</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-info" id="mbrand-warning-tab" data-toggle="pill" href="#mbrand-warning" role="tab" aria-controls="mbrand-warning" aria-selected="false">info</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-dark" id="mbrand-info-tab" data-toggle="pill" href="#mbrand-info" role="tab" aria-controls="mbrand-info" aria-selected="false">dark</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content pt-2" id="mbrand-tabContent">
+                                            <div class="tab-pane show active" id="mbrand-default" role="tabpanel" aria-labelledby="mbrand-default-tab">
+                                                <p>add <code>background-img-1</code> class in <code>&lt;body&gt;</code> to set image 1 as background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-img-1"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color image">
+                                                            <a href="#!" data-value="background-img-1"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="mbrand-primary" role="tabpanel" aria-labelledby="mbrand-primary-tab">
+                                                <p>add <code>background-img-2</code> class in <code>&lt;body&gt;</code> to set image 2 as background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-img-2"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color image">
+                                                            <a href="#!" data-value="background-img-2"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="mbrand-danger" role="tabpanel" aria-labelledby="mbrand-danger-tab">
+                                                <p>add <code>background-img-3</code> class in <code>&lt;body&gt;</code> to set image 3 as background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-img-3"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color image">
+                                                            <a href="#!" data-value="background-img-3"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="mbrand-success" role="tabpanel" aria-labelledby="mbrand-success-tab">
+                                                <p>add <code>background-img-4</code> class in <code>&lt;body&gt;</code> to set image 4 as background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-img-4"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color image">
+                                                            <a href="#!" data-value="background-img-4"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="mbrand-warning" role="tabpanel" aria-labelledby="mbrand-warning-tab">
+                                                <p>add <code>background-img-5</code> class in <code>&lt;body&gt;</code> to set image 5 as background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-img-5"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color image">
+                                                            <a href="#!" data-value="background-img-5"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="mbrand-info" role="tabpanel" aria-labelledby="mbrand-info-tab">
+                                                <p>add <code>background-img-6</code> class in <code>&lt;body&gt;</code> to set image 6 as background</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    &lt;body class="background-img-6"&gt;
+    &lt;/body&gt;
+
+</code>
+                                                        </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color image">
+                                                            <a href="#!" data-value="background-img-6"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="card" id="plugins">
+                                    <div class="card-header">
+                                        <h5>Plugins</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped">
+                                                <thead class="header-table">
+                                                    <tr>
+                                                        <th>Plugins Name</th>
+                                                        <th>Plugins page use</th>
+                                                        <th>Link</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Bootstrap</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default" target="_blank">default.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://getbootstrap.com/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Animation</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/animation.html" target="_blank">animation.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://daneden.github.io/animate.css/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Apexcharts</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/chart-am.html" target="_blank">chart-am.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://apexcharts.com/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Calender</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/full-calendar.html" target="_blank">full-calendar.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://fullcalendar.io/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Charts</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/chart-chartjs.html" target="_blank">chart-chartjs.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://www.chartjs.org/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ck-Editor</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/editor-classic.html" target="_blank">editor-classic.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://ckeditor.com/ckeditor-5-builds/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Color-Picker</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/form-picker.html" target="_blank">form-picker.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://farbelous.io/bootstrap-colorpicker/tutorial-Basics.html" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Clipboard</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/layout-static.html" target="_blank">layout-static.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://clipboardjs.com/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ekko-lightbox</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/ac_lightbox.html" target="_blank">ac_lightbox.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="http://ashleydw.github.io/lightbox/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Data-Table</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/tbl_datatable.html" target="_blank">tbl_datatable.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://datatables.net/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Date Picker</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/ac-datepicker-component.html" target="_blank">ac-datepicker-component.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="http://www.daterangepicker.com/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Highchart</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/chart-highchart.html" target="_blank">chart-highchart.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://www.highcharts.com/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>knob chart</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/chart-knob.html" target="_blank">chart-knob.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="http://anthonyterrien.com/demo/knob/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Peity chart</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/chart-peity.html" target="_blank">chart-peity.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="http://benpickles.github.io/peity/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>File-Upload</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/file-upload.html" target="_blank">file-upload.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://www.dropzonejs.com/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Form-Mask</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/form-masking.html" target="_blank">form-masking.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://igorescobar.github.io/jQuery-Mask-Plugin/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Form-validation</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/form-validation.html" target="_blank">form-validation.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://jqueryvalidation.org/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Forms Wizard</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/form-wizard.html" target="_blank">form-wizard.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://github.com/techlab/SmartWizard" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>JQuery</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default" target="_blank">Default.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://jquery.com/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>JQuery ui</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/ac_gridstack.html" target="_blank">ac_gridstack.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://jqueryui.com/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Syntax Highlighter</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/ac_syntax_highlighter.html" target="_blank">ac_syntax_highlighter.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://prismjs.com/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Light-Box2</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/ac_lightbox.html" target="_blank">ac_lightbox.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://lokeshdhakar.com/projects/lightbox2/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Moment</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/notes.html" target="_blank">notes.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://momentjs.com/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Map-Google</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/map-google.html" target="_blank">map-google.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="http://hpneo.github.io/gmaps/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Max-length</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/form-elements-advance.html" target="_blank">form-elements-advance.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="http://mimo84.github.io/bootstrap-maxlength/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Multi-select</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/form-select.html" target="_blank">form-select.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="http://loudev.com/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Notification</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/ac_notification.html" target="_blank">ac_notification.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="http://bootstrap-notify.remabledesigns.com/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Pnotify</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/ac_pnotify.html" target="_blank">ac_pnotify.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://sciactive.com/pnotify/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Range-Slider</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/ac_rangeslider.html" target="_blank">ac_rangeslider.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="http://seiyria.com/bootstrap-slider/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Rating</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/ac_rating.html" target="_blank">ac_rating.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="http://antenna.io/demo/jquery-bar-rating/examples/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Select2</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/form-select.html" target="_blank">form-select.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://select2.github.io/examples.html" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Scroll js</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/" target="_blank">All Page ( Menu )</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="http://rocha.la/jQuery-slimScroll" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sweet Alert</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/ac_alert.html" target="_blank">ac_alert.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://sweetalert.js.org/guides/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tags</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/form-elements-advance.html" target="_blank">form-elements-advance.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Extra References -->
+                            <div class="col-sm-12">
+                                <div class="card" id="references">
+                                    <div class="card-header">
+                                        <h5>Extra Assets References</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <h6>Used Font</h6>
+                                            <table class="table table-bordered table-striped">
+                                                <thead class="header-table">
+                                                    <tr>
+                                                        <th>Font</th>
+                                                        <th>Description</th>
+                                                        <th>Link</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Google Font</td>
+                                                        <td>Open-sans</td>
+                                                        <td>
+                                                            <a href="https://fonts.google.com/specimen/Mada" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <h6 class="mt-4">Font Icons</h6>
+                                            <table class="table table-bordered table-striped">
+                                                <thead class="header-table">
+                                                    <tr>
+                                                        <th>Font Icon</th>
+                                                        <th>Description</th>
+                                                        <th>Link</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Feather Icon</td>
+                                                        <td>
+                                                            i.e. default font icon <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/icon-feather.html" target="_blank">icon-feather.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://feathericons.com/" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Font Awesome Icon</td>
+                                                        <td>
+                                                            <a href="http://html.phoenixcoded.net/Ablepro v8.0/bootstrap/default/icon-fontawsome.html" target="_blank">icon-fontawsome.html</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://fontawesome.com" target="_blank">View Resource</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <h6 class="mt-4">Images reference</h6>
+                                            <table class="table table-bordered table-striped">
+                                                <thead class="header-table">
+                                                    <tr>
+                                                        <th>Link</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="https://iconfinder.com/" target="_blank">Icon Finder</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="https://unsplash.com/" target="_blank">Unsplash Images</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="https://elements.envato.com/" target="_blank">Elements Photos (i.e. not included in package)</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="card" id="faq">
+                                    <div class="card-header">
+                                        <h5>FAQ</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="#!">
+                                            <h5 data-toggle="collapse" data-target="#f1" aria-controls="f1">What is <b> Ablepro v8.0</b>?</h5>
+                                        </a>
+                                        <div class="expand" id="f1">
+                                            <p class="mb-0">Ablepro v8.0 is premium dashboard template comes with tons of layout options, widgets, ready to use pages which completely suitable for any complex project.</p>
+                                        </div>
+                                        <hr>
+                                        <a href="#!">
+                                            <h5 data-toggle="collapse" data-target="#f2" aria-controls="f2">Why <b>choose</b> Ablepro v8.0?</h5>
+                                        </a>
+                                        <div class="collapse" id="f2">
+                                            <p class="mb-0">Ablepro v8.0 is made by Phoenixcoded's experience coders and designers. Well tested bug free code, easy to use flexible structure makes Ablepro v8.0 a really differ to other templates. We
+                                                almost cover every possible plugins, components which helps you start immediately on your project.</p>
+                                        </div>
+                                        <hr>
+                                        <a href="#!">
+                                            <h5 data-toggle="collapse" data-target="#f4" aria-controls="f4">What about Item <b>Support</b>?</h5>
+                                        </a>
+                                        <div class="collapse" id="f4">
+                                            <p class="mb-0">6 month item support for any bugs, design issue in current version of template. We are not provides support for any custom work implementation.</p>
+                                        </div>
+                                        <hr>
+                                        <a href="#!">
+                                            <h5 data-toggle="collapse" data-target="#f5" aria-controls="f5">What is Support <b>Turnaround time?</b></h5>
+                                        </a>
+                                        <div class="collapse" id="f5">
+                                            <p class="mb-0">When you comment or submit the ticket for support. Our team takes it seriously and respond it within a Half or Full day.</p>
+                                        </div>
+                                        <hr>
+                                        <a href="#!">
+                                            <h5 data-toggle="collapse" data-target="#f6" aria-controls="f5">Browser <b>Support?</b></h5>
+                                        </a>
+                                        <div class="collapse" id="f6">
+                                            <p class="mb-0">Well tested on IE=>11, Edge, Chrome, Mozilla, Safari, Opera</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="card" id="cl">
+                                    <div class="card-header">
+                                        <h5>Change Log</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <pre>
+<code class="language-markup">
+	19-5-2020 - Release v8.1
+	-----------------------------------
+    - New bootstrap 4.5.0 was updaated.
+
+
+	13-8-2019 - Release v8.0
+	-----------------------------------
+    - New Menu Layouts + Versions available.
+    - It's completely  different from v7.3.3
+    - Documentation changes for v8.0
+
+    19-06-2019 - Release v7.3.3
+    -----------------------------------
+    HTML
+    ----------
+    - No change
+
+    Angular
+    ----------
+    - Upgrade to Angular 8+ with CLI 8.0.1
+    - Fix horizontal menu structure bug
+    - Fix IE Support bug
+    - Change Lazy loading with import
+    - Remove animation
+    - Add new extension modules tinymac and wyasing editor and remove quill editor.
+    - Change style for task board abd invoice list card
+    - Change Full event calendar.
+    - Remove ngx-chip.
+    - Update Light box module
+    - Add more App modules like, help-desk, todo
+    - Add Advance UI module like, Sweetalert, datepicker
+    - Remove basic color module
+
+    07-01-2019 - Release v7.3.2
+    -----------------------------------
+    HTML
+    ----------
+    - Bug fixs.
+    - No need to migrate from v7.3.1 to v7.3.2
+
+    Angular
+    ----------
+    - Release Angular 7 compatible version
+
+    21-08-2018 - Release v7.3.1
+    -----------------------------------
+    HTML
+    ----------
+    - No change
+
+    Angular
+    ----------
+    - upgrade to angular cli 6.0.7
+    - for easy setup add new package skeleton for vertical and horizontal
+    - error 404 for amchart SVG images
+    - horizontal menu overlay problem solved
+    - mobile and tablet device spacing problem solved
+    - amchart zoom to index solved
+
+    10-05-2018 - Release v7.3
+    -----------------------------------
+    - Note - skip version v7.2
+    - Major changes in both HTML &amp; Angular versions.
+    - older version v6.1 is still available in the download package.
+    - Angular 4 &amp; 5 version also still available in the download package.
+
+    HTML
+    --------
+    - Added documentation in the download package.
+    - Menu hover transition remove.
+    - Menu hover &amp; active radius reduce
+    - Authentication Pages change
+    - File upload page change.
+    - Box layout improved.
+    - Few of bugs fixes
+
+    Angular
+    ---------
+    - Release Angular 6 compatible version.
+    - The horizontal version available for Angular 5 &amp; 6 too.
+    - Added more components. Check to attach documentation for that.
+    - Responsive bugs solve.
+    - Apply all HTML version changes in Angular
+
+    12-02-2018 - Release v7.1
+    -----------------------------------
+    - Angular 5 version for newer Able pro 7.0
+    - No change in the HTML version.
+
+    30-01-2018 - Release v7.0
+    ------------------------------------
+    - Remove support of Angular 1 Version
+    - New Menu Layouts + Versions available.
+    - Angular 4 Version Available now for older version v6.1
+    - It's completely  different from v6.0
+    - Documentation changes for v7.0
+
+    28-09-2017 - Release v6.0
+    ------------------------------------
+    - Bootstrap 4 Beta version compatible
+    - Bower Components folder structure changed. Changes made on every HTML Pages which contain bower components.
+    - Bower installation through bower-installer
+    - visit https://github.com/rquadling/bower-installer for more info
+    - Bugs fixes on Menus
+    - No change in Angular version
+    - note:- It's not recommended to use Able pro v5.0 with 6.0 OR you may replace CSS / JS assets/ files for a new update.
+
+    01/05/2017 - Release v5.0
+    ------------------------------------
+    - Bug fixes
+
+    03/04/2017 - Release v4.0
+    ------------------------------------
+    - The angular version included in the package with Bower, Grunt compatible
+
+    09/01/2017 - Release v3.0
+    ------------------------------------
+    - RTL - Boxed Version included in Package.
+    - PHP version Horizontal mobile menu fix.
+    - Changes in all .html files for better performance.
+    - Detailed changelog provided in Documentation.
+    - Kindly replace all CSS / JS files for better effect.
+    ------------------------------------
+
+    24/01/2017 - Release v2.0
+    ------------------------------------
+    - Separate folder for Horizontal - Vertical Layouts with light and dark version separate too.
+    - Separate folder for PHP version.
+    ------------------------------------
+
+    21/01/2017 - Release v1.0 Initially
+
+</code>
+<pre>
+
+</pre>
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- required JS -->
+<script src="assets/js/vendor-all.min.js"></script>
+<script src="assets/js/plugins/bootstrap.min.js"></script>
+<script src="assets/js/ripple.js"></script>
+<script src="assets/js/pcoded.min.js"></script>
+<script src="assets/js/plugins/prism.js"></script>
+
+<!-- custom JS -->
+<script type="text/javascript">
+    $('body').scrollspy({
+        target: ".pcoded-inner-navbar"
+    });
+    $('body').scroll(function() {
+        $('.nav-item').removeClass('pcoded-trigger');
+    });
+    $(".pcoded-inner-navbar a").on('click', function(event) {
+        if (this.hash !== "") {
+            event.preventDefault();
+            var hash = this.hash;
+            $('html, body').animate({
+                scrollTop: ($(hash).offset().top)
+            }, 1500, function() {
+                window.location.hash = hash;
+            });
+        }
+    });
+</script>
+
+</body>
+
+</html>

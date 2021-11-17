@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('./layouts/head.html')
+    <link rel="stylesheet" href="assets/css/plugins/dataTables.bootstrap4.min.css">
+    @@include('./layouts/head-bottom-link.html')
+</head>
+@@include('./layouts/main.html')
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Shopping Cart</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">E-Commerce</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Shopping Cart</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card table-card">
+                    <div class="card-header">
+                        <h5>My Cart ( 3 )</h5>
+                        <div class="card-header-right wid-250">
+                            <div class="form-group mb-0 m-r-10">
+                                <label class="floating-label" for="pincode">Enter delivery pincode</label>
+                                <input type="text" class="form-control" id="pincode" placeholder="">
+                                <div class="form-icon">
+                                    <button class="btn btn-outline-primary btn-sm border-0">check</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-borderless mb-0">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="d-inline-block align-middle text-center">
+                                                <img src="assets/images/product/prod-1.jpg" alt="contact-img" title="contact-img" class="rounded" height="90" />
+                                                <br>
+                                                <div class="btn-group btn-group-sm" role="group" aria-label="button groups sm">
+                                                    <button type="button" id="decrease" onclick="decreaseValue('number')" class="btn btn-secondary">-</button>
+                                                    <input class="wid-35 text-center" type="text" type="number" id="number" value="0" />
+                                                    <button type="button" id="increase" onclick="increaseValue('number')" class="btn btn-secondary">+</button>
+                                                </div>
+                                            </div>
+                                            <div class="d-inline-block align-middle m-l-10">
+                                                <a href="#!" class="text-body">
+                                                    <h5 class="mb-1">Amazing Rolling Chair</h5>
+                                                </a>
+                                                <p class="text-muted mb-1">Red, Black</p>
+                                                <p class="text-muted mb-1">Seller: DZYN Furnitures</p>
+                                                <h4>$139.58 <del class="text-muted font-weight-normal h5"> <small>$322.53</small></del> <small class="text-success h5">86% off</small></h4>
+                                                <a href="#!" class="text-muted text-h-primary mb-1">Save for later</a>
+                                                <a href="#!" class="text-muted text-h-danger m-l-10 mb-1">Remove</a>
+                                            </div>
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="text-left d-inline-block">
+                                                <h6 class="my-2">Delivery by Sat Aug 17 | <span class="">$50</span></h6>
+                                                <small class="text-muted">10 Days Replacement Policy</small>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-top">
+                                        <td>
+                                            <div class="d-inline-block align-middle text-center">
+                                                <img src="assets/images/product/prod-2.jpg" alt="contact-img" title="contact-img" class="rounded" height="90" />
+                                                <br>
+                                                <div class="btn-group btn-group-sm" role="group" aria-label="button groups sm">
+                                                    <button type="button" id="decrease1" onclick="decreaseValue('number1')" class="btn btn-secondary">-</button>
+                                                    <input class="wid-35 text-center" type="text" type="number" id="number1" value="0" />
+                                                    <button type="button" id="increase1" onclick="increaseValue('number1')" class="btn btn-secondary">+</button>
+                                                </div>
+                                            </div>
+                                            <div class="d-inline-block align-middle m-l-10">
+                                                <a href="#!" class="text-body">
+                                                    <h5 class="mb-1">Minicap Dining Chair</h5>
+                                                </a>
+                                                <p class="text-muted mb-1">Brown, Black</p>
+                                                <p class="text-muted mb-1">Seller: DZYN Furnitures</p>
+                                                <h4>$139.58 <del class="text-muted font-weight-normal h5"> <small>$322.53</small></del> <small class="text-success h5">86% off</small></h4>
+                                                <a href="#!" class="text-muted text-h-primary mb-1">Save for later</a>
+                                                <a href="#!" class="text-muted text-h-danger m-l-10 mb-1">Remove</a>
+                                            </div>
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="text-left d-inline-block">
+                                                <h6 class="my-2">Delivery by Fri Aug 16 | <span class="text-success">FREE</span></h6>
+                                                <small class="text-muted">10 Days Replacement Policy</small>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-top">
+                                        <td>
+                                            <div class="d-inline-block align-middle text-center">
+                                                <img src="assets/images/product/prod-12.jpg" alt="contact-img" title="contact-img" class="rounded" height="90" />
+                                                <br>
+                                                <div class="btn-group btn-group-sm" role="group" aria-label="button groups sm">
+                                                    <button type="button" id="decrease2" onclick="decreaseValue('number2')" class="btn btn-secondary">-</button>
+                                                    <input class="wid-35 text-center" type="text" type="number" id="number2" value="0" />
+                                                    <button type="button" id="increase2" onclick="increaseValue('number2')" class="btn btn-secondary">+</button>
+                                                </div>
+                                            </div>
+                                            <div class="d-inline-block align-middle m-l-10">
+                                                <a href="#!" class="text-body">
+                                                    <h5 class="mb-1">Chamiu lipstick</h5>
+                                                </a>
+                                                <p class="text-muted mb-1">Brown, red</p>
+                                                <p class="text-muted mb-1">Seller: DZYN Butic</p>
+                                                <h4>$23.45 <del class="text-muted font-weight-normal h5"> <small>$50.45</small></del> <small class="text-success h5">86% off</small></h4>
+                                                <a href="#!" class="text-muted text-h-primary mb-1">Save for later</a>
+                                                <a href="#!" class="text-muted text-h-danger m-l-10 mb-1">Remove</a>
+                                            </div>
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="text-left d-inline-block">
+                                                <h6 class="my-2">Delivery by Fri Aug 16 | <span class="">$50</span></h6>
+                                                <small class="text-muted">10 Days Replacement Policy</small>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="text-right p-r-20">
+                            <button class="btn btn-warning">Place Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Price Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="mb-2">Price (3 items) <span class="float-right">$2800</span></h6>
+                        <h6 class="mb-2">Delivery Charges <span class="float-right">$100</span></h6>
+                        <h6 class="mb-2">TAX / VAT <span class="float-right">$0</span></h6>
+                        <hr>
+                        <h6 class="mb-0">Payable Amount <span class="float-right">$2900</span></h6>
+                    </div>
+                    <div class="card-footer py-3">
+                        <h6 class="mb-0 text-success">Your Total Savings on this order $550</h6>
+                    </div>
+                </div>
+                <div class="media">
+                    <i class="fas fa-shield-alt h3 m-r-10 text-muted"></i>
+                    <div class="media-body">
+                        <h6 class="mt-0 text-muted"> Safe and Secure Payments.Easy returns.100% Authentic products.</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</div>
+
+<!-- [ Main Content ] end -->
+@@include('./layouts/footer.html')
+<script src="assets/js/plugins/jquery.dataTables.min.js"></script>
+<script src="assets/js/plugins/dataTables.bootstrap4.min.js"></script>
+<!-- Apex Chart -->
+<script src="assets/js/plugins/apexcharts.min.js"></script>
+<script>
+    // quentity start
+    function increaseValue(temp) {
+        var value = parseInt(document.getElementById(temp).value, 10);
+        value = isNaN(value) ? 0 : value;
+        value++;
+        document.getElementById(temp).value = value;
+    }
+
+    function decreaseValue(temp) {
+        var value = parseInt(document.getElementById(temp).value, 10);
+        value = isNaN(value) ? 0 : value;
+        value < 1 ? value = 1 : '';
+        value--;
+        document.getElementById(temp).value = value;
+    }
+    // quentity end
+</script>
+@@include('./layouts/footer-bottom-link.html')
+</body>
+
+</html>

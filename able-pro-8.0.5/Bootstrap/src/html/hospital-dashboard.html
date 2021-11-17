@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('./layouts/head.html')
+    <link rel="stylesheet" href="assets/css/plugins/dataTables.bootstrap4.min.css">
+    @@include('./layouts/head-bottom-link.html')
+</head>
+@@include('./layouts/main.html')
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Hospital Dashboard</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Hospital</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Dashboard</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- customar project  start -->
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-auto">
+                                <i class="fas fa-user-md f-36 text-c-purple"></i>
+                            </div>
+                            <div class="col-auto">
+                                <h6 class="text-muted m-b-10">Doctor</h6>
+                                <h2 class="m-b-0">35</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-auto">
+                                <i class="fas fa-user-injured f-36 text-c-red"></i>
+                            </div>
+                            <div class="col-auto">
+                                <h6 class="text-muted m-b-10">Patient</h6>
+                                <h2 class="m-b-0">368</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-auto">
+                                <i class="fas fa-user-nurse f-36 text-c-green"></i>
+                            </div>
+                            <div class="col-auto">
+                                <h6 class="text-muted m-b-10">Nurse</h6>
+                                <h2 class="m-b-0">79</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-auto">
+                                <i class="fas fa-prescription-bottle-alt f-36 text-c-blue"></i>
+                            </div>
+                            <div class="col-auto">
+                                <h6 class="text-muted m-b-10">Pharmacist</h6>
+                                <h2 class="m-b-0">10</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-auto">
+                                <i class="fas fa-flask f-36 text-c-yellow"></i>
+                            </div>
+                            <div class="col-auto">
+                                <h6 class="text-muted m-b-10">Laboratories</h6>
+                                <h2 class="m-b-0">35</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-auto">
+                                <i class="fas fa-user-tie f-36 text-c-blue"></i>
+                            </div>
+                            <div class="col-auto">
+                                <h6 class="text-muted m-b-10">Accountant</h6>
+                                <h2 class="m-b-0">368</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-auto">
+                                <i class="fas fa-file-invoice-dollar f-36 text-c-red"></i>
+                            </div>
+                            <div class="col-auto">
+                                <h6 class="text-muted m-b-10">Payment</h6>
+                                <h2 class="m-b-0">79</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-auto">
+                                <i class="fas fa-pills f-36 text-c-purple"></i>
+                            </div>
+                            <div class="col-auto">
+                                <h6 class="text-muted m-b-10">Medicine</h6>
+                                <h2 class="m-b-0">10</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- customar project  end -->
+            <!-- subscribe start -->
+            <div class="col-md-12 col-lg-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-procedures text-c-blue d-block f-40"></i>
+                        <h4 class="m-t-20 m-b-20"><span class="text-c-blue">8.62k</span> Operation</h4>
+                        <button class="btn btn-primary btn-sm btn-round" data-toggle="modal" data-title="Operation" data-target="#modal-report">View Report</button>
+                    </div>
+                    <div id="operation-chart"></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-skull-crossbones text-c-green d-block f-40"></i>
+                        <h4 class="m-t-20 m-b-20"><span class="text-c-green">+40</span> Death</h4>
+                        <button class="btn btn-success btn-sm btn-round" data-toggle="modal" data-title="Death" data-target="#modal-report">View Report</button>
+                    </div>
+                    <div id="death-chart"></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-baby text-c-red d-block f-40"></i>
+                        <h4 class="m-t-20 m-b-20"><span class="text-c-red">+40</span> Birth</h4>
+                        <button class="btn btn-danger btn-sm btn-round" data-toggle="modal" data-title="Birth" data-target="#modal-report">View Report</button>
+                    </div>
+                    <div id="birth-chart"></div>
+                </div>
+            </div>
+            <!-- subscribe end -->
+
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</div>
+<div class="modal fade" id="modal-report" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table id="report-table" class="table table-bordered table-striped mb-0">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Sex</th>
+                                <th>Birth Date</th>
+                                <th>Age</th>
+                                <th>Blood Group</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-1.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Tanvir Hasan</td>
+                                <td>patient@example.com</td>
+                                <td>9876543</td>
+                                <td>female</td>
+                                <td>13/09/1994</td>
+                                <td>54</td>
+                                <td>o+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-2.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Joseph William</td>
+                                <td>Joseph@example.com</td>
+                                <td>1234567</td>
+                                <td>male</td>
+                                <td>09/10/1990</td>
+                                <td>27</td>
+                                <td>B+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-3.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Tanvir Hasan</td>
+                                <td>patient@example.com</td>
+                                <td>9876543</td>
+                                <td>female</td>
+                                <td>13/09/1994</td>
+                                <td>54</td>
+                                <td>o+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-4.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Joseph William</td>
+                                <td>Joseph@example.com</td>
+                                <td>1234567</td>
+                                <td>male</td>
+                                <td>09/10/1990</td>
+                                <td>27</td>
+                                <td>B+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-1.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Tanvir Hasan</td>
+                                <td>patient@example.com</td>
+                                <td>9876543</td>
+                                <td>female</td>
+                                <td>13/09/1994</td>
+                                <td>54</td>
+                                <td>o+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-2.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Joseph William</td>
+                                <td>Joseph@example.com</td>
+                                <td>1234567</td>
+                                <td>male</td>
+                                <td>09/10/1990</td>
+                                <td>27</td>
+                                <td>B+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-3.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Tanvir Hasan</td>
+                                <td>patient@example.com</td>
+                                <td>9876543</td>
+                                <td>female</td>
+                                <td>13/09/1994</td>
+                                <td>54</td>
+                                <td>o+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-4.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Joseph William</td>
+                                <td>Joseph@example.com</td>
+                                <td>1234567</td>
+                                <td>male</td>
+                                <td>09/10/1990</td>
+                                <td>27</td>
+                                <td>B+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-1.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Tanvir Hasan</td>
+                                <td>patient@example.com</td>
+                                <td>9876543</td>
+                                <td>female</td>
+                                <td>13/09/1994</td>
+                                <td>54</td>
+                                <td>o+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-2.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Joseph William</td>
+                                <td>Joseph@example.com</td>
+                                <td>1234567</td>
+                                <td>male</td>
+                                <td>09/10/1990</td>
+                                <td>27</td>
+                                <td>B+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-3.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Tanvir Hasan</td>
+                                <td>patient@example.com</td>
+                                <td>9876543</td>
+                                <td>female</td>
+                                <td>13/09/1994</td>
+                                <td>54</td>
+                                <td>o+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-4.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Joseph William</td>
+                                <td>Joseph@example.com</td>
+                                <td>1234567</td>
+                                <td>male</td>
+                                <td>09/10/1990</td>
+                                <td>27</td>
+                                <td>B+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+@@include('./layouts/footer.html')
+<script src="assets/js/plugins/jquery.dataTables.min.js"></script>
+<script src="assets/js/plugins/dataTables.bootstrap4.min.js"></script>
+<!-- Apex Chart -->
+<script src="assets/js/plugins/apexcharts.min.js"></script>
+<script>
+    // report model start
+    $('#modal-report').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var recipient = button.data('title')
+        var modal = $(this)
+        modal.find('.modal-title').text('Report of ' + recipient + ' on current month')
+    })
+    // report model end
+    // DataTable start
+    $('#report-table').DataTable();
+    // DataTable end
+    // [ operation-processed ] start
+    $(function() {
+        var options = {
+            chart: {
+                type: 'area',
+                height: 50,
+                sparkline: {
+                    enabled: true
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            colors: ["#4680ff"],
+            fill: {
+                type: 'solid',
+                opacity: 0.3,
+            },
+            markers: {
+                size: 3,
+                opacity: 0.9,
+                colors: "#fff",
+                strokeColor: "#4680ff",
+                strokeWidth: 2,
+                hover: {
+                    size: 7,
+                }
+            },
+            stroke: {
+                curve: 'straight',
+                width: 3,
+            },
+            series: [{
+                name: 'series1',
+                data: [25, 66, 41, 89, 63, 25, 44, 12, 36, 9, 54, 25, 66, 41, 89, 63, 54, 25, 66, 41, 89]
+            }],
+            tooltip: {
+                fixed: {
+                    enabled: false
+                },
+                x: {
+                    show: false
+                },
+                y: {
+                    title: {
+                        formatter: function(seriesName) {
+                            return 'Operation '
+                        }
+                    }
+                },
+                marker: {
+                    show: false
+                }
+            }
+        };
+        var chart = new ApexCharts(document.querySelector("#operation-chart"), options);
+        chart.render();
+    });
+    // [ operation-processed ] end
+    // [ death-processed ] start
+    $(function() {
+        var options = {
+            chart: {
+                type: 'area',
+                height: 50,
+                sparkline: {
+                    enabled: true
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            colors: ["#9ccc65"],
+            fill: {
+                type: 'solid',
+                opacity: 0.3,
+            },
+            markers: {
+                size: 3,
+                opacity: 0.9,
+                colors: "#fff",
+                strokeColor: "#9ccc65",
+                strokeWidth: 2,
+                hover: {
+                    size: 7,
+                }
+            },
+            stroke: {
+                curve: 'straight',
+                width: 3,
+            },
+            series: [{
+                name: 'series1',
+                data: [9, 54, 25, 66, 41, 89, 63, 54, 25, 66, 41, 89, 63, 25, 44, 12, 36, 25, 66, 41, 89]
+            }],
+            tooltip: {
+                fixed: {
+                    enabled: false
+                },
+                x: {
+                    show: false
+                },
+                y: {
+                    title: {
+                        formatter: function(seriesName) {
+                            return 'Death '
+                        }
+                    }
+                },
+                marker: {
+                    show: false
+                }
+            }
+        };
+        var chart = new ApexCharts(document.querySelector("#death-chart"), options);
+        chart.render();
+    });
+    // [ death-processed ] end
+    // [ Birth-processed ] start
+    $(function() {
+        var options = {
+            chart: {
+                type: 'area',
+                height: 50,
+                sparkline: {
+                    enabled: true
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            colors: ["#ff5252"],
+            fill: {
+                type: 'solid',
+                opacity: 0.3,
+            },
+            markers: {
+                size: 3,
+                opacity: 0.9,
+                colors: "#fff",
+                strokeColor: "#ff5252",
+                strokeWidth: 2,
+                hover: {
+                    size: 7,
+                }
+            },
+            stroke: {
+                curve: 'straight',
+                width: 3,
+            },
+            series: [{
+                name: 'series1',
+                data: [25, 66, 41, 89, 63, 25, 44, 12, 36, 9, 54, 25, 66, 41, 89, 63, 54, 25, 66, 41, 89]
+            }],
+            tooltip: {
+                fixed: {
+                    enabled: false
+                },
+                x: {
+                    show: false
+                },
+                y: {
+                    title: {
+                        formatter: function(seriesName) {
+                            return 'Birth '
+                        }
+                    }
+                },
+                marker: {
+                    show: false
+                }
+            }
+        };
+        var chart = new ApexCharts(document.querySelector("#birth-chart"), options);
+        chart.render();
+    });
+    // [ Birth-processed ] end
+</script>
+@@include('./layouts/footer-bottom-link.html')
+</body>
+
+</html>

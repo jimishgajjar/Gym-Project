@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+    <html lang="en">
+
+    <head>
+        @@include('./layouts/head.html')
+        <link rel="stylesheet" href="assets/css/plugins/dataTables.bootstrap4.min.css">
+        @@include('./layouts/head-bottom-link.html')
+    </head>
+    @@include('./layouts/main.html')
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Trading</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#!">Crypto</a></li>
+                                <li class="breadcrumb-item"><a href="#!">Trading</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <div class="col-xl-3 col-lg-12">
+                    <div class="card task-board-left">
+                        <div class="card-header">
+                            <h5>Market</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="input-group mb-0">
+                                <input type="text" class="form-control add_task_todo" placeholder="Search here..." required="">
+                                <div class="input-group-append">
+                                    <button class="btn waves-effect waves-light btn-primary btn-msg-send" type="button"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item border-top-0">
+                                <div class="float-right">231.65</div>
+                                <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-bitcoin text-c-yellow"></i> Bitcoin </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="float-right">113.05</div>
+                                <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-cloudsmith text-c-green"></i>DASH </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="float-right">341.22</div>
+                                <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-ethereum text-c-red"></i>Litecoin </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="float-right">241.68</div>
+                                <div class="d-flex align-items-center"><i class="f-24 m-r-10 fab fa-asymmetrik text-c-blue"></i>NEO</div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="float-right">231.65</div>
+                                <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-bitcoin text-c-yellow"></i> ANC </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="float-right">113.05</div>
+                                <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-cloudsmith text-c-green"></i>ARK </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="float-right">341.22</div>
+                                <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-ethereum text-c-red"></i>BTA </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="float-right">241.68</div>
+                                <div class="d-flex align-items-center"><i class="f-24 m-r-10 fab fa-asymmetrik text-c-blue"></i>ETH</div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="float-right">113.05</div>
+                                <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-cloudsmith text-c-green"></i>NEO </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="float-right">341.22</div>
+                                <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-ethereum text-c-red"></i>XMR </div>
+                            </li>
+                            <li class="list-group-item border-bottom-0">
+                                <div class="float-right">241.68</div>
+                                <div class="d-flex align-items-center"><i class="f-24 m-r-10 fab fa-asymmetrik text-c-blue"></i>XRP</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-9 col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Trading Chart </h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="trade-cart"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Open Orders </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="report-table" class="table table-striped mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Coin</th>
+                                            <th>Date</th>
+                                            <th>Volume</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-bitcoin text-c-yellow"></i> Bitcoin </div>
+                                            </td>
+                                            <td>
+                                                <div>02/12/2018</div>
+                                            </td>
+                                            <td>
+                                                <div>0.725.00</div>
+                                            </td>
+                                            <td>
+                                                <div class="badge badge-success badge-pill">Completed</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-ethereum text-c-red"></i>Litecoin </div>
+                                            </td>
+                                            <td>7
+                                                <div>05/30/2018</div>
+                                            </td>
+                                            <td>
+                                                <div>0.134.00</div>
+                                            </td>
+                                            <td>
+                                                <div class="badge badge-danger badge-pill">Cancel</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center"><i class="f-24 m-r-10 fab fa-asymmetrik text-c-blue"></i>NEO</div>
+                                            </td>
+                                            <td>
+                                                <div>06/27/2019</div>
+                                            </td>
+                                            <td>
+                                                <div>1.345.00</div>
+                                            </td>
+                                            <td>
+                                                <div class="badge badge-primary badge-pill">Pending</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-cloudsmith text-c-green"></i>DASH </div>
+                                            </td>
+                                            <td>
+                                                <div>12/10/2020</div>
+                                            </td>
+                                            <td>
+                                                <div>0.755.00</div>
+                                            </td>
+                                            <td>
+                                                <div class="badge badge-primary badge-pill">Pending</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-cloudsmith text-c-green"></i>DASH </div>
+                                            </td>
+                                            <td>
+                                                <div>06/02/2021</div>
+                                            </td>
+                                            <td>
+                                                <div>0.124.00</div>
+                                            </td>
+                                            <td>
+                                                <div class="badge badge-success badge-pill">Completed</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-ethereum text-c-red"></i>Litecoin </div>
+                                            </td>
+                                            <td>
+                                                <div>08/11/2022</div>
+                                            </td>
+                                            <td>
+                                                <div>0.123.00</div>
+                                            </td>
+                                            <td>
+                                                <div class="badge badge-success badge-pill">Completed</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Your Trades </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="report-table1" class="table table-striped mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Coin</th>
+                                            <th>Volume</th>
+                                            <th>Receiver</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-ethereum text-c-red"></i>Litecoin </div>
+                                            </td>
+                                            <td>
+                                                <div>02/12/2018</div>
+                                            </td>
+                                            <td>
+                                                <div>0.1235.00</div>
+                                            </td>
+                                            <td>Bank - 1025********347</td>
+                                            <td>
+                                                <div class="badge badge-success badge-pill">Completed</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center"><i class="f-24 m-r-10 fab fa-asymmetrik text-c-blue"></i>NEO</div>
+                                            </td>
+                                            <td>
+                                                <div>07/12/2020</div>
+                                            </td>
+                                            <td>
+                                                <div>0.550</div>
+                                            </td>
+                                            <td>NEO Wallet - #17642</td>
+                                            <td>
+                                                <div class="badge badge-primary badge-pill">Pending</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-bitcoin text-c-yellow"></i> Bitcoin </div>
+                                            </td>
+                                            <td>
+                                                <div>02/10/2017</div>
+                                            </td>
+                                            <td>
+                                                <div>0.4345.00</div>
+                                            </td>
+                                            <td>BTC Wallet - #23562</td>
+                                            <td>
+                                                <div class="badge badge-success badge-pill">Completed</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-cloudsmith text-c-green"></i>DASH </div>
+                                            </td>
+                                            <td>
+                                                <div>07/10/2020</div>
+                                            </td>
+                                            <td>
+                                                <div>1.234.00</div>
+                                            </td>
+                                            <td>Bank - 1550********879</td>
+                                            <td>
+                                                <div class="badge badge-danger badge-pill">Cancel</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+    </div>
+
+    <!-- [ Main Content ] end -->
+    @@include('./layouts/footer.html')
+    <script src="assets/js/plugins/jquery.dataTables.min.js"></script>
+    <script src="assets/js/plugins/dataTables.bootstrap4.min.js"></script>
+    <!-- Apex Chart -->
+    <script src="assets/js/plugins/apexcharts.min.js"></script>
+    <script>
+        // DataTable start
+        $('#report-table').DataTable();
+        $('#report-table1').DataTable();
+        // DataTable end
+        // [ realtime-visit-chart ] start
+        $(function() {
+            var lastDate = 0;
+            var data = [];
+
+            function getDayWiseTimeSeries(baseval, count, yrange) {
+                var i = 0;
+                while (i < count) {
+                    var x = baseval;
+                    var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+
+                    data.push({
+                        x,
+                        y
+                    });
+                    lastDate = baseval
+                    baseval += 86400000;
+                    i++;
+                }
+            }
+            getDayWiseTimeSeries(new Date('11 Feb 2017 GMT').getTime(), 10, {
+                min: 10,
+                max: 90
+            })
+
+            function getNewSeries(baseval, yrange) {
+                var newDate = baseval + 86400000;
+                lastDate = newDate
+                data.push({
+                    x: newDate,
+                    y: Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min
+                })
+            }
+
+            function resetData() {
+                data = data.slice(data.length - 10, data.length);
+            }
+            var options = {
+                chart: {
+                    height: 230,
+                    type: 'area',
+                    animations: {
+                        enabled: true,
+                        easing: 'linear',
+                        dynamicAnimation: {
+                            speed: 2000
+                        }
+                    },
+                    toolbar: {
+                        show: false
+                    },
+                    zoom: {
+                        enabled: false
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    curve: 'smooth'
+                },
+                series: [{
+                    name: 'Bitcoin :',
+                    data: data
+                }],
+                colors: ["#ff5252"],
+                fill: {
+                    type: 'solid',
+                    opacity: 0,
+                },
+                markers: {
+                    size: 0
+                },
+                xaxis: {
+                    type: 'datetime',
+                    range: 777600000,
+                },
+                yaxis: {
+                    max: 100
+                },
+                legend: {
+                    show: false
+                },
+            }
+            var chart = new ApexCharts(
+                document.querySelector("#trade-cart"),
+                options
+            );
+            chart.render();
+            var dataPointsLength = 10;
+            window.setInterval(function() {
+                getNewSeries(lastDate, {
+                    min: 10,
+                    max: 90
+                })
+
+                chart.updateSeries([{
+                    data: data
+                }])
+            }, 2000)
+            window.setInterval(function() {
+                resetData()
+                chart.updateSeries([{
+                    data
+                }], false, true)
+            }, 60000)
+        });
+        // [ realtime-visit-chart ] end
+    </script>
+
+    @@include('./layouts/footer-bottom-link.html')
+    </body>
+
+    </html>

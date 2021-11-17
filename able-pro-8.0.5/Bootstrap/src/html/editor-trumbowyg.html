@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layouts/head.html')
+    @@include('./layouts/head-bottom-link.html')
+    <link rel="stylesheet" href="assets/css/plugins/trumbowyg.min.css">
+</head>
+@@include('./layouts/main.html')
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">trumbowyg editor</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Editor</a></li>
+                            <li class="breadcrumb-item"><a href="#!">trumbowyg editor</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- [ tinymce editor ] start -->
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Trumbowyg editor</h5>
+                    </div>
+                    <div class="card-body">
+                        <textarea id="tinymce-editor">
+                            <p>hello..</p>
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- [ tinymce editor ] end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+@@include('./layouts/footer.html')
+<!-- trumbowyg editor -->
+<script src="assets/js/plugins/trumbowyg.min.js"></script>
+<script type="text/javascript">
+    $(window).on('load', function() {
+        $('#tinymce-editor').trumbowyg({
+            svgPath: 'assets/css/plugins/icons.svg'
+        });
+    });
+</script>
+@@include('./layouts/footer-bottom-link.html')
+</body>
+</html>

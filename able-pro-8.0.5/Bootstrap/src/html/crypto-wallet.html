@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('./layouts/head.html')
+    <link rel="stylesheet" href="assets/css/plugins/dataTables.bootstrap4.min.css">
+    @@include('./layouts/head-bottom-link.html')
+</head>
+@@include('./layouts/main.html')
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Wallet</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Crypto</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Wallet</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- subscribe start -->
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Wallet </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="report-table" class="table table-bordered table-striped mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Cryptocurrency</th>
+                                        <th>Total</th>
+                                        <th>Price</th>
+                                        <th>Total Price</th>
+                                        <th>Transact</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-bitcoin text-c-yellow"></i> Bitcoin </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>100</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>10</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>1000</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-ethereum text-c-red"></i>Litecoin </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>80</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>8</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>640</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"><i class="f-24 m-r-10 fab fa-asymmetrik text-c-blue"></i>NEO</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>75</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>10</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>750</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-cloudsmith text-c-green"></i>DASH </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div> 90</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>10</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>900</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-bitcoin text-c-yellow"></i>ETH </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>750</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>10</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>7500</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class=" transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-ethereum text-c-red"></i> XRP </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>500</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>15</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>7500</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-asymmetrik text-c-blue"></i> BTA </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>700</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>10</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>7000</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-cloudsmith text-c-green"></i> XMR </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>400</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>80</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>32000</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-bitcoin text-c-yellow"></i> ANC </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>650</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>10</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>6500</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-ethereum text-c-red"></i> ARK </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>200</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>200</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>40000</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-asymmetrik text-c-blue"></i> BC </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>000</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>10</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>10000</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-cloudsmith text-c-green"></i> DCR </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>800</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>15</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>12000</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-bitcoin text-c-yellow"></i> ETC </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>900</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>200</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>180000</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-ethereum text-c-red"></i> FRK </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>500</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>40</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>20000</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-asymmetrik text-c-blue"></i> GAME </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>850</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>100</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>85000</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-cloudsmith text-c-green"></i>GNO </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>750</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>100</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>75000</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-bitcoin text-c-yellow"></i> ICN </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>720</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>200</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>144000</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-ethereum text-c-red"></i> ICO </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>300</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>400</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>120000</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-asymmetrik text-c-blue"></i> JBS </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>850</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>100</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>85000</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-cloudsmith text-c-green"></i> KORE </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>630</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>300</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>189000</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-bitcoin text-c-yellow"></i> MCO </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>470</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>200</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>94000</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="d-flex align-items-center"> <i class="f-24 m-r-10 fab fa-ethereum text-c-red"></i> MRC </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>100</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>10</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div>10000</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="transact form-inline">
+                                                <div class="mr-xl-2 mr-1">
+                                                    <a href="#" class="btn btn-success btn-sm"><i class="far fa-arrow-alt-circle-down"></i> Deposit</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-arrow-alt-circle-up"></i> Withdraw</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- subscribe end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</div>
+
+<!-- [ Main Content ] end -->
+@@include('./layouts/footer.html')
+<script src="assets/js/plugins/jquery.dataTables.min.js"></script>
+<script src="assets/js/plugins/dataTables.bootstrap4.min.js"></script>
+<script>
+    // DataTable start
+    $('#report-table').DataTable();
+    // DataTable end
+</script>
+
+@@include('./layouts/footer-bottom-link.html')
+</body>
+
+</html>

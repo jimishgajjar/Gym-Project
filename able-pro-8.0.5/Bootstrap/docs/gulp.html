@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ablepro v8.0 - Bootstrap Documentation</title>
+    <!--[if lt IE 10]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- meta -->
+    <meta name="description" content="Ablepro v8.0 Bootstrap Admin Template Documentation helper file." />
+    <meta name="author" content="Phoenixcoded" />
+    <!-- favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/plugins/prism-coy.css">
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Internal CSS -->
+    <style>
+        .pcoded-navbar .pcoded-inner-navbar>li.active>a,
+        .pcoded-navbar .pcoded-inner-navbar>li>a.active:hover,
+        .pcoded-navbar .pcoded-inner-navbar>li>a.active {
+            background: #4680ff;
+            color: #fff;
+            box-shadow: 0 10px 5px -8px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+
+        .pcoded-navbar .pcoded-inner-navbar>li.active>a,
+        .pcoded-navbar .pcoded-inner-navbar>li>a.active>.pcoded-micon {
+            color: #fff;
+        }
+
+        .pcoded-content {
+            margin-top: 0;
+        }
+
+        .nav-pills .nav-link.active,
+        .nav-pills .show>.nav-link {
+            background: #4680ff;
+            box-shadow: none;
+        }
+
+        pre[class*=language-]>code {
+            border-left: 5px solid #4680ff;
+        }
+
+        .nav-pills {
+            /* padding: 15px 25px; */
+        }
+
+        .nav-pills>li i {
+            display: inline-block;
+            font-size: 15px;
+            padding: 0px 0;
+        }
+
+        #gulp pre[class*=language-].line-numbers.line-numbers code {
+            padding-left: 1.5em;
+        }
+    </style>
+</head>
+
+<nav class="pcoded-navbar menupos-fixed menu-light">
+    <div class="navbar-wrapper">
+        <div class="navbar-content scroll-div">
+            <ul class="nav pcoded-inner-navbar">
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Home page</label>
+                </li>
+                <li class="nav-item"><a href="index.html" class="nav-link"><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Back to home</span></a></li>
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Structure</label>
+                </li>
+                <li class="nav-item"><a href="#gulp" class="nav-link active"><span class="pcoded-micon"><i class="fab fa-gulp"></i></span><span class="pcoded-mtext">Gulp setup</span></a></li>
+                <li class="nav-item"><a href="#task" class="nav-link"><span class="pcoded-micon"><i class="fas fa-tasks"></i></span><span class="pcoded-mtext">Task</span></a></li>
+                <li class="nav-item"><a href="#filestruct" class="nav-link"><span class="pcoded-micon"><i class="fas fa-align-center"></i></span><span class="pcoded-mtext">Gulp Structure</span></a></li>
+                <li class="nav-item pcoded-menu-caption">
+                    <label>layouts</label>
+                </li>
+                <li class="nav-item"><a href="#cont" class="nav-link"><span class="pcoded-micon"><i class="fas fa-code"></i></span><span class="pcoded-mtext">content</span></a></li>
+                <li class="nav-item"><a href="#layout" class="nav-link"><span class="pcoded-micon"><i class="fas fa-desktop"></i></span><span class="pcoded-mtext">Layout</span></a></li>
+                <li class="nav-item"><a href="#customizer" class="nav-link"><span class="pcoded-micon"><i class="feather icon-scissors"></i></span><span class="pcoded-mtext">Theme Customizer</span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<header class="navbar pcoded-header navbar-expand-lg navbar-light headerpos-fixed brand-blue header-blue">
+    <div class="m-header">
+        <a href="index.html">
+            <img class="img-fluid" src="assets/images/logo.png" alt="Ablepro v8.0 Logo" />
+        </a>
+    </div>
+    <a class="mobile-menu" id="mobile-header" href="#!">
+        <i class="feather icon-more-horizontal"></i>
+    </a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            
+        </ul>
+    </div>
+</header>
+<div class="pcoded-main-container" id="home">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <div class="page-header1  breadcumb-sticky">
+                    <div class="page-block">
+                        <div class="row align-items-center">
+                            <div class="col-md-12">
+                                <div class="page-header-title">
+                                    <h4 class="m-b-20">Gulp Documentation</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card" id="gulp">
+                                    <div class="card-header">
+                                        <h5>Gulp (i.e. Optional)</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="alert alert-warning mb-0" role="alert">
+                                            <h4 class="alert-heading"><i class="feather icon-alert-triangle mr-2"></i>Gulp is not mandatory</h4>
+                                            <hr>
+                                            <p class="mb-1">You may skip this section if you don't want Gulp in your project. Please use <code>quickstart/</code> directory in your project.</p>
+                                        </div>
+                                        <p class="mt-3">You can use <a href="https://gulpjs.com/" target="_blank">Gulp</a> for Automate and enhance your project workflow.</p>
+                                        <h6>Don't know about Gulp?</h6>
+                                        <hr class="my-2">
+                                        <p>Gulp is a toolkit for automating painful or time-consuming tasks in your project development workflow, so you can stop messing around and build something easier than ever.</p>
+                                        <ul>
+                                            <li>Auto Minify/Uglify CSS, HTML, JS codes</li>
+                                            <li>Auto Compile SaSS file</li>
+                                            <li>3000+ <a href="https://gulpjs.com/plugins/" target="_blank">Plugins </a></li>
+                                        </ul>
+                                        <h6>Gulp for Ablepro v8.0</h6>
+                                        <hr class="my-2">
+                                        <p class="mb-1">Use <a href="https://gulpjs.com/" target="_blank">Gulp</a> in Ablepro v8.0 is for build different layouts and theme customization with lots of useful tasks like Image Optimization, SaSS compile
+                                            etc...which really useful to build the production ready <code>dist/</code>directory.</p>
+                                        <h6 class="mt-3">How to setup Gulp for Ablepro v8.0?</h6>
+                                        <hr class="my-2">
+                                        <ol class="">
+                                            <li>Make sure that you have already <b class="f-w-600">install <a href="https://nodejs.org/en/" target="_blank">Nodejs</a> and <a href="https://gulpjs.com/" target="_blank">Gulp</a></b> in your
+                                                server/computer</li>
+                                            <li>Open "Nodejs Command prompt" and redirect to your project root directory.</li>
+                                            <li>Enter the command <code>npm install</code> in command prompt.</li>
+                                            <li>After that you need to run below <code>gulp</code> tasks to build production ready <code>dist/</code> directory.</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="card" id="task">
+                                    <div class="card-header">
+                                        <h5>Gulp Commands(task)</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6>Default task</h6>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Gulp Command</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><code>gulp</code></td>
+                                                        <td class="text-wrap">which build template in <code>/dist</code> directory</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <h6>Basic task</h6>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Gulp Command</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><code>gulp sass</code></td>
+                                                        <td class="text-wrap">which compile .scss files from <code>/src/assets/scss</code> directory and place it into a <code>/dist/assets/css</code> directory</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>gulp imgmin</code></td>
+                                                        <td class="text-wrap">which use to optimize images from <code>/src/assets/images</code> directory and place it into a <code>/dist/assets/images</code> directory</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>gulp build</code></td>
+                                                        <td class="text-wrap">which use to copy files from <code>/src/assets</code> directory and place it into a <code>/dist/assets</code> directory</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>gulp build-html</code></td>
+                                                        <td class="text-wrap">which use compile your html file from <code>/src/html</code> directory and place it into a <code>/dist</code> directory</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>gulp build-js</code></td>
+                                                        <td class="text-wrap">which use to build <code>.js</code> files from <code>/src/assets/js</code> directory and place it into a <code>/dist/assets/js</code> directory</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>gulp watch</code></td>
+                                                        <td class="text-wrap">It will automatically start your build process if you make any changes in html,scss,js file from <code>/src</code> directory and put new changes to <code>/dist</code>
+                                                            directory</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>gulp watch-minify</code></td>
+                                                        <td class="text-wrap">It will automatically start your build process if you make any changes in html,scss,js file from <code>/src</code> directory and put new changes to <code>/dist</code>
+                                                            directory with <b class="f-w-500">minify assets</b></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <h6>Minify task</h6>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Gulp Command</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><code>mincss</code></td>
+                                                        <td class="text-wrap">which minify all css in <code>/dist/assets/css</code> directory</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>uglify</code></td>
+                                                        <td class="text-wrap">which minify all javascript in <code>/dist/assets/js</code> directory</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>htmlmin</code></td>
+                                                        <td class="text-wrap">which minify all html in <code>/dist</code> directory</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card" id="filestruct">
+                                    <div class="card-header">
+                                        <h5>Gulp structure</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <pre>
+<code class="language-markup">
+    Elite-able/
+    ├── src/
+    │   ├── assets/
+    │   ├── html/
+    │   ├── doc/
+    ├── .babelrc
+    ├── gulpfile.js
+    ├── package.json
+    ├── package-lock.json
+
+</code>
+                                        </pre>
+                                    </div>
+                                </div>
+
+                                <div class="card" id="cont">
+                                    <div class="card-header">
+                                        <h5>Content</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="mb-0">Change header ( topbar ) content</h6>
+                                        <p>to change header content just open <code>src/html/layouts/main.html</code> and change the file as you want.</p>
+                                        <h6 class="mt-4 mb-0">Change navbar ( menu ) list</h6>
+                                        <p>to change header content just open <code>src/html/layouts/menu-list.html</code> and change the file as you want.</p>
+                                    </div>
+                                </div>
+                                <div class="card" id="layout">
+                                    <div class="card-header">
+                                        <h5>Tons of layout using gulp</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="mt-2">Pre-build layout( build ) using gulp</h3>
+                                        <div class="alert alert-danger mb-0" role="alert">
+                                            <h4 class="alert-heading"><i class="feather icon-alert-triangle mr-2"></i>Take care when add class</h4>
+                                            <hr>
+                                            <p class="mb-1">be careful while adding a class in header, menu & body using prebuild layouts</p>
+                                            <p class="mb-0">the class will be separated by the <b class="f-w-500">space(" ")</b> so you <b class="f-w-500">don't need to add commas(",") or dash("-")</b> to separated two class</p>
+                                        </div>
+                                        <h5 class="mt-4">Steps to use pre-build layouts</h5>
+                                        <ol class="mt-2">
+                                            <li>Open <code>/gulpfile.js</code> file at root directory of theme package.</li>
+                                            <li>Find the code <code>const layout = {</code> in <code>/gulpfile.js</code> file.</li>
+                                            <li>Replace the whole <code>const layout = {</code> block with respected given code which you can find given below for different layout.</li>
+                                            <li>For other supported customization option you need to refer the respected layout pages in the theme package.</li>
+                                        </ol>
+                                        <h5 class="mt-4">Variable description</h5>
+                                        <hr class="mt-2 mb-3">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Variable</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><code>layouts</code></td>
+                                                        <td class="text-wrap">This variable store value of layout types<br>eg.<code>vertical</code>,<code>horizontal</code></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>sublayouts</code></td>
+                                                        <td class="text-wrap">This variable store prebuild layout types<br>
+                                                            <h6 class="mb-0 mt-2">Horizontal</h6>
+                                                            eg.<code>v2</code>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>darktheme</code></td>
+                                                        <td class="text-wrap">This variable store <code>true</code> / <code>false</code> value for making <b class="f-w-600">dark theme</b><br></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>rtltheme</code></td>
+                                                        <td class="text-wrap">
+                                                            This variable store <code>true</code> / <code>false</code> value for making <b class="f-w-600">RTL theme</b><br>
+                                                            <div class="alert alert-warning mb-0 mt-3" role="alert">
+                                                                <h4 class="alert-heading d-inline-block mb-0">
+                                                                    <i class="feather icon-info"></i>
+                                                                    <small>If you are using <b class="f-w-500">Horizontal layout</b> with <b class="f-w-500">RTL theme</b> then you need to add <code>dir="rtl"</code> in <code>html</code> tag</small>
+                                                                </h4>
+                                                                <hr>
+                                                                eg.<code>&lt;html dir="rtl"&gt;</code>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>bodyclass</code></td>
+                                                        <td class="text-wrap">This variable store value which add in body class<br>
+                                                            <h6 class="mb-0 mt-2">Box layout</h6>
+                                                            eg. <code>container </code>, <code> box-layout</code> add both class
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>menuclass</code></td>
+                                                        <td class="text-wrap">This variable store value which add in right navbar class<br>
+                                                            eg. <code> menupos-fixed</code> . . .
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>headerclass</code></td>
+                                                        <td class="text-wrap">This variable store value which add in right header class<br>
+                                                            eg. <code> headerpos-fixed</code> . . .
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5>Gulp Layout customizer</h5>
+                                        <ul class="nav nav-pills mb-0" id="pills-glp-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="pills-glp-vertical-tab" data-toggle="pill" href="#pills-glp-vertical" role="tab" aria-controls="pills-glp-vertical" aria-selected="true">Vertical</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-glp-horizontal-tab" data-toggle="pill" href="#pills-glp-horizontal" role="tab" aria-controls="pills-glp-horizontal" aria-selected="false">Horizontal</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-glp-box-tab" data-toggle="pill" href="#pills-glp-box" role="tab">Box layout</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-glp-rtl-tab" data-toggle="pill" href="#pills-glp-rtl" role="tab">Rtl layout</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-glp-light-tab" data-toggle="pill" href="#pills-glp-light" role="tab">Dark navbar</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-glp-dark-tab" data-toggle="pill" href="#pills-glp-dark" role="tab">Dark layout</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-glp-hrtl-tab" data-toggle="pill" href="#pills-glp-hrtl" role="tab">Horizontal Rtl</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content mb-0 pt-2" id="pills-glp-tabContent">
+                                            <div class="tab-pane show active" id="pills-glp-vertical" role="tabpanel" aria-labelledby="pills-glp-vertical-tab">
+                                                <p>Set <code>vertical</code> value in <code>layouts</code> variable</p>
+                                                <pre class="line-numbers language-js">
+<code class="language-js">
+    //=============================================================
+    //    this is default layout of theme which already setup
+    //=============================================================
+    const layout = {
+        'layouts': 'vertical',
+        'sublayouts': '',
+        'darktheme': 'false',
+        'rtltheme': 'false',
+        'bodyclass': '',
+        'menuclass': 'menupos-fixed menu-light ',
+        'headerclass': 'headerpos-fixed header-blue',
+    }
+
+</code>
+                                            </pre>
+                                            </div>
+                                            <div class="tab-pane" id="pills-glp-horizontal" role="tabpanel" aria-labelledby="pills-glp-horizontal-tab">
+                                                <p>Set <code>horizontal</code> value in <code>layouts</code> variable</p>
+                                                <p>remove <code>menupos-fixed</code> from <code>menuclass</code> variable</p>
+                                                <p>remove <code>headerpos-fixed</code> from <code>headerclass</code> variable</p>
+                                                <pre class="line-numbers language-js">
+<code class="language-js">
+    const layout = {
+        'layouts': 'horizontal',
+        'sublayouts': '',
+        'darktheme': 'false',
+        'rtltheme': 'false',
+        'bodyclass': '',
+        'menuclass': 'menu-light ',
+        'headerclass': 'header-blue',
+    }
+
+</code>
+                                            </pre>
+                                            </div>
+                                            <div class="tab-pane" id="pills-glp-box" role="tabpanel" aria-labelledby="pills-glp-box-tab">
+                                                <p>Set <code>container box-layout</code> value in <code>bodyclass</code> variable</p>
+                                                <p><span class="text-c-red">*</span> Make sure that you have set <code>vertical</code> value in <code>layouts</code> variable</p>
+                                                <pre class="line-numbers language-js">
+<code class="language-js">
+    const layout = {
+        'layouts': 'vertical',
+        'sublayouts': '',
+        'darktheme': 'false',
+        'rtltheme': 'false',
+        'bodyclass': 'container box-layout',
+        'menuclass': 'menupos-fixed menu-light navbar-collapsed',
+        'headerclass': 'headerpos-fixed header-blue',
+    }
+
+</code>
+                                            </pre>
+                                            </div>
+                                            <div class="tab-pane" id="pills-glp-rtl" role="tabpanel" aria-labelledby="pills-glp-rtl-tab">
+                                                <p>Set <code>true</code> value in <code>rtltheme</code> variable</p>
+                                                <p class="mb-1">ass <code>dir="rtl"</code> attribute in <code>&lt;html&gt;</code> in page</p>
+                                                eg.<code>&lt;html dir="rtl"&gt;</code>
+                                                <pre class="line-numbers language-js">
+<code class="language-js">
+    const layout = {
+        'layouts': 'vertical',
+        'sublayouts': '',
+        'darktheme': 'false',
+        'rtltheme': 'true',
+        'bodyclass': '',
+        'menuclass': 'menupos-fixed menu-light',
+        'headerclass': 'headerpos-fixed',
+    }
+
+</code>
+                                            </pre>
+                                            </div>
+                                            <div class="tab-pane" id="pills-glp-light" role="tabpanel" aria-labelledby="pills-glp-light-tab">
+                                                <p>remove <code>menu-light</code> value in <code>menuclass</code> variable</p>
+                                                <pre class="line-numbers language-js">
+<code class="language-js">
+    const layout = {
+        'layouts': 'vertical',
+        'sublayouts': '',
+        'darktheme': 'false',
+        'rtltheme': 'false',
+        'bodyclass': '',
+        'menuclass': 'menupos-fixed ',
+        'headerclass': 'headerpos-fixed header-blue',
+    }
+
+</code>
+                                            </pre>
+                                            </div>
+                                            <div class="tab-pane" id="pills-glp-dark" role="tabpanel" aria-labelledby="pills-glp-dark-tab">
+                                                <p>Set <code>true</code> value in <code>darktheme</code> variable</p>
+                                                <pre class="line-numbers language-js">
+<code class="language-js">
+    const layout = {
+        'layouts': 'vertical',
+        'sublayouts': '',
+        'darktheme': 'true',
+        'rtltheme': 'false',
+        'bodyclass': '',
+        'menuclass': 'menupos-fixed ',
+        'headerclass': 'headerpos-fixed header-blue',
+    }
+
+</code>
+                                                </pre>
+                                            </div>
+                                            <div class="tab-pane" id="pills-glp-hrtl" role="tabpanel" aria-labelledby="pills-glp-hrtl-tab">
+                                                <p>Set <code>true</code> value in <code>rtltheme</code> variable</p>
+                                                <p class="mb-1">ass <code>dir="rtl"</code> attribute in <code>&lt;html&gt;</code> in page</p>
+                                                eg.<code>&lt;html dir="rtl"&gt;</code>
+                                                <pre class="line-numbers language-js">
+<code class="language-js">
+    const layout = {
+        'layouts': 'horizontal',
+        'sublayouts': '',
+        'darktheme': 'false',
+        'rtltheme': 'true',
+        'bodyclass': '',
+        'menuclass': 'menu-light',
+        'headerclass': 'header-blue',
+    }
+
+</code>
+                                                </pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card" id="customizer">
+                                    <div class="card-header">
+                                        <h5>Background color</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="nav nav-pills" id="hcol-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="hcol-default-tab" data-toggle="pill" href="#hcol-default" role="tab" aria-controls="hcol-default" aria-selected="true">Blue</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-blue" id="hcol-primary-tab" data-toggle="pill" href="#hcol-primary" role="tab" aria-controls="hcol-primary" aria-selected="false">Red</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-red" id="hcol-danger-tab" data-toggle="pill" href="#hcol-danger" role="tab" aria-controls="hcol-danger" aria-selected="false">Purple</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-purple" id="hcol-success-tab" data-toggle="pill" href="#hcol-success" role="tab" aria-controls="hcol-success" aria-selected="false">info</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-info" id="hcol-warning-tab" data-toggle="pill" href="#hcol-warning" role="tab" aria-controls="hcol-warning" aria-selected="false">Green</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-dark" id="hcol-info-tab" data-toggle="pill" href="#hcol-info" role="tab" aria-controls="hcol-info" aria-selected="false">Dark</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content pt-2" id="hcol-tabContent">
+                                            <div class="tab-pane show active" id="hcol-default" role="tabpanel" aria-labelledby="hcol-default-tab">
+                                                <p>Set <code>background-blue</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-blue',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color flat">
+                                                            <a href="#!" data-value="background-blue"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hcol-primary" role="tabpanel" aria-labelledby="hcol-primary-tab">
+                                                <p>Set <code>background-red</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-red',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color flat">
+                                                            <a href="#!" data-value="background-red"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hcol-danger" role="tabpanel" aria-labelledby="hcol-danger-tab">
+                                                <p>Set <code>background-purple</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-purple',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color flat">
+                                                            <a href="#!" data-value="background-purple"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hcol-success" role="tabpanel" aria-labelledby="hcol-success-tab">
+                                                <p>Set <code>background-info</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-info',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color flat">
+                                                            <a href="#!" data-value="background-info"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hcol-warning" role="tabpanel" aria-labelledby="hcol-warning-tab">
+                                                <p>Set <code>background-green</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-green',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color flat">
+                                                            <a href="#!" data-value="background-green"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hcol-info" role="tabpanel" aria-labelledby="hcol-info-tab">
+                                                <p>Set <code>background-dark</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-dark',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color flat">
+                                                            <a href="#!" data-value="background-dark"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Background gradient</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="nav nav-pills" id="hgrdcol-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="hgrdcol-default-tab" data-toggle="pill" href="#hgrdcol-default" role="tab" aria-controls="hgrdcol-default" aria-selected="true">Blue</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-blue" id="hgrdcol-primary-tab" data-toggle="pill" href="#hgrdcol-primary" role="tab" aria-controls="hgrdcol-primary" aria-selected="false">Red</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-red" id="hgrdcol-danger-tab" data-toggle="pill" href="#hgrdcol-danger" role="tab" aria-controls="hgrdcol-danger" aria-selected="false">Purple</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-purple" id="hgrdcol-success-tab" data-toggle="pill" href="#hgrdcol-success" role="tab" aria-controls="hgrdcol-success" aria-selected="false">info</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-info" id="hgrdcol-warning-tab" data-toggle="pill" href="#hgrdcol-warning" role="tab" aria-controls="hgrdcol-warning" aria-selected="false">Green</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-dark" id="hgrdcol-info-tab" data-toggle="pill" href="#hgrdcol-info" role="tab" aria-controls="hgrdcol-info" aria-selected="false">Dark</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content pt-2" id="hgrdcol-tabContent">
+                                            <div class="tab-pane show active" id="hgrdcol-default" role="tabpanel" aria-labelledby="hgrdcol-default-tab">
+                                                <p>Set <code>background-grd-blue</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-grd-blue',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color gradient">
+                                                            <a href="#!" data-value="background-grd-blue"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hgrdcol-primary" role="tabpanel" aria-labelledby="hgrdcol-primary-tab">
+                                                <p>Set <code>background-grd-red</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-grd-red',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color gradient">
+                                                            <a href="#!" data-value="background-grd-red"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hgrdcol-danger" role="tabpanel" aria-labelledby="hgrdcol-danger-tab">
+                                                <p>Set <code>background-grd-purple</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-grd-purple',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color gradient">
+                                                            <a href="#!" data-value="background-grd-purple"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hgrdcol-success" role="tabpanel" aria-labelledby="hgrdcol-success-tab">
+                                                <p>Set <code>background-grd-info</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-grd-info',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color gradient">
+                                                            <a href="#!" data-value="background-grd-info"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hgrdcol-warning" role="tabpanel" aria-labelledby="hgrdcol-warning-tab">
+                                                <p>Set <code>background-grd-green</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-grd-green',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color gradient">
+                                                            <a href="#!" data-value="background-grd-green"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="hgrdcol-info" role="tabpanel" aria-labelledby="hgrdcol-info-tab">
+                                                <p>Set <code>background-grd-dark</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-grd-dark',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color gradient">
+                                                            <a href="#!" data-value="background-grd-dark"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Background image</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="nav nav-pills" id="mbrand-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="mbrand-default-tab" data-toggle="pill" href="#mbrand-default" role="tab" aria-controls="mbrand-default" aria-selected="true">Default</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-blue" id="mbrand-primary-tab" data-toggle="pill" href="#mbrand-primary" role="tab" aria-controls="mbrand-primary" aria-selected="false">blue</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-red" id="mbrand-danger-tab" data-toggle="pill" href="#mbrand-danger" role="tab" aria-controls="mbrand-danger" aria-selected="false">red</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-purple" id="mbrand-success-tab" data-toggle="pill" href="#mbrand-success" role="tab" aria-controls="mbrand-success" aria-selected="false">purple</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-info" id="mbrand-warning-tab" data-toggle="pill" href="#mbrand-warning" role="tab" aria-controls="mbrand-warning" aria-selected="false">info</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link h-dark" id="mbrand-info-tab" data-toggle="pill" href="#mbrand-info" role="tab" aria-controls="mbrand-info" aria-selected="false">dark</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content pt-2" id="mbrand-tabContent">
+                                            <div class="tab-pane show active" id="mbrand-default" role="tabpanel" aria-labelledby="mbrand-default-tab">
+                                                <p>Set <code>background-img-1</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-img-1',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color image">
+                                                            <a href="#!" data-value="background-img-1"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="mbrand-primary" role="tabpanel" aria-labelledby="mbrand-primary-tab">
+                                                <p>Set <code>background-img-2</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-img-2',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color image">
+                                                            <a href="#!" data-value="background-img-2"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="mbrand-danger" role="tabpanel" aria-labelledby="mbrand-danger-tab">
+                                                <p>Set <code>background-img-3</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-img-3',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color image">
+                                                            <a href="#!" data-value="background-img-3"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="mbrand-success" role="tabpanel" aria-labelledby="mbrand-success-tab">
+                                                <p>Set <code>background-img-4</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-img-4',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color image">
+                                                            <a href="#!" data-value="background-img-4"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="mbrand-warning" role="tabpanel" aria-labelledby="mbrand-warning-tab">
+                                                <p>Set <code>background-img-5</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-img-5',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color image">
+                                                            <a href="#!" data-value="background-img-5"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="mbrand-info" role="tabpanel" aria-labelledby="mbrand-info-tab">
+                                                <p>Set <code>background-img-6</code> value in <code>bodyclass</code> variable</p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-9">
+                                                        <pre>
+<code class="language-markup">
+    const layout = {
+        ....
+        'bodyclass': 'background-img-6',
+        ....
+    }
+
+</code>
+                                                            </pre>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="doc-img background-color image">
+                                                            <a href="#!" data-value="background-img-6"><span></span><span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- required JS -->
+<script src="assets/js/vendor-all.min.js"></script>
+<script src="assets/js/plugins/bootstrap.min.js"></script>
+<script src="assets/js/ripple.js"></script>
+<script src="assets/js/pcoded.min.js"></script>
+<script src="assets/js/plugins/prism.js"></script>
+
+<!-- custom JS -->
+<script type="text/javascript">
+    $('body').scrollspy({
+        target: ".pcoded-inner-navbar"
+    });
+    $('body').scroll(function() {
+        $('.nav-item').removeClass('pcoded-trigger');
+    });
+    $(".pcoded-inner-navbar a").on('click', function(event) {
+        if (this.hash !== "") {
+            event.preventDefault();
+            var hash = this.hash;
+            $('html, body').animate({
+                scrollTop: ($(hash).offset().top)
+            }, 1500, function() {
+                window.location.hash = hash;
+            });
+        }
+    });
+</script>
+
+</body>
+
+</html>

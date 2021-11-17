@@ -1,0 +1,2039 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ablepro v8.0 bootstrap admin template by Phoenixcoded</title>
+    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 10]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Gradient Able Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
+    <meta name="keywords"
+        content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, Gradient Able, Gradient Able bootstrap admin template">
+    <meta name="author" content="Codedthemes" />
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+
+    <!-- prism css -->
+    <link rel="stylesheet" href="assets/css/plugins/prism-coy.css">
+    <!-- datepicker js -->
+    <link rel="stylesheet" href="assets/css/plugins/daterangepicker.css">
+    <!-- ekko-lightbox css -->
+    <link rel="stylesheet" href="assets/css/plugins/ekko-lightbox.css">
+    <link rel="stylesheet" href="assets/css/plugins/lightbox.min.css">
+    <!-- pnotify-custom css -->
+    <link rel="stylesheet" href="assets/css/plugins/PNotifyBrightTheme.css">
+    <!-- Rating css -->
+    <link rel="stylesheet" href="assets/css/plugins/bars-1to10.css">
+    <link rel="stylesheet" href="assets/css/plugins/bars-horizontal.css">
+    <link rel="stylesheet" href="assets/css/plugins/bars-movie.css">
+    <link rel="stylesheet" href="assets/css/plugins/bars-pill.css">
+    <link rel="stylesheet" href="assets/css/plugins/bars-reversed.css">
+    <link rel="stylesheet" href="assets/css/plugins/bars-square.css">
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap-stars.css">
+    <link rel="stylesheet" href="assets/css/plugins/css-stars.css">
+    <link rel="stylesheet" href="assets/css/plugins/fontawesome-stars.css">
+    <link rel="stylesheet" href="assets/css/plugins/fontawesome-stars-o.css">
+    <!-- rangeslider css -->
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap-slider.min.css">
+
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- ======================= -->
+    <!-- ======= PLUGIN js ===== -->
+    <!-- ======================= -->
+    <script src="assets/js/vendor-all.min.js"></script>
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="assets/js/plugins/clipboard.min.js"></script>
+    <!-- prism Js -->
+    <script src="assets/js/plugins/prism.js"></script>
+    <!-- sweet alert Js -->
+    <script src="assets/js/plugins/sweetalert.min.js"></script>
+    <!-- datepicker js -->
+    <script src="assets/js/plugins/moment.min.js"></script>
+    <script src="assets/js/plugins/daterangepicker.js"></script>
+    <!-- ekko-lightbox Js -->
+    <script src="assets/js/plugins/ekko-lightbox.min.js"></script>
+    <script src="assets/js/plugins/lightbox.min.js"></script>
+    <!-- notification Js -->
+    <script src="assets/js/plugins/bootstrap-notify.min.js"></script>
+    <!-- pnotify Js -->
+    <script src="assets/js/plugins/PNotify.js"></script>
+    <script src="assets/js/plugins/PNotifyButtons.js"></script>
+    <script src="assets/js/plugins/PNotifyCallbacks.js"></script>
+    <script src="assets/js/plugins/PNotifyDesktop.js"></script>
+    <script src="assets/js/plugins/PNotifyConfirm.js"></script>
+    <script src="assets/js/pages/notify-event.js"></script>
+    <!-- Rating Js -->
+    <script src="assets/js/plugins/jquery.barrating.min.js"></script>
+    <!-- range slider Js -->
+    <script src="assets/js/plugins/bootstrap-slider.min.js"></script>
+
+    <style>
+        body {
+            background: #ecf0f5;
+        }
+
+        .docs-page-header {
+            font-weight: 400;
+            font-size: 27px;
+            margin: 0;
+            padding: 15px 50px;
+            line-height: 40px;
+            height: 70px;
+        }
+
+        .docs-page-header li {
+            line-height: 1;
+        }
+
+        .docs-page-header li a {
+            display: block;
+            padding: 10px 8px;
+        }
+
+        .docs-page-header.bg-dark {
+            background-color: rgb(63, 77, 103) !important;
+            position: fixed;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .docs-header-path {
+            opacity: 1;
+        }
+
+        .docs-wrapper {
+            min-height: calc(100vh - 70px);
+            position: relative;
+            padding-top: 70px;
+        }
+
+        .docs-inner {
+            padding: 40px;
+        }
+
+        .docs-sections {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+        }
+
+        .docs-sections-inner {
+            padding-top: 32px;
+            padding-left: 32px;
+            padding-right: 32px;
+            margin: 0;
+        }
+
+        .docs-sections-inner>li:first-child {
+            padding-top: 0 !important;
+        }
+
+        .docs-sections-inner li {
+            list-style: none;
+            padding: 5px 0;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .docs-sections,
+        .docs-sections li a,
+        .docs-sections li a:focus,
+        .docs-sections li a:active {
+            color: #6c757d;
+            line-height: 1.3;
+            padding: 0;
+        }
+
+        .docs-sections li a:hover {
+            color: #333;
+            position: relative;
+        }
+
+        .docs-sections li a.active {
+            color: #333;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .docs-sections li a.active:before,
+        .docs-sections li a:hover:before {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #000;
+            border-radius: 50%;
+            top: 8px;
+            left: -15px;
+        }
+
+        .docs-page-header,
+        .docs-wrapper {
+            min-width: 1200px;
+        }
+
+        .docs-sections {
+            width: 230px;
+            background: rgba(63, 77, 103, 0.05);
+        }
+
+        .docs-wrapper {
+            padding-left: 230px;
+        }
+
+        h2.docs-header {
+            margin-bottom: 32px;
+            font-size: 24px;
+            position: relative;
+        }
+
+        h2.docs-header~h2.docs-header {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="docs-page-header bg-dark text-white">
+        <div class="dropdown d-inline-block">
+            <a href="#!" class="dropdown-toggle text-white" data-toggle="dropdown">
+                Advance Components
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="index-bc-package.html">Basic components</a></li>
+                <li><a href="index-ac-package.html">Advance components</a></li>
+                <li><a href="index-form-package.html">Form components</a></li>
+                <li><a href="index-widget-package.html">Widgets</a></li>
+                <li><a href="index-chart-package.html">Charts</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="docs-wrapper">
+        <div class="docs-sections">
+            <ul class="docs-sections-inner">
+                <li class="nav-item"><a class="nav-link active" href="#page-alert">Alert</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page-datepicker">Datepicker</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page-lightbox">LightBox</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page-notification">Notification</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page-pnotify">Pnotify</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page-rating">Rating</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page-range">Range Slider</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page-highlighter">Syntax Highlighter</a></li>
+            </ul>
+            <a href="index.html" class="btn btn-outline-danger m-l-30 m-t-20">Back to docs</a>
+        </div>
+        <div class="docs-inner">
+            <!-- [ alert ] start -->
+            <h2 class="docs-header" id="page-alert">Alert</h2>
+            <div class="row">
+                <div class="col-sm-12 datta-example">
+                    <div class="card">
+                        <div class="card-body">
+                            <button type="button" class="btn btn-primary sweet-basic">Basic</button>
+                            <button type="button" class="btn btn-success sweet-success">Success</button>
+                            <button type="button" class="btn btn-warning sweet-warning">warning</button>
+                            <button type="button" class="btn btn-danger sweet-error">error</button>
+                            <button type="button" class="btn btn-info sweet-info">info</button>
+                            <button type="button" class="btn btn-primary sweet-multiple">Success or Cancel</button>
+                            <button type="button" class="btn btn-primary sweet-prompt">Prompt</button>
+                            <button type="button" class="btn btn-primary sweet-ajax">Ajax</button>
+                        </div>
+                    </div>
+                    <script>
+                        $(document).ready(function() {
+                            $('.sweet-basic').on('click', function() {
+                                swal('Hello world!');
+                            });
+                            $('.sweet-success').on('click', function() {
+                                swal("Good job!", "You clicked the button!", "success");
+                            });
+                            $('.sweet-warning').on('click', function() {
+                                swal("Good job!", "You clicked the button!", "warning");
+                            });
+                            $('.sweet-error').on('click', function() {
+                                swal("Good job!", "You clicked the button!", "error");
+                            });
+                            $('.sweet-info').on('click', function() {
+                                swal("Good job!", "You clicked the button!", "info");
+                            });
+                            $('.sweet-multiple').on('click', function() {
+                                swal({
+                                        title: "Are you sure?",
+                                        text: "Once deleted, you will not be able to recover this imaginary file!",
+                                        icon: "warning",
+                                        buttons: true,
+                                        dangerMode: true,
+                                    })
+                                    .then((willDelete) => {
+                                        if (willDelete) {
+                                            swal("Poof! Your imaginary file has been deleted!", {
+                                                icon: "success",
+                                            });
+                                        } else {
+                                            swal("Your imaginary file is safe!", {
+                                                icon: "error",
+                                            });
+                                        }
+                                    });
+                            });
+                            $('.sweet-prompt').on('click', function() {
+                                swal("Write something here:", {
+                                        content: "input",
+                                    })
+                                    .then((value) => {
+                                        swal(`You typed: ${value}`);
+                                    });
+                            });
+                            $('.sweet-ajax').on('click', function() {
+                                swal({
+                                        text: 'Search for a movie. e.g. "La La Land".',
+                                        content: "input",
+                                        button: {
+                                            text: "Search!",
+                                            closeModal: false,
+                                        },
+                                    })
+                                    .then(name => {
+                                        if (!name) throw null;
+                                        return fetch(`https://itunes.apple.com/search?term=${name}&entity=movie`);
+                                    })
+                                    .then(results => {
+                                        return results.json();
+                                    })
+                                    .then(json => {
+                                        const movie = json.results[0];
+                                        if (!movie) {
+                                            return swal("No movie was found!");
+                                        }
+                                        const name = movie.trackName;
+                                        const imageURL = movie.artworkUrl100;
+                                        swal({
+                                            title: "Top result:",
+                                            text: name,
+                                            icon: imageURL,
+                                        });
+                                    })
+                                    .catch(err => {
+                                        if (err) {
+                                            swal("Oh noes!", "The AJAX request failed!", "error");
+                                        } else {
+                                            swal.stopLoading();
+                                            swal.close();
+                                        }
+                                    });
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+            <pre>
+<code class="language-markup">
+    &lt;!-- Sweet alert Js --&gt;
+    &lt;script src="assets/plugins/sweetalert/js/sweetalert.min.js"&gt;&lt;/script&gt;
+
+</code>
+            </pre>
+            <!-- [ alert ] end -->
+            <!-- [ datepicker ] start -->
+            <h2 class="docs-header" id="page-datepicker">Datepicker</h2>
+            <div class="row">
+                <div class="col-md-6 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Simple Date Range Picker With a Callback</h5>
+                        </div>
+                        <div class="card-body">
+                            <input type="text" name="daterange" class="form-control" value="01/01/2018 - 01/15/2018" />
+                        </div>
+                    </div>
+                    <script>
+                        $(window).ready(function() {
+                            $(function() {
+                                $('input[name="daterange"]').daterangepicker({
+                                    opens: 'left'
+                                }, function(start, end, label) {});
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="col-md-6 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Date Range Picker With Times</h5>
+                        </div>
+                        <div class="card-body">
+                            <input type="text" name="datetimes" class="form-control" />
+                        </div>
+                    </div>
+                    <script>
+                        $(window).ready(function() {
+                            $(function() {
+                                $('input[name="datetimes"]').daterangepicker({
+                                    timePicker: true,
+                                    startDate: moment().startOf('hour'),
+                                    endDate: moment().startOf('hour').add(32, 'hour'),
+                                    locale: {
+                                        format: 'M/DD hh:mm A'
+                                    }
+                                });
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="col-md-6 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Single Date Picker</h5>
+                        </div>
+                        <div class="card-body">
+                            <input type="text" name="birthday" value="10/24/1984" class="form-control" />
+                        </div>
+                    </div>
+                    <script>
+                        $(window).ready(function() {
+                            $(function() {
+                                $('input[name="birthday"]').daterangepicker({
+                                    singleDatePicker: true,
+                                    showDropdowns: true,
+                                    minYear: 1901,
+                                    maxYear: parseInt(moment().format('YYYY'), 10)
+                                }, function(start, end, label) {
+                                    var years = moment().diff(start, 'years');
+                                    alert("You are " + years + " years old!");
+                                });
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="col-md-6 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Predefined Date Ranges</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="reportrange" class="form-control">
+                                <i class="feather icon-calendar"></i>&nbsp;
+                                <span></span> <i class="feather icon-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        $(window).ready(function() {
+                            $(function() {
+                                var start = moment().subtract(29, 'days');
+                                var end = moment();
+
+                                function cb(start, end) {
+                                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                                }
+                                $('#reportrange').daterangepicker({
+                                    startDate: start,
+                                    endDate: end,
+                                    ranges: {
+                                        'Today': [moment(), moment()],
+                                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                                        'This Month': [moment().startOf('month'), moment().endOf('month')],
+                                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                                    }
+                                }, cb);
+                                cb(start, end);
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="col-md-6 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Input Initially Empty</h5>
+                        </div>
+                        <div class="card-body">
+                            <input type="text" name="datefilter" value="" class="form-control" />
+                        </div>
+                    </div>
+                    <script>
+                        $(window).ready(function() {
+                            $(function() {
+                                $('input[name="datefilter"]').daterangepicker({
+                                    autoUpdateInput: false,
+                                    locale: {
+                                        cancelLabel: 'Clear'
+                                    }
+                                });
+
+                                $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
+                                    $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+                                });
+
+                                $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
+                                    $(this).val('');
+                                });
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+            <pre>
+<code class="language-markup">
+    &lt;!-- Datepicker css --&gt;
+    &lt;link href="assets/plugins/bootstrap-datetimepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet"&gt;<br>
+    &lt;!-- Datepicker Js --&gt;
+    &lt;script src="assets/js/plugins/moment.min.js"&gt;&lt;/script&gt;
+    &lt;script src="assets/js/plugins/daterangepicker.js"&gt;&lt;/script&gt;
+
+</code>
+            </pre>
+            <!-- [ datepicker ] end -->
+
+            <!-- [ lightbox ] start -->
+            <h2 class="docs-header" id="page-lightbox">LightBox</h2>
+            <div class="row">
+                <div class="col-sm-12 datta-example">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Single Images</h5>
+                            <hr>
+                            <p> Use this code <code>data-toggle="lightbox"</code> to see image in lightbox popup. </p>
+                            <div class="row text-center">
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l1.jpg" data-toggle="lightbox" data-title="Datta Image 1" data-footer="Datta Image 1"><img src="assets/images/light-box/sl1.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l2.jpg" data-toggle="lightbox" data-title="Datta Image 2" data-footer="Datta Image 2"><img src="assets/images/light-box/sl2.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l3.jpg" data-toggle="lightbox" data-title="Datta Image 3" data-footer="Datta Image 3"><img src="assets/images/light-box/sl3.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l4.jpg" data-toggle="lightbox" data-title="Datta Image 4" data-footer="Datta Image 4"><img src="assets/images/light-box/sl4.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l5.jpg" data-toggle="lightbox" data-title="Datta Image 5" data-footer="Datta Image 5"><img src="assets/images/light-box/sl5.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l6.jpg" data-toggle="lightbox" data-title="Datta Image 6" data-footer="Datta Image 6"><img src="assets/images/light-box/sl6.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5>Image Gallery</h5>
+                            <hr>
+                            <p> Add this code <code>data-gallery="example-gallery"</code> to see image gallery in lightbox popup. </p>
+                            <div class="row text-center">
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l1.jpg" data-toggle="lightbox" data-gallery="example-gallery"><img src="assets/images/light-box/sl1.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l2.jpg" data-toggle="lightbox" data-gallery="example-gallery"><img src="assets/images/light-box/sl2.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l3.jpg" data-toggle="lightbox" data-gallery="example-gallery"><img src="assets/images/light-box/sl3.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l4.jpg" data-toggle="lightbox" data-gallery="example-gallery"><img src="assets/images/light-box/sl4.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l5.jpg" data-toggle="lightbox" data-gallery="example-gallery"><img src="assets/images/light-box/sl5.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l6.jpg" data-toggle="lightbox" data-gallery="example-gallery"><img src="assets/images/light-box/sl6.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5>Video Gallery</h5>
+                            <hr>
+                            <p> Add this code <code>data-gallery="youtubevideos"</code> to see videos in lightbox popup. </p>
+                            <div class="row  text-center">
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="http://www.youtube.com/embed/ZQ264Axbjxg" data-toggle="lightbox" data-gallery="youtubevideos"><img src="assets/images/light-box/v1.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="http://youtu.be/IkyZHPnfFnE" data-toggle="lightbox" data-gallery="youtubevideos"><img src="assets/images/light-box/v2.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="//www.youtube.com/embed/oD-lmrfPECA" data-toggle="lightbox" data-gallery="youtubevideos"><img src="assets/images/light-box/v3.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5>Mixin Gallery</h5>
+                            <hr>
+                            <p> Add this code <code>data-gallery="mixedgallery"</code> to see mixed gallery in lightbox popup. to use vimeo add code <code>data-remote="vimeo url"</code></p>
+                            <div class="row text-center">
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="https://www.youtube.com/watch?v=ilLU5vxhLYA" data-toggle="lightbox" data-gallery="mixedgallery"><img src="assets/images/light-box/v1.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/mixin.jpg" data-toggle="lightbox" data-gallery="mixedgallery"><img src="assets/images/light-box/smixin.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="http://vimeo.com/246066429" data-remote="http://player.vimeo.com/video/246066429" data-toggle="lightbox" data-gallery="mixedgallery"><img src="assets/images/light-box/v4.jpg" class="img-fluid m-b-10"
+                                            alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Single Images ( light box 2 )</h5>
+                        </div>
+                        <div class="card-body">
+                            <p> Add this code <code>data-lightbox="roadtrip"</code> to see roadtrip gallery in lightbox popup.</p>
+                            <div class="row text-center">
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l3.jpg" data-lightbox="roadtrip"><img src="assets/images/light-box/sl3.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l4.jpg" data-lightbox="roadtrip" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing lorem impus dolorsit.onsectetur adipiscing."><img
+                                            src="assets/images/light-box/sl4.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Multiple Images or Image Set (light box 2)</h5>
+                        </div>
+                        <div class="card-body">
+                            <p> Add this code <code>data-lightbox="example-set"</code> to see roadtrip gallery in lightbox popup.</p>
+                            <div class="row  text-center">
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l1.jpg" data-lightbox="example-set"><img src="assets/images/light-box/sl1.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l2.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing lorem impus dolorsit.onsectetur adipiscing."><img
+                                            src="assets/images/light-box/sl2.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l5.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing lorem impus dolorsit.onsectetur adipiscing."><img
+                                            src="assets/images/light-box/sl5.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-12">
+                                    <a href="assets/images/light-box/l6.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing lorem impus dolorsit.onsectetur adipiscing."><img
+                                            src="assets/images/light-box/sl6.jpg" class="img-fluid m-b-10" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        $(document).ready(function() {
+                            $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+                                event.preventDefault();
+                                $(this).ekkoLightbox();
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+            <pre>
+<code class="language-markup">
+    &lt;!-- Lightbox css --&gt;
+    &lt;link href="assets/css/plugins/ekko-lightbox.css" rel="stylesheet"&gt;
+    &lt;link href="assets/css/plugins/lightbox.min.css" rel="stylesheet"&gt;<br>
+    &lt;!-- Lightbox Js --&gt;
+    &lt;script src="assets/js/plugins/ekko-lightbox.min.js"&gt;&lt;/script&gt;
+    &lt;script src="assets/js/plugins/lightbox.min.js"&gt;&lt;/script&gt;
+
+</code>
+            </pre>
+            <!-- [ lightbox ] end -->
+            <!-- [ notification ] start -->
+            <h2 class="docs-header" id="page-notification">Notification</h2>
+            <div class="row">
+                <div class="col-sm-12 datta-example">
+                    <div class="card btn-page">
+                        <div class="card-body">
+                            <h5>Notification Alert</h5>
+                            <hr>
+                            <p>Notification color : <code> data-type="inverse"</code> Notification position : <code> data-align="left" </code></p>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-from="top" data-align="left" data-notify-icon="feather icon-bell">Top Left</button>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-from="top" data-align="right" data-notify-icon="feather icon-layers">Top Right</button>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-from="top" data-align="center" data-notify-icon="feather icon-shopping-cart">Top Center</button>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-from="bottom" data-align="left">Bottom Left</button>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-from="bottom" data-align="right">Bottom Right</button>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-from="bottom" data-align="center">Bottom Center</button>
+                        </div>
+                        <div class="card-body">
+                            <h5>Notification Position</h5>
+                            <hr>
+                            <p>Change data-type : <code> data-type="inverse"</code> to change notification color</p>
+                            <button class="btn notifications btn-primary" data-type="primary" data-from="top" data-align="right" data-notify-icon="feather icon-layers">Primary</button>
+                            <button class="btn notifications btn-info" data-type="info" data-from="top" data-align="right" data-notify-icon="feather icon-shopping-cart">Info</button>
+                            <button class="btn notifications btn-success" data-type="success" data-from="top" data-align="right">success</button>
+                            <button class="btn notifications btn-warning" data-type="warning" data-from="top" data-align="right">Warning</button>
+                            <button class="btn notifications btn-danger" data-type="danger" data-from="top" data-align="right">Danger</button>
+                            <button class="btn notifications btn-secondary" data-type="secondary" data-from="top" data-align="right" data-notify-icon="feather icon-bell">secondary</button>
+                        </div>
+                        <div class="card-body">
+                            <h5>Notification Behaviour</h5>
+                            <hr>
+                            <p>use code <code>data-animation-in="animated fadeIn" data-animation-out="animated fadeOut"</code> notification animation effect</p>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-animation-in="animated fadeIn" data-animation-out="animated fadeOut">Fade In</button>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-animation-in="animated fadeInLeft" data-animation-out="animated fadeOutLeft">Fade In Left</button>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-animation-in="animated fadeInRight" data-animation-out="animated fadeOutRight">Fade In Right</button>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-animation-in="animated fadeInUp" data-animation-out="animated fadeOutUp">Fade In Up</button>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-animation-in="animated fadeInDown" data-animation-out="animated fadeOutDown">Fade In Down</button>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-animation-in="animated bounceIn" data-animation-out="animated bounceOut">Bounce In</button>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-animation-in="animated bounceInLeft" data-animation-out="animated bounceOutLeft">Bounce In Left</button>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-animation-in="animated bounceInRight" data-animation-out="animated bounceOutRight">Bounce In Right</button>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-animation-in="animated rotateInDownRight" data-animation-out="animated rotateOutUpRight">Fall In Right</button>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-animation-in="animated rotateIn" data-animation-out="animated rotateOut">Rotate In</button>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-animation-in="animated flipInX" data-animation-out="animated flipOutX">Flip In X</button>
+                            <button class="btn notifications btn-primary" data-type="inverse" data-animation-in="animated flipInY" data-animation-out="animated flipOutY">Flip In Y</button>
+                        </div>
+                    </div>
+                    <script>
+                        $(document).ready(function() {
+                            function notify(from, align, icon, type, animIn, animOut) {
+                                $.notify({
+                                    icon: icon,
+                                    title: ' Bootstrap notify ',
+                                    message: 'Turning standard Bootstrap alerts into awesome notifications',
+                                    url: ''
+                                }, {
+                                    element: 'body',
+                                    type: type,
+                                    allow_dismiss: true,
+                                    placement: {
+                                        from: from,
+                                        align: align
+                                    },
+                                    offset: {
+                                        x: 30,
+                                        y: 30
+                                    },
+                                    spacing: 10,
+                                    z_index: 999999,
+                                    delay: 2500,
+                                    timer: 1000,
+                                    url_target: '_blank',
+                                    mouse_over: false,
+                                    animate: {
+                                        enter: animIn,
+                                        exit: animOut
+                                    },
+                                    icon_type: 'class',
+                                    template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+                                        '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+                                        '<span data-notify="icon"></span> ' +
+                                        '<span data-notify="title">{1}</span> ' +
+                                        '<span data-notify="message">{2}</span>' +
+                                        '<div class="progress" data-notify="progressbar">' +
+                                        '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+                                        '</div>' +
+                                        '<a href="{3}" target="{4}" data-notify="url"></a>' +
+                                        '</div>'
+                                });
+                            };
+                            $('.notifications.btn').on('click', function(e) {
+                                e.preventDefault();
+                                var nFrom = $(this).attr('data-from');
+                                var nAlign = $(this).attr('data-align');
+                                var nIcons = $(this).attr('data-notify-icon');
+                                var nType = $(this).attr('data-type');
+                                var nAnimIn = $(this).attr('data-animation-in');
+                                var nAnimOut = $(this).attr('data-animation-out');
+                                notify(nFrom, nAlign, nIcons, nType, nAnimIn, nAnimOut);
+                            });
+                        });
+                    </script>
+
+                </div>
+            </div>
+            <pre>
+<code class="language-markup">
+    &lt;!-- Notification Js --&gt;
+    &lt;script src="assets/js/plugins/bootstrap-notify.min.js"&gt;&lt;/script&gt;
+
+</code>
+            </pre>
+            <!-- [ notification ] end -->
+            <!-- [ pnotify ] start -->
+            <h2 class="docs-header" id="page-pnotify">Pnotify</h2>
+            <div class="row">
+                <div class="col-sm-12 datta-example">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Notification Alert</h5>
+                            <hr>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Primary Notice</td>
+                                            <td>
+                                                <button type="button" class="btn btn-warning btn-sm" id="pnotify-default"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-warning</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Primary Notice</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-primary"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-default</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Success Notice</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" id="pnotify-success"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-success</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Info Notice</td>
+                                            <td>
+                                                <button type="button" class="btn btn-info btn-sm" id="pnotify-info"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-info</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Danger Notice</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" id="pnotify-danger"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-danger</code> to use this style notification</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5>Desktop Notifications</h5>
+                            <hr>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Success Notification</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" id="pnotify-desktop-success"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-desktop-success</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Info Notification</td>
+                                            <td>
+                                                <button type="button" class="btn btn-info btn-sm" id="pnotify-desktop-info"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-desktop-info</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Warning Notification</td>
+                                            <td>
+                                                <button type="button" class="btn btn-warning btn-sm" id="pnotify-desktop-warning"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-desktop-warning</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Danger Notification</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" id="pnotify-desktop-danger"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-desktop-danger</code> to use this style notification</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5>Notification Position</h5>
+                            <hr>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Top Left</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-stack-top-left"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-stack-top-left</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bottom Left</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-stack-bottom-left"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-stack-bottom-left</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bottom Right</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-stack-bottom-right"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-stack-bottom-right</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Custom Left</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-stack-custom-left"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-stack-custom-left</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Custom Right</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-stack-custom-right"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-stack-custom-right</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Custom Top</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-stack-custom-top"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-stack-custom-top</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Custom Bottom</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-stack-custom-bottom"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-stack-custom-bottom</code> to use this style notification</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5>Notification Option</h5>
+                            <hr>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>No Title</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-no-title"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-no-title</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rich Title</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-rich"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-rich</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Click to Close</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-click"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-click</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Custom Button</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-buttons"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-buttons</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Callback Button</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-callbacks"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-callbacks</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Progress Button</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-progress"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-progress</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dynamic Progress Button</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-dynamic"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-dynamic</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Multiline Button</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-multiline"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-multiline</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Prompt Button</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-prompt"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-prompt</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Confirm Button</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-confirm"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-confirm</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Stickey Button</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-sticky"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-sticky</code> to use this style notification</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Permenant Button</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" id="pnotify-permanent-buttons"><i class="feather icon-bell"></i> Click here!</button>
+                                            </td>
+                                            <td>Use id <code>pnotify-permanent-buttons</code> to use this style notification</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre>
+<code class="language-markup">
+    &lt;!-- Pnotify css --&gt;
+    &lt;link href="assets/css/plugins/PNotifyBrightTheme.css" rel="stylesheet"&gt;
+    &lt;!-- Pnotify Js --&gt;
+    &lt;script src="assets/js/plugins/PNotify.js"&gt;&lt;/script&gt;
+    &lt;script src="assets/js/plugins/PNotifyButtons.js"&gt;&lt;/script&gt;
+    &lt;script src="assets/js/plugins/PNotifyCallbacks.js"&gt;&lt;/script&gt;
+    &lt;script src="assets/js/plugins/PNotifyDesktop.js"&gt;&lt;/script&gt;
+    &lt;script src="assets/js/plugins/PNotifyConfirm.js"&gt;&lt;/script&gt;
+    &lt;script src="assets/js/pages/notify-event.js"&gt;&lt;/script&gt;
+
+</code>
+            </pre>
+            <!-- [ pnotify ] end -->
+            <!-- [ rating ] start -->
+            <h2 class="docs-header" id="page-rating">Rating</h2>
+            <div class="row">
+                <div class="col-sm-12 datta-example">
+                    <div class="text-center">
+                        <button class="btn btn-primary rating-enable mb-4">Enable</button>
+                        <button class="btn btn-primary rating-disable mb-4">disable</button>
+                    </div>
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-6 col-md-6">
+                                <div class="card-body">
+                                    <h5>1/10 Rating</h5>
+                                    <hr>
+                                    <p>Use <code>id="example-1to10"</code> to see default rating</p>
+                                    <div class="box-body">
+                                        <select id="example-1to10" name="rating" autocomplete="off">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7" selected="selected">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                        <span class="current-rating"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6">
+                                <div class="card-body">
+                                    <h5>Movie Rating</h5>
+                                    <hr>
+                                    <p>Use <code>id="example-movie"</code> to see movie rating</p>
+                                    <div class="box-body">
+                                        <select id="example-movie" name="rating" autocomplete="off">
+                                            <option value="Bad">Bad</option>
+                                            <option value="Mediocre">Mediocre</option>
+                                            <option value="Good" selected="selected">Good</option>
+                                            <option value="Awesome">Awesome</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6">
+                                <div class="card-body">
+                                    <h5>Square Rating</h5>
+                                    <hr>
+                                    <p>Use <code>id="example-square"</code> to see square rating</p>
+                                    <div class="box-body">
+                                        <select id="example-square" name="rating" autocomplete="off">
+                                            <option value="" label="0"></option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6">
+                                <div class="card-body">
+                                    <h5>Pill Rating</h5>
+                                    <hr>
+                                    <p>Use <code>id="example-pill"</code> to see pill rating</p>
+                                    <div class="box-body">
+                                        <select id="example-pill" name="rating" autocomplete="off">
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="D">D</option>
+                                            <option value="E">E</option>
+                                            <option value="F">F</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6">
+                                <div class="card-body">
+                                    <h5>Reverse Rating</h5>
+                                    <hr>
+                                    <p>Use <code>id="example-reversed"</code> to see reverse rating</p>
+                                    <div class="box-body">
+                                        <select id="example-reversed" name="rating" autocomplete="off">
+                                            <option value="Strongly Agree">Strongly Agree</option>
+                                            <option value="Agree">Agree</option>
+                                            <option value="Neither Agree or Disagree" selected="selected">Neither Agree or Disagree</option>
+                                            <option value="Disagree">Disagree</option>
+                                            <option value="Strongly Disagree">Strongly Disagree</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6">
+                                <div class="card-body">
+                                    <h5>Horizontal Rating</h5>
+                                    <hr>
+                                    <p>Use <code>id="example-horizontal"</code> to see horizontal rating</p>
+                                    <div class="box-body">
+                                        <select id="example-horizontal" name="rating" autocomplete="off">
+                                            <option value="10">10</option>
+                                            <option value="9">9</option>
+                                            <option value="8">8</option>
+                                            <option value="7">7</option>
+                                            <option value="6">6</option>
+                                            <option value="5">5</option>
+                                            <option value="4">4</option>
+                                            <option value="3">3</option>
+                                            <option value="2">2</option>
+                                            <option value="1" selected="selected">1</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6">
+                                <div class="card-body">
+                                    <h5>Font Awesome Rating</h5>
+                                    <hr>
+                                    <p>Use <code>id="example-fontawesome"</code> to see font awesome rating</p>
+                                    <div class="stars stars-example-fontawesome">
+                                        <select id="example-fontawesome" name="rating" autocomplete="off">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6">
+                                <div class="card-body">
+                                    <h5>CSS Stars Rating</h5>
+                                    <hr>
+                                    <p>Use <code>id="example-css"</code> to see css stars rating</p>
+                                    <div class="stars stars-example-css">
+                                        <select id="example-css" class="rating-star" name="rating" autocomplete="off">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6">
+                                <div class="card-body">
+                                    <h5>Fractional Star Rating</h5>
+                                    <hr>
+                                    <p>Use <code>id="example-fontawesome-o"</code> to see fractional star rating</p>
+                                    <div class="stars stars-example-fontawesome-o">
+                                        <select id="example-fontawesome-o" name="rating" data-current-rating="5.6" autocomplete="off">
+                                            <option value="" label="0"></option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                        <span class="title current-rating">Current rating: <span class="value"></span></span>
+                                        <span class="title your-rating hidden">Your rating: <span class="value"></span>&nbsp;<a href="#!" class="clear-rating"><i class="icofont icofont-close-circled"></i></a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        $(window).ready(function() {
+                            function ratingEnable() {
+                                $('#example-1to10').barrating('show', {
+                                    theme: 'bars-1to10',
+                                });
+                                $('#example-movie').barrating('show', {
+                                    theme: 'bars-movie'
+                                });
+                                $('#example-movie').barrating('set', 'Mediocre');
+                                $('#example-square').barrating('show', {
+                                    theme: 'bars-square',
+                                    showValues: true,
+                                    showSelectedRating: false
+                                });
+                                $('#example-pill').barrating('show', {
+                                    theme: 'bars-pill',
+                                    initialRating: 'A',
+                                    showValues: true,
+                                    showSelectedRating: false,
+                                    allowEmpty: true,
+                                    emptyValue: '-- no rating selected --',
+                                    onSelect: function(value, text) {
+                                        alert('Selected rating: ' + value);
+                                    }
+                                });
+                                $('#example-reversed').barrating('show', {
+                                    theme: 'bars-reversed',
+                                    showSelectedRating: true,
+                                    reverse: true
+                                });
+                                $('#example-horizontal').barrating('show', {
+                                    theme: 'bars-horizontal',
+                                    reverse: true,
+                                    hoverState: false
+                                });
+                                $('#example-fontawesome').barrating({
+                                    theme: 'fontawesome-stars',
+                                    showSelectedRating: false
+                                });
+                                $('.rating-star').barrating({
+                                    theme: 'css-stars',
+                                    showSelectedRating: false
+                                });
+                                $('#example-bootstrap').barrating({
+                                    theme: 'bootstrap-stars',
+                                    showSelectedRating: false
+                                });
+                                var currentRating = $('#example-fontawesome-o').data('current-rating');
+                                $('.stars-example-fontawesome-o .current-rating')
+                                    .find('span')
+                                    .html(currentRating);
+                                $('.stars-example-fontawesome-o .clear-rating').on('click', function(event) {
+                                    event.preventDefault();
+                                    $('#example-fontawesome-o')
+                                        .barrating('clear');
+                                });
+                                $('#example-fontawesome-o').barrating({
+                                    theme: 'fontawesome-stars-o',
+                                    showSelectedRating: false,
+                                    initialRating: currentRating,
+                                    onSelect: function(value, text) {
+                                        if (!value) {
+                                            $('#example-fontawesome-o')
+                                                .barrating('clear');
+                                        } else {
+                                            $('.stars-example-fontawesome-o .current-rating')
+                                                .addClass('hidden');
+
+                                            $('.stars-example-fontawesome-o .your-rating')
+                                                .removeClass('hidden')
+                                                .find('span')
+                                                .html(value);
+                                        }
+                                    },
+                                    onClear: function(value, text) {
+                                        $('.stars-example-fontawesome-o')
+                                            .find('.current-rating')
+                                            .removeClass('hidden')
+                                            .end()
+                                            .find('.your-rating')
+                                            .addClass('hidden');
+                                    }
+                                });
+                            }
+
+                            function ratingDisable() {
+                                $('select').barrating('destroy');
+                            }
+                            $('.rating-enable').on('click', function(event) {
+                                event.preventDefault();
+                                ratingEnable();
+                                $(this).addClass('deactivated');
+                                $('.rating-disable').removeClass('deactivated');
+                            });
+                            $('.rating-disable').on('click', function(event) {
+                                event.preventDefault();
+                                ratingDisable();
+                                $(this).addClass('deactivated');
+                                $('.rating-enable').removeClass('deactivated');
+                            });
+                            ratingEnable();
+                        });
+                    </script>
+                </div>
+            </div>
+            <pre>
+<code class="language-markup">
+    &lt;!-- Rating css --&gt;
+    &lt;link href="assets/css/plugins/bars-1to10.css" rel="stylesheet"&gt;
+    &lt;link href="assets/css/plugins/bars-horizontal.css" rel="stylesheet"&gt;
+    &lt;link href="assets/css/plugins/bars-movie.css" rel="stylesheet"&gt;
+    &lt;link href="assets/css/plugins/bars-pill.css" rel="stylesheet"&gt;
+    &lt;link href="assets/css/plugins/bars-reversed.css" rel="stylesheet"&gt;
+    &lt;link href="assets/css/plugins/bars-square.css" rel="stylesheet"&gt;
+    &lt;link href="assets/css/plugins/bootstrap-stars.css" rel="stylesheet"&gt;
+    &lt;link href="assets/css/plugins/css-stars.css" rel="stylesheet"&gt;
+    &lt;link href="assets/css/plugins/fontawesome-stars.css" rel="stylesheet"&gt;
+    &lt;link href="assets/css/plugins/fontawesome-stars-o.css" rel="stylesheet"&gt;<br>
+    &lt;!-- Rating Js --&gt;
+    &lt;script src="assets/js/plugins/jquery.barrating.min.js"&gt;&lt;/script&gt;
+
+</code>
+            </pre>
+            <!-- [ rating ] end -->
+            <!-- [ range-slider ] start -->
+            <h2 class="docs-header" id="page-range">Range Slider</h2>
+            <div class="row">
+                <div class="col-sm-12 datta-example">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Basic example with custom formatter and colored selected region via CSS.</h6>
+                                    <hr>
+                                    <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Range selector, options specified via data attribute.</h6>
+                                    <hr> Filter by price interval: <b>€ 10</b>
+                                    <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]" /> <b>€ 1000</b>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Sliders can be enabled and disabled.</h6>
+                                    <hr>
+                                    <input id="ex7" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="5" data-slider-enabled="false" />
+                                    <input id="ex7-enabled" type="checkbox" /> Enabled
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Using events to work with the values and style the selection and handles via CSS. The tooltip is disabled and diferent shapes for the handles.</h6>
+                                    <hr>
+                                    <p><b>R</b>
+                                        <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="RC" id="R" data-slider-tooltip="hide"
+                                            data-slider-handle="square" />
+                                    </p>
+                                    <p><b>G</b>
+                                        <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="GC" id="G" data-slider-tooltip="hide"
+                                            data-slider-handle="round" />
+                                    </p>
+                                    <p><b>B</b>
+                                        <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="BC" id="B" data-slider-tooltip="hide"
+                                            data-slider-handle="triangle" />
+                                    </p>
+                                    <div id="RGB"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Vertical Slider with reversed values (largest to smallest).</h6>
+                                    <hr>
+                                    <input id="ex4" type="text" data-slider-min="-5" data-slider-max="20" data-slider-step="1" data-slider-value="-3" data-slider-orientation="vertical" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Unusual tooltip positions</h6>
+                                    <hr>
+                                    <input id="ex17a" type="text" />
+                                    <input id="ex17b" type="text" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Destroy instance of slider by calling destroy() method on slider instance via JavaScript.</h6>
+                                    <hr>
+                                    <input id="ex5" type="text" data-slider-min="-5" data-slider-max="20" data-slider-step="1" data-slider-value="0" />
+                                    <button id="destroyEx5Slider" class='btn btn-danger'>Click to Destroy</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Able to bind to 'slide' JQuery event on slider, which is triggered whenever the slider is used.</h6>
+                                    <hr>
+                                    <input id="ex6" type="text" data-slider-min="-5" data-slider-max="20" data-slider-step="1" data-slider-value="3" />
+                                    <span id="ex6CurrentSliderValLabel">Current Slider Value: <span id="ex6SliderVal">3</span></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Tooltip can always be displayed.</h6>
+                                    <hr>
+                                    <input id="ex8" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Precision (number of places after the decimal) can be specified.</h6>
+                                    <hr>
+                                    <input id="ex9" type="text" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Setting custom handlers.</h6>
+                                    <hr>
+                                    <input id="ex10" type="text" data-slider-handle="custom" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Using a custom step interval.</h6>
+                                    <hr>
+                                    <input id="ex11" type="text" data-slider-handle="custom" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Coloring the low and high track segments.</h6>
+                                    <hr>
+                                    <input id="ex12a" type="text" />
+                                    <br /> Note that there is no low track on the single-value slider. The area to lesser than the value of the handle is the selection.
+                                    <br>
+                                    <input id="ex12b" type="text" />
+                                    <br />
+                                    <input id="ex12c" type="text" />
+                                    <br />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Using tick marks and labels.</h6>
+                                    <hr>
+                                    <input id="ex13" type="text" data-slider-ticks="[0, 100, 200, 300, 400]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels='["$0", "$100", "$200", "$300", "$400"]' />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Using tick marks at specific positions.</h6>
+                                    <hr>
+                                    <input id="ex14" type="text" data-slider-ticks="[0, 10, 20, 30, 40]" data-slider-ticks-snap-bounds="95" data-slider-ticks-labels='["$0", "$10", "$20", "$30", "$40"]' data-ticks_positions="[0, 30, 60, 70, 90, 100]">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>With a logarithmic scale.</h6>
+                                    <hr>
+                                    <input id="ex15" type="text" data-slider-min="1000" data-slider-max="10000000" data-slider-step="5" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Focus the slider handle after a value change.</h6>
+                                    <hr>
+                                    <input id="ex16a" type="text" />
+                                    <br />
+                                    <input id="ex16b" type="text" />
+                                    <br />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Accessibility with ARIA labels</h6>
+                                    <hr>
+                                    <span id="ex18-label-1" class="hidden">Example slider label</span>
+                                    <input id="ex18a" type="text" />
+                                    <span id="ex18-label-2a" class="hidden">Example low value</span>
+                                    <span id="ex18-label-2b" class="hidden">Example high value</span>
+                                    <input id="ex18b" type="text" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Auto-Register data-provide="slider" Elements</h6>
+                                    <hr>
+                                    <span id="ex19-label-1" class="hidden">Example slider label</span>
+                                    <input id="ex19" type="text" data-provide="slider" data-slider-ticks="[1, 2, 3]" data-slider-ticks-labels='["short", "medium", "long"]' data-slider-min="1" data-slider-max="3" data-slider-step="1"
+                                        data-slider-value="3" data-slider-tooltip="hide" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Slider-Elements initially hidden</h6>
+                                    <hr>
+                                    <div class="well" style="display: none">
+                                        <span id="ex20-label-1" class="hidden">Example slider label</span>
+                                        <input id="ex20" type="text" data-provide="slider" data-slider-ticks="[1, 2, 3]" data-slider-ticks-labels='["short", "medium", "long"]' data-slider-min="1" data-slider-max="3" data-slider-step="1"
+                                            data-slider-value="3" data-slider-tooltip="hide" />
+                                    </div>
+                                    <a class="btn btn-primary" href="#!" id="ex20a">Show</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Create an input element wth the data-provide="slider" attribute automatically turns it into a slider. Options can be supplied via data-slider- attributes.</h6>
+                                    <hr>
+                                    <input id="ex21" type="text" data-provide="slider" data-slider-ticks="[1, 2, 3]" data-slider-ticks-labels='["short", "medium", "long"]' data-slider-min="1" data-slider-max="3" data-slider-step="1"
+                                        data-slider-value="3" data-slider-tooltip="hide" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Highlight ranges on slider with rangeHighlights attribute 14</h6>
+                                    <hr>
+                                    <input id="ex22" type="text" data-slider-id="slider22" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14" data-slider-rangeHighlights='[{ "start": 2, "end": 5, "class": "category1" },
+                                       { "start": 7, "end": 8, "class": "category2" },
+                                       { "start": 17, "end": 19 },
+                                       { "start": 17, "end": 24 }, //not visible -  out of slider range
+                                       { "start": -3, "end": 19 }]' />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card-body">
+                                    <h6>Using tick marks at specific positions..</h6>
+                                    <hr>
+                                    <input id="ex23" type="text" data-slider-ticks="[0, 1, 2, 3, 4]" data-slider-step="0.01" data-slider-ticks-snap-bounds="200" data-slider-ticks-tooltip="true" data-ticks_positions="[0, 30, 60, 70, 90, 100]">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        $(window).on('load', function() {
+                            // [ basic-Slider ]
+                            var slider = new Slider('#ex1', {
+                                formatter: function(value) {
+                                    return 'Current value: ' + value;
+                                }
+                            });
+
+                            // [ Selector-Slider ]
+                            var slider = new Slider('#ex2', {});
+                            var RGBChange = function() {
+                                $('#RGB').css('background', 'rgb(' + r.getValue() + ',' + g.getValue() + ',' + b.getValue() + ')')
+                            };
+
+                            // [  Handles-Slider ]
+                            var r = new Slider("#R", {
+                                reversed: true
+                            }).on('slide', RGBChange);
+                            var g = new Slider("#G", {
+                                reversed: true
+                            }).on('slide', RGBChange);
+                            var b = new Slider("#B", {
+                                reversed: true
+                            }).on('slide', RGBChange);
+
+                            // [ vertical-slider ]
+                            var slider = new Slider("#ex4", {
+                                reversed: true
+                            });
+
+                            // [ Destroy-Slider ]
+                            setTimeout(function() {
+                                var slider1 = new Slider('#ex5');
+                                $("#destroyEx5Slider").on('click', function() {
+                                    slider1.destroy();
+                                });
+                            }, 700);
+
+                            // [ current-Slider ]
+                            var slider = new Slider("#ex6");
+                            slider.on("slide", function(sliderValue) {
+                                document.getElementById("ex6SliderVal").textContent = sliderValue;
+                            });
+
+                            // [ Enable-Slider ]
+                            var eslider = new Slider("#ex7");
+                            $("#ex7-enabled").click(function() {
+                                if (this.checked) {
+                                    eslider.enable();
+                                } else {
+                                    eslider.disable();
+                                }
+                            });
+
+                            // [ Tooltip-Slider ]
+                            var slider = new Slider("#ex8", {
+                                tooltip: 'always'
+                            });
+
+                            // [ Precision-slider ]
+                            var slider = new Slider("#ex9", {
+                                precision: 2,
+                                value: 8.115 // Slider will instantiate showing 8.12 due to specified precision
+                            });
+
+                            // [ handlers-slider ]
+                            var slider = new Slider("#ex10", {});
+
+                            // [ step-slider ]
+                            var slider = new Slider("#ex11", {
+                                step: 20000,
+                                min: 0,
+                                max: 200000
+                            });
+
+                            //[ low & high-slider ]
+                            var sliderA = new Slider("#ex12a", {
+                                id: "slider12a",
+                                min: 0,
+                                max: 10,
+                                value: 5
+                            });
+                            var sliderB = new Slider("#ex12b", {
+                                id: "slider12b",
+                                min: 0,
+                                max: 10,
+                                range: true,
+                                value: [3, 7]
+                            });
+                            var sliderC = new Slider("#ex12c", {
+                                id: "slider12c",
+                                min: 0,
+                                max: 10,
+                                range: true,
+                                value: [3, 7]
+                            });
+
+                            // [ labels-slider ]
+                            var slider = new Slider("#ex13", {
+                                ticks: [0, 10, 20, 30, 40],
+                                ticks_labels: ['$0', '$10', '$20', '$30', '$40'],
+                                ticks_snap_bounds: 95
+                            });
+
+                            // [ positions-slider ]
+                            var slider = new Slider("#ex14", {
+                                ticks: [0, 10, 20, 30, 40],
+                                ticks_positions: [0, 30, 60, 70, 90, 100],
+                                ticks_labels: ['$0', '$10', '$20', '$30', '$40'],
+                                ticks_snap_bounds: 95
+                            });
+
+                            // [ logarithmic-slider ]
+                            var slider = new Slider('#ex15', {
+                                min: 1000,
+                                max: 10000000,
+                                scale: 'logarithmic',
+                                step: 10
+                            });
+
+                            // [ Focus-slider ]
+                            var sliderA = new Slider("#ex16a", {
+                                min: 0,
+                                max: 10,
+                                value: 0,
+                                focus: true
+                            });
+                            var sliderB = new Slider("#ex16b", {
+                                min: 0,
+                                max: 10,
+                                value: [0, 10],
+                                focus: true
+                            });
+
+                            // [ Unusual-slider ]
+                            var sliderA = new Slider("#ex17a", {
+                                min: 0,
+                                max: 10,
+                                value: 0,
+                                tooltip_position: 'bottom'
+                            });
+                            var sliderB = new Slider("#ex17b", {
+                                min: 0,
+                                max: 10,
+                                value: 0,
+                                orientation: 'vertical',
+                                tooltip_position: 'left'
+                            });
+
+                            // [ Accessibility-slider ]
+                            var sliderA = new Slider("#ex18a", {
+                                min: 0,
+                                max: 10,
+                                value: 5,
+                                labelledby: 'ex18-label-1'
+                            });
+                            var sliderB = new Slider("#ex18b", {
+                                min: 0,
+                                max: 10,
+                                value: [3, 6],
+                                labelledby: ['ex18-label-2a', 'ex18-label-2b']
+                            });
+
+                            // [ Hidden-slider ]
+                            $('#ex20a').on('click', function(e) {
+                                $('#ex20a')
+                                    .parent()
+                                    .find(' >.well')
+                                    .toggle()
+                                    .find('input')
+                                    .slider('relayout');
+                                e.preventDefault();
+                            });
+
+                            // [ Highlight-slider ]
+                            var slider = new Slider("#ex22", {
+                                id: 'slider22',
+                                min: 0,
+                                max: 20,
+                                step: 1,
+                                value: 14,
+                                rangeHighlights: [{
+                                    "start": 2,
+                                    "end": 5,
+                                    "class": "category1"
+                                }, {
+                                    "start": 7,
+                                    "end": 8,
+                                    "class": "category2"
+                                }, {
+                                    "start": 17,
+                                    "end": 19
+                                }, {
+                                    "start": 17,
+                                    "end": 24
+                                }, {
+                                    "start": -3,
+                                    "end": 19
+                                }]
+                            });
+
+                            // [ Tick-slider ]
+                            var slider = new Slider("#ex23", {
+                                ticks: [0, 1, 2, 3, 4],
+                                ticks_positions: [0, 30, 70, 90, 100],
+                                ticks_snap_bounds: 200,
+                                formatter: function(value) {
+                                    return 'Current value: ' + value;
+                                },
+                                ticks_tooltip: true,
+                                step: 0.01
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+            <pre>
+<code class="language-markup">
+    &lt;!-- Range Slider css --&gt;
+    &lt;link href="assets/css/plugins/bootstrap-slider.min.css" rel="stylesheet"&gt;
+    &lt;!-- Range Slider Js --&gt;
+    &lt;script src="assets/js/plugins/bootstrap-slider.min.js"&gt;&lt;/script&gt;
+
+</code>
+            </pre>
+            <!-- [ range-slider ] end -->
+
+            <!-- [ syntax-highlight ] start -->
+            <h2 class="docs-header" id="page-highlighter">Syntax Highlighter</h2>
+            <div class="row">
+                <div class="col-sm-12 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Basic Usage</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>The recommended way to mark up a code block (both for semantics and for Prism) is a <code>&lt;pre&gt;</code> element with a element <code>&lt;code&gt;</code> inside, like so:</p>
+                            <h6 class="m-t-20 f-w-600">Code:</h6>
+                            <pre>
+<code class="language-markup">
+    &lt;pre&gt;
+        &lt;code class="language-css"&gt;
+            p {
+                color: #1abc9c
+            }
+        &lt;/code&gt;
+    &lt;/pre&gt;
+
+</code>
+                            </pre>
+                            <h6 class="m-t-20 f-w-600">Output:</h6>
+                            <div class="bg-light syntax-output p-2">
+                                <pre class="mb-0">
+p {
+    color: #1abc9c
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>HTML Markup</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Use the following code to use HTML syntax highlighter.</p>
+                            <h6 class="m-t-20 f-w-600">Usage:</h6>
+                            <pre>
+<code class="language-markup">
+    &lt;pre&gt;
+        &lt;code class="language-markup"&gt;
+            HTML CODE ...
+        &lt;/code&gt;
+    &lt;/pre&gt;
+
+</code>
+                            </pre>
+                            <h6 class="m-t-20 f-w-600">Example:</h6>
+                            <pre>
+<code class="language-markup">
+    &lt;div class="card"&gt;
+        &lt;div class="card-header"&gt;
+            &lt;h5&gt;Hello card&lt;/h5&gt;
+            &lt;span&gt; lorem ipsum dolor sit amet, consectetur adipisicing elit&lt;/span&gt;
+            &lt;div class="card-header-right"&gt;
+                &lt;i class="icofont icofont-rounded-down"&gt;&lt;/i&gt;
+                &lt;i class="icofont icofont-refresh"&gt;&lt;/i&gt;
+                &lt;i class="icofont icofont-close-circled"&gt;&lt;/i&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card-body"&gt;
+            &lt;p&gt;
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+</code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>CSS Markup</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Use the following code to use HTML syntax highlighter.</p>
+                            <h6 class="m-t-20 f-w-600">Usage:</h6>
+                            <pre>
+<code class="language-markup">
+    &lt;pre&gt;
+        &lt;code class="language-css"&gt;
+            CSS CODE ...
+        &lt;/code&gt;
+    &lt;/pre&gt;
+
+</code>
+                            </pre>
+                            <h6 class="m-t-20 f-w-600">Example:</h6>
+                            <pre>
+<code class="language-css">
+    a:active{
+        color:#1abc9c;
+    }
+    p{
+        font-size:13px;
+    }
+    .btn-primary{
+        color: #1abc9c;
+        background-color: #fff;
+    }
+    .label-primary {
+        background-color: #1abc9c;
+    }
+    .badge-primary {
+        background-color: #1abc9c;
+    }
+    .bg-primary {
+        background-color: #1abc9c !important;
+        color: #fff;
+    }
+    .panel-primary {
+        border-color: #1abc9c;
+    }
+
+</code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Line Number</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Line number at the beginning of code lines.</p>
+                            <p>Obviously, this is supposed to work only for code blocks (<code>&lt;pre&gt;&lt;code&gt;</code>) and not for inline code. Add class line-numbers to your desired <code>&lt;pre&gt;</code> and line-numbers plugin will take
+                                care.</p>
+                            <p>Optional: You can specify the data-start (Number) attribute on the <code>&lt;pre&gt;</code> element. It will shift the line counter.</p>
+                            <h6 class="m-t-20 f-w-600">Usage:</h6>
+                            <pre class="line-numbers language-js">
+<code class=" language-js">
+    &lt;pre class="line-numbers"&gt;
+        &lt;code class="language-css"&gt;
+            p {
+                color: red;
+            }
+
+        &lt;/code&gt;
+    &lt;/pre&gt;
+
+</code>
+                            </pre>
+                            <h6 class="m-t-20 f-w-600">Example:</h6>
+                            <pre class="line-numbers">
+<code class="language-js">
+    (function() {
+        if (typeof self==='undefined' || !self.Prism || !self.document) {
+            return;
+        }
+    });
+
+</code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 datta-example">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Line Highlight</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Highlights specific lines and/or line ranges.</p>
+                            <p>You specify the lines to be highlighted through the data-line attribute on the <code>&lt;pre&gt;</code> element, in the following simple format:</p>
+                            <ol>
+                                <li>A single number refers to the line with that number</li>
+                                <li>Ranges are denoted by two numbers, separated with a hyphen (-)</li>
+                                <li>Multiple line numbers or ranges are separated by commas.</li>
+                                <li>Whitespace is allowed anywhere and will be stripped off.</li>
+                            </ol>
+                            <h6 class="m-t-20 f-w-600">Usage:</h6>
+                            <pre>
+<code class="language-markup">
+    &lt;pre data-line="2,4, 8-10"&gt;
+        &lt;code class="language-css"&gt;
+            p {
+                color: red
+            }
+        &lt;/code&gt;
+    &lt;/pre&gt;
+
+</code>
+                            </pre>
+                            <h6 class="m-t-20 f-w-600">Example:</h6>
+                            <pre data-line="2,4,7-9">
+<code class="language-css">
+    pre.line-numbers {
+        position: relative;
+        padding-left: 3.8em;
+        counter-reset: linenumber;
+    }
+    pre.line-numbers > code {
+        position: relative;
+    }
+    .line-numbers .line-numbers-rows {
+        position: absolute;
+        pointer-events: none;
+        top: 0;
+        font-size: 100%;
+        left: -3.8em;
+        width: 3em;
+        /* works for line-numbers below 1000 lines */
+        letter-spacing: -1px;
+        border-right: 1px solid #999;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+</code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre>
+<code class="language-markup">
+    &lt;!-- Prism css --&gt;
+    &lt;link href="assets/css/plugins/prism-coy.css" rel="stylesheet"&gt;<br>
+    &lt;!-- Prism Js --&gt;
+    &lt;script src="assets/js/plugins/prism.js"&gt;&lt;/script&gt;
+
+</code>
+            </pre>
+            <!-- [ syntax-highlight ] end -->
+        </div>
+    </div>
+
+    <div class="datta-example-modal">
+        <a href="javascript:void(0)" class="md-datta-example-modal-copy">
+            <span class="feather icon-clipboard"></span>
+        </a>
+        <a href="javascript:void(0)" class="datta-example-modal-close">&times;</a>
+        <div class="scroll-div">
+            <div class="datta-example-modal-content"></div>
+        </div>
+    </div>
+
+    <script src="assets/js/ripple.js"></script>
+    <script src="assets/js/pcoded.min.js"></script>
+    <script src="assets/js/uikit.min.js"></script>
+    <script>
+        $(function() {
+            $('body').scrollspy({
+                target: ".docs-sections-inner"
+            });
+            $(".docs-sections-inner a").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 1500, function() {
+                        window.location.hash = hash;
+                    });
+                }
+            });
+        });
+    </script>
+    <script src="assets/js/analytics.js"></script>
+
+</body>
+
+</html>

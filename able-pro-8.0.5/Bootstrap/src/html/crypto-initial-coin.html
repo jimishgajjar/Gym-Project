@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+    <html lang="en">
+
+    <head>
+        @@include('./layouts/head.html')
+        <link rel="stylesheet" href="assets/css/plugins/flipclock.css">
+        @@include('./layouts/head-bottom-link.html')
+    </head>
+    @@include('./layouts/main.html')
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Initial coin</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#!">Crypto</a></li>
+                                <li class="breadcrumb-item"><a href="#!">Initial coin</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card bg-pattern">
+                        <div class="card-body py-5 text-center">
+                            <h2 class="text-center mb-4"><span class="text-primary">Crypto</span> The <span class="text-primary">Revolution</span> In Crypto Market</h2>
+                            <h4 class="text-center mb-4">Buy now and get +30% extra bonus</h4>
+                            <h5>Distribution Ends In</h5>
+                            <div class="clock d-inline-block" style="margin:2em;"></div>
+                            <div class="row justify-content-center">
+                                <div class="col-sm-9">
+                                    <button class="btn btn-success mb-2">Buy Token</button>
+                                    <div class="row justify-content-between">
+                                        <div class="col-auto">
+                                            <p>Midcap in <b>267 days</b></p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <p>Midcap in <b>267 days</b></p>
+                                        </div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div class="row justify-content-between text-center mt-3">
+                                        <div class="col-auto">
+                                            <h5>Total Tokens: 123.0122</h5>
+                                        </div>
+                                        <div class="col-auto">
+                                            <h5>Tokens In Circulation: 5603.3011</h5>
+                                        </div>
+                                        <div class="col-auto">
+                                            <h5>Token Price: $1.0023</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-pattern">
+                        <div class="card-body py-5 text-center">
+                            <h2 class="text-center mb-4"><span class="text-primary">Crypto</span> The <span class="text-primary">Revolution</span> In Crypto Market</h2>
+                            <div class="row align-items-end">
+                                <div class="col-sm-2"><p>1300 ETH raised</p></div>
+                                <div class="col-sm-2"><div class="badge badge-pill badge-success m-b-5">bonus</div><p>23%</p></div>
+                                <div class="col-sm-2"><div class="badge badge-pill badge-success m-b-5">bonus</div><p>14%</p></div>
+                                <div class="col-sm-2"><div class="badge badge-pill badge-success m-b-5">bonus</div><p>15%</p></div>
+                                <div class="col-sm-2"><div class="badge badge-pill badge-success m-b-5">bonus</div><p>7%</p></div>
+                                <div class="col-sm-2"><p>Last-chance!</p></div>
+                                <div class="col-sm-2"></div>
+                            </div>
+                            <div class="progress mb-4 hei-40">
+                                <div class="progress-bar" role="progressbar" style="width: 16.66%" aria-valuenow="16.66" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 16.66%" aria-valuenow="16.66" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 16.66%" aria-valuenow="16.66" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 16.66%" aria-valuenow="16.66" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-danger active-progress" role="progressbar" style="width: 6.66%" aria-valuenow="16.66" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-transparent" role="progressbar" style="width: 16.66%" aria-valuenow="16.66" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="row align-items-top text-left">
+                                <div class="col-sm-2"><p>Round First</p></div>
+                                <div class="col-sm-2"><p>Round Second</p></div>
+                                <div class="col-sm-2"><p>2600 ETH</p></div>
+                                <div class="col-sm-2"><p>3900 ETH</p></div>
+                                <div class="col-sm-2"><p>7900 ETH</p></div>
+                                <div class="col-sm-2 text-right"><p>19000 ETH</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+    </div>
+
+    <!-- [ Main Content ] end -->
+    @@include('./layouts/footer.html')
+    <script src="assets/js/plugins/flipclock.min.js"></script>
+    <script>
+        // [ flipclock ] start
+        $(function() {
+            var d = new Date();
+            d.setMonth(d.getMonth() + 2);
+            var el = document.querySelector('.clock');
+            var clock = new FlipClock(el, d, {
+                face: 'DayCounter',
+                countdown: true
+            });
+        });
+        // [ flipclock ] end
+        // [ progressbar ] start
+        $(function() {
+            setInterval(function() {
+                $('.active-progress').css('width', '8%');
+                setTimeout(function() {
+                    $('.active-progress').css('width', '16.6%');
+                }, 2000);
+                setTimeout(function() {
+                    $('.active-progress').css('width', '12%');
+                }, 4000);
+                setTimeout(function() {
+                    $('.active-progress').css('width', '0%');
+                }, 5000);
+            }, 5400);
+        });
+        // [ progressbar ] end
+    </script>
+    @@include('./layouts/footer-bottom-link.html')
+    </body>
+
+    </html>

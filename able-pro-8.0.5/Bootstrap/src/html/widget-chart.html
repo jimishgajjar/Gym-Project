@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('./layouts/head.html')
+    @@include('./layouts/head-bottom-link.html')
+    <!-- Rating css -->
+    <link rel="stylesheet" href="assets/css/plugins/bars-1to10.css">
+</head>
+@@include('./layouts/main.html')
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Widget Chart</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Widget</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Widget Chart</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- amount start -->
+            <div class="col-md-6 col-xl-4">
+                <div class="card amount-card overflow-hidden">
+                    <div class="card-body">
+                        <h2 class="f-w-400">$23,567</h2>
+                        <p class="text-muted f-w-600 f-16"><span class="text-c-blue">Amount</span> Processed</p>
+                    </div>
+                    <div id="amount-processed"></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card amount-card overflow-hidden">
+                    <div class="card-body">
+                        <h2 class="f-w-400">$14,552</h2>
+                        <p class="text-muted f-w-600 f-16"><span class="text-c-green">Amount</span> Spent</p>
+                    </div>
+                    <div id="amount-spent"></div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xl-4">
+                <div class="card amount-card overflow-hidden">
+                    <div class="card-body">
+                        <h2 class="f-w-400">$31,156</h2>
+                        <p class="text-muted f-w-600 f-16"><span class="text-c-yellow">Profit</span> Processed
+                        </p>
+                    </div>
+                    <div id="profit-processed"></div>
+                </div>
+            </div>
+            <!-- amount end -->
+            <!-- seo ecommerce start -->
+            <div class="col-xl-6 col-md-12">
+                <div class="card overflow-hidden">
+                    <div class="card-body bg-c-green pb-0">
+                        <div class="row text-white">
+                            <div class="col-auto">
+                                <h4 class="m-b-5 text-white">$654</h4>
+                                <h6 class="text-white">+1.65(2.56%)</h6>
+                            </div>
+                            <div class="col text-right">
+                                <h6 class="text-white">Friday</h6>
+                            </div>
+                        </div>
+                        <div id="sec-ecommerce-chart-line"></div>
+                        <div class="row justify-content-center">
+                            <div class="col-8">
+                                <div id="sec-ecommerce-chart-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <h4>$2654.00</h4>
+                        <p class="text-muted">Sales in Nov.</p>
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-muted m-b-5">From Market</p>
+                                <h6>$1860.00</h6>
+                            </div>
+                            <div class="col">
+                                <p class="text-muted m-b-5">Referral</p>
+                                <h6>$500.00</h6>
+                            </div>
+                            <div class="col">
+                                <p class="text-muted m-b-5">Affiliate</p>
+                                <h6>$294.00</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row justify-content-center text-center">
+                            <div class="col-5">
+                                <h6 class="text-muted">Real-Time Visits</h6>
+                                <h3>53k</h3>
+                            </div>
+                            <div class="col-5">
+                                <h6 class="text-muted">Returning Visitors</h6>
+                                <h3>10k</h3>
+                            </div>
+                        </div>
+                        <div id="seo-ecommerce-barchart"></div>
+                        <div class="row justify-content-center text-center b-t-default m-t-15">
+                            <div class="col-3 b-r-default">
+                                <h5>85%</h5>
+                                <p class="text-muted m-b-0">Satisfied</p>
+                            </div>
+                            <div class="col-3 b-r-default">
+                                <h5>6%</h5>
+                                <p class="text-muted m-b-0">Unsatisfied</p>
+                            </div>
+                            <div class="col-3">
+                                <h5>9%</h5>
+                                <p class="text-muted m-b-0">NA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- seo ecommerce end -->
+            <!-- income start -->
+            <div class="col-xl-4 col-md-6">
+                <div class="card overflow-hidden">
+                    <div class="card-body">
+                        <h5 class="mb-3">Sale Income</h5>
+                        <div class="row">
+                            <div class="col-4">
+                                <p class="text-muted m-b-5">Overall</p>
+                                <h6>68.52%</h6>
+                            </div>
+                            <div class="col-4">
+                                <p class="text-muted m-b-5">Monthly</p>
+                                <h6>28.90%</h6>
+                            </div>
+                            <div class="col-4">
+                                <p class="text-muted m-b-5">Day</p>
+                                <h6>13.50%</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sal-income"></div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+                <div class="card overflow-hidden">
+                    <div class="card-body">
+                        <h5 class="mb-3">Rent Income</h5>
+                        <div class="row">
+                            <div class="col-4">
+                                <p class="text-muted m-b-5">Overall</p>
+                                <h6>68.52%</h6>
+                            </div>
+                            <div class="col-4">
+                                <p class="text-muted m-b-5">Monthly</p>
+                                <h6>28.90%</h6>
+                            </div>
+                            <div class="col-4">
+                                <p class="text-muted m-b-5">Day</p>
+                                <h6>13.50%</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="rent-income"></div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-12">
+                <div class="card overflow-hidden">
+                    <div class="card-body">
+                        <h5 class="mb-3">Income Analysis</h5>
+                        <div class="row">
+                            <div class="col-4">
+                                <p class="text-muted m-b-5">Overall</p>
+                                <h6>68.52%</h6>
+                            </div>
+                            <div class="col-4">
+                                <p class="text-muted m-b-5">Monthly</p>
+                                <h6>28.90%</h6>
+                            </div>
+                            <div class="col-4">
+                                <p class="text-muted m-b-5">Day</p>
+                                <h6>13.50%</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="income-analysis"></div>
+                </div>
+            </div>
+            <!-- income end -->
+            <!-- sales start -->
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6 m-t-10 m-b-10">
+                                <h6>Daily Sales</h6>
+                                <div class="row justify-content-center">
+                                    <div class="col-8">
+                                        <div id="sale-report-1"></div>
+                                    </div>
+                                </div>
+                                <h5 class="m-t-10 m-b-0"><i class="fa fa-caret-up text-c-green m-r-10"></i>$16524</h5>
+                            </div>
+                            <div class="col-xl-3 col-md-6 m-t-10 m-b-10">
+                                <h6>Weekly Sales</h6>
+                                <div class="row justify-content-center">
+                                    <div class="col-8">
+                                        <div id="sale-report-2"></div>
+                                    </div>
+                                </div>
+                                <h5 class="m-t-10 m-b-0"><i class="fa fa-caret-down text-c-red m-r-10"></i>$6423</h5>
+                            </div>
+                            <div class="col-xl-3 col-md-6 m-t-10 m-b-10">
+                                <h6>Monthly Sales</h6>
+                                <div class="row justify-content-center">
+                                    <div class="col-8">
+                                        <div id="sale-report-3"></div>
+                                    </div>
+                                </div>
+                                <h5 class="m-t-10 m-b-0"><i class="fa fa-caret-up text-c-green m-r-10"></i>$14524</h5>
+                            </div>
+                            <div class="col-xl-3 col-md-6 m-t-10 m-b-10">
+                                <h6>Yearly Sales</h6>
+                                <div class="row justify-content-center">
+                                    <div class="col-8">
+                                        <div id="sale-report-4"></div>
+                                    </div>
+                                </div>
+                                <h5 class="m-t-10 m-b-0"><i class="fa fa-caret-down text-c-red m-r-10"></i>$8652</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- sales end -->
+            <!-- sale order start -->
+            <div class="col-xl-4 col-md-6">
+                <div class="card overflow-hidden">
+                    <div class="card-body bg-c-red text-white">
+                        <h6 class="text-white">Sales Per Day <span class="float-right"><i class="feather icon-trending-down m-r-15"></i>3%</span></h6>
+                        <div id="sale-chart1"></div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <div class="row">
+                            <div class="col-6 b-r-default">
+                                <h4>$4230</h4>
+                                <p class="text-muted m-b-0">Total Revenue</p>
+                            </div>
+                            <div class="col-6">
+                                <h4>321</h4>
+                                <p class="text-muted m-b-0">Today Sales</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h4>$256.23</h4>
+                                <p class="text-muted">This Month</p>
+                            </div>
+                            <div class="col-auto">
+                                <label class="badge badge-light-success">+20%</label>
+                            </div>
+                        </div>
+                        <div id="this-month"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-12">
+                <div class="card overflow-hidden">
+                    <div class="card-body bg-c-blue text-white">
+                        <h6 class="text-white">Orders<span class="float-right"><i class="feather icon-trending-up m-r-15"></i>12%</span></h6>
+                        <div id="sale-chart3"></div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <div class="row">
+                            <div class="col-6 b-r-default">
+                                <h4>1695</h4>
+                                <p class="text-muted m-b-0">Monthly Orders</p>
+                            </div>
+                            <div class="col-6">
+                                <h4>52</h4>
+                                <p class="text-muted m-b-0">Today Orders</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- sale order end -->
+            <!-- income start -->
+            <div class="col-xl-4 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="mb-3">Power</h5>
+                        <h2>2789<span class="text-muted m-l-5 f-14">kw</span></h2>
+                        <div id="power-card-chart1"></div>
+                        <div class="row">
+                            <div class="col col-auto">
+                                <div class="map-area">
+                                    <h6 class="m-0">2876 <span> kw</span></h6>
+                                    <p class="text-muted m-0">month</p>
+                                </div>
+                            </div>
+                            <div class="col col-auto">
+                                <div class="map-area">
+                                    <h6 class="m-0">234 <span> kw</span></h6>
+                                    <p class="text-muted m-0">Today</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="mb-3">Water</h5>
+                        <h2>7.3<span class="text-muted m-l-10 f-14">m3</span></h2>
+                        <div id="power-card-chart2"></div>
+                        <div class="row">
+                            <div class="col col-auto">
+                                <div class="map-area">
+                                    <h6 class="m-0">4.5 <span> m3</span></h6>
+                                    <p class="text-muted m-0">month</p>
+                                </div>
+                            </div>
+                            <div class="col col-auto">
+                                <div class="map-area">
+                                    <h6 class="m-0">0.5 <span> m3</span></h6>
+
+                                    <p class="text-muted m-0">Today</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="mb-3">Temperature</h5>
+                        <h2>7.3<span class="text-muted m-l-10 f-14">deg</span></h2>
+                        <div id="power-card-chart3"></div>
+                        <div class="row">
+                            <div class="col col-auto">
+                                <div class="map-area">
+                                    <h6 class="m-0">4.5 <span> deg</span></h6>
+                                    <p class="text-muted m-0">month</p>
+                                </div>
+                            </div>
+                            <div class="col col-auto">
+                                <div class="map-area">
+                                    <h6 class="m-0">0.5 <span> deg</span></h6>
+
+                                    <p class="text-muted m-0">Today</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- income end -->
+            <!--task and avrage value start-->
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Revenue</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="revenue-map"></div>
+                    </div>
+                </div>
+            </div>
+            <!--task and avrage value end-->
+            <!-- project and visite start -->
+            <div class="col-xl-4 col-md-12">
+                <div class="card overflow-hidden">
+                    <div class="card-body bg-c-blue">
+                        <div id="proj-earning"></div>
+                    </div>
+                    <div class="card-footer">
+                        <h6 class="text-muted m-b-30 m-t-15">Total completed project and earning</h6>
+                        <div class="row text-center">
+                            <div class="col-6 border-right">
+                                <h6 class="text-muted m-b-10">Completed Projects</h6>
+                                <h3 class="m-b-0">175</h3>
+                            </div>
+                            <div class="col-6">
+                                <h6 class="text-muted m-b-10">Total Earnings</h6>
+                                <h3 class="m-b-0">76.6M</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8 col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Realtime Data of Visits</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-2">
+                            <div class="col-auto">
+                                <h4 class="m-0">563,756<i class="feather icon-arrow-up text-c-green"></i></h4>
+                                <span>Visits per Day</span>
+                            </div>
+                            <div class="col-auto">
+                                <h4 class="m-0">78,569<i class="feather icon-arrow-down text-c-red"></i></h4>
+                                <span>Total Visitors</span>
+                            </div>
+                            <div class="col">
+                                <h4 class="m-0">40.05%<i class="feather icon-arrow-up text-c-green"></i></h4>
+                                <span>Bounce Rate</span>
+                            </div>
+                        </div>
+                        <div id="realtime-visit-chart"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- project and visite end -->
+            <!-- seo analytics start -->
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>20500</h3>
+                        <p class="text-muted">Site Analysis</p>
+                        <div id="seo-anlytics1"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>20500</h3>
+                        <p class="text-muted">Total Sales</p>
+                        <div id="seo-anlytics2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>28000</h3>
+                        <p class="text-muted">Total Visits</p>
+                        <div id="seo-anlytics3"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>59600</h3>
+                        <p class="text-muted">Total Usage</p>
+                        <div id="seo-anlytics4"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- seo analytics end -->
+
+            <!-- sale card start -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card bg-c-blue total-card">
+                    <div class="card-body">
+                        <span class="badge badge-light float-right">12%</span>
+                        <div class="text-left">
+                            <h4>4000</h4>
+                            <p class="m-0">Total Sales</p>
+                        </div>
+                    </div>
+                    <div id="total-value-graph-1"></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card bg-c-red total-card">
+                    <div class="card-body">
+                        <span class="badge badge-light float-right">15%</span>
+                        <div class="text-left">
+                            <h4>489</h4>
+                            <p class="m-0">Total Comment</p>
+                        </div>
+                    </div>
+                    <div id="total-value-graph-2"></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card bg-c-green total-card">
+                    <div class="card-body">
+                        <span class="badge badge-light float-right">20%</span>
+                        <div class="text-left">
+                            <h4>$5782</h4>
+                            <p class="m-0">Income Status</p>
+                        </div>
+                    </div>
+                    <div id="total-value-graph-3"></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card bg-c-yellow total-card">
+                    <div class="card-body">
+                        <span class="badge badge-light float-right">23%</span>
+                        <div class="text-left">
+                            <h4>378</h4>
+                            <p class="m-0">Total Visitors</p>
+                        </div>
+                    </div>
+                    <div id="total-value-graph-4"></div>
+                </div>
+            </div>
+            <!-- sale card end -->
+
+            <!-- Profit Visitor Start -->
+            <div class="col-md-6 col-xl-4 ">
+                <div class="card ">
+                    <div class="card-body ">
+                        <h2 class="text-center f-w-400 ">$45,567</h2>
+                        <p class="text-center text-muted ">Monthly Profit</p>
+                        <div id="monthlyprofit-1"></div>
+                        <div class="m-t-20">
+                            <div class="row ">
+                                <div class="col-6 text-center ">
+                                    <h6 class="f-20 f-w-400">$6,234</h6>
+                                    <p class="text-muted f-14 m-b-0">Today</p>
+                                </div>
+                                <div class="col-6 text-center ">
+                                    <h6 class="f-20 f-w-400">$4,387</h6>
+                                    <p class="text-muted f-14 m-b-0">Yesterday</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4 ">
+                <div class="card ">
+                    <div class="card-body ">
+                        <h2 class="text-center f-w-400 ">2,413</h2>
+                        <p class="text-center text-muted ">Total Sales</p>
+                        <div id="monthlyprofit-2"></div>
+                        <div class="m-t-20">
+                            <div class="row ">
+                                <div class="col-6 text-center ">
+                                    <h6 class="f-20 f-w-400">1578</h6>
+                                    <p class="text-muted f-14 m-b-0">Today</p>
+                                </div>
+                                <div class="col-6 text-center ">
+                                    <h6 class="f-20 f-w-400">1028</h6>
+                                    <p class="text-muted f-14 m-b-0">Yesterday</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xl-4 ">
+                <div class="card ">
+                    <div class="card-body ">
+                        <h2 class="text-center f-w-400 ">8,421</h2>
+                        <p class="text-center text-muted ">Unique Visitors</p>
+                        <div id="monthlyprofit-3"></div>
+                        <div class="m-t-20">
+                            <div class="row ">
+                                <div class="col-6 text-center ">
+                                    <h6 class="f-20 f-w-400">2,849</h6>
+                                    <p class="text-muted f-14 m-b-0">Today</p>
+                                </div>
+                                <div class="col-6 text-center ">
+                                    <h6 class="f-20 f-w-400">3,587</h6>
+                                    <p class="text-muted f-14 m-b-0">Yesterday</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Profit Visitor End -->
+
+            <!-- seo start -->
+            <div class="col-xl-4 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <h3>$16,756</h3>
+                                <h6 class="text-muted m-b-0">Visits<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
+                            </div>
+                            <div class="col-6">
+                                <div id="seo-chart1" class="d-flex align-items-end"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <h3>49.54%</h3>
+                                <h6 class="text-muted m-b-0">Bounce Rate<i class="fa fa-caret-up text-c-green m-l-10"></i></h6>
+                            </div>
+                            <div class="col-6">
+                                <div id="seo-chart2" class="d-flex align-items-end"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <h3>1,62,564</h3>
+                                <h6 class="text-muted m-b-0">Products<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
+                            </div>
+                            <div class="col-6">
+                                <div id="seo-chart3" class="d-flex align-items-end"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- seo end -->
+
+            <!-- Client Map Start -->
+            <div class="col-md-6 col-xl-4">
+                <div class="card client-map">
+                    <div class="card-body">
+                        <div class="client-detail">
+                            <div class="client-profile">
+                                <img src="assets/images/user/avatar-2.jpg" alt="">
+                            </div>
+                            <div class="client-contain">
+                                <h5>Gregory Johnes</h5>
+                                <a href="#!" class="text-muted">gregory@demo.com</a>
+                                <p class="text-muted m-0 p-t-10">Product Manager</p>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="client-card-box">
+                                <div class="row">
+                                    <div class="col-6 text-center client-border p-10">
+                                        <p class="text-muted m-0">Invites</p>
+                                        <span class="text-c-blue f-20 f-w-600">345</span>
+                                    </div>
+                                    <div class="col-6 text-center p-10">
+                                        <p class="text-muted m-0">Pending</p>
+                                        <span class="text-c-blue f-20 f-w-600">12</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 client-border-card p-t-10">
+                                    <p>Overall Activity</p>
+                                </div>
+                                <div id="client-map-1" style="height:70px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card client-map">
+                    <div class="card-body">
+                        <div class="client-detail">
+                            <div class="client-profile">
+                                <img src="assets/images/user/avatar-4.jpg" alt="">
+                            </div>
+                            <div class="client-contain">
+                                <h5>Gregory Johnes</h5>
+                                <a href="#!" class="text-muted">gregory@demo.com</a>
+                                <p class="text-muted m-0 p-t-10">Product Manager</p>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="client-card-box">
+                                <div class="row">
+                                    <div class="col-6 text-center client-border p-10">
+                                        <p class="text-muted m-0">Invites</p>
+                                        <span class="text-c-red f-20 f-w-600">845</span>
+                                    </div>
+                                    <div class="col-6 text-center p-10">
+                                        <p class="text-muted m-0">Pending</p>
+                                        <span class="text-c-red f-20 f-w-600">02</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 client-border-card p-t-10">
+                                    <p>Overall Activity</p>
+                                </div>
+                                <div id="client-map-2" style="height:70px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xl-4">
+                <div class="card client-map">
+                    <div class="card-body">
+                        <div class="client-detail">
+                            <div class="client-profile">
+                                <img src="assets/images/user/avatar-3.jpg" alt="">
+                            </div>
+                            <div class="client-contain">
+                                <h5>Gregory Johnes</h5>
+                                <a href="#!" class="text-muted">gregory@demo.com</a>
+                                <p class="text-muted m-0 p-t-10">Product Manager</p>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="client-card-box">
+                                <div class="row">
+                                    <div class="col-6 text-center client-border p-10">
+                                        <p class="text-muted m-0">Invites</p>
+                                        <span class="text-c-green f-20 f-w-600">812</span>
+                                    </div>
+                                    <div class="col-6 text-center p-10">
+                                        <p class="text-muted m-0">Pending</p>
+                                        <span class="text-c-green f-20 f-w-600">00</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 client-border-card p-t-10">
+                                    <p>Overall Activity</p>
+                                </div>
+                                <div id="client-map-3" style="height:70px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Client Map End -->
+
+            <!-- income start -->
+            <div class="col-xl-4 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="mb-3">Total Leads</h5>
+                        <p class="text-c-green f-w-500"><i class="fa fa-caret-up m-r-15"></i> 18% High than last month</p>
+                        <div class="row">
+                            <div class="col-4 b-r-default">
+                                <p class="text-muted m-b-5">Overall</p>
+                                <h5>76.12%</h5>
+                            </div>
+                            <div class="col-4 b-r-default">
+                                <p class="text-muted m-b-5">Monthly</p>
+                                <h5>16.40%</h5>
+                            </div>
+                            <div class="col-4">
+                                <p class="text-muted m-b-5">Day</p>
+                                <h5>4.56%</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tot-lead" style="height:150px"></div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="mb-3">Total Vendors</h5>
+                        <p class="text-c-red f-w-500"><i class="fa fa-caret-down m-r-15"></i> 24% High than last month</p>
+                        <div class="row">
+                            <div class="col-4 b-r-default">
+                                <p class="text-muted m-b-5">Overall</p>
+                                <h5>68.52%</h5>
+                            </div>
+                            <div class="col-4 b-r-default">
+                                <p class="text-muted m-b-5">Monthly</p>
+                                <h5>28.90%</h5>
+                            </div>
+                            <div class="col-4">
+                                <p class="text-muted m-b-5">Day</p>
+                                <h5>13.50%</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tot-vendor" style="height:150px"></div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="mb-3">Invoice Generate</h5>
+                        <p class="text-c-green f-w-500"><i class="fa fa-caret-up m-r-15"></i> 20% High than last month</p>
+                        <div class="row">
+                            <div class="col-4 b-r-default">
+                                <p class="text-muted m-b-5">Overall</p>
+                                <h5>68.52%</h5>
+                            </div>
+                            <div class="col-4 b-r-default">
+                                <p class="text-muted m-b-5">Monthly</p>
+                                <h5>28.90%</h5>
+                            </div>
+                            <div class="col-4">
+                                <p class="text-muted m-b-5">Day</p>
+                                <h5>13.50%</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="invoice-gen" style="height:150px"></div>
+                </div>
+            </div>
+            <!-- income end -->
+            <!-- support-tracker start -->
+            <div class="col-xl-4 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <h6>Support Analytics</h6>
+                            </div>
+                            <div class="col">
+                                <div class="dropdown float-right">
+                                    <a class="dropdown-toggle text-c-blue" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Last Week
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="#">1 week</a>
+                                        <a class="dropdown-item" href="#">2 year</a>
+                                        <a class="dropdown-item" href="#">3 month</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <h2 class="mt-2 mb-0">280</h2>
+                                <span class="">Tickets</span>
+                                <h6 class="mb-0 mt-3">Close: <span class="text-success">120</span></h6>
+                                <h6>Response <span class="text-danger">2d</span></h6>
+                            </div>
+                            <div class="col-6">
+                                <div id="hd-complited-ticket"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- support-tracker end -->
+            <!-- session-device start -->
+            <div class="col-xl-4 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h6>Traffic tracker</h6>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <span class="d-block text-uppercase">Inbound</span>
+                                <h3 class="mt-1">180 GB</h3>
+                                <div class="mt-3" id="transactions1"></div>
+                            </div>
+                            <div class="col-6">
+                                <span class="d-block text-uppercase">Outbound</span>
+                                <h3 class="mt-1">597.1 GB</h3>
+                                <div class="mt-3" id="transactions2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- session-device end -->
+            <!-- traffic-monitor start -->
+            <div class="col-xl-4">
+                <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <h6>Page view by device</h6>
+                                    </div>
+                                    <div class="col">
+                                        <div class="dropdown float-right">
+                                            <a class="dropdown-toggle text-c-blue" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">weekly</a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="#">1 week</a>
+                                                <a class="dropdown-item" href="#">2 year</a>
+                                                <a class="dropdown-item" href="#">3 month</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 pr-0">
+                                        <h6 class="my-3"><i class="feather icon-monitor f-20 mr-2 text-primary"></i>66.6%<span class="text-c-green ml-2 f-14"><i class="feather icon-arrow-up"></i>2%</span></h6>
+                                        <h6 class="my-3"><i class="feather icon-tablet f-20 mr-2 text-success"></i>29.7%<span class="text-c-red ml-2 f-14"><i class="feather icon-arrow-down"></i>3%</span></h6>
+                                        <h6 class="my-3"><i class="feather icon-smartphone f-20 mr-2 text-danger"></i>32.8%<span class="text-c-green ml-2 f-14"><i class="feather icon-arrow-up"></i>8%</span></h6>
+                                    </div>
+                                    <div class="col-6">
+                                        <div id="chart-percent" class="chart-percent text-center"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+            <!-- traffic-monitor end -->
+            <!-- conversion-section start -->
+            <div class="col-sm-12">
+                <div class="row no-gutters">
+                    <div class="col-md-4 col-xl-2 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <span>Transactions</span>
+                                <h3>61</h3>
+                                <div id="real4-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-xl-2 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <span>Current stock</span>
+                                <h3>50</h3>
+                                <div id="real6-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xl-2 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <span>Page bounce rate</span>
+                                <h3>0.50%</h3>
+                                <div id="real1-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xl-2 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <span>Total order value</span>
+                                <h3>$203.20</h3>
+                                <div id="real5-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xl-2 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <span>Revenue</span>
+                                <h3>$2,45,789</h3>
+                                <div id="real2-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xl-2 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <span>New Purchases</span>
+                                <h3>45</h3>
+                                <div id="real3-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- conversion-section end -->
+            <!-- moodrate start -->
+            <div class="col-xl-4 col-md-5">
+                <div class="card rating-bar">
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <h6 class="m-0">Task Completed</h6>
+                                <span>Successfull tested</span>
+                            </div>
+                            <div class="col-6">
+                                <h2 class="text-right">60%</h2>
+                            </div>
+                        </div>
+                        <select id="example-1to10" name="rating" autocomplete="off">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10" selected="selected">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="mb-3">Session by time of day</h6>
+                        <div id="time-user"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- moodrate end -->
+            <!-- Population-section start -->
+            <div class="col-xl-8 col-md-7">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Product manufacturing completion by Region</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="horizontal-bar-chart"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-md-12">
+                        <!-- conversion1-section start -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>Conversions</h6>
+                                <h4 class="m-0">0.85%<span class="text-c-blue ml-2"><i class="feather icon-arrow-up"></i>0.50%</span></h4>
+                                <span>Purchased</span>
+                            </div>
+                            <div id="coversions-chart"></div>
+                        </div>
+                        <!-- conversion1-section end -->
+                    </div>
+                    <div class="col-xl-6 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>New stock <span class="text-muted">( purchased )</span></h6>
+                                <h4 class="m-0">0.85%<span class="text-info ml-2"><i class="feather icon-arrow-up"></i>0.50%</span></h4>
+                            </div>
+                            <div id="coversions-chart1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Population-section End -->
+            <!-- customer-section start -->
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h6>Customer Satisfaction</h6>
+                        <span>It takes continuous effort to maintain high customer satisfaction levels.Internal and external quality measures are often tied together.,as the opinion...</span>
+                        <span class="text-c-blue d-block">Learn more..</span>
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <div class="col">
+                                <div id="satisfaction-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- customer-section end -->
+            <!-- Traffic-section start -->
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Marketing campaign</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="traffic-chart1"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Traffic-section end -->
+            <!-- view-section start -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Sales Report</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="sale-chart" style="height:160px;"></div>
+                        <div class="row mt-3 d-flex align-items-center text-center">
+                            <div class="col-6">
+                                <h6>$1000</h6>
+                                <span>Target</span>
+                            </div>
+                            <div class="col-6">
+                                <h6>$985</h6>
+                                <span>Last week</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- view-section end -->
+            <!-- time-section start -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Time on Site</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="time-chart"></div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <span class="text-muted"><i class="fas fa-circle text-c-green f-10 m-r-10"></i>Time on site</span>
+                            </div>
+                            <div class="col-6 text-right">
+                                <span class="text-muted">1:31</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- time-section end -->
+            <!-- browser-section start -->
+            <div class="col-md-4">
+                <div class="card table-card">
+                    <div class="card-header borderless">
+                        <h5>Browser States</h5>
+                    </div>
+                    <div class="card-body px-0 py-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <tbody>
+                                    <tr>
+                                        <td>Google Chrome</td>
+                                        <td><span class="text-right d-block m-0"><span class="m-r-15">21%</span><span class="data-attributes" data-peity='{ "fill": ["#4680ff", "#eeeeee"],"innerRadius": 8, "radius": 13 }'>5/7</span></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mozila Firefox</td>
+                                        <td><span class="text-right d-block m-0"><span class="m-r-15">76%</span><span class="data-attributes" data-peity='{ "fill": ["#ff5252", "#eeeeee"],"innerRadius": 8, "radius": 13 }'>3/8</span></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Apple Safari</td>
+                                        <td><span class="text-right d-block m-0"><span class="m-r-15">20%</span><span class="data-attributes" data-peity='{ "fill": ["#9ccc65", "#eeeeee"],"innerRadius": 8, "radius": 13 }'>5/6</span></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Internet Explorer</td>
+                                        <td><span class="text-right d-block m-0"><span class="m-r-15">26%</span><span class="data-attributes" data-peity='{ "fill": ["#536dfe", "#eeeeee"],"innerRadius": 8, "radius": 13 }'>2/6</span></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Opera mini</td>
+                                        <td><span class="text-right d-block m-0"><span class="m-r-15">27%</span><span class="data-attributes" data-peity='{ "fill": ["#FF9800", "#eeeeee"],"innerRadius": 8, "radius": 13 }'>5/7</span></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- browser-section end -->
+            <!-- total-revenue start -->
+            <div class="col-xl-4 col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Total Revenue</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="revenue-chart"></div>
+                        <span class="text-center text-muted d-block">Total sales made today</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row d-flex align-items-center text-center">
+                            <div class="col">
+                                <h6>$1258</h6>
+                                <span>Target</span>
+                            </div>
+                            <div class="col">
+                                <h6>$975</h6>
+                                <span>Last week</span>
+                            </div>
+                            <div class="col">
+                                <h6>$500</h6>
+                                <span>Last Day</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- total-revenue end -->
+            <!-- market-dow start -->
+            <div class="col-xl-4 col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Market Sales</h5>
+                    </div>
+                    <div class="card-body">
+                        <h3><i class="feather icon-trending-down text-c-red mr-3"></i>27,695.65</h3>
+                        <div class="row d-flex align-items-center text-center mt-4">
+                            <div class="col">
+                                <h6>Youtube</h6>
+                                <span class="text-c-red">- 16.85%</span>
+                            </div>
+                            <div class="col">
+                                <h6>Facebook</h6>
+                                <span class="text-c-purple">+ 45.36%</span>
+                            </div>
+                            <div class="col">
+                                <h6>Twitter</h6>
+                                <span class="text-c-blue">+ 50.69%</span>
+                            </div>
+                        </div>
+                        <div id="market-chart" style="height:200px;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- market-dow end -->
+            <!-- sales-section start -->
+            <div class="col-xl-4 col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Sale report of year</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="type-chart" style="height:200px;"></div>
+                        <div class="mt-3">
+                            <span class="d-block mb-2"><i class="fas fa-circle f-10 m-r-15 text-danger"></i>Desktop Computers<span class="float-right f-w-400">76.7%</span></span>
+                            <span class="d-block mb-2"><i class="fas fa-circle f-10 m-r-15 text-warning"></i>Smartphones<span class="float-right f-w-400">15%</span></span>
+                            <span class="d-block"><i class="fas fa-circle f-10 m-r-15 text-info"></i>Tablets<span class="float-right f-w-400">30%</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- sales-section end -->
+            <!-- sessions-section start -->
+            <div class="col-xl-12">
+                <div class="card table-card">
+                    <div class="card-header">
+                        <h5>Advertising campaign monitor</h5>
+                    </div>
+                    <div class="card-body px-0 py-0">
+                        <div id="traffic-chart" style="height:400px;"></div>
+                        <div class="table-responsive">
+                            <div class="session-scroll" style="height:380px;position:relative;">
+                                <table class="table table-hover m-b-0">
+                                    <thead>
+                                        <tr>
+                                            <th><span>Campaign date</span></th>
+                                            <th><span>Click <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i
+                                                            class="feather icon-help-circle f-16"></i></a></span></th>
+                                            <th><span>Cost <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span>
+                                            </th>
+                                            <th><span>CTR <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span>
+                                            </th>
+                                            <th><span>ARPU <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span>
+                                            </th>
+                                            <th><span>ECPI <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span>
+                                            </th>
+                                            <th><span>ROI <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span>
+                                            </th>
+                                            <th><span>Revenue <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i
+                                                            class="feather icon-help-circle f-16"></i></a></span></th>
+                                            <th><span>Conversions <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i
+                                                            class="feather icon-help-circle f-16"></i></a></span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Total and average</td>
+                                            <td>1300</td>
+                                            <td>1025</td>
+                                            <td>14005</td>
+                                            <td>95,3%</td>
+                                            <td>29,7%</td>
+                                            <td>3,25</td>
+                                            <td>2:30</td>
+                                            <td>45.5%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8-11-2016</td>
+                                            <td>786
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>485
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>769
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>45,3%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>6,7%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-info rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>8,56
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>10:55
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>33.8%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>15-10-2016</td>
+                                            <td>786
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>523
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>736
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>78,3%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>6,6%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-info rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>7,56
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 44%;" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>4:30
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 68%;" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>76.8%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>8-8-2017</td>
+                                            <td>624
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>436
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>756
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>78,3%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 38%;" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>6,4%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-info rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>9,45
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 41%;" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>9:05
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 67%;" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>8.63%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 41%;" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>11-12-2017</td>
+                                            <td>423
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 54%;" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>123
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>756
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>78,6%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>45,6%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-info rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>6,85
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>7:45
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>33.8%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1-6-2015</td>
+                                            <td>465
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>463
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>456
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>68,6%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>76,6%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-info rounded" role="progressbar" style="width: 32%;" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>7,56
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>8:45
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 71%;" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>39.8%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 38%;" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>8-11-2016</td>
+                                            <td>786
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 43%;" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>485
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>769
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 69%;" aria-valuenow="69" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>45,3%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>6,7%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-info rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>8,56
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 41%;" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>10:55
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>33.8%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>15-10-2016</td>
+                                            <td>786
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 61%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>523
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>736
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>78,3%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>6,6%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-info rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>7,56
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>4:30
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>76.8%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>8-8-2017</td>
+                                            <td>624
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>436
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>756
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>78,3%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>6,4%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-info rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>9,45
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>9:05
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>8.63%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 39%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>11-12-2017</td>
+                                            <td>423
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>123
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>756
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>78,6%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>45,6%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-info rounded" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>6,85
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 44%;" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>7:45
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 71%;" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>33.8%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 41%;" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1-6-2015</td>
+                                            <td>465
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>463
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>456
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>68,6%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>76,6%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-info rounded" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>7,56
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-danger rounded" role="progressbar" style="width:90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>8:45
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>39.8%
+                                                <div class="progress mt-1" style="height:4px;">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar" style="width: 38%;" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- sessions-section end -->
+            <!-- support-section start -->
+            <div class="col-xl-4 col-md-12">
+                <div class="card support-bar">
+                    <div class="card-body pb-0">
+                        <h2 class="m-0">350</h2>
+                        <span class="text-c-blue">Support Requests</span>
+                        <p class="mb-3 mt-3">Total number of support requests that come in.</p>
+                    </div>
+                    <div id="support-chart"></div>
+                    <div class="card-footer bg-primary text-white">
+                        <div class="row text-center">
+                            <div class="col">
+                                <h4 class="m-0 text-white">10</h4>
+                                <span>Open</span>
+                            </div>
+                            <div class="col">
+                                <h4 class="m-0 text-white">5</h4>
+                                <span>Running</span>
+                            </div>
+                            <div class="col">
+                                <h4 class="m-0 text-white">3</h4>
+                                <span>Solved</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- support-section end -->
+            <!-- average-section start -->
+            <div class="col-xl-8 col-md-12">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card mrr-card">
+                            <div class="card-body mb-3">
+                                <span class="d-flex align-items-center"><i class="fab fa-bitcoin text-c-blue f-22 m-r-5"></i>Bitcoin</span>
+                            </div>
+                            <div id="average-chart11" class="position-absolute bottom-chart w-100"></div>
+                            <div class="card-body">
+                                <span class="float-right">Goal: $75</span>
+                                <h3 class="m-0">$80</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card mrr-card">
+                            <div class="card-body mb-3">
+                                <span class="d-flex align-items-center"><i class="fab fa-ethereum text-c-green f-22 m-r-5"></i>Ethereum</span>
+                            </div>
+                            <div id="average-chart12" class="position-absolute bottom-chart w-100"></div>
+                            <div class="card-body">
+                                <span class="float-right">Goal: $75</span>
+                                <h3 class="m-0">$80</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card bg-danger text-white mrr-card">
+                            <div class="card-body mb-3">
+                                <span>Total ticket Resolved</span>
+                            </div>
+                            <div id="average-chart3" class="position-absolute bottom-chart" style="height:145px;width:100%;"></div>
+                            <div class="card-body">
+                                <span class="float-right">pending: 75</span>
+                                <h3 class="m-0 text-white">400</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card bg-warning text-white mrr-card">
+                            <div class="card-body mb-3">
+                                <span>Avg. Customer Satisfaction</span>
+                            </div>
+                            <div id="average-chart4" class="position-absolute bottom-chart" style="height:145px;width:100%;"></div>
+                            <div class="card-body">
+                                <span class="float-right">Reopen: 20%</span>
+                                <h3 class="m-0 text-white">75%</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- average-section end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+@@include('./layouts/footer.html')
+<!-- Rating Js -->
+<script src="assets/js/plugins/jquery.barrating.min.js"></script>
+<!-- Apex Chart -->
+<script src="assets/js/plugins/apexcharts.min.js"></script>
+<!-- peity chart js -->
+<script src="assets/js/plugins/jquery.peity.min.js"></script>
+<!-- custom-chart js -->
+<script src="assets/js/pages/chart.js"></script>
+@@include('./layouts/footer-bottom-link.html')
+</body>
+
+</html>
