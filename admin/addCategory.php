@@ -21,9 +21,6 @@
 
     <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
-
-
-
 </head>
 
 <body class="">
@@ -40,8 +37,7 @@
             <div class="navbar-content scroll-div ">
                 <ul class="nav pcoded-inner-navbar ">
                     <li class="nav-item pcoded-hasmenu">
-                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i
-                                    class="feather icon-box"></i></span><span class="pcoded-mtext">Category</span></a>
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Category</span></a>
                         <ul class="pcoded-submenu">
                             <li><a href="bc_alert.html">Add Category</a></li>
                         </ul>
@@ -53,14 +49,11 @@
     <!-- [ navigation menu ] end -->
     <!-- [ Header ] start -->
     <header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
-
-
         <div class="m-header">
             <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
             <a href="#!" class="b-brand">
                 <!-- ========   change your logo hear   ============ -->
                 <img src="assets/images/logo.png" alt="" class="logo">
-
             </a>
             <a href="#!" class="mob-toggler">
                 <i class="feather icon-more-vertical"></i>
@@ -81,8 +74,7 @@
             <ul class="navbar-nav ml-auto">
                 <li>
                     <div class="dropdown">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                class="icon feather icon-bell"></i></a>
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon feather icon-bell"></i></a>
                         <div class="dropdown-menu dropdown-menu-right notification">
                             <div class="noti-head">
                                 <h6 class="d-inline-block m-b-0">Notifications</h6>
@@ -97,11 +89,9 @@
                                 </li>
                                 <li class="notification">
                                     <div class="media">
-                                        <img class="img-radius" src="assets/images/user/avatar-1.jpg"
-                                            alt="Generic placeholder image">
+                                        <img class="img-radius" src="assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
                                         <div class="media-body">
-                                            <p><strong>John Doe</strong><span class="n-time text-muted"><i
-                                                        class="icon feather icon-clock m-r-10"></i>5 min</span></p>
+                                            <p><strong>John Doe</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>5 min</span></p>
                                             <p>New ticket Added</p>
                                         </div>
                                     </div>
@@ -111,33 +101,27 @@
                                 </li>
                                 <li class="notification">
                                     <div class="media">
-                                        <img class="img-radius" src="assets/images/user/avatar-2.jpg"
-                                            alt="Generic placeholder image">
+                                        <img class="img-radius" src="assets/images/user/avatar-2.jpg" alt="Generic placeholder image">
                                         <div class="media-body">
-                                            <p><strong>Joseph William</strong><span class="n-time text-muted"><i
-                                                        class="icon feather icon-clock m-r-10"></i>10 min</span></p>
+                                            <p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>10 min</span></p>
                                             <p>Prchace New Theme and make payment</p>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="notification">
                                     <div class="media">
-                                        <img class="img-radius" src="assets/images/user/avatar-1.jpg"
-                                            alt="Generic placeholder image">
+                                        <img class="img-radius" src="assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
                                         <div class="media-body">
-                                            <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i
-                                                        class="icon feather icon-clock m-r-10"></i>12 min</span></p>
+                                            <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>12 min</span></p>
                                             <p>currently login</p>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="notification">
                                     <div class="media">
-                                        <img class="img-radius" src="assets/images/user/avatar-2.jpg"
-                                            alt="Generic placeholder image">
+                                        <img class="img-radius" src="assets/images/user/avatar-2.jpg" alt="Generic placeholder image">
                                         <div class="media-body">
-                                            <p><strong>Joseph William</strong><span class="n-time text-muted"><i
-                                                        class="icon feather icon-clock m-r-10"></i>30 min</span></p>
+                                            <p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>30 min</span></p>
                                             <p>Prchace New Theme and make payment</p>
                                         </div>
                                     </div>
@@ -175,12 +159,8 @@
                 </li>
             </ul>
         </div>
-
-
     </header>
     <!-- [ Header ] end -->
-
-
 
     <!-- [ Main Content ] start -->
     <div class="pcoded-main-container">
@@ -191,12 +171,11 @@
                     <div class="row align-items-center">
                         <div class="col-md-12">
                             <div class="page-header-title">
-                                <h5 class="m-b-10">Sample Page</h5>
                             </div>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a>
+                                <li class="breadcrumb-item"><a href="index.php"><i class="feather icon-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#!">Sample Page</a></li>
+                                <li class="breadcrumb-item"><a href="#!">Add Category</a></li>
                             </ul>
                         </div>
                     </div>
@@ -208,41 +187,54 @@
                 <!-- [ sample-page ] start -->
                 <div class="col-sm-12">
                     <div class="card">
-
                         <div class="card-header">
-                            <h5>Hello card</h5>
-                            <div class="card-header-right">
-                                <div class="btn-group card-option">
-                                    <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        <i class="feather icon-more-horizontal"></i>
-                                    </button>
-                                    <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                                        <li class="dropdown-item full-card"><a href="#!"><span><i
-                                                        class="feather icon-maximize"></i> maximize</span><span
-                                                    style="display:none"><i class="feather icon-minimize"></i>
-                                                    Restore</span></a></li>
-                                        <li class="dropdown-item minimize-card"><a href="#!"><span><i
-                                                        class="feather icon-minus"></i> collapse</span><span
-                                                    style="display:none"><i class="feather icon-plus"></i>
-                                                    expand</span></a></li>
-                                        <li class="dropdown-item reload-card"><a href="#!"><i
-                                                    class="feather icon-refresh-cw"></i> reload</a></li>
-                                        <li class="dropdown-item close-card"><a href="#!"><i
-                                                    class="feather icon-trash"></i> remove</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <h5>Add Category</h5>
                         </div>
                         <div class="card-body">
-                            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident, sunt in culpa qui
-                                officia deserunt mollit anim id est laborum."
-                            </p>
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEmail4">Email</label>
+                                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputPassword4">Password</label>
+                                        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputAddress">Address</label>
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputAddress2">Address 2</label>
+                                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCity">City</label>
+                                        <input type="text" class="form-control" id="inputCity">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputState">State</label>
+                                        <select id="inputState" class="form-control">
+                                            <option selected>select</option>
+                                            <option>Large select</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputZip">Zip</label>
+                                        <input type="text" class="form-control" id="inputZip">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                                        <label class="form-check-label" for="gridCheck">Check me out</label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn  btn-primary">Sign in</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -305,7 +297,6 @@
     <script src="assets/js/plugins/bootstrap.min.js"></script>
     <script src="assets/js/ripple.js"></script>
     <script src="assets/js/pcoded.min.js"></script>
-    <script src="assets/js/menu-setting.min.js"></script>
 
     <!-- Apex Chart -->
     <script src="assets/js/plugins/apexcharts.min.js"></script>
@@ -355,8 +346,6 @@
             }
         }
     </script>
-
-
 </body>
 
 </html>
