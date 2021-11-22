@@ -39,7 +39,7 @@
                     <li class="nav-item pcoded-hasmenu">
                         <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Category</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="bc_alert.html">Add Category</a></li>
+                            <li><a href="addCategory.php">Add Category</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -191,49 +191,21 @@
                             <h5>Add Category</h5>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form action="include/AdminSubmitData.php" method="POST">
+                                <input type="hidden" name="module" value="addCategory">
+                                <input type="hidden" name="moduleMethod" value="category">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="inputEmail4">Email</label>
-                                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                        <label for="category_name">Category Name</label>
+                                        <input type="text" class="form-control" name="category_name" id="category_name" placeholder="Category Name">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="inputPassword4">Password</label>
-                                        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                                        <label for="category_description">Category Description</label>
+                                        <input type="text" class="form-control" name="category_description" id="category_description" placeholder="Category Description">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="inputAddress">Address</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputAddress2">Address 2</label>
-                                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="inputCity">City</label>
-                                        <input type="text" class="form-control" id="inputCity">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="inputState">State</label>
-                                        <select id="inputState" class="form-control">
-                                            <option selected>select</option>
-                                            <option>Large select</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="inputZip">Zip</label>
-                                        <input type="text" class="form-control" id="inputZip">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="gridCheck">
-                                        <label class="form-check-label" for="gridCheck">Check me out</label>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn  btn-primary">Sign in</button>
+
+                                <button type="submit" name="categorySub" class="btn btn-primary">Submit</button>
                             </form>
                         </div>
                     </div>
