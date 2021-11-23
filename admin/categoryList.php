@@ -33,7 +33,7 @@
     <!-- [ Pre-loader ] End -->
     <?php if (!empty($_REQUEST['alert_type']) && !empty($_REQUEST['alert_message'])) { ?>
         <div data-notify="container" class="col-xs-11 col-sm-3 alert <?php echo $_REQUEST['alert_type'] ?> animated fadeInDown" role="alert" data-notify-position="bottom-right" style="display: inline-block; margin: 0px auto; position: fixed; transition: all 0.5s ease-in-out 0s; z-index: 999999; bottom: 30px; right: 30px; animation-iteration-count: 1;">
-            <button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>
+            <button type="button" aria-hidden="true" class="close" data-notify="dismiss" style="position: absolute; right: 10px; top: 5px; z-index: 1000001;">×</button>
             <span data-notify="icon"></span>
             <span data-notify="title"> <?php echo $_REQUEST['alert_message']; ?> </span>
             <!-- <span data-notify="message">Turning standard Bootstrap alerts into awesome notifications</span> -->
@@ -44,7 +44,7 @@
                 $(".alert").fadeTo(500, 0).slideUp(500, function() {
                     $(this).remove();
                 });
-            }, 3000);
+            }, 4000);
         </script>
     <?php } ?>
 

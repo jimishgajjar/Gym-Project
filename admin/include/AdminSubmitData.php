@@ -28,8 +28,7 @@ if (!empty($_POST['moduleMethod'])) {
 
     //Add Category
     if ($module == "addCategory" && $moduleMethod == "category") {
-        echo "****";
-        if (!empty($_POST['categorySub'])) {
+        if (isset($_POST['categorySub'])) {
             $uniqid = uniqid();
             $addcategoryData = array(
                 'id' => $uniqid,
@@ -44,12 +43,12 @@ if (!empty($_POST['moduleMethod'])) {
             $addcategoryDataResponse = insertData($moduleMethod, $addcategoryData);
             if (!empty($addcategoryDataResponse)) {
                 $alert_type = "alert-success";
-                $alert_message = "Review is added.";
-                echo "<script>window.location.replace('employeeShopList.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                $alert_message = "Category added successfully.";
+                echo "<script>window.location.replace('../addCategory.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             } else {
                 $alert_type = "alert-danger";
-                $alert_message = "Review is not added.";
-                echo "<script>window.location.replace('employeeShopAddReview.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                $alert_message = "Category is not added.";
+                echo "<script>window.location.replace('../addCategory.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
         }
     }
