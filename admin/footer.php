@@ -8,6 +8,13 @@
 <script src="assets/js/plugins/apexcharts.min.js"></script>
 <!-- custom-chart js -->
 <script src="assets/js/pages/dashboard-main.js"></script>
+
+<!-- datatable Js -->
+<script src="assets/js/plugins/jquery.dataTables.min.js"></script>
+<script src="assets/js/plugins/dataTables.bootstrap4.min.js"></script>
+<script src="assets/js/pages/data-advance-custom.js"></script>
+
+
 <script>
     // $(document).ready(function() {
     //     checkCookie();

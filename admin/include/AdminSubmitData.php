@@ -44,11 +44,11 @@ if (!empty($_POST['moduleMethod'])) {
             if (!empty($addcategoryDataResponse)) {
                 $alert_type = "alert-success";
                 $alert_message = "Category added successfully.";
-                echo "<script>window.location.replace('../addCategory.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                echo "<script>window.location.replace('../category.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             } else {
                 $alert_type = "alert-danger";
                 $alert_message = "Category is not added.";
-                echo "<script>window.location.replace('../addCategory.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                echo "<script>window.location.replace('../category.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
         }
     }

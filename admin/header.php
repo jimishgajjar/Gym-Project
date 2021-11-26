@@ -1,3 +1,10 @@
+<?php
+include "../include/dbConfig.php";
+include "../include/queryFunction.php";
+session_start();
+date_default_timezone_set("Asia/Kolkata");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,4 +21,7 @@
 
     <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- data tables css -->
+    <link rel="stylesheet" href="assets/css/plugins/dataTables.bootstrap4.min.css">
 </head>

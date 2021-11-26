@@ -5,6 +5,24 @@
     </div>
 </div>
 <!-- [ Pre-loader ] End -->
+
+<?php if (!empty($_REQUEST['alert_type']) && !empty($_REQUEST['alert_message'])) { ?>
+    <div data-notify="container" class="col-xs-11 col-sm-3 alert <?php echo $_REQUEST['alert_type'] ?> animated fadeInDown" role="alert" data-notify-position="bottom-right" style="display: inline-block; margin: 0px auto; position: fixed; transition: all 0.5s ease-in-out 0s; z-index: 999999; bottom: 30px; right: 30px; animation-iteration-count: 1;">
+        <button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>
+        <span data-notify="icon"></span>
+        <span data-notify="title"> <?php echo $_REQUEST['alert_message']; ?> </span>
+        <!-- <span data-notify="message">Turning standard Bootstrap alerts into awesome notifications</span> -->
+        <a href="#" target="_blank" data-notify="url"></a>
+    </div>
+    <script>
+        window.setTimeout(function() {
+            $(".alert").fadeTo(500, 0).slideUp(500, function() {
+                $(this).remove();
+            });
+        }, 3000);
+    </script>
+<?php } ?>
+
 <!-- [ navigation menu ] start -->
 <nav class="pcoded-navbar menu-light ">
     <div class="navbar-wrapper">
@@ -13,7 +31,8 @@
                 <li class="nav-item pcoded-hasmenu">
                     <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Category</span></a>
                     <ul class="pcoded-submenu">
-                        <li><a href="addCategory.php">Add Category</a></li>
+                        <li><a href="category.php">Add Category</a></li>
+                        <li><a href="categoryList.php">Category List</a></li>
                     </ul>
                 </li>
             </ul>
