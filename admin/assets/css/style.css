@@ -21488,7 +21488,7 @@ pre[class*="language-"] {
 }
 
 .bootstrap-tagsinput .tag [data-role="remove"]:after {
-    content: "\e8f6";
+    content: "\e8f6" !important;
     padding: 0 2px;
     font-family: 'feather' !important;
 }

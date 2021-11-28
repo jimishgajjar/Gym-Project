@@ -16,7 +16,7 @@
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.php"><i class="feather icon-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#!">Category List</a></li>
+                                <li class="breadcrumb-item"><a href="#!">User List</a></li>
                             </ul>
                         </div>
                     </div>
@@ -29,28 +29,28 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5>Category List</h5>
+                            <h5>User List</h5>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive dt-responsive">
                                 <table id="dom-jqry" class="table table-striped table-bordered nowrap">
                                     <thead>
                                         <tr>
-                                            <th>Category</th>
-                                            <th>Description</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $categoryList = getData('category');
-                                        if ($categoryList->num_rows > 0) {
-                                            while ($row = $categoryList->fetch_assoc()) {
+                                        $userList = getData('user');
+                                        if ($userList->num_rows > 0) {
+                                            while ($row = $userList->fetch_assoc()) {
                                         ?>
                                                 <tr>
-                                                    <td><?php echo $row['category_name'] ?></td>
-                                                    <td><?php echo $row['category_description'] ?></td>
+                                                    <td><?php echo $row['full_name'] ?></td>
+                                                    <td><?php echo $row['email'] ?></td>
                                                     <td class="text-center"><a href="category.php?edit=<?php echo $row['id']; ?>"><i class="fas fa-edit"></i></a></td>
                                                     <td class="text-center"><a href="include/AdminSubmitData.php?&moduleMethod=category&module=deleteCategory&delete=<?php echo $row['id']; ?>"><i class="fas fas fa-trash"></i></a></td>
                                                 </tr>

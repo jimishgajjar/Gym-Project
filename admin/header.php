@@ -24,4 +24,14 @@ date_default_timezone_set("Asia/Kolkata");
 
     <!-- data tables css -->
     <link rel="stylesheet" href="assets/css/plugins/dataTables.bootstrap4.min.css">
+
+    <!-- select2 css -->
+    <link rel="stylesheet" href="assets/css/plugins/select2.min.css">
+
+    <!-- tags css -->
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap-tagsinput-typeahead.css">
+
+    <!-- fileupload-custom css -->
+    <link rel="stylesheet" href="assets/css/plugins/dropzone.min.css">
 </head>

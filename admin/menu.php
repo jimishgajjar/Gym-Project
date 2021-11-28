@@ -29,10 +29,31 @@
         <div class="navbar-content scroll-div ">
             <ul class="nav pcoded-inner-navbar ">
                 <li class="nav-item pcoded-hasmenu">
-                    <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Category</span></a>
+                    <a href="#!" class="nav-link ">
+                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                        <span class="pcoded-mtext">Category</span>
+                    </a>
                     <ul class="pcoded-submenu">
                         <li><a href="category.php">Add Category</a></li>
                         <li><a href="categoryList.php">Category List</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item pcoded-hasmenu">
+                    <a href="#!" class="nav-link ">
+                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                        <span class="pcoded-mtext">Users</span>
+                    </a>
+                    <ul class="pcoded-submenu">
+                        <li><a href="userList.php">User List</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item pcoded-hasmenu">
+                    <a href="#!" class="nav-link ">
+                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                        <span class="pcoded-mtext">Courses</span>
+                    </a>
+                    <ul class="pcoded-submenu">
+                        <li><a href="courses.php">Add Courses</a></li>
                     </ul>
                 </li>
             </ul>

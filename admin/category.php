@@ -28,28 +28,55 @@
                 <!-- [ sample-page ] start -->
                 <div class="col-sm-12">
                     <div class="card">
-                        <div class="card-header">
-                            <h5>Add Category</h5>
-                        </div>
-                        <div class="card-body">
-                            
-                            <form action="include/AdminSubmitData.php" method="POST">
-                                <input type="hidden" name="module" value="addCategory">
-                                <input type="hidden" name="moduleMethod" value="category">
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="category_name">Category Name</label>
-                                        <input type="text" class="form-control" name="category_name" id="category_name" placeholder="Category Name">
+                        <?php if (isset($_GET['edit'])) { ?>
+                            <div class="card-header">
+                                <h5>Edit Category</h5>
+                            </div>
+                            <div class="card-body">
+                                <?php
+                                $Condition['id'] = $_GET['edit'];
+                                $response = getData('category', $Condition);
+                                $response = $response->fetch_assoc();
+                                ?>
+                                <form action="include/AdminSubmitData.php" method="POST">
+                                    <input type="hidden" name="module" value="editCategory">
+                                    <input type="hidden" name="moduleMethod" value="category">
+                                    <input type="hidden" name="category_id" value="<?php echo $_GET['edit']; ?>">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="category_name">Category Name</label>
+                                            <input type="text" class="form-control" name="category_name" id="category_name" placeholder="Category Name" required value="<?php echo $response['category_name'] ?>">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="category_description">Category Description</label>
+                                            <input type="text" class="form-control" name="category_description" id="category_description" placeholder="Category Description" required value="<?php echo $response['category_description'] ?>">
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="category_description">Category Description</label>
-                                        <input type="text" class="form-control" name="category_description" id="category_description" placeholder="Category Description">
+                                    <button type="submit" name="categorySub" value="categorySub" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        <?php } else { ?>
+                            <div class="card-header">
+                                <h5>Add Category</h5>
+                            </div>
+                            <div class="card-body">
+                                <form action="include/AdminSubmitData.php" method="POST">
+                                    <input type="hidden" name="module" value="addCategory">
+                                    <input type="hidden" name="moduleMethod" value="category">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="category_name">Category Name</label>
+                                            <input type="text" class="form-control" name="category_name" id="category_name" placeholder="Category Name" required>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="category_description">Category Description</label>
+                                            <input type="text" class="form-control" name="category_description" id="category_description" placeholder="Category Description" required>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <button type="submit" name="categorySub" value="categorySub" class="btn btn-primary">Submit</button>
-                            </form>
-                        </div>
+                                    <button type="submit" name="categorySub" value="categorySub" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
                 <!-- [ sample-page ] end -->
