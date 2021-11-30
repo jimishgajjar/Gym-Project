@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2021 at 07:31 PM
+-- Generation Time: Nov 30, 2021 at 05:42 AM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- PHP Version: 7.4.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -63,6 +63,40 @@ CREATE TABLE `category` (
   `deleted` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `category_name`, `category_description`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('619d222a794ed', 'Test 122', 'Tedst 122', '2021-11-23 22:47:30', '2021-11-28 18:16:41', '61952d7816277', '61952d7816277', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course`
+--
+
+CREATE TABLE `course` (
+  `id` varchar(255) NOT NULL,
+  `category_id` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `tags` varchar(255) NOT NULL,
+  `thumbnail` text NOT NULL,
+  `date_entered` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  `modified_user_id` varchar(255) NOT NULL,
+  `created_by` varchar(255) NOT NULL,
+  `deleted` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `course`
+--
+
+INSERT INTO `course` (`id`, `category_id`, `title`, `description`, `tags`, `thumbnail`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('61a50249b3517', '619d222a794ed', 'Test', 'Test Description', '111,55', '61a50249b3517.jpg', '2021-11-29 22:09:37', '2021-11-29 22:09:37', '61952d7816277', '61952d7816277', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -86,7 +120,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `full_name`, `email`, `password`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61952d7816275', 'Jimish Gajjar', 'jimish.gajjar@gmail.com', '65a3d7de5d21ab3122c46d8c79b0e875', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', 0);
+('61952d7816275', 'Jimish Gajjar', 'jimish.gajjar@gmail.com', '65a3d7de5d21ab3122c46d8c79b0e875', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '61952d7816275', '61952d7816275', 0);
 
 --
 -- Indexes for dumped tables
@@ -102,6 +136,12 @@ ALTER TABLE `admin`
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `course`
+--
+ALTER TABLE `course`
   ADD PRIMARY KEY (`id`);
 
 --

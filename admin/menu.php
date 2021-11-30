@@ -34,7 +34,7 @@
                         <span class="pcoded-mtext">Category</span>
                     </a>
                     <ul class="pcoded-submenu">
-                        <li><a href="category.php">Add Category</a></li>
+                        <li><a href="category.php">Category Add</a></li>
                         <li><a href="categoryList.php">Category List</a></li>
                     </ul>
                 </li>
@@ -50,10 +50,11 @@
                 <li class="nav-item pcoded-hasmenu">
                     <a href="#!" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                        <span class="pcoded-mtext">Courses</span>
+                        <span class="pcoded-mtext">Course</span>
                     </a>
                     <ul class="pcoded-submenu">
-                        <li><a href="courses.php">Add Courses</a></li>
+                        <li><a href="courseList.php">Course List</a></li>
+                        <li><a href="course.php">Add Course</a></li>
                     </ul>
                 </li>
             </ul>

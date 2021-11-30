@@ -26,7 +26,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
         }
     }
 
-    //Add Category
+    //Category Add
     if ($module == "addCategory" && $moduleMethod == "category") {
         if (isset($_POST['categorySub'])) {
             $uniqid = uniqid();
@@ -95,14 +95,14 @@ if (!empty($_REQUEST['moduleMethod'])) {
 
     //Add Course
     if ($module == "addCourse" && $moduleMethod == "course") {
-        if (isset($_POST['courseSub'])) {
+        if (isset($_POST['courseub'])) {
             $target_dir = "../../thumbnail/";
             $target_file = $target_dir . basename($_FILES["thumbnail"]["name"]);
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
             // Check if image file is a actual image or fake image
-            if (isset($_POST["courseSub"])) {
+            if (isset($_POST["courseub"])) {
                 $check = getimagesize($_FILES["thumbnail"]["tmp_name"]);
                 if ($check !== false) {
                     echo "File is an image - " . $check["mime"] . ".";
@@ -139,33 +139,33 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 echo "Sorry, your file was not uploaded.";
                 // if everything is ok, try to upload file
             } else {
-                if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $target_file)) {
+                $uniqid = uniqid();
+                $extension = pathinfo($_FILES["thumbnail"]["name"], PATHINFO_EXTENSION);
+                $path = "../../thumbnail/" . $uniqid . "." . $extension;
+                if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $path)) {
                     echo "The file " . htmlspecialchars(basename($_FILES["thumbnail"]["name"])) . " has been uploaded.";
-
-                    $uniqid = uniqid();
-                    $addcategoryData = array(
+                    $addCourseData = array(
                         'id' => $uniqid,
                         'category_id' => $_POST['category_id'],
                         'title' => $_POST['title'],
                         'description' => $_POST['description'],
-                        'tags' => $_POST['tags'],
+                        'tags' => implode(",", $_POST['tags']),
+                        'thumbnail' => $uniqid . "." . $extension,
                         'date_entered' => date("Y-m-d H:i:s"),
                         'date_modified' => date("Y-m-d H:i:s"),
                         'modified_user_id' => $_SESSION["adminId"],
                         'created_by' => $_SESSION["adminId"],
                         'deleted' => 0,
                     );
-                    print_r($addcategoryData);
-                    die('***');
-                    $addcategoryDataResponse = insertData($moduleMethod, $addcategoryData);
-                    if (!empty($addcategoryDataResponse)) {
+                    $addCourseDataResponse = insertData($moduleMethod, $addCourseData);
+                    if (!empty($addCourseDataResponse)) {
                         $alert_type = "alert-success";
-                        $alert_message = "Category added successfully.";
-                        echo "<script>window.location.replace('../category.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                        $alert_message = "Cource added successfully.";
+                        echo "<script>window.location.replace('../course.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                     } else {
                         $alert_type = "alert-danger";
-                        $alert_message = "Category is not added.";
-                        echo "<script>window.location.replace('../category.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                        $alert_message = "Cource is not added.";
+                        echo "<script>window.location.replace('../course.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                     }
                 } else {
                     echo "Sorry, there was an error uploading your file.";

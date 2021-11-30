@@ -33584,3 +33584,10 @@ new-task label input[type=checkbox] {
 }
 
 /**====== user card css end ======**/
+
+
+
+/**====== My Css ======**/
+.thumbnail {
+    height: 100px;
+}

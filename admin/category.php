@@ -16,7 +16,7 @@
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.php"><i class="feather icon-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#!">Add Category</a></li>
+                                <li class="breadcrumb-item"><a href="#!">Category Add</a></li>
                             </ul>
                         </div>
                     </div>
@@ -45,11 +45,11 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="category_name">Category Name</label>
-                                            <input type="text" class="form-control" name="category_name" id="category_name" placeholder="Category Name" required value="<?php echo $response['category_name'] ?>">
+                                            <input type="text" class="form-control" value="<?php echo $response['category_name'] ?>" name="category_name" id="category_name" placeholder="Category Name" required>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="category_description">Category Description</label>
-                                            <input type="text" class="form-control" name="category_description" id="category_description" placeholder="Category Description" required value="<?php echo $response['category_description'] ?>">
+                                            <input type="text" class="form-control" value="<?php echo $response['category_description'] ?>" name="category_description" id="category_description" placeholder="Category Description" required>
                                         </div>
                                     </div>
                                     <button type="submit" name="categorySub" value="categorySub" class="btn btn-primary">Submit</button>
@@ -57,7 +57,7 @@
                             </div>
                         <?php } else { ?>
                             <div class="card-header">
-                                <h5>Add Category</h5>
+                                <h5>Category Add</h5>
                             </div>
                             <div class="card-body">
                                 <form action="include/AdminSubmitData.php" method="POST">
