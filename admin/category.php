@@ -39,7 +39,7 @@
                                 $response = $response->fetch_assoc();
                                 ?>
                                 <form action="include/AdminSubmitData.php" method="POST">
-                                    <input type="hidden" name="module" value="editCategory">
+                                    <input type="hidden" name="module" value="categoryEdit">
                                     <input type="hidden" name="moduleMethod" value="category">
                                     <input type="hidden" name="category_id" value="<?php echo $_GET['edit']; ?>">
                                     <div class="form-row">
@@ -61,7 +61,7 @@
                             </div>
                             <div class="card-body">
                                 <form action="include/AdminSubmitData.php" method="POST">
-                                    <input type="hidden" name="module" value="addCategory">
+                                    <input type="hidden" name="module" value="categoryAdd">
                                     <input type="hidden" name="moduleMethod" value="category">
                                     <div class="form-row">
                                         <div class="form-group col-md-6">

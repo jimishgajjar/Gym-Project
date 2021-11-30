@@ -54,7 +54,7 @@
                     </a>
                     <ul class="pcoded-submenu">
                         <li><a href="courseList.php">Course List</a></li>
-                        <li><a href="course.php">Add Course</a></li>
+                        <li><a href="course.php">Course Add</a></li>
                     </ul>
                 </li>
             </ul>

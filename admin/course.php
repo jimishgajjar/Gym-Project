@@ -39,41 +39,47 @@
                                 $response = $response->fetch_assoc();
                                 ?>
                                 <form action="include/AdminSubmitData.php" method="POST" enctype="multipart/form-data">
-                                    <input type="hidden" name="module" value="editCourse">
+                                    <input type="hidden" name="module" value="courseEdit">
                                     <input type="hidden" name="moduleMethod" value="course">
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
                                             <label for="title">Title (required)</label>
-                                            <input type="text" class="form-control" value="<?php echo $response['title'] ?>" name="title" id="title" placeholder="Course title" required>
+                                            <input type="text" class="form-control" value="<?php echo $response['title']; ?>" name="title" id="title" placeholder="Course title" required>
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="description">Course Description</label>
-                                            <textarea class="form-control" value="<?php echo $response['description'] ?>" id="description" name="description" rows="3" placeholder="Course description" required></textarea>
+                                            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Course description" required><?php echo $response['description']; ?></textarea>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <?php
-                                            $categoryList = getData("category");
-                                            ?>
                                             <label for="category_id">Select Category</label>
                                             <select class="js-example-basic-single form-control" id="category_id" name="category_id">
-                                                <?php if ($categoryList->num_rows > 0) {
+                                                <?php
+                                                $categoryList = getData("category");
+                                                if ($categoryList->num_rows > 0) {
                                                     while ($row = $categoryList->fetch_assoc()) { ?>
                                                         <?php if ($row['id'] == $response['category_id']) { ?>
-                                                            <option value="<?php echo $row['id'] ?>"><?php echo $row['category_name'] ?></option>
+                                                            <option value="<?php echo $row['id']; ?>" selected><?php echo $row['category_name']; ?></option>
                                                         <?php } else { ?>
-                                                            <option value="<?php echo $row['id'] ?>"><?php echo $row['category_name'] ?></option>
+                                                            <option value="<?php echo $row['id']; ?>"><?php echo $row['category_name']; ?></option>
                                                         <?php } ?>
                                                 <?php }
                                                 } ?>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-12">
+                                            <?php
+                                            $tags = explode(",", $response['tags']);
+                                            ?>
                                             <label for="tags">Course Tags</label>
                                             <select multiple data-role="tagsinput" id="tags" name="tags[]">
+                                                <?php foreach ($tags as $tag) { ?>
+                                                    <option value="<?php echo $tag; ?>"><?php echo $tag; ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="thumbnail">Course Thumbnail</label>
+                                            <label for="thumbnail">Course Thumbnail</label><br>
+                                            <img class="thumbnail" src="../thumbnail/<?php echo $response['thumbnail'] ?>" alt="" />
                                             <input type="file" class="form-control" id="thumbnail" name="thumbnail" />
                                         </div>
                                     </div>
@@ -86,7 +92,7 @@
                             </div>
                             <div class="card-body">
                                 <form action="include/AdminSubmitData.php" method="POST" enctype="multipart/form-data">
-                                    <input type="hidden" name="module" value="addCourse">
+                                    <input type="hidden" name="module" value="courseAdd">
                                     <input type="hidden" name="moduleMethod" value="course">
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
@@ -105,7 +111,7 @@
                                             <select class="js-example-basic-single form-control" id="category_id" name="category_id">
                                                 <?php if ($categoryList->num_rows > 0) {
                                                     while ($row = $categoryList->fetch_assoc()) { ?>
-                                                        <option value="<?php echo $row['id'] ?>"><?php echo $row['category_name'] ?></option>
+                                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['category_name']; ?></option>
                                                 <?php }
                                                 } ?>
                                             </select>

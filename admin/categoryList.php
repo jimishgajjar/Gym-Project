@@ -52,7 +52,7 @@
                                                     <td><?php echo $row['category_name'] ?></td>
                                                     <td><?php echo $row['category_description'] ?></td>
                                                     <td class="text-center"><a href="category.php?edit=<?php echo $row['id']; ?>"><i class="fas fa-edit"></i></a></td>
-                                                    <td class="text-center"><a href="include/AdminSubmitData.php?&moduleMethod=category&module=deleteCategory&delete=<?php echo $row['id']; ?>"><i class="fas fas fa-trash"></i></a></td>
+                                                    <td class="text-center"><a href="include/AdminSubmitData.php?&moduleMethod=category&module=categoryDelete&delete=<?php echo $row['id']; ?>"><i class="fas fas fa-trash"></i></a></td>
                                                 </tr>
                                             <?php
                                             }

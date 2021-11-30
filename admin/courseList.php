@@ -56,7 +56,7 @@
                                                     <td><?php echo $row['description'] ?></td>
                                                     <td><?php echo $row['description'] ?></td>
                                                     <td class="text-center"><a href="course.php?edit=<?php echo $row['id']; ?>"><i class="fas fa-edit"></i></a></td>
-                                                    <td class="text-center"><a href="include/AdminSubmitData.php?&moduleMethod=course&module=deletecourse&delete=<?php echo $row['id']; ?>"><i class="fas fas fa-trash"></i></a></td>
+                                                    <td class="text-center"><a href="include/AdminSubmitData.php?&moduleMethod=course&module=courseDelete&delete=<?php echo $row['id']; ?>"><i class="fas fas fa-trash"></i></a></td>
                                                 </tr>
                                             <?php
                                             }
