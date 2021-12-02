@@ -16,7 +16,7 @@
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.php"><i class="feather icon-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#!">course List</a></li>
+                                <li class="breadcrumb-item"><a href="#!">Course List</a></li>
                             </ul>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5>course List</h5>
+                            <h5>Course List</h5>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive dt-responsive">

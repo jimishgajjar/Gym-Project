@@ -41,6 +41,7 @@
                                 <form action="include/AdminSubmitData.php" method="POST" enctype="multipart/form-data">
                                     <input type="hidden" name="module" value="courseEdit">
                                     <input type="hidden" name="moduleMethod" value="course">
+                                    <input type="hidden" name="course_id" value="<?php echo $response['id']; ?>">
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
                                             <label for="title">Title (required)</label>
@@ -79,8 +80,8 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="thumbnail">Course Thumbnail</label><br>
-                                            <img class="thumbnail" src="../thumbnail/<?php echo $response['thumbnail'] ?>" alt="" />
-                                            <input type="file" class="form-control" id="thumbnail" name="thumbnail" />
+                                            <img class="thumbnail" id="thumbnail_view" src="../thumbnail/<?php echo $response['thumbnail'] ?>" alt="" />
+                                            <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept="image/png, image/jpeg" />
                                         </div>
                                     </div>
                                     <button type="submit" name="courseub" value="courseub" class="btn btn-primary">Submit</button>
@@ -123,7 +124,7 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="thumbnail">Course Thumbnail</label>
-                                            <input type="file" class="form-control" id="thumbnail" name="thumbnail" />
+                                            <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept="image/png, image/jpeg" />
                                         </div>
                                     </div>
                                     <button type="submit" name="courseub" value="courseub" class="btn btn-primary">Submit</button>
@@ -140,6 +141,23 @@
     <!-- [ Main Content ] end -->
 
     <?php include('footer.php'); ?>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#thumbnail_view').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#thumbnail").change(function() {
+            readURL(this);
+        });
+    </script>
 </body>
 
 </html>
