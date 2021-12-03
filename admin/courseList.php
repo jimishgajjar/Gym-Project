@@ -1,4 +1,7 @@
-<?php include('header.php'); ?>
+<?php
+include('checkSession.php');
+include('header.php');
+?>
 
 <body class="">
     <?php include('menu.php'); ?>
@@ -40,8 +43,7 @@
                                             <th>Title</th>
                                             <th>Description</th>
                                             <th>Category</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
+                                            <th>Options</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -49,14 +51,19 @@
                                         $courseList = getData('course');
                                         if ($courseList->num_rows > 0) {
                                             while ($row = $courseList->fetch_assoc()) {
+                                                $Condition['id'] = $row['category_id'];
+                                                $response = getData('category', $Condition);
+                                                $response = $response->fetch_assoc();
                                         ?>
                                                 <tr>
                                                     <td><img class="thumbnail" src="../thumbnail/<?php echo $row['thumbnail'] ?>" alt="" /></td>
-                                                    <td><?php echo $row['title'] ?></td>
+                                                    <td><a href="courseView.php?view=<?php echo $row['id'] ?>"><?php echo $row['title'] ?></a></td>
                                                     <td><?php echo $row['description'] ?></td>
-                                                    <td><?php echo $row['description'] ?></td>
-                                                    <td class="text-center"><a href="course.php?edit=<?php echo $row['id']; ?>"><i class="fas fa-edit"></i></a></td>
-                                                    <td class="text-center"><a href="include/AdminSubmitData.php?&moduleMethod=course&module=courseDelete&delete=<?php echo $row['id']; ?>"><i class="fas fas fa-trash"></i></a></td>
+                                                    <td><?php echo $response['category_name'] ?></td>
+                                                    <td>
+                                                        <a href=" course.php?edit=<?php echo $row['id']; ?>" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
+                                                        <a href="include/AdminSubmitData.php?&moduleMethod=course&module=courseDelete&delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
+                                                    </td>
                                                 </tr>
                                             <?php
                                             }

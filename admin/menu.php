@@ -153,11 +153,16 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="feather icon-user"></i>
                     </a>
+                    <?php
+                    $Condition['id'] = $_SESSION["adminId"];
+                    $response = getData('admin', $Condition);
+                    $response = $response->fetch_assoc();
+                    ?>
                     <div class="dropdown-menu dropdown-menu-right profile-notification">
                         <div class="pro-head">
                             <img src="assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
-                            <span>John Doe</span>
-                            <a href="auth-signin.html" class="dud-logout" title="Logout">
+                            <span><?php echo $response['full_name']; ?></span>
+                            <a href="include/AdminSubmitData.php?&moduleMethod=logout&module=adminLogout&logout=1" class="dud-logout" title="Logout">
                                 <i class="feather icon-log-out"></i>
                             </a>
                         </div>

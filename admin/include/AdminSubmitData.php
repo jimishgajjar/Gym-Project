@@ -288,4 +288,12 @@ if (!empty($_REQUEST['moduleMethod'])) {
             }
         }
     }
+
+    if ($module == "adminLogout" && $moduleMethod == "logout") {
+        if ($_REQUEST['logout'] == 1) {
+            session_unset();
+            session_destroy();
+            echo "<script>window.location.replace('../index.php');</script>";
+        }
+    }
 }

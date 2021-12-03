@@ -1,4 +1,7 @@
-<?php include('header.php'); ?>
+<?php
+include('checkSession.php');
+include('header.php');
+?>
 
 <body class="">
     <?php include('menu.php'); ?>
@@ -16,7 +19,11 @@
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.php"><i class="feather icon-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#!">Category Add</a></li>
+                                <?php if (isset($_GET['edit'])) { ?>
+                                    <li class="breadcrumb-item"><a href="#!">Category Edit</a></li>
+                                <?php } else { ?>
+                                    <li class="breadcrumb-item"><a href="#!">Category Add</a></li>
+                                <?php } ?>
                             </ul>
                         </div>
                     </div>
@@ -30,7 +37,7 @@
                     <div class="card">
                         <?php if (isset($_GET['edit'])) { ?>
                             <div class="card-header">
-                                <h5>Edit Category</h5>
+                                <h5>Category Edit</h5>
                             </div>
                             <div class="card-body">
                                 <?php

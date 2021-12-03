@@ -1,4 +1,7 @@
-<?php include('header.php'); ?>
+<?php
+include('checkSession.php');
+include('header.php');
+?>
 
 <body class="">
 
