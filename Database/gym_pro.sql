@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2021 at 05:42 AM
+-- Generation Time: Dec 03, 2021 at 08:14 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -68,7 +68,9 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `category_name`, `category_description`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('619d222a794ed', 'Test 122', 'Tedst 122', '2021-11-23 22:47:30', '2021-11-28 18:16:41', '61952d7816277', '61952d7816277', 0);
+('61a66b40db5e5', 'Test', 'Test Description', '2021-11-30 23:49:44', '2021-12-03 22:22:21', '61952d7816277', '61952d7816277', 0),
+('61a66d99b0a27', 'Test 1', 'Tedst 1 Description', '2021-11-30 23:59:45', '2021-11-30 23:59:45', '61952d7816277', '61952d7816277', 0),
+('61a66da37f494', 'Test 2', 'Test 2 Description', '2021-11-30 23:59:55', '2021-11-30 23:59:55', '61952d7816277', '61952d7816277', 0);
 
 -- --------------------------------------------------------
 
@@ -95,7 +97,7 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`id`, `category_id`, `title`, `description`, `tags`, `thumbnail`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61a50249b3517', '619d222a794ed', 'Test', 'Test Description', '111,55', '61a50249b3517.jpg', '2021-11-29 22:09:37', '2021-11-29 22:09:37', '61952d7816277', '61952d7816277', 0);
+('61a91d8ec36a9', '61a66d99b0a27', 'Test 1', 'Test 1 Description', 'Test 1', '61a91d8ec36a9.png', '2021-12-03 00:55:02', '2021-12-03 00:58:35', '61952d7816277', '61952d7816277', 0);
 
 -- --------------------------------------------------------
 
@@ -107,6 +109,8 @@ CREATE TABLE `user` (
   `id` varchar(255) NOT NULL,
   `full_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `mobile_no` varchar(15) NOT NULL,
+  `profile_pic` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `date_entered` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
@@ -119,8 +123,8 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `full_name`, `email`, `password`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61952d7816275', 'Jimish Gajjar', 'jimish.gajjar@gmail.com', '65a3d7de5d21ab3122c46d8c79b0e875', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '61952d7816275', '61952d7816275', 0);
+INSERT INTO `user` (`id`, `full_name`, `email`, `mobile_no`, `profile_pic`, `password`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('61952d7816275', 'Jimish Gajjar', 'jimish.gajjar@gmail.com', '', '', '65a3d7de5d21ab3122c46d8c79b0e875', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '61952d7816275', '61952d7816275', 0);
 
 --
 -- Indexes for dumped tables
