@@ -42,6 +42,11 @@ include('header.php');
                                 $response = $response->fetch_assoc();
                                 ?>
                                 <div class="form-group row">
+                                    <label for="thumbnail" class="col-sm-2 col-form-label">Thumbnail :</label>
+                                    <div class="col-sm-10">
+                                        <img src="../thumbnail/<?php echo $response['thumbnail']; ?>" height="100" />
+                                    </div>
+
                                     <label for="title" class="col-sm-2 col-form-label">Title :</label>
                                     <div class="col-sm-4">
                                         <input type="text" readonly class="form-control-plaintext" id="title" value="<?php echo $response['title'] ?>">
@@ -52,9 +57,16 @@ include('header.php');
                                         <input type="text" readonly class="form-control-plaintext" id="description" value="<?php echo $response['description'] ?>">
                                     </div>
 
-                                    <label for="description" class="col-sm-2 col-form-label">Description :</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" readonly class="form-control-plaintext" id="description" value="<?php echo $response['description'] ?>">
+                                    <label for="description" class="col-sm-2 col-form-label">Tags :</label>
+                                    <div class="col-sm-4 align-middle">
+                                        <div class="tag">
+                                            <?php
+                                            $tags = explode(",", $response['tags']);
+                                            foreach ($tags as $tag) {
+                                            ?>
+                                                <span class="badge badge-success"><?php echo $tag; ?></span>
+                                            <?php } ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

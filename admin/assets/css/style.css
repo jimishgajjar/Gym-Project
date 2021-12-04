@@ -33592,3 +33592,7 @@ new-task label input[type=checkbox] {
 .thumbnail {
     height: 100px;
 }
+
+.tag {
+    padding: 0.625rem 0
+}
