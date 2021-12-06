@@ -252,6 +252,10 @@ button:focus {
     color: #000
 }
 
+.xs-navbar-brand img {
+    height: 60px;
+}
+
 .xs-navbar-brand>h2 {
     margin-top: 0;
     margin-bottom: 0
@@ -4847,14 +4851,14 @@ a {
 *************************************** */
 
 .section-login {
-    margin-top: 150px;
-    margin-bottom: 100px;
+    padding-top: 150px;
+    /* padding-bottom: 100px; */
 }
 
 .login {
     padding: 20px;
     border-radius: 10px;
-    width: 380px;
+    width: 400px;
     box-shadow: 0px 10px 20px rgb(0 0 0 / 10%);
 }
 
@@ -4863,10 +4867,19 @@ a {
 *************************************** */
 .course {
     height: 100%;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    box-shadow: 0px 10px 20px rgb(0 0 0 / 10%);
-    transition: 0.3s;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgb(0 0 0 / 25%);
+    width: 100%;
+    transition: 0.2s all ease-in-out;
+}
+
+.course .course-link {
+    color: #000 !important;
+    text-decoration: none;
+}
+
+.course .course-link:hover {
+    color: #000 !important;
 }
 
 .course .course-thumbline {
@@ -4874,12 +4887,54 @@ a {
     border-top-right-radius: 10px;
 }
 
+.course:hover {
+    transform: scale(1.07);
+}
+
+.course .course-category {
+    width: fit-content;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 2px 5px 2px 5px;
+    border-radius: 5px;
+    background-color: #f63c25;
+    color: #fff;
+}
+
 .course-content {
     padding: 10px;
 }
 
 .course .course-title {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 550;
     color: #000;
+}
+
+.course .course-rating {
+    display: flex;
+}
+
+.course .course-rating .course-rating-num {
+    font-size: 15px;
+    font-weight: 700;
+    color: #b47405;
+    padding: 11px 5px 0 0;
+}
+
+span.stars,
+span.stars span {
+    display: block;
+    background: url(../images/icons/star-black.svg) 0 0 repeat-x;
+    width: 75px;
+    /* width of a star multiplied by 5 */
+    height: 40px;
+    /* the height of the star */
+    background-size: 15px 40px;
+}
+
+span.stars span {
+    background-position: 0 0;
+    background-image: url(../images/icons/star.svg);
 }

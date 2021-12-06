@@ -9,9 +9,9 @@ $module = $_POST['module'];
 if (!empty($_POST['moduleMethod'])) {
     // User Login
     if ($module == "userLogin" && $moduleMethod == "user") {
-        if (!empty($_POST['userEmail']) && !empty($_POST['userPassword'])) {
-            $Condition['email'] = $_POST['userEmail'];
-            $Condition['password'] = md5($_POST['userPassword']);
+        if (!empty($_POST['email']) && !empty($_POST['password'])) {
+            $Condition['email'] = $_POST['email'];
+            $Condition['password']  = md5($_POST['password']);
             $response = getData($moduleMethod, $Condition);
             $response = $response->fetch_assoc();
             if (!empty($response)) {
@@ -31,9 +31,19 @@ if (!empty($_POST['moduleMethod'])) {
         $uniqid = uniqid();
         $userData = array(
             'id' => uniqid(),
-            'full_name ' => $_POST['full_name'],
-            'email ' => $_POST['userEmail'],
-            'password' => md5($_POST['userPassword']),
+            'full_name' => $_POST['full_name'],
+            'email' => $_POST['email'],
+            'mobile_no' => $_POST['mobile_no'],
+            'height' => $_POST['height'],
+            'weight' => $_POST['weight'],
+            'age' => $_POST['age'],
+            'gender' => $_POST['gender'],
+            'password' => md5($_POST['password']),
+            'date_entered' => date("Y-m-d H:i:s"),
+            'date_modified' => date("Y-m-d H:i:s"),
+            'modified_user_id' => $uniqid,
+            'created_by' => $uniqid,
+            'deleted' => 0,
         );
         if (!empty($userData)) {
             $response = insertData($moduleMethod, $userData);
