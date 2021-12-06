@@ -19,15 +19,18 @@
                         <!-- <li>
                             <a href="contact.html">Contact</a>
                         </li> -->
-                        <li>
-                            <a href="userLogin.php">Login</a>
-                        </li>
+                        <?php
+                        if (empty($_SESSION["userId"]) && empty($_SESSION["userEmail"])) { ?>
+                            <li>
+                                <a href="userLogin.php">Login</a>
+                            </li>
+                        <?php } ?>
                     </ul>
 
                     <div class="elementskit-nav-identity-panel">
                         <h1 class="elementskit-site-title">
                             <a class="elementskit-nav-logo" href="index-2.html">
-                                <img src="assets/images/logo/logo-black.png" alt="navbar logo">
+                                <img src="assets/images/logo/logo-black.png" alt="navbar logo" height="100">
                             </a>
                         </h1>
                         <button class="elementskit-menu-close elementskit-menu-toggler" type="button">
@@ -55,11 +58,20 @@
                         <span class="xs-badge">0</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#" class="navSidebar-button">
-                        <i class="icon icon-menu"></i>
-                    </a>
-                </li>
+                <?php
+                if (empty($_SESSION["userId"]) && empty($_SESSION["userEmail"])) { ?>
+                    <li>
+                        <a href="#" class="navSidebar-button">
+                            <i class="icon icon-menu"></i>
+                        </a>
+                    </li>
+                <?php } else { ?>
+                    <li>
+                        <a href="#" class="navSidebar-button">
+                            <i class="fas fa-user"></i>
+                        </a>
+                    </li>
+                <?php } ?>
             </ul>
         </div>
     </div>
