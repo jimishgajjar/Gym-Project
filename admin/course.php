@@ -87,7 +87,7 @@ include('header.php');
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="thumbnail">Course Thumbnail</label><br>
-                                            <img class="thumbnail" id="thumbnail_view" src="../thumbnail/<?php echo $response['thumbnail'] ?>" alt="" />
+                                            <img class="thumbnail" id="thumbnail_view" src="../assets/thumbnail/<?php echo $response['thumbnail'] ?>" alt="" />
                                             <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept="image/png, image/jpeg" />
                                         </div>
                                     </div>
@@ -130,7 +130,8 @@ include('header.php');
                                             </select>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="thumbnail">Course Thumbnail</label>
+                                            <label for="thumbnail">Course Thumbnail</label><br>
+                                            <img class="thumbnail" id="thumbnail_view" src="" alt="" />
                                             <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept="image/png, image/jpeg" />
                                         </div>
                                     </div>

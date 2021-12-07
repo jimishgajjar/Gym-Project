@@ -97,7 +97,7 @@ include('header.php');
                         <div class="col-md-3 mb-25">
                             <div class="course">
                                 <!-- <a href="" class="course-link"> -->
-                                <img class="course-thumbline" src="thumbnail/<?php echo $row['thumbnail']; ?>" alt="course1" />
+                                <img class="course-thumbline" src="assets/thumbnail/<?php echo $row['thumbnail']; ?>" alt="course1" />
                                 <div class="course-content">
                                     <div class="course-category mb-1">
                                         <?php echo $response['category_name']; ?>
@@ -142,114 +142,32 @@ include('header.php');
                 </div>
                 <div class="xs-classes-light">
                     <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="xs-service">
-                                <img src="assets/images/classes/classes-item-1.jpg" alt="case">
-                                <div class="xs-overlay d-flex align-items-center">
-                                    <div class="xs-service-content">
-                                        <div class="xs-icon-wraper">
-                                            <i class="icon icon-dumble"></i>
+                        <?php
+                        $categoryList = getData('category');
+                        if ($categoryList->num_rows > 0) {
+                            while ($row = $categoryList->fetch_assoc()) {
+                        ?>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="xs-service">
+                                        <img src="assets/category/<?php echo $row['category_img']; ?>" alt="case">
+                                        <div class="xs-overlay d-flex align-items-center">
+                                            <div class="xs-service-content">
+                                                <div class="xs-icon-wraper">
+                                                    <i class="icon icon-dumble"></i>
+                                                </div>
+                                                <h3><?php echo $row['category_name']; ?></h3>
+                                                <p>We have heap of fun piece of equi to build down every inh of your for body.
+                                                </p>
+                                                <a href="#" class="btn btn-primary">
+                                                    <i class="icon icon-arrow"></i>
+                                                </a>
+                                            </div>
                                         </div>
-                                        <h3>GRIT STRENGTH</h3>
-                                        <p>We have heap of fun piece of equi to build down every inh of your for body.
-                                        </p>
-                                        <a href="#" class="btn btn-primary">
-                                            <i class="icon icon-arrow"></i>
-                                        </a>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="xs-service">
-                                <img src="assets/images/classes/classes-item-2.jpg" alt="case">
-                                <div class="xs-overlay d-flex align-items-center">
-                                    <div class="xs-service-content">
-                                        <div class="xs-icon-wraper">
-                                            <i class="icon icon-equipment"></i>
-                                        </div>
-                                        <h3>ZUMBA ATHLETIC</h3>
-                                        <p>We have heap of fun piece of equi to build down every inh of your for body.
-                                        </p>
-                                        <a href="#" class="btn btn-primary">
-                                            <i class="icon icon-arrow"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="xs-service">
-                                <img src="assets/images/classes/classes-item-3.jpg" alt="case">
-                                <div class="xs-overlay d-flex align-items-center">
-                                    <div class="xs-service-content">
-                                        <div class="xs-icon-wraper">
-                                            <i class="icon icon-yoga"></i>
-                                        </div>
-                                        <h3>FUSION YOga</h3>
-                                        <p>We have heap of fun piece of equi to build down every inh of your for body.
-                                        </p>
-                                        <a href="#" class="btn btn-primary">
-                                            <i class="icon icon-arrow"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="xs-service">
-                                <img src="assets/images/classes/classes-item-4.jpg" alt="case">
-                                <div class="xs-overlay d-flex align-items-center">
-                                    <div class="xs-service-content">
-                                        <div class="xs-icon-wraper">
-                                            <i class="icon icon-heart"></i>
-                                        </div>
-                                        <h3>Meditation</h3>
-                                        <p>We have heap of fun piece of equi to build down every inh of your for body.
-                                        </p>
-                                        <a href="#" class="btn btn-primary">
-                                            <i class="icon icon-arrow"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="xs-service">
-                                <img src="assets/images/classes/classes-item-5.jpg" alt="case">
-                                <div class="xs-overlay d-flex align-items-center">
-                                    <div class="xs-service-content">
-                                        <div class="xs-icon-wraper">
-                                            <i class="icon icon-climbing"></i>
-                                        </div>
-                                        <h3>Climbing Induction</h3>
-                                        <p>We have heap of fun piece of equi to build down every inh of your for body.
-                                        </p>
-                                        <a href="#" class="btn btn-primary">
-                                            <i class="icon icon-arrow"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="xs-service">
-                                <img src="assets/images/classes/classes-item-6.jpg" alt="case">
-                                <div class="xs-overlay d-flex align-items-center">
-                                    <div class="xs-service-content">
-                                        <div class="xs-icon-wraper">
-                                            <i class="icon icon-punch"></i>
-                                        </div>
-                                        <h3>punch Boxing</h3>
-                                        <p>We have heap of fun piece of equi to build down every inh of your for body.
-                                        </p>
-                                        <a href="#" class="btn btn-primary">
-                                            <i class="icon icon-arrow"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php }
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

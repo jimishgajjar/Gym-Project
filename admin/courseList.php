@@ -56,7 +56,7 @@ include('header.php');
                                                 $response = $response->fetch_assoc();
                                         ?>
                                                 <tr>
-                                                    <td><img class="thumbnail" src="../thumbnail/<?php echo $row['thumbnail']; ?>" alt="" /></td>
+                                                    <td><img class="thumbnail" src="../assets/thumbnail/<?php echo $row['thumbnail']; ?>" alt="" /></td>
                                                     <td><a href="courseView.php?view=<?php echo $row['id'] ?>"><?php echo $row['title']; ?></a></td>
                                                     <td><?php echo $row['description']; ?></td>
                                                     <td><?php echo $response['category_name']; ?></td>

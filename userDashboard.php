@@ -20,7 +20,7 @@ include('header.php');
                         <div class="col-md-3 mb-25">
                             <div class="course">
                                 <!-- <a href="" class="course-link"> -->
-                                <img class="course-thumbline" src="thumbnail/<?php echo $row['thumbnail']; ?>" alt="course1" />
+                                <img class="course-thumbline" src="assets/thumbnail/<?php echo $row['thumbnail']; ?>" alt="course1" />
                                 <div class="course-content">
                                     <div class="course-category mb-1">
                                         <?php echo $response['category_name']; ?>

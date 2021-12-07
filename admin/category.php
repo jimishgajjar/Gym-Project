@@ -45,7 +45,7 @@ include('header.php');
                                 $response = getData('category', $Condition);
                                 $response = $response->fetch_assoc();
                                 ?>
-                                <form action="include/AdminSubmitData.php" method="POST">
+                                <form action="include/AdminSubmitData.php" method="POST" enctype="multipart/form-data">
                                     <input type="hidden" name="module" value="categoryEdit">
                                     <input type="hidden" name="moduleMethod" value="category">
                                     <input type="hidden" name="category_id" value="<?php echo $_GET['edit']; ?>">
@@ -58,6 +58,11 @@ include('header.php');
                                             <label for="category_description">Category Description</label>
                                             <input type="text" class="form-control" value="<?php echo $response['category_description'] ?>" name="category_description" id="category_description" placeholder="Category Description" required>
                                         </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="category_img">Category Image</label><br>
+                                            <img class="thumbnail" id="category_img_view" src="../assets/category/<?php echo $response['category_img'] ?>" alt="" />
+                                            <input type="file" class="form-control" id="category_img" name="category_img" accept="image/png, image/jpeg" />
+                                        </div>
                                     </div>
                                     <button type="submit" name="categorySub" value="categorySub" class="btn btn-primary">Submit</button>
                                 </form>
@@ -67,7 +72,7 @@ include('header.php');
                                 <h5>Category Add</h5>
                             </div>
                             <div class="card-body">
-                                <form action="include/AdminSubmitData.php" method="POST">
+                                <form action="include/AdminSubmitData.php" method="POST" enctype="multipart/form-data">
                                     <input type="hidden" name="module" value="categoryAdd">
                                     <input type="hidden" name="moduleMethod" value="category">
                                     <div class="form-row">
@@ -78,6 +83,11 @@ include('header.php');
                                         <div class="form-group col-md-6">
                                             <label for="category_description">Category Description</label>
                                             <input type="text" class="form-control" name="category_description" id="category_description" placeholder="Category Description" required>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="category_img">Category Image</label><br>
+                                            <img class="thumbnail" id="category_img_view" src="" alt="" />
+                                            <input type="file" class="form-control" id="category_img" name="category_img" accept="image/png, image/jpeg" />
                                         </div>
                                     </div>
                                     <button type="submit" name="categorySub" value="categorySub" class="btn btn-primary">Submit</button>
@@ -94,7 +104,21 @@ include('header.php');
     <!-- [ Main Content ] end -->
 
     <?php include('footer.php'); ?>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#category_img_view').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 
+        $("#category_img").change(function() {
+            readURL(this);
+        });
+    </script>
 </body>
 
 </html>
