@@ -162,7 +162,7 @@
                         <div class="pro-head">
                             <img src="assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
                             <span><?php echo $response['full_name']; ?></span>
-                            <a href="include/AdminSubmitData.php?&moduleMethod=logout&module=adminLogout&logout=1" class="dud-logout" title="Logout">
+                            <a href="include/AdminSubmitData.php?moduleMethod=logout&module=adminLogout&logout=1" class="dud-logout" title="Logout">
                                 <i class="feather icon-log-out"></i>
                             </a>
                         </div>

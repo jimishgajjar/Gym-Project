@@ -4867,6 +4867,7 @@ a {
 *************************************** */
 .course {
     height: 100%;
+    /* background-color: #fff; */
     border-radius: 10px;
     box-shadow: 0px 10px 20px rgb(0 0 0 / 25%);
     width: 100%;
@@ -4887,9 +4888,9 @@ a {
     border-top-right-radius: 10px;
 }
 
-.course:hover {
+/* .course:hover {
     transform: scale(1.07);
-}
+} */
 
 .course .course-category {
     width: fit-content;
@@ -4937,4 +4938,195 @@ span.stars span {
 span.stars span {
     background-position: 0 0;
     background-image: url(../images/icons/star.svg);
+}
+
+/* ***************************************
+        Course Detail View
+*************************************** */
+/* -------------------------------- 
+Breadcum
+-------------------------------- */
+.cd-breadcrumb,
+.cd-multi-steps {
+    color: #fff;
+    padding-left: 0px;
+}
+
+.cd-breadcrumb::after,
+.cd-multi-steps::after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.cd-breadcrumb li,
+.cd-multi-steps li {
+    display: inline-block;
+    float: left;
+    margin: 0.5em 0;
+}
+
+.cd-breadcrumb li::after,
+.cd-multi-steps li::after {
+    /* this is the separator between items */
+    display: inline-block;
+    content: '\00bb';
+    margin: 0 .6em;
+    color: #fff;
+}
+
+.cd-breadcrumb li:last-of-type::after,
+.cd-multi-steps li:last-of-type::after {
+    /* hide separator after the last item */
+    display: none;
+}
+
+.cd-breadcrumb li>*,
+.cd-multi-steps li>* {
+    /* single step */
+    display: inline-block;
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.cd-breadcrumb.custom-separator li::after,
+.cd-multi-steps.custom-separator li::after {
+    /* replace the default separator with a custom icon */
+    content: '';
+    height: 16px;
+    width: 16px;
+    background: url(https://codyhouse.co/demo/breadcrumbs-multi-steps-indicator/img/cd-custom-separator.svg) no-repeat center center;
+    vertical-align: middle;
+}
+
+.cd-breadcrumb.custom-icons li>*::before,
+.cd-multi-steps.custom-icons li>*::before {
+    /* add a custom icon before each item */
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin-right: .4em;
+    margin-top: -2px;
+    background: url(https://codyhouse.co/demo/breadcrumbs-multi-steps-indicator/img/cd-custom-icons-01.svg) no-repeat 0 0;
+    vertical-align: middle;
+}
+
+.cd-breadcrumb.custom-icons li:not(.current):nth-of-type(2)>*::before,
+.cd-multi-steps.custom-icons li:not(.current):nth-of-type(2)>*::before {
+    /* change custom icon using image sprites */
+    background-position: -20px 0;
+}
+
+.cd-breadcrumb.custom-icons li:not(.current):nth-of-type(3)>*::before,
+.cd-multi-steps.custom-icons li:not(.current):nth-of-type(3)>*::before {
+    background-position: -40px 0;
+}
+
+.cd-breadcrumb.custom-icons li:not(.current):nth-of-type(4)>*::before,
+.cd-multi-steps.custom-icons li:not(.current):nth-of-type(4)>*::before {
+    background-position: -60px 0;
+}
+
+.cd-breadcrumb.custom-icons li.current:first-of-type>*::before,
+.cd-multi-steps.custom-icons li.current:first-of-type>*::before {
+    /* change custom icon for the current item */
+    background-position: 0 -20px;
+}
+
+.cd-breadcrumb.custom-icons li.current:nth-of-type(2)>*::before,
+.cd-multi-steps.custom-icons li.current:nth-of-type(2)>*::before {
+    background-position: -20px -20px;
+}
+
+.cd-breadcrumb.custom-icons li.current:nth-of-type(3)>*::before,
+.cd-multi-steps.custom-icons li.current:nth-of-type(3)>*::before {
+    background-position: -40px -20px;
+}
+
+.cd-breadcrumb.custom-icons li.current:nth-of-type(4)>*::before,
+.cd-multi-steps.custom-icons li.current:nth-of-type(4)>*::before {
+    background-position: -60px -20px;
+}
+
+@media only screen and (min-width: 768px) {
+
+    /* .cd-breadcrumb,
+    .cd-multi-steps {
+        padding: 0 1.2em;
+    } */
+
+    .cd-breadcrumb li,
+    .cd-multi-steps li {
+        margin: 1em 0;
+    }
+
+    .cd-breadcrumb li::after,
+    .cd-multi-steps li::after {
+        margin: 0 1em;
+    }
+
+    .cd-breadcrumb li>*,
+    .cd-multi-steps li>* {
+        font-size: 17px;
+        font-weight: 600;
+    }
+}
+
+.course-detail .course-detail-header {
+    padding-top: 5rem;
+    background-color: #1c1d1f;
+}
+
+.course-detail .course-detail-title h4 {
+    font-weight: 600;
+    color: #fff;
+}
+
+.course-detail .course-detail-description p {
+    font-size: 17px;
+    color: #fff;
+}
+
+.course-detail .course-rating {
+    display: flex;
+}
+
+.course-detail .course-rating .course-rating-num {
+    font-size: 15px;
+    font-weight: 700;
+    color: #b47405;
+    padding: 11px 5px 0 0;
+}
+
+.course-detail .course-detail-price {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.course-detail .course-detail-price .detail-btn {
+    color: white;
+    padding: 5px 12px;
+    font-size: 25px;
+    border: 1px solid #fff;
+    margin: 5px;
+    text-align: center;
+}
+
+.course-detail .course-detail-price .detail-btn:hover {
+    background-color: #484848;
+}
+
+@media only screen and (max-width: 504px) {
+    .course-detail .course-detail-price .detail-btn {
+        flex-grow: 1
+    }
+
+    .course-detail .course-detail-price .detail-btn {
+        flex-grow: 1
+    }
+
+    .course-detail .course-detail-price .detail-btn {
+        flex-grow: 8
+    }
 }

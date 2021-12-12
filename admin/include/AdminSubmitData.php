@@ -162,7 +162,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                                 'date_modified' => date("Y-m-d H:i:s"),
                                 'modified_user_id' => $_SESSION["adminId"],
                             );
-                            $Condition['id '] = $_POST["category_id"];
+                            $Condition['id'] = $_POST["category_id"];
                             $categoryEditResponse = updateData($moduleMethod, $categoryEditData, $Condition);
                         } else {
                             echo "Sorry, there was an error uploading your file.";

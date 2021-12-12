@@ -5,7 +5,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-widget xs-mr-35">
                         <div class="xs-footer-logo">
-                            <img src="assets/images/logo/logo-red.png" alt="logo">
+                            <img src="assets/images/logo/logo-white.png" alt="logo" width="60">
                         </div>
                         <p>We have heap of fun piece of equipmnt builds dow every inh your body the and From boty in
                             builders for them to exicute.</p>

@@ -31,23 +31,18 @@ include('header.php');
                         </script>
                     <?php } ?>
                     <form action="include/UserSubmitData.php" method="POST">
-                        <input type="hidden" name="module" value="userLogin">
+                        <input type="hidden" name="module" value="userForgotPassword">
                         <input type="hidden" name="moduleMethod" value="user">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-                        </div>
-                        <button type="submit" name="userLoginSub" class="btn btn-primary btn-lg">Log In</button>
+                        <button type="submit" name="userForgotPasswordSub" class="btn btn-primary btn-lg">Reset Password</button>
                     </form>
                     <hr>
                     <div class="mb-3 text-center">
                         <div>
-                            <span>or </span><a href="userForgotPassword.php" class="forgot-password-link">Forgot
-                                Password</a>
+                            <span>or </span><a href="userLogin.php" class="forgot-password-link">Log In</a>
                         </div>
                         <div class="mt-10">
                             <span>Don't have an account? </span><a class="sign-link" href="userSignUp.php">

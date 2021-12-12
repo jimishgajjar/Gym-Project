@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2021 at 06:57 PM
+-- Generation Time: Dec 10, 2021 at 08:17 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -56,6 +56,7 @@ CREATE TABLE `category` (
   `id` varchar(255) NOT NULL,
   `category_name` varchar(255) NOT NULL,
   `category_description` text NOT NULL,
+  `category_img` text NOT NULL,
   `date_entered` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
   `modified_user_id` varchar(255) NOT NULL,
@@ -67,13 +68,13 @@ CREATE TABLE `category` (
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `category_name`, `category_description`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61ae0b26d28c8', 'GRIT STRENGTH', 'GRIT STRENGTH', '2021-12-06 18:37:50', '2021-12-06 18:37:50', '61952d7816277', '61952d7816277', 0),
-('61ae0b7228135', 'ZUMBA ATHLETIC', 'ZUMBA ATHLETIC', '2021-12-06 18:39:06', '2021-12-06 18:39:06', '61952d7816277', '61952d7816277', 0),
-('61ae0b7b8ca42', 'FUSION YOGA', 'FUSION YOGA', '2021-12-06 18:39:15', '2021-12-06 18:39:15', '61952d7816277', '61952d7816277', 0),
-('61ae0b82ec211', 'Meditation', 'Meditation', '2021-12-06 18:39:22', '2021-12-06 18:39:22', '61952d7816277', '61952d7816277', 0),
-('61ae0b8b3f476', 'Climbing Induction', 'Climbing Induction', '2021-12-06 18:39:31', '2021-12-06 18:39:31', '61952d7816277', '61952d7816277', 0),
-('61ae0b977d08e', 'Punch Boxing', 'Punch Boxing', '2021-12-06 18:39:43', '2021-12-06 18:39:43', '61952d7816277', '61952d7816277', 0);
+INSERT INTO `category` (`id`, `category_name`, `category_description`, `category_img`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('61ae0b26d28c8', 'GRIT STRENGTH', 'GRIT STRENGTH', '61ae0b26d28c8.jpg', '2021-12-06 18:37:50', '2021-12-06 18:37:50', '61952d7816277', '61952d7816277', 0),
+('61ae0b7228135', 'ZUMBA ATHLETIC', 'ZUMBA ATHLETIC', '61ae0b7228135.jpg', '2021-12-06 18:39:06', '2021-12-06 18:39:06', '61952d7816277', '61952d7816277', 0),
+('61ae0b7b8ca42', 'FUSION YOGA', 'FUSION YOGA', '61ae0b7b8ca42.jpg', '2021-12-06 18:39:15', '2021-12-06 18:39:15', '61952d7816277', '61952d7816277', 0),
+('61ae0b82ec211', 'Meditation', 'Meditation', '61ae0b82ec211.jpg', '2021-12-06 18:39:22', '2021-12-06 18:39:22', '61952d7816277', '61952d7816277', 0),
+('61ae0b8b3f476', 'Climbing Induction', 'Climbing Induction', '61ae0b8b3f476.jpg', '2021-12-06 18:39:31', '2021-12-06 18:39:31', '61952d7816277', '61952d7816277', 0),
+('61ae0b977d08e', 'Punch Boxing', 'Punch Boxing', '61ae0b977d08e.jpg', '2021-12-06 18:39:43', '2021-12-06 18:39:43', '61952d7816277', '61952d7816277', 0);
 
 -- --------------------------------------------------------
 
@@ -120,6 +121,10 @@ CREATE TABLE `user` (
   `email` varchar(255) NOT NULL,
   `mobile_no` varchar(15) NOT NULL,
   `profile_pic` varchar(255) NOT NULL DEFAULT 'userpic.png',
+  `height` varchar(10) NOT NULL,
+  `weight` varchar(10) NOT NULL,
+  `age` varchar(10) NOT NULL,
+  `gender` varchar(10) NOT NULL,
   `password` varchar(255) NOT NULL,
   `date_entered` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
@@ -132,8 +137,9 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `full_name`, `email`, `mobile_no`, `profile_pic`, `password`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61adfd8c73697', 'Jimish Gajjar', 'jimish.gajjar@gmail.com', '9737956805', 'userpic.png', 'f3599dba24e40c1ff9367e56b386b87e', '2021-12-06 17:39:48', '2021-12-06 17:39:48', '61adfd8c73696', '61adfd8c73696', 0);
+INSERT INTO `user` (`id`, `full_name`, `email`, `mobile_no`, `profile_pic`, `height`, `weight`, `age`, `gender`, `password`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('61adfd8c73697', 'Jimish Gajjar', 'jimish.gajjar@gmail.com', '9737956805', 'userpic.png', '', '', '', '', 'f3599dba24e40c1ff9367e56b386b87e', '2021-12-06 17:39:48', '2021-12-06 17:39:48', '61adfd8c73696', '61adfd8c73696', 0),
+('61ae56262a7cd', 'Parth Nayi', 'parthnayi786@gmail.com', '9409354805', 'userpic.png', '5.5', '65', '24', 'Male', '04788c4f5295bc48719eb9d8d3dec40d', '2021-12-06 23:57:50', '2021-12-06 23:57:50', '61ae56262a7cb', '61ae56262a7cb', 0);
 
 --
 -- Indexes for dumped tables

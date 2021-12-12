@@ -8,13 +8,14 @@ include "include/queryFunction.php";
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Gymvast - Gym Home Light</title>
+    <title>Gymnext</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Barlow:400,600,700,800,900%7CMontserrat:800" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.html">
-
+    <!-- favicon -->
+    <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/x-icon">
     <link rel="apple-touch-icon" href="apple-touch-icon.html">
     <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">

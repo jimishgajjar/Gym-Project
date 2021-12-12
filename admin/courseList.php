@@ -62,7 +62,7 @@ include('header.php');
                                                     <td><?php echo $response['category_name']; ?></td>
                                                     <td>
                                                         <a href=" course.php?edit=<?php echo $row['id']; ?>" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
-                                                        <a href="include/AdminSubmitData.php?&moduleMethod=course&module=courseDelete&delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
+                                                        <a href="include/AdminSubmitData.php?moduleMethod=course&module=courseDelete&delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
                                                     </td>
                                                 </tr>
                                             <?php

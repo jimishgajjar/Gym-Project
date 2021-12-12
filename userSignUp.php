@@ -72,7 +72,7 @@ include('header.php');
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                         </div>
-                        <button type="submit" class="mt-2 btn btn-primary btn-lg">Sign Up</button>
+                        <button type="submit" name="userSignupSub" class="mt-2 btn btn-primary btn-lg">Sign Up</button>
                     </form>
                     <hr>
                     <div class="mb-3 text-center">
