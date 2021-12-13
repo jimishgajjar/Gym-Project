@@ -5119,14 +5119,24 @@ Breadcum
 
 @media only screen and (max-width: 504px) {
     .course-detail .course-detail-price .detail-btn {
-        flex-grow: 1
+        flex-grow: 1;
     }
 
     .course-detail .course-detail-price .detail-btn {
-        flex-grow: 1
+        flex-grow: 1;
     }
 
     .course-detail .course-detail-price .detail-btn {
-        flex-grow: 8
+        flex-grow: 8;
     }
+}
+
+.course-detail .price-tag h3 {
+    margin-bottom: 0px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.course-detail .course-description h4{
+    font-weight: 600;
 }

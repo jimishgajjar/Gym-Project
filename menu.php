@@ -1,5 +1,5 @@
 <header class="elementskit-header xs-header-transparent">
-    <div class="xs-container">
+    <div class="container">
         <div class="xs-navbar">
             <a class="xs-navbar-brand" href="index.php">
                 <img src="assets/images/logo/logo-black.png" alt="navbar logo">

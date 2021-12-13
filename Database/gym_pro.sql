@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2021 at 08:17 PM
+-- Generation Time: Dec 13, 2021 at 07:42 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -112,6 +112,25 @@ INSERT INTO `course` (`id`, `category_id`, `title`, `description`, `tags`, `thum
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `course_review`
+--
+
+CREATE TABLE `course_review` (
+  `id` varchar(255) NOT NULL,
+  `cource_id` varchar(255) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `rating` varchar(10) NOT NULL,
+  `review` text NOT NULL,
+  `date_entered` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  `modified_user_id` varchar(255) NOT NULL,
+  `created_by` varchar(255) NOT NULL,
+  `deleted` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -126,6 +145,8 @@ CREATE TABLE `user` (
   `age` varchar(10) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `reset_key` varchar(255) NOT NULL,
+  `reset_status` tinyint(4) NOT NULL,
   `date_entered` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
   `modified_user_id` varchar(255) NOT NULL,
@@ -137,9 +158,9 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `full_name`, `email`, `mobile_no`, `profile_pic`, `height`, `weight`, `age`, `gender`, `password`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61adfd8c73697', 'Jimish Gajjar', 'jimish.gajjar@gmail.com', '9737956805', 'userpic.png', '', '', '', '', 'f3599dba24e40c1ff9367e56b386b87e', '2021-12-06 17:39:48', '2021-12-06 17:39:48', '61adfd8c73696', '61adfd8c73696', 0),
-('61ae56262a7cd', 'Parth Nayi', 'parthnayi786@gmail.com', '9409354805', 'userpic.png', '5.5', '65', '24', 'Male', '04788c4f5295bc48719eb9d8d3dec40d', '2021-12-06 23:57:50', '2021-12-06 23:57:50', '61ae56262a7cb', '61ae56262a7cb', 0);
+INSERT INTO `user` (`id`, `full_name`, `email`, `mobile_no`, `profile_pic`, `height`, `weight`, `age`, `gender`, `password`, `reset_key`, `reset_status`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('61adfd8c73697', 'Jimish Gajjar', 'jimish.gajjar@gmail.com', '9737956805', 'userpic.png', '5.5', '65', '24', 'Male', 'f3599dba24e40c1ff9367e56b386b87e', 'NOT SET', 0, '2021-12-06 17:39:48', '2021-12-06 17:39:48', '61adfd8c73696', '61adfd8c73696', 0),
+('61ae56262a7cd', 'Parth Nayi', 'parthnayi786@gmail.com', '9409354805', 'userpic.png', '5.5', '65', '24', 'Male', '04788c4f5295bc48719eb9d8d3dec40d', 'NOT SET', 0, '2021-12-06 23:57:50', '2021-12-06 23:57:50', '61ae56262a7cb', '61ae56262a7cb', 0);
 
 --
 -- Indexes for dumped tables
@@ -164,10 +185,18 @@ ALTER TABLE `course`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `course_review`
+--
+ALTER TABLE `course_review`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `mobile_no` (`mobile_no`),
+  ADD UNIQUE KEY `email` (`email`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
