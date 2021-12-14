@@ -173,7 +173,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 $courseEditData = array(
                     'category_id' => $_POST['category_id'],
                     'title' => $_POST['title'],
-                    'description' => $_POST['description'],
+                    'small_description' => $_POST['small_description'],
                     'tags' => implode(",", $_POST['tags']),
                     'date_modified' => date("Y-m-d H:i:s"),
                     'modified_user_id' => $_SESSION["adminId"],
@@ -269,9 +269,13 @@ if (!empty($_REQUEST['moduleMethod'])) {
                             'id' => $uniqid,
                             'category_id' => $_POST['category_id'],
                             'title' => $_POST['title'],
+                            'small_description' => $_POST['small_description'],
                             'description' => $_POST['description'],
                             'tags' => implode(",", $_POST['tags']),
                             'thumbnail' => $uniqid . "." . $extension,
+                            'rating' => 0.0,
+                            'price' => $_POST['price'],
+                            'discount' => $_POST['discount'],
                             'date_entered' => date("Y-m-d H:i:s"),
                             'date_modified' => date("Y-m-d H:i:s"),
                             'modified_user_id' => $_SESSION["adminId"],
@@ -352,6 +356,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                             $courseEditData = array(
                                 'category_id' => $_POST['category_id'],
                                 'title' => $_POST['title'],
+                                'small_description' => $_POST['small_description'],
                                 'description' => $_POST['description'],
                                 'tags' => implode(",", $_POST['tags']),
                                 'thumbnail' => $response['id'] . "." . $extension,
@@ -370,6 +375,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 $courseEditData = array(
                     'category_id' => $_POST['category_id'],
                     'title' => $_POST['title'],
+                    'small_description' => $_POST['small_description'],
                     'description' => $_POST['description'],
                     'tags' => implode(",", $_POST['tags']),
                     'date_modified' => date("Y-m-d H:i:s"),
@@ -399,7 +405,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
             $response = $response->fetch_assoc();
 
             $courseDeleteResponse = deleteData($moduleMethod, $Condition);
-            if (!empty($courseDeleteResponse) && unlink("../../thumbnail/" . $response['thumbnail'])) {
+            if (!empty($courseDeleteResponse) && unlink($thumbnailPath . $response['thumbnail'])) {
                 $alert_type = "alert-success";
                 $alert_message = "Course deleted successfully.";
                 echo "<script>window.location.replace('../categoryList.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";

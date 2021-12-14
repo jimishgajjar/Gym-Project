@@ -55,8 +55,14 @@ include('header.php');
                                             <input type="text" class="form-control" value="<?php echo $response['title']; ?>" name="title" id="title" placeholder="Course title" required>
                                         </div>
                                         <div class="form-group col-md-12">
+                                            <label for="small_description">Course Small Description</label>
+                                            <textarea class="form-control" id="small_description" name="small_description" rows="3" placeholder="Course Small Description" required><?php echo $response['small_description']; ?></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
                                             <label for="description">Course Description</label>
-                                            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Course description" required><?php echo $response['description']; ?></textarea>
+                                            <textarea name="description" id="classic-editor" required>
+                                            <?php echo $response['description']; ?>
+                                            </textarea>
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="category_id">Select Category</label>
@@ -108,8 +114,13 @@ include('header.php');
                                             <input type="text" class="form-control" name="title" id="title" placeholder="Course title" value="" required>
                                         </div>
                                         <div class="form-group col-md-12">
+                                            <label for="small_description">Course Small Description</label>
+                                            <textarea class="form-control" id="small_description" name="small_description" rows="3" placeholder="Course Small Description" required></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
                                             <label for="description">Course Description</label>
-                                            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Course description" required></textarea>
+                                            <textarea name="description" id="classic-editor">
+                                            </textarea>
                                         </div>
                                         <div class="form-group col-md-12">
                                             <?php
@@ -133,6 +144,14 @@ include('header.php');
                                             <label for="thumbnail">Course Thumbnail</label><br>
                                             <img class="thumbnail" id="thumbnail_view" src="" alt="" />
                                             <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept="image/png, image/jpeg" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="price">Cource Price</label>
+                                            <input type="text" class="form-control" name="price" id="" placeholder="Course Price" value="" required>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="discount">Cource Discount</label>
+                                            <input type="text" class="form-control" name="discount" id="discount" placeholder="Course Discount" value="" required>
                                         </div>
                                     </div>
                                     <button type="submit" name="courseub" value="courseub" class="btn btn-primary">Submit</button>
@@ -164,6 +183,16 @@ include('header.php');
 
         $("#thumbnail").change(function() {
             readURL(this);
+        });
+    </script>
+    <!-- Ckeditor js -->
+    <script src="assets/js/plugins/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            ClassicEditor.create(document.querySelector('#classic-editor'))
+                .catch(error => {
+                    console.error(error);
+                });
         });
     </script>
 </body>

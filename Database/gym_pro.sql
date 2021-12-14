@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2021 at 07:42 PM
+-- Generation Time: Dec 14, 2021 at 08:10 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -86,10 +86,13 @@ CREATE TABLE `course` (
   `id` varchar(255) NOT NULL,
   `category_id` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
+  `small_description` text NOT NULL,
   `description` text NOT NULL,
   `tags` varchar(255) NOT NULL,
   `thumbnail` text NOT NULL,
   `rating` varchar(10) NOT NULL DEFAULT '0.0',
+  `price` varchar(255) NOT NULL,
+  `discount` varchar(255) NOT NULL,
   `date_entered` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
   `modified_user_id` varchar(255) NOT NULL,
@@ -101,13 +104,14 @@ CREATE TABLE `course` (
 -- Dumping data for table `course`
 --
 
-INSERT INTO `course` (`id`, `category_id`, `title`, `description`, `tags`, `thumbnail`, `rating`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61ae0f7abf646', '61ae0b26d28c8', '2022 Complete Python Bootcamp From Zero to Hero', 'Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games', 'Course 1', '61ae0f7abf646.jpg', '1.0', '2021-12-06 18:56:18', '2021-12-06 23:23:29', '61952d7816277', '61952d7816277', 0),
-('61ae0f9e103d7', '61ae0b7228135', 'Machine Learning A-Z™: Hands-On Python & R In Data', 'Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.', 'Course 2', '61ae0f9e103d7.jpg', '2.0', '2021-12-06 18:56:54', '2021-12-06 23:23:39', '61952d7816277', '61952d7816277', 0),
-('61ae1000549e3', '61ae0b7b8ca42', 'Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.', 'Learn how to use NumPy, Pandas, Seaborn , Matplotlib , Plotly , Scikit-Learn , Machine Learning, Tensorflow , and more!', 'Course 3', '61ae1000549e3.jpg', '3.0', '2021-12-06 18:58:32', '2021-12-06 23:23:48', '61952d7816277', '61952d7816277', 0),
-('61ae1027e738a', '61ae0b82ec211', '100 Days of Code: The Complete Python Pro Bootcamp for 2022', 'This Python For Beginners Course Teaches You The Python Language Fast. Includes Python Online Training With Python 3', 'Cource 4', '61ae1027e738a.jpg', '4.0', '2021-12-06 18:59:11', '2021-12-06 23:23:57', '61952d7816277', '61952d7816277', 0),
-('61ae105cb949a', '61ae0b8b3f476', 'Learning Python for Data Analysis and Visualization', 'Learn python and how to use it to analyze,visualize and present data. Includes tons of sample code and hours of video!', 'Course 5', '61ae105cb949a.jpg', '5.0', '2021-12-06 19:00:04', '2021-12-06 19:00:04', '61952d7816277', '61952d7816277', 0),
-('61ae10ac70735', '61ae0b977d08e', 'Python for Data Structures, Algorithms, and Interviews!', 'Get a kick start on your career and ace your coding interviews!', 'Course 6', '61ae10ac70735.jpg', '4.2', '2021-12-06 19:01:24', '2021-12-06 23:24:10', '61952d7816277', '61952d7816277', 0);
+INSERT INTO `course` (`id`, `category_id`, `title`, `small_description`, `description`, `tags`, `thumbnail`, `rating`, `price`, `discount`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('61ae0f7abf646', '61ae0b26d28c8', '2022 Complete Python Bootcamp From Zero to Hero', 'Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games', '', 'Course 1', '61ae0f7abf646.jpg', '1.0', '', '', '2021-12-06 18:56:18', '2021-12-06 23:23:29', '61952d7816277', '61952d7816277', 0),
+('61ae0f9e103d7', '61ae0b7228135', 'Machine Learning A-Z™: Hands-On Python & R In Data', 'Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.', '', 'Course 2', '61ae0f9e103d7.jpg', '2.0', '', '', '2021-12-06 18:56:54', '2021-12-06 23:23:39', '61952d7816277', '61952d7816277', 0),
+('61ae1000549e3', '61ae0b7b8ca42', 'Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.', 'Learn how to use NumPy, Pandas, Seaborn , Matplotlib , Plotly , Scikit-Learn , Machine Learning, Tensorflow , and more!', '', 'Course 3', '61ae1000549e3.jpg', '3.0', '', '', '2021-12-06 18:58:32', '2021-12-06 23:23:48', '61952d7816277', '61952d7816277', 0),
+('61ae1027e738a', '61ae0b82ec211', '100 Days of Code: The Complete Python Pro Bootcamp for 2022', 'This Python For Beginners Course Teaches You The Python Language Fast. Includes Python Online Training With Python 3', '', 'Cource 4', '61ae1027e738a.jpg', '4.0', '', '', '2021-12-06 18:59:11', '2021-12-06 23:23:57', '61952d7816277', '61952d7816277', 0),
+('61ae105cb949a', '61ae0b8b3f476', 'Learning Python for Data Analysis and Visualization', 'Learn python and how to use it to analyze,visualize and present data. Includes tons of sample code and hours of video!', '', 'Course 5', '61ae105cb949a.jpg', '5.0', '', '', '2021-12-06 19:00:04', '2021-12-06 19:00:04', '61952d7816277', '61952d7816277', 0),
+('61ae10ac70735', '61ae0b977d08e', 'Python for Data Structures, Algorithms, and Interviews!', 'Get a kick start on your career and ace your coding interviews!', '<p>qwqwqwqwwqwqwq</p><p>&nbsp;</p><p><strong>dddddddddddddddddddddddd</strong></p><p>&nbsp;</p><p>&nbsp;</p>', 'Course 6', '61ae10ac70735.jpg', '4.2', '', '', '2021-12-06 19:01:24', '2021-12-15 00:30:29', '61952d7816277', '61952d7816277', 0),
+('61b8e7615a900', '61ae0b977d08e', 'Django 2.2 & Python | The Ultimate Web Development Bootcamp', 'Build three complete websites, learn back and front-end web development, and publish your site online with DigitalOcean', '<p>Test <strong>1</strong>1<strong>1</strong>1 Hello</p><h2>123</h2><p>&nbsp;</p><p><a href=\"jimishgajjar.in\">jimishgajjar.in</a></p>', '123,456,789', '61b8e7615a900.jpg', '0', '525', '10%', '2021-12-15 00:20:09', '2021-12-15 00:25:14', '61952d7816277', '61952d7816277', 0);
 
 -- --------------------------------------------------------
 

@@ -1,5 +1,4 @@
 <?php
-include('checkSession.php');
 include('header.php');
 ?>
 

@@ -115,7 +115,7 @@ include('header.php');
                                         <h6 class="course-rating-num">(<?php echo $row['rating']; ?>)</h6>
                                         <span class="stars"><?php echo $row['rating']; ?></span>
                                     </div>
-                                    <a href="#" class="btn btn-primary">Know More</a>
+                                    <a href="courseDetailView.php?view=<?php echo $row['id'] ?>" class="btn btn-primary">Know More</a>
                                 </div>
                                 <!-- </a> -->
                             </div>

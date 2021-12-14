@@ -44,7 +44,7 @@ include('header.php');
                                 <div class="form-group row">
                                     <label for="thumbnail" class="col-sm-2 col-form-label">Thumbnail :</label>
                                     <div class="col-sm-10">
-                                        <img src="../thumbnail/<?php echo $response['thumbnail']; ?>" height="100" />
+                                        <img src="../assets/thumbnail/<?php echo $response['thumbnail']; ?>" height="100" />
                                     </div>
 
                                     <label for="title" class="col-sm-2 col-form-label">Title :</label>
