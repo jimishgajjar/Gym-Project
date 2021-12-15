@@ -40,18 +40,26 @@ include('header.php');
                                 $Condition['id'] = $_GET['view'];
                                 $response = getData('user', $Condition);
                                 $response = $response->fetch_assoc();
+                                if (!empty($response)) {
                                 ?>
-                                <div class="form-group row">
-                                    <label for="user_name" class="col-sm-2 col-form-label">Full Name :</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="user_name" value="<?php echo $response['full_name'] ?>">
-                                    </div>
+                                    <div class="form-group row">
+                                        <label for="user_name" class="col-sm-2 col-form-label">Full Name :</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" readonly class="form-control-plaintext" id="user_name" value="<?php echo $response['full_name'] ?>">
+                                        </div>
 
-                                    <label for="user_email" class="col-sm-2 col-form-label">Email :</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" readonly class="form-control-plaintext" id="user_email" value="<?php echo $response['email'] ?>">
+                                        <label for="user_email" class="col-sm-2 col-form-label">Email :</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" readonly class="form-control-plaintext" id="user_email" value="<?php echo $response['email'] ?>">
+                                        </div>
                                     </div>
-                                </div>
+                                <?php } else { ?>
+                                    <div class="col-md-12">
+                                        <div class="alert alert-danger" role="alert">
+                                            Data not found !
+                                        </div>
+                                    </div>
+                                <?php } ?>
                             </div>
                         <?php } ?>
                     </div>

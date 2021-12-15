@@ -146,7 +146,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
     }
 
     // User Rest Password Page
-if ($module == "userResetPass" && $moduleMethod == "user") {
+    if ($module == "userResetPass" && $moduleMethod == "user") {
         if (isset($_POST['userChangePasswordSub'])) {
             if (!empty($_REQUEST['email']) && !empty($_REQUEST['reset_key']) && $_REQUEST['password'] == $_REQUEST['confirm_password']) {
                 $Condition['reset_key']  = $_REQUEST['reset_key'];
@@ -171,6 +171,15 @@ if ($module == "userResetPass" && $moduleMethod == "user") {
                     echo "<script>window.location.replace('../userForgotPassword.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                 }
             }
+        }
+    }
+
+    // User Logout
+    if ($module == "userLogout" && $moduleMethod == "logout") {
+        if ($_REQUEST['logout'] == 1) {
+            session_unset();
+            session_destroy();
+            echo "<script>window.location.replace('../index.php');</script>";
         }
     }
 }

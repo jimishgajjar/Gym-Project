@@ -5137,6 +5137,10 @@ Breadcum
     font-weight: 500;
 }
 
-.course-detail .course-description h4{
+.course-detail .course-description h4 {
     font-weight: 600;
+}
+
+.course-detail .course-description p {
+    text-align: justify;
 }

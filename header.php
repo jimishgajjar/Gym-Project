@@ -1,6 +1,9 @@
 <?php
 include "include/dbConfig.php";
 include "include/queryFunction.php";
+
+$categoryPath = "assets/category/";
+$thumbnailPath = "assets/thumbnail/";
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">

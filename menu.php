@@ -24,6 +24,10 @@
                             <li>
                                 <a href="userLogin.php">Login</a>
                             </li>
+                        <?php } else { ?>
+                            <li>
+                                <a href="include/userSubmitData.php?moduleMethod=logout&module=userLogout&logout=1">Logout</a>
+                            </li>
                         <?php } ?>
                     </ul>
 
@@ -52,6 +56,14 @@
                         <i class="far fa-search"></i>
                     </a>
                 </li>
+                <?php
+                if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) { ?>
+                    <li>
+                        <a href="include/UserSubmitData.php?" class="offset-side-bar xs-modal-popup">
+                            <i class="fas fa-heart"></i>
+                        </a>
+                    </li>
+                <?php } ?>
                 <li>
                     <a href="#" class="offset-side-bar xs-modal-popup">
                         <i class="icon icon-cart"></i>

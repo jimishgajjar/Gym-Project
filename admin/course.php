@@ -96,6 +96,14 @@ include('header.php');
                                             <img class="thumbnail" id="thumbnail_view" src="../assets/thumbnail/<?php echo $response['thumbnail'] ?>" alt="" />
                                             <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept="image/png, image/jpeg" />
                                         </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="price">Cource Price</label>
+                                            <input type="text" class="form-control" name="price" id="price" placeholder="Course Price" value="<?php echo $response['price'] ?>" required>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="discount">Cource Discount</label>
+                                            <input type="text" class="form-control" name="discount" id="discount" placeholder="Course Discount" value="<?php echo $response['discount'] ?>" required>
+                                        </div>
                                     </div>
                                     <button type="submit" name="courseub" value="courseub" class="btn btn-primary">Submit</button>
                                 </form>
@@ -147,7 +155,7 @@ include('header.php');
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="price">Cource Price</label>
-                                            <input type="text" class="form-control" name="price" id="" placeholder="Course Price" value="" required>
+                                            <input type="text" class="form-control" name="price" id="price" placeholder="Course Price" value="" required>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="discount">Cource Discount</label>

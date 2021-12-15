@@ -44,28 +44,36 @@ include('header.php');
                                 $Condition['id'] = $_GET['edit'];
                                 $response = getData('category', $Condition);
                                 $response = $response->fetch_assoc();
+                                if (!empty($response)) {
                                 ?>
-                                <form action="include/AdminSubmitData.php" method="POST" enctype="multipart/form-data">
-                                    <input type="hidden" name="module" value="categoryEdit">
-                                    <input type="hidden" name="moduleMethod" value="category">
-                                    <input type="hidden" name="category_id" value="<?php echo $_GET['edit']; ?>">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="category_name">Category Name</label>
-                                            <input type="text" class="form-control" value="<?php echo $response['category_name'] ?>" name="category_name" id="category_name" placeholder="Category Name" required>
+                                    <form action="include/AdminSubmitData.php" method="POST" enctype="multipart/form-data">
+                                        <input type="hidden" name="module" value="categoryEdit">
+                                        <input type="hidden" name="moduleMethod" value="category">
+                                        <input type="hidden" name="category_id" value="<?php echo $_GET['edit']; ?>">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="category_name">Category Name</label>
+                                                <input type="text" class="form-control" value="<?php echo $response['category_name'] ?>" name="category_name" id="category_name" placeholder="Category Name" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="category_description">Category Description</label>
+                                                <input type="text" class="form-control" value="<?php echo $response['category_description'] ?>" name="category_description" id="category_description" placeholder="Category Description" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="category_img">Category Image</label><br>
+                                                <img class="thumbnail" id="category_img_view" src="../assets/category/<?php echo $response['category_img'] ?>" alt="" />
+                                                <input type="file" class="form-control" id="category_img" name="category_img" accept="image/png, image/jpeg" />
+                                            </div>
                                         </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="category_description">Category Description</label>
-                                            <input type="text" class="form-control" value="<?php echo $response['category_description'] ?>" name="category_description" id="category_description" placeholder="Category Description" required>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="category_img">Category Image</label><br>
-                                            <img class="thumbnail" id="category_img_view" src="../assets/category/<?php echo $response['category_img'] ?>" alt="" />
-                                            <input type="file" class="form-control" id="category_img" name="category_img" accept="image/png, image/jpeg" />
+                                        <button type="submit" name="categorySub" value="categorySub" class="btn btn-primary">Submit</button>
+                                    </form>
+                                <?php } else { ?>
+                                    <div class="col-md-12">
+                                        <div class="alert alert-danger" role="alert">
+                                            Data not found !
                                         </div>
                                     </div>
-                                    <button type="submit" name="categorySub" value="categorySub" class="btn btn-primary">Submit</button>
-                                </form>
+                                <?php } ?>
                             </div>
                         <?php } else { ?>
                             <div class="card-header">
