@@ -49,11 +49,23 @@ include('header.php');
                             <div class="course-detail-price mb-20">
                                 <?php
                                 if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
+                                    $wishlistCondition['user_id'] = $_SESSION["userId"];
+                                    $wishlistCondition['cource_id'] = $_GET['view'];
+                                    $wishlistDataResponse = getData('wishlist', $wishlistCondition);
+                                    $wishlistDataResponse = $wishlistDataResponse->fetch_assoc();
+
+                                    if (empty($wishlistDataResponse)) {
                                 ?>
-                                    <a href="#" class="detail-btn wishlist">
-                                        <i class="far fa-heart"></i>
-                                    </a>
-                                <?php } ?>
+                                        <a href="include/UserSubmitData.php?moduleMethod=wishlist&module=wishlistAdd&whislistId=<?php echo $response['id']; ?>" class="detail-btn wishlist">
+                                            <i class="far fa-heart"></i>
+                                        </a>
+                                    <?php } else { ?>
+                                        <a href="include/UserSubmitData.php?moduleMethod=wishlist&module=wishlistDelete&whislistId=<?php echo $response['id']; ?>" class="detail-btn wishlist">
+                                            <i class="fas fa-heart"></i>
+                                        </a>
+                                <?php }
+                                }
+                                ?>
                                 <a href="#" class="detail-btn cart pl-5 pr-5">
                                     Add to cart
                                 </a>

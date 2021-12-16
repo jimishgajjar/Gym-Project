@@ -182,4 +182,46 @@ if (!empty($_REQUEST['moduleMethod'])) {
             echo "<script>window.location.replace('../index.php');</script>";
         }
     }
+
+    // Wishlist Add
+    if ($module == "wishlistAdd" && $moduleMethod == "wishlist") {
+        if (!empty($_REQUEST['whislistId'])) {
+            $uniqid = uniqid();
+            $whishlistAddData = array(
+                'id' => $uniqid,
+                'user_id' => $_SESSION["userId"],
+                'cource_id' => $_REQUEST['whislistId'],
+                'date_entered' => date("Y-m-d H:i:s"),
+                'date_modified' => date("Y-m-d H:i:s"),
+                'modified_user_id' => $_SESSION["userId"],
+                'created_by' => $_SESSION["userId"],
+                'deleted' => 0,
+            );
+            $whishlistAddDataResponse = insertData($moduleMethod, $whishlistAddData);
+            if (!empty($whishlistAddDataResponse)) {
+                echo "<script>window.location.replace('../courseDetailView.php?view=" . $_REQUEST['whislistId'] . "');</script>";
+            } else {
+                $alert_type = "alert-danger";
+                $alert_message = "Category is not updated.";
+                echo "<script>window.location.replace('../index.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            }
+        }
+    }
+
+    // Wishlist Delete
+    if ($module == "wishlistDelete" && $moduleMethod == "wishlist") {
+        if (!empty($_REQUEST['whislistId'])) {
+            $Condition['cource_id'] = $_REQUEST['whislistId'];
+            $Condition['user_id'] = $_SESSION["userId"];
+            $wishlistDeleteResponse = deleteData($moduleMethod, $Condition);
+
+            if (!empty($wishlistDeleteResponse)) {
+                echo "<script>window.location.replace('../courseDetailView.php?view=" . $_REQUEST['whislistId'] . "');</script>";
+            } else {
+                $alert_type = "alert-danger";
+                $alert_message = "Category is not updated.";
+                echo "<script>window.location.replace('../index.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            }
+        }
+    }
 }

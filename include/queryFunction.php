@@ -18,7 +18,7 @@ function getData($tablename, $where = array())
         $result = $conn->query($query);
     }
 
-    // echo $query."<br>";
+    //  echo $query."<br>";
     return $result;
     // if ($result->num_rows > 0) {
     //     while ($row = $result->fetch_assoc()) {
