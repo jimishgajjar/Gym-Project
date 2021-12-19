@@ -1,3 +1,6 @@
+<?php
+$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+?>
 <header class="elementskit-header xs-header-transparent">
     <div class="container">
         <div class="xs-navbar">
@@ -16,9 +19,6 @@
                         <li>
                             <a href="index.php">Home</a>
                         </li>
-                        <!-- <li>
-                            <a href="contact.html">Contact</a>
-                        </li> -->
                         <?php
                         if (empty($_SESSION["userId"]) && empty($_SESSION["userEmail"])) { ?>
                             <li>
@@ -30,7 +30,6 @@
                             </li>
                         <?php } ?>
                     </ul>
-
                     <div class="elementskit-nav-identity-panel">
                         <h1 class="elementskit-site-title">
                             <a class="elementskit-nav-logo" href="index-2.html">
@@ -41,14 +40,9 @@
                             <i class="icon icon-cancel"></i>
                         </button>
                     </div>
-
                 </div>
-
-
                 <div class="elementskit-menu-overlay elementskit-menu-offcanvas-elements elementskit-menu-toggler">
                 </div>
-
-
             </nav>
             <ul class="xs-menu-tools">
                 <li>
@@ -56,30 +50,53 @@
                         <i class="far fa-search"></i>
                     </a>
                 </li>
-                <?php
-                if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) { ?>
+                <?php if (empty($_SESSION["userId"]) && empty($_SESSION["userEmail"])) { ?>
                     <li>
-                        <a href="include/UserSubmitData.php?" class="offset-side-bar xs-modal-popup">
-                            <i class="fas fa-heart"></i>
-                        </a>
-                    </li>
-                <?php } ?>
-                <li>
-                    <a href="#" class="offset-side-bar xs-modal-popup">
-                        <i class="icon icon-cart"></i>
-                        <span class="xs-badge">0</span>
-                    </a>
-                </li>
-                <?php
-                if (empty($_SESSION["userId"]) && empty($_SESSION["userEmail"])) { ?>
-                    <li>
-                        <a href="#" class="navSidebar-button">
-                            <i class="icon icon-menu"></i>
-                        </a>
+                        <?php
+                        $cartCondition['user_ip'] = $ip;
+                        $cartCondition['user_id'] = null;
+                        $cartDataResponse = getData('cart', $cartCondition);
+                        $cartCount = $cartDataResponse->num_rows;
+                        if (empty($cartDataResponse)) {
+                        ?>
+                            <a href="include/UserSubmitData.php" class="offset-side-bar xs-modal-popup">
+                                <i class="icon icon-cart"></i>
+                                <span class="xs-badge">0</span>
+                            </a>
+                        <?php } else { ?>
+                            <a href="include/UserSubmitData.php" class="offset-side-bar xs-modal-popup">
+                                <i class="icon icon-cart"></i>
+                                <span class="xs-badge"><?php echo $cartCount; ?></span>
+                            </a>
+                        <?php } ?>
                     </li>
                 <?php } else { ?>
                     <li>
-                        <a href="#" class="navSidebar-button">
+                        <a href="include/UserSubmitData.php" class="offset-side-bar xs-modal-popup">
+                            <i class="fas fa-heart"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <?php
+                        $cartCondition['user_id'] = $_SESSION["userId"];
+                        $cartCondition['user_ip'] = $ip;
+                        $cartDataResponse = getData('cart', $cartCondition);
+                        $cartCount = $cartDataResponse->num_rows;
+                        if (empty($cartDataResponse)) {
+                        ?>
+                            <a href="#" class="offset-side-bar xs-modal-popup">
+                                <i class="icon icon-cart"></i>
+                                <span class="xs-badge">0</span>
+                            </a>
+                        <?php } else { ?>
+                            <a href="#" class="offset-side-bar xs-modal-popup">
+                                <i class="icon icon-cart"></i>
+                                <span class="xs-badge"><?php echo $cartCount; ?></span>
+                            </a>
+                        <?php } ?>
+                    </li>
+                    <li>
+                        <a href="include/UserSubmitData.php" class="offset-side-bar xs-modal-popup">
                             <i class="fas fa-user"></i>
                         </a>
                     </li>
@@ -110,14 +127,22 @@
                 </div>
             </div>
             <div class="xs-empty-content">
-                <h3 class="widget-title">Shopping cart</h3>
+                <ul>
+                    <li>
+                        My Profile
+                    </li>
+                    <li>
+                        My Profile
+                    </li>
+                </ul>
+                <!-- <h3 class="widget-title">Shopping cart</h3>
                 <h4 class="xs-title">No products in the cart.</h4>
                 <p class="empty-cart-icon">
                     <i class="icon icon-shopping-cart"></i>
                 </p>
                 <p class="xs-btn-wraper">
                     <a class="btn btn-primary" href="#">Return To Shop</a>
-                </p>
+                </p> -->
             </div>
         </div>
     </div>

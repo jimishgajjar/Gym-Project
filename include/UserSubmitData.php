@@ -224,4 +224,45 @@ if (!empty($_REQUEST['moduleMethod'])) {
             }
         }
     }
+
+    // Carlist Add
+    if ($module == "cartAdd" && $moduleMethod == "cart") {
+        if (!empty($_REQUEST['cartId'])) {
+            $uniqid = uniqid();
+            $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+            // echo "The user IP Address is - " . $ip;
+            if (!empty($_SESSION["userId"])) {
+                $cartAddData = array(
+                    'id' => $uniqid,
+                    'user_id' => $_SESSION["userId"],
+                    'user_ip' => $ip,
+                    'cource_id' => $_REQUEST['cartId'],
+                    'date_entered' => date("Y-m-d H:i:s"),
+                    'date_modified' => date("Y-m-d H:i:s"),
+                    'modified_user_id' => $_SESSION["userId"],
+                    'created_by' => $_SESSION["userId"],
+                    'deleted' => 0,
+                );
+            } else {
+                $cartAddData = array(
+                    'id' => $uniqid,
+                    'user_ip' => $ip,
+                    'cource_id' => $_REQUEST['cartId'],
+                    'date_entered' => date("Y-m-d H:i:s"),
+                    'date_modified' => date("Y-m-d H:i:s"),
+                    'modified_user_id' => $ip,
+                    'created_by' => $ip,
+                    'deleted' => 0,
+                );
+            }
+            $cartAddDataResponse = insertData($moduleMethod, $cartAddData);
+            if (!empty($cartAddDataResponse)) {
+                echo "<script>window.location.replace('../courseDetailView.php?view=" . $_REQUEST['cartId'] . "');</script>";
+            } else {
+                $alert_type = "alert-danger";
+                $alert_message = "Category is not updated.";
+                echo "<script>window.location.replace('../index.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            }
+        }
+    }
 }

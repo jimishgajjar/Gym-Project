@@ -253,7 +253,7 @@ button:focus {
 }
 
 .xs-navbar-brand img {
-    height: 60px;
+    height: 50px;
 }
 
 .xs-navbar-brand>h2 {
@@ -479,8 +479,8 @@ button:focus {
 }
 
 .xs-empty-content {
-    text-align: center;
-    padding: 120px 30px 30px
+    /* text-align: center; */
+    padding: 70px 10px 30px
 }
 
 .xs-empty-content .widget-title {
@@ -1031,13 +1031,19 @@ button:focus {
 }
 
 @media(max-width:991px) {
+    .elementskit-nav-identity-panel {
+        padding-top: 0px !important;
+        padding-left: 0px !important;
+    }
+
     .elementskit-menu-container {
         background: #fff;
         background: -webkit-gradient(linear, left bottom, left top, from(white), to(white));
         background: -webkit-linear-gradient(bottom, white 0%, white 100%);
         background: -o-linear-gradient(bottom, white 0%, white 100%);
         background: linear-gradient(0deg, white 0%, white 100%);
-        max-width: 350px;
+        /* max-width: 350px; */
+        max-width: 20rem;
         width: 100%;
         position: fixed;
         top: 0;
@@ -1047,10 +1053,10 @@ button:focus {
         box-shadow: 0 10px 30px 0 rgba(68, 68, 68, .2);
         overflow-y: auto;
         overflow-x: hidden;
-        padding-top: 20px;
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-bottom: 20px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
         -webkit-transition: left 600ms cubic-bezier(.6, .1, .68, .53) 0ms;
         -o-transition: left 600ms cubic-bezier(.6, .1, .68, .53) 0ms;
         transition: left 600ms cubic-bezier(.6, .1, .68, .53) 0ms
@@ -1113,7 +1119,7 @@ button:focus {
     }
 
     .elementskit-navbar-nav {
-        padding-top: 100px
+        padding-top: 60px
     }
 
     .elementskit-navbar-nav>li>a {
@@ -4867,7 +4873,6 @@ a {
 *************************************** */
 .course {
     height: 100%;
-    /* background-color: #fff; */
     border-radius: 10px;
     box-shadow: 0px 10px 20px rgb(0 0 0 / 25%);
     width: 100%;
@@ -4887,10 +4892,6 @@ a {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-
-/* .course:hover {
-    transform: scale(1.07);
-} */
 
 .course .course-category {
     width: fit-content;
@@ -5137,10 +5138,24 @@ Breadcum
     font-weight: 500;
 }
 
-.course-detail .course-description h4 {
+.course-detail .course-description h4,
+.course-detail .course-video h4 {
     font-weight: 600;
 }
 
 .course-detail .course-description p {
     text-align: justify;
 }
+
+/* ***************************************
+                Cart
+*************************************** */
+/* .cart-card {
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgb(0 0 0 / 25%);
+}
+
+.cart-card img {
+    height: 70px;
+    border-radius: 10px;
+} */

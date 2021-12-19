@@ -47,15 +47,30 @@ include('header.php');
                                 <h3><span>₹</span> <?php echo $response['price']; ?>/- </h3>
                             </div>
                             <div class="course-detail-price mb-20">
-                                <?php
-                                if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
-                                    $wishlistCondition['user_id'] = $_SESSION["userId"];
-                                    $wishlistCondition['cource_id'] = $_GET['view'];
-                                    $wishlistDataResponse = getData('wishlist', $wishlistCondition);
+                                <?php if (empty($_SESSION["userId"]) && empty($_SESSION["userEmail"])) { ?>
+                                    <?php
+                                    $cartCondition['user_ip'] = $ip;
+                                    $cartCondition['user_id'] = null;
+                                    $cartDataResponse = getData('cart', $cartCondition);
+                                    $cartDataResponse = $cartDataResponse->fetch_assoc();
+                                    if (empty($cartDataResponse)) {
+                                    ?>
+                                        <a href="include/UserSubmitData.php?moduleMethod=cart&module=cartAdd&cartId=<?php echo $response['id']; ?>" class="detail-btn cart pl-5 pr-5">
+                                            Add to cart
+                                        </a>
+                                    <?php } else { ?>
+                                        <a href="include/UserSubmitData.php" class="detail-btn cart pl-5 pr-5">
+                                            Go to cart
+                                        </a>
+                                    <?php } ?>
+                                <?php } else { ?>
+                                    <?php
+                                    $WACondition['user_id'] = $_SESSION["userId"];
+                                    $WACondition['cource_id'] = $_GET['view'];
+                                    $wishlistDataResponse = getData('wishlist', $WACondition);
                                     $wishlistDataResponse = $wishlistDataResponse->fetch_assoc();
-
                                     if (empty($wishlistDataResponse)) {
-                                ?>
+                                    ?>
                                         <a href="include/UserSubmitData.php?moduleMethod=wishlist&module=wishlistAdd&whislistId=<?php echo $response['id']; ?>" class="detail-btn wishlist">
                                             <i class="far fa-heart"></i>
                                         </a>
@@ -63,12 +78,21 @@ include('header.php');
                                         <a href="include/UserSubmitData.php?moduleMethod=wishlist&module=wishlistDelete&whislistId=<?php echo $response['id']; ?>" class="detail-btn wishlist">
                                             <i class="fas fa-heart"></i>
                                         </a>
-                                <?php }
-                                }
-                                ?>
-                                <a href="#" class="detail-btn cart pl-5 pr-5">
-                                    Add to cart
-                                </a>
+                                    <?php } ?>
+                                    <?php
+                                    $cartDataResponse = getData('cart', $WACondition);
+                                    $cartDataResponse = $cartDataResponse->fetch_assoc();
+                                    if (empty($cartDataResponse)) {
+                                    ?>
+                                        <a href="include/UserSubmitData.php?moduleMethod=cart&module=cartAdd&cartId=<?php echo $response['id']; ?>" class="detail-btn cart pl-5 pr-5">
+                                            Add to cart
+                                        </a>
+                                    <?php } else { ?>
+                                        <a href="include/UserSubmitData.php" class="detail-btn cart pl-5 pr-5">
+                                            Go to cart
+                                        </a>
+                                    <?php } ?>
+                                <?php } ?>
                                 <a href="#" class="detail-btn buy pl-5 pr-5">
                                     Buy now
                                 </a>
@@ -94,10 +118,23 @@ include('header.php');
                             </div>
                         </div>
 
-                        <div class="col-md-12 mt-40">
+                        <div class="col-md-12 mt-20">
                             <hr>
-                            <div class="courcse-video">
-
+                            <div class="course-video">
+                                <h4>Description</h4>
+                                <div class="panel-group">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" href="#collapse1">Collapsible panel</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse1" class="panel-collapse collapse">
+                                            <div class="panel-body">Panel Body</div>
+                                            <div class="panel-footer">Panel Footer</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

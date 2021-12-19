@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2021 at 07:53 PM
+-- Generation Time: Dec 19, 2021 at 08:23 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -45,6 +45,32 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `full_name`, `email`, `password`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
 ('61952d7816277', 'Admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', '2021-11-17 17:26:45', '2021-11-17 17:26:45', '61952d7816277', '61952d7816277', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` varchar(255) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `user_ip` varchar(255) NOT NULL,
+  `cource_id` varchar(255) NOT NULL,
+  `date_entered` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  `modified_user_id` varchar(255) NOT NULL,
+  `created_by` varchar(255) NOT NULL,
+  `deleted` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `user_ip`, `cource_id`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('61be2e69df252', '61adfd8c73697', '127.0.0.1', '61ae0f7abf646', '2021-12-19 00:24:33', '2021-12-19 00:24:33', '61adfd8c73697', '61adfd8c73697', 0),
+('61be422407631', '', '127.0.0.1', '61ae0f7abf646', '2021-12-19 01:48:44', '2021-12-19 01:48:44', '127.0.0.1', '127.0.0.1', 0);
 
 -- --------------------------------------------------------
 
@@ -184,13 +210,6 @@ CREATE TABLE `wishlist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `wishlist`
---
-
-INSERT INTO `wishlist` (`id`, `user_id`, `cource_id`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61bb8b0b5abaf', '61adfd8c73697', '61ae0f7abf646', '2021-12-17 00:22:59', '2021-12-17 00:22:59', '61adfd8c73697', '61adfd8c73697', 0);
-
---
 -- Indexes for dumped tables
 --
 
@@ -198,6 +217,12 @@ INSERT INTO `wishlist` (`id`, `user_id`, `cource_id`, `date_entered`, `date_modi
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`);
 
 --
