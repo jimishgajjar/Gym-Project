@@ -24,18 +24,14 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
                             <li>
                                 <a href="userLogin.php">Login</a>
                             </li>
-                        <?php } else { ?>
-                            <li>
-                                <a href="include/userSubmitData.php?moduleMethod=logout&module=userLogout&logout=1">Logout</a>
-                            </li>
                         <?php } ?>
                     </ul>
                     <div class="elementskit-nav-identity-panel">
-                        <h1 class="elementskit-site-title">
+                        <!-- <h1 class="elementskit-site-title">
                             <a class="elementskit-nav-logo" href="index-2.html">
                                 <img src="assets/images/logo/logo-black.png" alt="navbar logo" height="100">
                             </a>
-                        </h1>
+                        </h1> -->
                         <button class="elementskit-menu-close elementskit-menu-toggler" type="button">
                             <i class="icon icon-cancel"></i>
                         </button>
@@ -60,12 +56,12 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
                         if (empty($cartDataResponse)) {
                         ?>
                             <a href="include/UserSubmitData.php" class="offset-side-bar xs-modal-popup">
-                                <i class="icon icon-cart"></i>
+                                <i class="far fa-shopping-cart"></i>
                                 <span class="xs-badge">0</span>
                             </a>
                         <?php } else { ?>
                             <a href="include/UserSubmitData.php" class="offset-side-bar xs-modal-popup">
-                                <i class="icon icon-cart"></i>
+                                <i class="far fa-shopping-cart"></i>
                                 <span class="xs-badge"><?php echo $cartCount; ?></span>
                             </a>
                         <?php } ?>
@@ -73,7 +69,7 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
                 <?php } else { ?>
                     <li>
                         <a href="include/UserSubmitData.php" class="offset-side-bar xs-modal-popup">
-                            <i class="fas fa-heart"></i>
+                            <i class="far fa-heart"></i>
                         </a>
                     </li>
                     <li>
@@ -85,19 +81,19 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
                         if (empty($cartDataResponse)) {
                         ?>
                             <a href="#" class="offset-side-bar xs-modal-popup">
-                                <i class="icon icon-cart"></i>
+                                <i class="far fa-shopping-cart"></i>
                                 <span class="xs-badge">0</span>
                             </a>
                         <?php } else { ?>
                             <a href="#" class="offset-side-bar xs-modal-popup">
-                                <i class="icon icon-cart"></i>
+                                <i class="far fa-shopping-cart"></i>
                                 <span class="xs-badge"><?php echo $cartCount; ?></span>
                             </a>
                         <?php } ?>
                     </li>
                     <li>
                         <a href="include/UserSubmitData.php" class="offset-side-bar xs-modal-popup">
-                            <i class="fas fa-user"></i>
+                            <i class="far fa-user"></i>
                         </a>
                     </li>
                 <?php } ?>
@@ -127,12 +123,18 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
                 </div>
             </div>
             <div class="xs-empty-content">
-                <ul>
+                <ul class="user-menu">
                     <li>
-                        My Profile
+                        <a href="#"><i class="far fa-user pr-20"></i> My Profile</a>
                     </li>
                     <li>
-                        My Profile
+                        <a href="#"><i class="far fa-heart pr-20"></i> Whish List</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="far fa-shopping-cart pr-20"></i> Cart</a>
+                    </li>
+                    <li>
+                        <a href="include/userSubmitData.php?moduleMethod=logout&module=userLogout&logout=1"><i class="fal fa-power-off pr-20"></i> Logout</a>
                     </li>
                 </ul>
                 <!-- <h3 class="widget-title">Shopping cart</h3>

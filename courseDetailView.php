@@ -121,14 +121,15 @@ include('header.php');
                         <div class="col-md-12 mt-20">
                             <hr>
                             <div class="course-video">
-                                <h4>Description</h4>
+                                <h4 class="mb-20">Course content</h4>
                                 <div class="panel-group">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" href="#collapse1">Collapsible panel</a>
-                                            </h4>
-                                        </div>
+                                    <div class="panel panel-default cource-chapter">
+                                        <a class="cource-chapter-click" data-toggle="collapse" href="#collapse1">
+                                            <div class="panel-heading cource-chapter-title">
+                                                <i class="fal fa-chevron-down pr-20 pl-20"></i>
+                                                Course content
+                                            </div>
+                                        </a>
                                         <div id="collapse1" class="panel-collapse collapse">
                                             <div class="panel-body">Panel Body</div>
                                             <div class="panel-footer">Panel Footer</div>
@@ -158,7 +159,11 @@ include('header.php');
     <?php } ?>
 
     <?php include('footer.php'); ?>
-
+    <script>
+        $('.cource-chapter-click').click(function() {
+            $(this).find('i').toggleClass('fal fa-chevron-down fal fa-chevron-up');
+        });
+    </script>
 </body>
 
 </html>
