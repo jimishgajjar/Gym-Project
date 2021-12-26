@@ -51,6 +51,7 @@ include('header.php');
                                     <?php
                                     $cartCondition['user_ip'] = $ip;
                                     $cartCondition['user_id'] = null;
+                                    $cartCondition['cource_id'] = $_GET['view'];
                                     $cartDataResponse = getData('cart', $cartCondition);
                                     $cartDataResponse = $cartDataResponse->fetch_assoc();
                                     if (empty($cartDataResponse)) {
@@ -84,7 +85,7 @@ include('header.php');
                                     $cartDataResponse = $cartDataResponse->fetch_assoc();
                                     if (empty($cartDataResponse)) {
                                     ?>
-                                        <a href="include/UserSubmitData.php?moduleMethod=cart&module=cartAdd&cartId=<?php echo $response['id']; ?>" class="detail-btn cart pl-5 pr-5">
+                                        <a href="include/UserSubmitData.php?moduleMethod=cart&module=cartAdd&cartId=<?php echo $response['id']; ?>" class="detail-btn pl-5 pr-5">
                                             Add to cart
                                         </a>
                                     <?php } else { ?>
@@ -125,14 +126,20 @@ include('header.php');
                                 <div class="panel-group">
                                     <div class="panel panel-default cource-chapter">
                                         <a class="cource-chapter-click" data-toggle="collapse" href="#collapse1">
-                                            <div class="panel-heading cource-chapter-title">
-                                                <i class="fal fa-chevron-down pr-20 pl-20"></i>
+                                            <div class="cource-chapter-title">
+                                                <i class="fal fa-chevron-down pr-20"></i>
                                                 Course content
                                             </div>
                                         </a>
                                         <div id="collapse1" class="panel-collapse collapse">
-                                            <div class="panel-body">Panel Body</div>
-                                            <div class="panel-footer">Panel Footer</div>
+                                            <div class="cource-chapter-body">
+                                                <ul>
+                                                    <li>
+                                                        <i class="fas fa-play-circle pr-20"></i>
+                                                        <a href="">Course content</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

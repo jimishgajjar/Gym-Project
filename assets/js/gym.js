@@ -9,3 +9,14 @@ $.fn.stars = function () {
 $(document).ready(function () {
     $('span.stars').stars();
 });
+
+function addToCartFromWishlist() {
+    alert('***');
+    // $.ajax({
+    //     url: "TPDashboard/TPCase/caseBlockOPRecord/" + casePk+ '/'+tablelen+ '/' + opPk ,
+    //     success: function (response) {
+    //         console.log(response);
+    //         document.getElementById('ajaxAreaOfOpModel').innerHTML = response;
+    //     }
+    // });
+}

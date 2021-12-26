@@ -27,11 +27,7 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
                         <?php } ?>
                     </ul>
                     <div class="elementskit-nav-identity-panel">
-                        <!-- <h1 class="elementskit-site-title">
-                            <a class="elementskit-nav-logo" href="index-2.html">
-                                <img src="assets/images/logo/logo-black.png" alt="navbar logo" height="100">
-                            </a>
-                        </h1> -->
+
                         <button class="elementskit-menu-close elementskit-menu-toggler" type="button">
                             <i class="icon icon-cancel"></i>
                         </button>
@@ -55,12 +51,12 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
                         $cartCount = $cartDataResponse->num_rows;
                         if (empty($cartDataResponse)) {
                         ?>
-                            <a href="include/UserSubmitData.php" class="offset-side-bar xs-modal-popup">
+                            <a href="#" class="offset-side-bar-cart xs-modal-popup">
                                 <i class="far fa-shopping-cart"></i>
                                 <span class="xs-badge">0</span>
                             </a>
                         <?php } else { ?>
-                            <a href="include/UserSubmitData.php" class="offset-side-bar xs-modal-popup">
+                            <a href="#" class="offset-side-bar-cart xs-modal-popup">
                                 <i class="far fa-shopping-cart"></i>
                                 <span class="xs-badge"><?php echo $cartCount; ?></span>
                             </a>
@@ -68,31 +64,31 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
                     </li>
                 <?php } else { ?>
                     <li>
-                        <a href="include/UserSubmitData.php" class="offset-side-bar xs-modal-popup">
+                        <a href="#" class="offset-side-bar-wishlist xs-modal-popup">
                             <i class="far fa-heart"></i>
                         </a>
                     </li>
                     <li>
                         <?php
-                        $cartCondition['user_id'] = $_SESSION["userId"];
                         $cartCondition['user_ip'] = $ip;
+                        $cartCondition['user_id'] = $_SESSION["userId"];
                         $cartDataResponse = getData('cart', $cartCondition);
                         $cartCount = $cartDataResponse->num_rows;
                         if (empty($cartDataResponse)) {
                         ?>
-                            <a href="#" class="offset-side-bar xs-modal-popup">
+                            <a href="#" class="offset-side-bar-cart xs-modal-popup">
                                 <i class="far fa-shopping-cart"></i>
                                 <span class="xs-badge">0</span>
                             </a>
                         <?php } else { ?>
-                            <a href="#" class="offset-side-bar xs-modal-popup">
+                            <a href="#" class="offset-side-bar-cart xs-modal-popup">
                                 <i class="far fa-shopping-cart"></i>
                                 <span class="xs-badge"><?php echo $cartCount; ?></span>
                             </a>
                         <?php } ?>
                     </li>
                     <li>
-                        <a href="include/UserSubmitData.php" class="offset-side-bar xs-modal-popup">
+                        <a href="#" class="offset-side-bar-profile xs-modal-popup">
                             <i class="far fa-user"></i>
                         </a>
                     </li>
@@ -111,9 +107,9 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
     </div>
 </div>
 
-<div class="xs-sidebar-group cart-group">
+<div class="xs-sidebar-group whislist-group">
     <div class="xs-overlay xs-bg-black"></div>
-    <div class="xs-sidebar-widget">
+    <div class="xs-sidebar-widget xs-sidebar-widget-cart">
         <div class="sidebar-widget-container">
             <div class="widget-heading media">
                 <div class="media-body">
@@ -122,7 +118,179 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
                     </a>
                 </div>
             </div>
-            <div class="xs-empty-content">
+            <?php
+            $WhishlistCondition['user_id'] = $_SESSION["userId"];
+            $wishlistData = getData('wishlist', $WhishlistCondition);
+            if (empty($wishlistData)) {
+            ?>
+                <div class="xs-empty-content">
+                    <h3 class="widget-title">Whislist</h3>
+                    <h4 class="xs-title">No products in your wishlist.</h4>
+                    <p class="empty-cart-icon">
+                        <i class="far fa-heart"></i>
+                    </p>
+                    <p class="xs-btn-wraper">
+                        <a class="btn btn-primary" href="index.php">Return To Shop</a>
+                    </p>
+                </div>
+            <?php } else { ?>
+                <!-- <div class="user-whislist"> -->
+                <div class="user-cart">
+                    <ul>
+                        <?php
+                        $total = 0;
+                        $totalAll = 0;
+                        if ($wishlistData->num_rows > 0) {
+                            while ($row = $wishlistData->fetch_assoc()) {
+                                $Condition['id'] = $row['cource_id'];
+                                $response = getData('course', $Condition);
+                                $response = $response->fetch_assoc();
+                                if (!empty($response)) { ?>
+                                    <li>
+                                        <div class="user-cart-list">
+                                            <img src="<?php echo $thumbnailPath . $response['thumbnail']; ?>" />
+                                            <div class="row pl-2">
+                                                <div class="col-md-12">
+                                                    <p>
+                                                        <?php
+                                                        if (strlen($response['title']) >= 50) {
+                                                            echo substr($response['title'], 0, 50) . "...";
+                                                        } else {
+                                                            echo $response['title'];
+                                                        }
+                                                        ?>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-12 pt-2">
+                                                    <h6 style="font-weight: 700;">
+                                                        <?php
+                                                        if ($response['discount'] != 0) {
+                                                            $discountPrice = $response['price'] - ($response['price'] * $response['discount'] / 100);
+                                                            $total += $discountPrice;
+                                                            echo "₹" . $discountPrice . "<s class='pl-2'>₹" . $response['price'] . "</s>";
+                                                        } else {
+                                                            echo "₹" . $response['price'];
+                                                            $total += $response['price'];
+                                                        }
+                                                        $totalAll += $response['price'];
+                                                        ?>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-cart-content">
+                                            <a href="javascript:void(0);" onclick="addToCartFromWishlist();" class="tp-btn btn-block">
+                                                Add to cart
+                                            </a>
+                                        </div>
+                                    </li>
+                        <?php }
+                            }
+                        } ?>
+                        <li class="cart-total">
+                            <h5>Total: ₹<?php echo $total; ?><s class="pl-2">₹<?php echo $totalAll; ?></s></h5>
+                        </li>
+                    </ul>
+                </div>
+                <!-- </div> -->
+            <?php } ?>
+        </div>
+    </div>
+</div>
+
+<div class="xs-sidebar-group cart-group">
+    <div class="xs-overlay xs-bg-black"></div>
+    <div class="xs-sidebar-widget xs-sidebar-widget-cart">
+        <div class="sidebar-widget-container">
+            <div class="widget-heading media">
+                <div class="media-body">
+                    <a href="#" class="close-side-widget">
+                        <i class="icon icon-cancel"></i>
+                    </a>
+                </div>
+            </div>
+            <?php
+            if (empty($cartDataResponse)) {
+            ?>
+                <div class="xs-empty-content">
+                    <h3 class="widget-title">Shopping cart</h3>
+                    <h4 class="xs-title">No products in the cart.</h4>
+                    <p class="empty-cart-icon">
+                        <i class="icon icon-shopping-cart"></i>
+                    </p>
+                    <p class="xs-btn-wraper">
+                        <a class="btn btn-primary" href="index.php">Return To Shop</a>
+                    </p>
+                </div>
+            <?php } else { ?>
+                <div class="user-cart">
+                    <ul>
+                        <?php
+                        $total = 0;
+                        $totalAll = 0;
+                        if ($cartDataResponse->num_rows > 0) {
+                            while ($row = $cartDataResponse->fetch_assoc()) {
+                                $Condition['id'] = $row['cource_id'];
+                                $response = getData('course', $Condition);
+                                $response = $response->fetch_assoc();
+                                if (!empty($response)) {                        ?>
+                                    <li>
+                                        <div class="user-cart-list">
+                                            <img src="<?php echo $thumbnailPath . $response['thumbnail']; ?>" />
+                                            <div class="row pl-2">
+                                                <div class="col-md-12">
+                                                    <p>
+                                                        <?php
+                                                        if (strlen($response['title']) >= 50) {
+                                                            echo substr($response['title'], 0, 50) . "...";
+                                                        } else {
+                                                            echo $response['title'];
+                                                        }
+                                                        ?>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-12 pt-2">
+                                                    <h6 style="font-weight: 700;">
+                                                        <?php
+                                                        if ($response['discount'] != 0) {
+                                                            $discountPrice = $response['price'] - ($response['price'] * $response['discount'] / 100);
+                                                            $total += $discountPrice;
+                                                            echo "₹" . $discountPrice . "<s class='pl-2'>₹" . $response['price'] . "</s>";
+                                                        } else {
+                                                            echo "₹" . $response['price'];
+                                                            $total += $response['price'];
+                                                        }
+                                                        $totalAll += $response['price'];
+                                                        ?>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                        <?php }
+                            }
+                        } ?>
+
+                        <li class="cart-total">
+                            <h5>Total: ₹<?php echo $total; ?><s class="pl-2">₹<?php echo $totalAll; ?></s></h5>
+                        </li>
+                    </ul>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+</div>
+
+<div class="xs-sidebar-group profile-group">
+    <div class="xs-overlay xs-bg-black"></div>
+    <div class="xs-sidebar-widget">
+        <div class="sidebar-widget-container">
+            <div class="widget-heading">
+                <a href="#" class="close-side-widget">
+                    <i class="icon icon-cancel"></i>
+                </a>
+            </div>
+            <div class="sidebar-textwidget">
                 <ul class="user-menu">
                     <li>
                         <a href="#"><i class="far fa-user pr-20"></i> My Profile</a>
@@ -137,55 +305,6 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
                         <a href="include/userSubmitData.php?moduleMethod=logout&module=userLogout&logout=1"><i class="fal fa-power-off pr-20"></i> Logout</a>
                     </li>
                 </ul>
-                <!-- <h3 class="widget-title">Shopping cart</h3>
-                <h4 class="xs-title">No products in the cart.</h4>
-                <p class="empty-cart-icon">
-                    <i class="icon icon-shopping-cart"></i>
-                </p>
-                <p class="xs-btn-wraper">
-                    <a class="btn btn-primary" href="#">Return To Shop</a>
-                </p> -->
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="xs-sidebar-group info-group">
-    <div class="xs-overlay xs-bg-black"></div>
-    <div class="xs-sidebar-widget">
-        <div class="sidebar-widget-container">
-            <div class="widget-heading">
-                <a href="#" class="close-side-widget">
-                    <i class="icon icon-cancel"></i>
-                </a>
-            </div>
-            <div class="sidebar-textwidget">
-                <div class="sidebar-logo-wraper">
-                    <a href="index.php">
-                        <img src="assets/images/logo/logo-black.png" alt="sidebar logo" height="100" draggable="false">
-                    </a>
-                </div>
-                <div class="xs-sidbar-getintouch">
-                    <h6 class="mb-3">Get in Touch</h6>
-                    <ul class="sideabr-list-widget">
-                        <li> <i class="icon icon-location"></i> 224 West 20th St, New York</li>
-                        <li><i class="icon icon-paper-plane"></i> NY 10011, USA</li>
-                        <li> <i class="icon icon-phone-call"></i>+1 212-255-5511</li>
-                        <li> <i class="icon icon-email"></i><a href="https://html.xpeedstudio.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d0b9beb6bf90a8a0b5b5b4a3a4a5b4b9bffeb3bfbd">[email&#160;protected]</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="xs-instra-feed">
-                    <p class="text-primary"><strong>@gemvast</strong></p>
-                    <ul>
-                        <li><img src="assets/images/instrafeed/1.jpg" alt=""></li>
-                        <li><img src="assets/images/instrafeed/2.jpg" alt=""></li>
-                        <li><img src="assets/images/instrafeed/3.jpg" alt=""></li>
-                    </ul>
-                </div>
-                <div class="xs-sidebar-image">
-                    <img src="assets/images/muscle_man.png" alt="muscle man">
-                </div>
             </div>
         </div>
     </div>

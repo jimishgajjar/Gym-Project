@@ -479,8 +479,8 @@ button:focus {
 }
 
 .xs-empty-content {
-    /* text-align: center; */
-    padding: 70px 0 30px
+    text-align: center;
+    padding: 70px 30px 30px
 }
 
 .xs-empty-content .widget-title {
@@ -672,6 +672,25 @@ button:focus {
     opacity: 0
 }
 
+.xs-sidebar-widget-cart {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 325px;
+    z-index: 999999;
+    overflow: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: #fff;
+    -webkit-transition: all .5s cubic-bezier(.9, .03, 0, .96) .6s;
+    -o-transition: all .5s cubic-bezier(.9, .03, 0, .96) .6s;
+    transition: all .5s cubic-bezier(.9, .03, 0, .96) .6s;
+    visibility: hidden;
+    opacity: 0
+}
+
 .xs-sidebar-group.isActive .xs-overlay {
     opacity: .9;
     visibility: visible;
@@ -691,7 +710,7 @@ button:focus {
 }
 
 .sidebar-textwidget {
-    padding: 40px;
+    padding: 0px;
     padding-top: 40px
 }
 
@@ -5074,6 +5093,10 @@ Breadcum
     }
 }
 
+.course-detail {
+    padding-bottom: 90px;
+}
+
 .course-detail .course-detail-header {
     padding-top: 5rem;
     background-color: #1c1d1f;
@@ -5147,6 +5170,77 @@ Breadcum
     text-align: justify;
 }
 
+.cource-chapter {
+    background-color: #f7f9fa;
+    flex-direction: row-reverse;
+    border-left: 1px solid #d1d7dc;
+    border-right: 1px solid #d1d7dc;
+    border-top: 1px solid #d1d7dc;
+}
+
+.cource-chapter:last-child {
+    border-bottom: 1px solid #d1d7dc;
+}
+
+.cource-chapter .cource-chapter-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    padding: 0.5rem 1rem;
+}
+
+.cource-chapter .cource-chapter-title i {
+    padding-top: 2px;
+}
+
+.cource-chapter .cource-chapter-title h4 {
+    padding-bottom: 0px !important;
+    margin-bottom: 0px !important;
+    font-size: 0px;
+}
+
+.cource-chapter .cource-chapter-title h4 a {
+    color: #000;
+    font-weight: 550;
+    letter-spacing: 1px;
+    font-size: 24px;
+}
+
+.cource-chapter .cource-chapter-body {
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    font-weight: 550;
+    letter-spacing: 1px;
+    font-size: 24px;
+    border-top: 1px solid #d1d7dc;
+}
+
+.cource-chapter .cource-chapter-body ul li {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 100;
+    height: auto;
+    text-align: left;
+    letter-spacing: normal;
+    white-space: normal;
+}
+
+.cource-chapter .cource-chapter-body ul li a {
+    text-decoration: none;
+    color: #1c1d1f;
+}
+
+.cource-chapter .cource-chapter-body ul li a:hover {
+    text-decoration: none;
+    color: #f63c25;
+}
+
 /* ***************************************
                 User Menu
 *************************************** */
@@ -5176,46 +5270,78 @@ Breadcum
 /* ***************************************
                 Cart
 *************************************** */
-/* .cart-card {
-    border-radius: 10px;
-    box-shadow: 0px 10px 20px rgb(0 0 0 / 25%);
+.user-cart {
+    padding-top: 70px;
 }
 
-.cart-card img {
-    height: 70px;
-    border-radius: 10px;
-} */
-
-.cource-chapter {
-    background-color: #f7f9fa;
-    flex-direction: row-reverse;
-    padding: .5rem;
-    border: 1.6px solid #c7c7c7;
+.user-cart ul li {
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
 }
 
-.cource-chapter .cource-chapter-title {
+.user-cart ul li .user-cart-list {
     display: flex;
-    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0px 7px;
+    height: auto;
+    text-align: left;
+    letter-spacing: normal;
+    white-space: normal;
+}
+
+.user-cart ul li .user-cart-content {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    white-space: normal;
+}
+
+.user-cart ul img {
+    height: 65px;
+    border-radius: 3px;
+    width: auto;
+}
+
+.user-cart ul p {
     color: #000;
-    font-size: 23px;
+    font-size: 13px;
+    font-weight: 550;
+    /* text-align: justify; */
+    /* padding-left: 7px; */
+}
+
+.user-cart h6 s {
+    color: #8c8c8c;
+}
+
+.user-cart .cart-total {
+    padding: 0px 7px;
+    /* justify-content: flex-end; */
+    border-bottom: none;
+}
+
+.user-cart .cart-total h5 {
+    font-size: 1.3rem;
     font-weight: 600;
-    letter-spacing: 0.7px;
 }
 
-.cource-chapter .cource-chapter-title i {
-    padding: 7px;
-    font-weight: 550;
+.user-cart .cart-total h5 s {
+    color: #8c8c8c;
 }
 
-.cource-chapter .cource-chapter-title h4 {
-    padding-bottom: 0px !important;
-    margin-bottom: 0px !important;
-    font-size: 0px;
+.tp-btn {
+    width: 100%;
+    color: black;
+    padding: 0px 0px !important;
+    font-size: 20px;
+    border: 1px solid #000;
+    margin: 5px;
+    text-align: center;
 }
 
-.cource-chapter .cource-chapter-title h4 a {
+.tp-btn:hover {
     color: #000;
-    font-weight: 550;
-    letter-spacing: 1px;
-    font-size: 24px;
+    background-color: #c4c4c487;
 }
