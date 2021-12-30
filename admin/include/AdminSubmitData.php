@@ -107,7 +107,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
     if ($module == "categoryEdit" && $moduleMethod == "category") {
         if (isset($_POST['categorySub'])) {
             if (!empty($_FILES["category_img"]["tmp_name"])) {
-                $Condition['id'] = $_POST["category_id"];
+                $Condition['id'] = $_POST["edit"];
                 $response = getData('category', $Condition);
                 $response = $response->fetch_assoc();
                 if (unlink($categoryPath . $response['category_img'])) {
@@ -162,7 +162,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                                 'date_modified' => date("Y-m-d H:i:s"),
                                 'modified_user_id' => $_SESSION["adminId"],
                             );
-                            $Condition['id'] = $_POST["category_id"];
+                            $Condition['id'] = $_POST["edit"];
                             $categoryEditResponse = updateData($moduleMethod, $categoryEditData, $Condition);
                         } else {
                             echo "Sorry, there was an error uploading your file.";
@@ -171,16 +171,14 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 }
             } else {
                 $courseEditData = array(
-                    'category_id' => $_POST['category_id'],
-                    'title' => $_POST['title'],
-                    'small_description' => $_POST['small_description'],
-                    'tags' => implode(",", $_POST['tags']),
+                    'id' => $_POST['edit'],
+                    'category_name' => $_POST['category_name'],
+                    'category_description' => $_POST['category_description'],
                     'date_modified' => date("Y-m-d H:i:s"),
                     'modified_user_id' => $_SESSION["adminId"],
-                    'deleted' => 0,
                 );
-                $Condition['id '] = $_POST["course_id"];
-                $courseEditDataResponse = updateData($moduleMethod, $courseEditData, $Condition);
+                $Condition['id '] = $_POST["edit"];
+                $categoryEditResponse = updateData($moduleMethod, $courseEditData, $Condition);
             }
             if (!empty($categoryEditResponse)) {
                 $alert_type = "alert-success";
@@ -308,8 +306,8 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 $response = getData('course', $Condition);
                 $response = $response->fetch_assoc();
 
-                if (unlink($categoryPath . $response['thumbnail'])) {
-                    $target_dir = $categoryPath;
+                if (unlink($thumbnailPath . $response['thumbnail'])) {
+                    $target_dir = $thumbnailPath;
                     $target_file = $target_dir . basename($_FILES["thumbnail"]["name"]);
                     $uploadOk = 1;
                     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -350,7 +348,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                         // if everything is ok, try to upload file
                     } else {
                         $extension = pathinfo($_FILES["thumbnail"]["name"], PATHINFO_EXTENSION);
-                        $path = "../../thumbnail/" . $response['id'] . "." . $extension;
+                        $path = $thumbnailPath . $response['id'] . "." . $extension;
                         if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $path)) {
                             echo "The file " . htmlspecialchars(basename($_FILES["thumbnail"]["name"])) . " has been uploaded.";
                             $courseEditData = array(

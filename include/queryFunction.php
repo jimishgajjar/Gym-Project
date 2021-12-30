@@ -63,7 +63,7 @@ function updateData($tablename, $input, $where = array())
     }
     $set = rtrim($set, ', ');
 
-    $query = "UPDATE " . $tablename . " SET " . $set . " WHERE " . $wherestr;
+    echo $query = "UPDATE " . $tablename . " SET " . $set . " WHERE " . $wherestr;
     if ($conn->query($query) === TRUE) {
         return $tablename . " updated successfully";
     }

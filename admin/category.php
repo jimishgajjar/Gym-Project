@@ -49,7 +49,7 @@ include('header.php');
                                     <form action="include/AdminSubmitData.php" method="POST" enctype="multipart/form-data">
                                         <input type="hidden" name="module" value="categoryEdit">
                                         <input type="hidden" name="moduleMethod" value="category">
-                                        <input type="hidden" name="category_id" value="<?php echo $_GET['edit']; ?>">
+                                        <input type="hidden" name="edit" value="<?php echo $_GET['edit']; ?>">
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="category_name">Category Name</label>
