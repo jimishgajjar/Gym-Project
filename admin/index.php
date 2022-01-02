@@ -11,7 +11,7 @@ include('header.php'); ?>
                     <div class="col-md-12">
                         <div class="card-body">
                             <img src="assets/images/logo-dark.png" alt="" class="img-fluid mb-4">
-                            <h4 class="mb-3 f-w-400">Signin</h4>
+                            <h4 class="mb-3 f-w-400">Admin Panel</h4>
                             <form class="my-4" action="include/AdminSubmitData.php" method="POST">
                                 <?php
                                 if (!empty($_REQUEST['alert_type']) && !empty($_REQUEST['alert_message'])) { ?>

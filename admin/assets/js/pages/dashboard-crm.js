@@ -19,7 +19,7 @@ function floatchart() {
             dataLabels: {
                 enabled: false
             },
-            colors: ["#4680ff"],
+            colors: ["#161616"],
             fill: {
                 type: 'solid',
                 opacity: 0.3,
@@ -225,7 +225,7 @@ function floatchart() {
             dataLabels: {
                 enabled: false
             },
-            colors: ["#4680ff"],
+            colors: ["#161616"],
             fill: {
                 type: 'solid',
                 opacity: 0.4,

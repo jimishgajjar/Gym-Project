@@ -19,7 +19,7 @@ function floatchart() {
             dataLabels: {
                 enabled: false
             },
-            colors: ["#4680ff"],
+            colors: ["#161616"],
             fill: {
                 type: 'solid',
                 opacity: 0.3,
@@ -28,7 +28,7 @@ function floatchart() {
                 size: 3,
                 opacity: 0.9,
                 colors: "#fff",
-                strokeColor: "#4680ff",
+                strokeColor: "#161616",
                 strokeWidth: 2,
                 hover: {
                     size: 7,
@@ -295,7 +295,7 @@ function floatchart() {
             dataLabels: {
                 enabled: false
             },
-            colors: ["#4680ff"],
+            colors: ["#161616"],
             fill: {
                 type: 'solid',
                 opacity: 0,
@@ -309,8 +309,8 @@ function floatchart() {
             markers: {
                 size: 3,
                 opacity: 0.9,
-                colors: "#4680ff",
-                strokeColor: "#4680ff",
+                colors: "#161616",
+                strokeColor: "#161616",
                 strokeWidth: 1,
                 hover: {
                     size: 4,
@@ -361,7 +361,7 @@ function floatchart() {
                 }
             },
             series: [85.7, 77.56, 20.9, 10.9, 15.8, 86.7],
-            colors: ["#4680ff", "#0e9e4a", "#00acc1", "#ffba57", "#ff5252", "#536dfe"],
+            colors: ["#161616", "#0e9e4a", "#00acc1", "#ffba57", "#ff5252", "#536dfe"],
             labels: ["Facebook ads", "Amazon ads", "Youtube videos", "Google adsense", "Twitter ads", "News ads"],
             legend: {
                 show: true,
@@ -388,7 +388,7 @@ function floatchart() {
             dataLabels: {
                 enabled: false
             },
-            colors: ["#4680ff"],
+            colors: ["#161616"],
             fill: {
                 type: 'solid',
                 opacity: 0.3,
@@ -396,8 +396,8 @@ function floatchart() {
             markers: {
                 size: 2,
                 opacity: 0.9,
-                colors: "#4680ff",
-                strokeColor: "#4680ff",
+                colors: "#161616",
+                strokeColor: "#161616",
                 strokeWidth: 2,
                 hover: {
                     size: 4,

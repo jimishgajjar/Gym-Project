@@ -42,7 +42,7 @@ $(document).ready(function() {
             responsive: true,
             ykeys: ['a', 'b', 'c'],
             labels: ['Bar 1', 'Bar 2', 'Bar 3'],
-            barColors: ["#4680ff", "#536dfe", "#9ccc65"]
+            barColors: ["#161616", "#536dfe", "#9ccc65"]
         });
         // [ bar-simple ] chart end
 
@@ -88,7 +88,7 @@ $(document).ready(function() {
             responsive: true,
             ykeys: ['a', 'b', 'c'],
             labels: ['Bar 1', 'Bar 2', 'Bar 3'],
-            barColors: ["#ffba57", "#ff5252", "#4680ff"]
+            barColors: ["#ffba57", "#ff5252", "#161616"]
         });
         // [ bar-stacked ] chart end
 
@@ -187,7 +187,7 @@ $(document).ready(function() {
                 ipad: 10,
                 itouch: 10
             }],
-            lineColors: ['#9ccc65', '#536dfe', '#4680ff'],
+            lineColors: ['#9ccc65', '#536dfe', '#161616'],
             xkey: 'period',
             ykeys: ['iphone', 'ipad', 'itouch'],
             labels: ['Site A', 'Site B', 'Site C'],
@@ -249,7 +249,7 @@ $(document).ready(function() {
             hideHover: 'auto',
             responsive: true,
             labels: ['Series A', 'Series B'],
-            lineColors: ['#536dfe', '#4680ff']
+            lineColors: ['#536dfe', '#161616']
         });
         // [ line-angle-chart ] end
 
@@ -329,11 +329,11 @@ $(document).ready(function() {
             parseTime: false,
             ymin: -1.0,
             ymax: 1.0,
-            lineColors: ['#ffba57', '#ff5252', '#4680ff'],
+            lineColors: ['#ffba57', '#ff5252', '#161616'],
             pointSize: 4,
             responsive: true,
             pointFillColors: ['#fff', '#fff', '#fff'],
-            pointStrokeColors: ['#ffba57', '#ff5252', '#4680ff'],
+            pointStrokeColors: ['#ffba57', '#ff5252', '#161616'],
             lineWidth: 2,
             hideHover: true
         });
@@ -366,7 +366,7 @@ $(document).ready(function() {
                 }
             ],
             colors: [
-                '#4680ff',
+                '#161616',
                 '#536dfe',
                 '#ff5252',
                 '#ffba57',

@@ -1130,8 +1130,8 @@ table > tbody > tr > td > span.footable-toggle {
     right: -5px;
     border-left-color: transparent;
     border-top-color: transparent;
-    border-bottom-color: #4680ff;
-    border-right-color: #4680ff;
+    border-bottom-color: #161616;
+    border-right-color: #161616;
     box-shadow: 4px 0 8px -5px rgba(62, 57, 107, 0.3);
 }
 
@@ -1492,7 +1492,7 @@ div.dataTables_wrapper div.dataTables_filter label {
     }
 
     .cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
-        border-left-color: #4680ff;
+        border-left-color: #161616;
         border-right-color: transparent;
     }
 

@@ -53,6 +53,11 @@ include('header.php');
                                         <div class="col-sm-4">
                                             <input type="text" readonly class="form-control-plaintext" id="category_description" value="<?php echo $response['category_description'] ?>">
                                         </div>
+
+                                        <label for="category_img" class="col-sm-2 col-form-label">Category Image :</label>
+                                        <div class="col-sm-10">
+                                            <img src="../assets/category/<?php echo $response['category_img']; ?>" height="100" style="border-radius: 10px;" />
+                                        </div>
                                     </div>
                                 <?php } else { ?>
                                     <div class="row">

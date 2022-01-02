@@ -19,7 +19,7 @@ function floatchart() {
             dataLabels: {
                 enabled: false
             },
-            colors: ["#4680ff"],
+            colors: ["#161616"],
             fill: {
                 type: 'solid',
                 opacity: 0,
@@ -33,8 +33,8 @@ function floatchart() {
             markers: {
                 size: 3,
                 opacity: 0.9,
-                colors: "#4680ff",
-                strokeColor: "#4680ff",
+                colors: "#161616",
+                strokeColor: "#161616",
                 strokeWidth: 1,
                 hover: {
                     size: 4,
@@ -388,7 +388,7 @@ function floatchart() {
             dataLabels: {
                 enabled: false
             },
-            colors: ["#4680ff"],
+            colors: ["#161616"],
             fill: {
                 type: 'solid',
                 opacity: 0.3,
@@ -396,8 +396,8 @@ function floatchart() {
             markers: {
                 size: 2,
                 opacity: 0.9,
-                colors: "#4680ff",
-                strokeColor: "#4680ff",
+                colors: "#161616",
+                strokeColor: "#161616",
                 strokeWidth: 2,
                 hover: {
                     size: 4,

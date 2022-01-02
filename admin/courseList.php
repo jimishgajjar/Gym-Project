@@ -41,7 +41,7 @@ include('header.php');
                                         <tr>
                                             <th>Thumbnail</th>
                                             <th>Title</th>
-                                            <th>Description</th>
+                                            <th>Small Description</th>
                                             <th>Category</th>
                                             <th>Options</th>
                                         </tr>
@@ -58,7 +58,7 @@ include('header.php');
                                                 <tr>
                                                     <td><img class="thumbnail" src="../assets/thumbnail/<?php echo $row['thumbnail']; ?>" alt="" /></td>
                                                     <td><a href="courseView.php?view=<?php echo $row['id'] ?>"><?php echo $row['title']; ?></a></td>
-                                                    <td><?php echo $row['description']; ?></td>
+                                                    <td><?php echo $row['small_description']; ?></td>
                                                     <td><?php echo $response['category_name']; ?></td>
                                                     <td>
                                                         <a href=" course.php?edit=<?php echo $row['id']; ?>" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>

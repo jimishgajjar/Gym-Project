@@ -10,13 +10,34 @@ $(document).ready(function () {
     $('span.stars').stars();
 });
 
-function addToCartFromWishlist() {
-    alert('***');
-    // $.ajax({
-    //     url: "TPDashboard/TPCase/caseBlockOPRecord/" + casePk+ '/'+tablelen+ '/' + opPk ,
-    //     success: function (response) {
-    //         console.log(response);
-    //         document.getElementById('ajaxAreaOfOpModel').innerHTML = response;
-    //     }
-    // });
+function loadWishlist() {
+    $.ajax({
+        url: "loadWishlist.php",
+        success: function (response) {
+            $("#whislist-data").empty();
+            $("#whislist-data").append(response);
+        }
+    });
 }
+
+function loadCartlist() {
+    $.ajax({
+        url: "loadCartlist.php",
+        success: function (response) {
+            $("#cartlist-data").empty();
+            $("#cartlist-data").append(response);
+        }
+    });
+}
+
+function addToCartFromWishlist(cource_id_) {
+    $.ajax({
+        url: "include/UserSubmitData.php",
+        method: "POST",
+        data: { module: "addToCartFromWishlist", moduleMethod: "cart", cource_id: cource_id_ },
+        success: function (response) {
+            $("#cartlist-data").empty();
+            $("#cartlist-data").append(response);
+        }
+    });
+} 

@@ -6,7 +6,7 @@ $(document).ready(function() {
             chart: {
                 type: 'column'
             },
-            colors: ['#4680ff', '#536dfe', '#ff5252', '#00bcd4'],
+            colors: ['#161616', '#536dfe', '#ff5252', '#00bcd4'],
             title: {
                 text: 'Monthly Average Rainfall'
             },
@@ -75,7 +75,7 @@ $(document).ready(function() {
             chart: {
                 type: 'spline',
             },
-            colors: ['#00bcd4', '#4680ff', '#536dfe'],
+            colors: ['#00bcd4', '#161616', '#536dfe'],
             title: {
                 text: 'Solar Employment Growth by Sector, 2010-2017'
             },
@@ -158,7 +158,7 @@ $(document).ready(function() {
                                     y2: 1
                                 },
                                 stops: [
-                                    [0, '#4680ff'],
+                                    [0, '#161616'],
                                     [1, '#00bcd4']
                                 ]
                             },
@@ -166,7 +166,7 @@ $(document).ready(function() {
                                 radius: 2
                             },
                             lineWidth: 2,
-                            lineColor: '#4680ff',
+                            lineColor: '#161616',
                             states: {
                                 hover: {
                                     lineWidth: 1
@@ -193,7 +193,7 @@ $(document).ready(function() {
                 plotShadow: false,
                 type: 'pie'
             },
-            colors: ['#4680ff', '#536dfe', '#ff5252', '#ffba57', '#00bcd4', '#9ccc65'],
+            colors: ['#161616', '#536dfe', '#ff5252', '#ffba57', '#00bcd4', '#9ccc65'],
             title: {
                 text: 'Browser market shares in January, 2018'
             },
@@ -246,7 +246,7 @@ $(document).ready(function() {
                 plotShadow: false,
                 type: 'pie'
             },
-            colors: ['#4680ff', '#536dfe', '#ff5252', '#ffba57', '#00bcd4', '#9ccc65'],
+            colors: ['#161616', '#536dfe', '#ff5252', '#ffba57', '#00bcd4', '#9ccc65'],
             title: {
                 text: 'Browser market shares in January, 2018'
             },
@@ -302,7 +302,7 @@ $(document).ready(function() {
                     alpha: 45
                 }
             },
-            colors: ['#4680ff', '#536dfe', '#ff5252', '#ffba57', '#00bcd4', '#9ccc65'],
+            colors: ['#161616', '#536dfe', '#ff5252', '#ffba57', '#00bcd4', '#9ccc65'],
             title: {
                 text: 'Contents of Highsoft weekly fruit delivery'
             },
@@ -337,7 +337,7 @@ $(document).ready(function() {
                     alpha: 45
                 }
             },
-            colors: ['#4680ff', '#536dfe', '#ff5252', '#ffba57', '#00bcd4', '#9ccc65'],
+            colors: ['#161616', '#536dfe', '#ff5252', '#ffba57', '#00bcd4', '#9ccc65'],
             title: {
                 text: 'Contents of Highsoft weekly fruit delivery'
             },
@@ -372,7 +372,7 @@ $(document).ready(function() {
             xAxis: {
                 categories: ['Apples', 'Oranges', 'Pears', 'Bananas', 'Kiwi'],
             },
-            colors: ['#4680ff', '#536dfe', '#00bcd4'],
+            colors: ['#161616', '#536dfe', '#00bcd4'],
             labels: {
                 items: [{
                     html: 'Total fruit consumption',
@@ -412,7 +412,7 @@ $(document).ready(function() {
                 data: [{
                     name: 'Jane',
                     y: 13,
-                    color: '#4680ff'
+                    color: '#161616'
                 }, {
                     name: 'John',
                     y: 23,

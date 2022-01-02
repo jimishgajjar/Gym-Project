@@ -7,10 +7,10 @@ $(document).ready(function() {
         datasets: [{
             label: "Data 1",
             data: [25, 45, 74, 85],
-            borderColor: '#4680ff',
-            backgroundColor: '#4680ff',
-            hoverborderColor:'#4680ff',
-            hoverBackgroundColor: '#4680ff',
+            borderColor: '#161616',
+            backgroundColor: '#161616',
+            hoverborderColor:'#161616',
+            hoverBackgroundColor: '#161616',
         }, {
             label: "Data 2",
             data: [30, 52, 65, 65],
@@ -36,10 +36,10 @@ $(document).ready(function() {
         datasets: [{
             label: "Data 1",
             data: [25, 45, 74, 85],
-            borderColor: '#4680ff',
-            backgroundColor: '#4680ff',
-            hoverborderColor:'#4680ff',
-            hoverBackgroundColor: '#4680ff',
+            borderColor: '#161616',
+            backgroundColor: '#161616',
+            hoverborderColor:'#161616',
+            hoverBackgroundColor: '#161616',
         }, {
             label: "Data 2",
             data: [30, 52, 65, 65],
@@ -74,10 +74,10 @@ $(document).ready(function() {
         datasets: [{
             label: "Data 1",
             data: [25, 45, 74, 85],
-            borderColor: '#4680ff',
-            backgroundColor: '#4680ff',
-            hoverborderColor:'#4680ff',
-            hoverBackgroundColor: '#4680ff',
+            borderColor: '#161616',
+            backgroundColor: '#161616',
+            hoverborderColor:'#161616',
+            hoverBackgroundColor: '#161616',
         }, {
             label: "Data 2",
             data: [30, 52, 65, 65],
@@ -117,10 +117,10 @@ $(document).ready(function() {
             fill: true,
             cubicInterpolationMode: 'monotone',
             borderWidth: 0,
-            borderColor: '#4680ff',
-            backgroundColor: '#4680ff',
-            hoverborderColor: '#4680ff',
-            hoverBackgroundColor: '#4680ff',
+            borderColor: '#161616',
+            backgroundColor: '#161616',
+            hoverborderColor: '#161616',
+            hoverBackgroundColor: '#161616',
         }, {
             label: "D3",
             data: [50, 75, 80, 70, 85, 80, 70],
@@ -204,10 +204,10 @@ $(document).ready(function() {
             data: [45, 60, 45, 80, 60, 80, 45],
             fill: true,
             borderWidth: 4,
-            borderColor: '#4680ff',
-            backgroundColor: '#4680ff',
-            hoverborderColor: '#4680ff',
-            hoverBackgroundColor: '#4680ff',
+            borderColor: '#161616',
+            backgroundColor: '#161616',
+            hoverborderColor: '#161616',
+            hoverBackgroundColor: '#161616',
         }, {
             label: "D2",
             data: [45, 80, 45, 45, 60, 45, 80],
@@ -249,10 +249,10 @@ $(document).ready(function() {
             data: [60, 60, 45, 80, 60, 80, 45],
             fill: true,
             borderWidth: 4,
-            borderColor: '#4680ff',
-            backgroundColor: '#4680ff',
-            hoverborderColor: '#4680ff',
-            hoverBackgroundColor: '#4680ff',
+            borderColor: '#161616',
+            backgroundColor: '#161616',
+            hoverborderColor: '#161616',
+            hoverBackgroundColor: '#161616',
         }, {
             label: "D2",
             data: [40, 80, 40, 65, 60, 50, 95],
@@ -339,9 +339,9 @@ $(document).ready(function() {
             data: [60, 60, 45, 80, 60, 80, 45],
             fill: true,
             borderWidth: 4,
-            borderColor: '#4680ff',
+            borderColor: '#161616',
             backgroundColor: "transparent",
-            hoverborderColor: '#4680ff',
+            hoverborderColor: '#161616',
             hoverBackgroundColor: "transparent",
         }, {
             label: "D2",
@@ -388,12 +388,12 @@ $(document).ready(function() {
             backgroundColor: [
                 '#9ccc65',
                 '#0e9e4a',
-                '#4680ff'
+                '#161616'
             ],
             hoverBackgroundColor: [
                 '#9ccc65',
                 '#0e9e4a',
-                '#4680ff'
+                '#161616'
             ]
         }]
     };

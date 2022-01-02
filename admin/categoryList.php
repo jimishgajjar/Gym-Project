@@ -39,6 +39,7 @@ include('header.php');
                                 <table id="dom-jqry" class="table table-striped table-bordered nowrap">
                                     <thead>
                                         <tr>
+                                            <th>Category Img</th>
                                             <th>Category</th>
                                             <th>Description</th>
                                             <th>Options</th>
@@ -51,6 +52,11 @@ include('header.php');
                                             while ($row = $categoryList->fetch_assoc()) {
                                         ?>
                                                 <tr>
+                                                    <td>
+                                                        <a href="categoryView.php?view=<?php echo $row['id'] ?>">
+                                                            <img class="thumbnail" src="../assets/category/<?php echo $row['category_img']; ?>" alt="" />
+                                                        </a>
+                                                    </td>
                                                     <td><a href="categoryView.php?view=<?php echo $row['id'] ?>"><?php echo $row['category_name'] ?></a></td>
                                                     <td><?php echo $row['category_description'] ?></td>
                                                     <td>

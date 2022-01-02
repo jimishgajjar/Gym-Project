@@ -6,6 +6,9 @@ date_default_timezone_set("Asia/Kolkata");
 
 $moduleMethod = $_REQUEST['moduleMethod'];
 $module = $_REQUEST['module'];
+
+$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+
 if (!empty($_REQUEST['moduleMethod'])) {
     // User Sign Up
     if ($module == "userSignup" && $moduleMethod == "user") {
@@ -225,11 +228,10 @@ if (!empty($_REQUEST['moduleMethod'])) {
         }
     }
 
-    // Carlist Add
+    // Cartlist Add
     if ($module == "cartAdd" && $moduleMethod == "cart") {
         if (!empty($_REQUEST['cartId'])) {
             $uniqid = uniqid();
-            $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
             // echo "The user IP Address is - " . $ip;
             if (!empty($_SESSION["userId"])) {
                 $cartAddData = array(
@@ -263,6 +265,30 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 $alert_message = "Category is not updated.";
                 echo "<script>window.location.replace('../index.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
+        }
+    }
+
+    // Add To Cart From Wishlist
+    if ($module == "addToCartFromWishlist" && $moduleMethod == "cart") {
+        if (!empty($_REQUEST['cource_id'])) {
+            $uniqid = uniqid();
+            $cartAddData = array(
+                'id' => $uniqid,
+                'user_id' => $_SESSION["userId"],
+                'user_ip' => $ip,
+                'cource_id' => $_REQUEST['cource_id'],
+                'date_entered' => date("Y-m-d H:i:s"),
+                'date_modified' => date("Y-m-d H:i:s"),
+                'modified_user_id' => $_SESSION["userId"],
+                'created_by' => $_SESSION["userId"],
+                'deleted' => 0,
+            );
+            $cartAddDataResponse = insertData($moduleMethod, $cartAddData);
+            if (!empty($cartAddDataResponse)) {
+                include "../../../loadWishlist.php";
+            }
+        } else {
+            echo "<script>alert('Something want wrong please try again!.');</script>";
         }
     }
 }
