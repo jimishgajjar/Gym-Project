@@ -1,7 +1,7 @@
 <?php
+// session_start();
 include "include/dbConfig.php";
 include "include/queryFunction.php";
-include "checkSession.php";
 $categoryPath = "assets/category/";
 $thumbnailPath = "assets/thumbnail/";
 
@@ -22,7 +22,6 @@ if (empty($_SESSION["userId"]) && empty($_SESSION["userEmail"])) {
 
 if ($cartDataResponse->num_rows > 0) {
 ?>
-
     <div class="user-cart">
         <ul>
             <?php
@@ -48,7 +47,7 @@ if ($cartDataResponse->num_rows > 0) {
                                         ?>
                                     </p>
                                 </div>
-                                <div class="col-md-12 pt-2">
+                                <div class="col-md-8 pt-2">
                                     <h6 style="font-weight: 700;">
                                         <?php
                                         if ($response['discount'] != 0) {
@@ -62,6 +61,11 @@ if ($cartDataResponse->num_rows > 0) {
                                         $totalAll += $response['price'];
                                         ?>
                                     </h6>
+                                </div>
+                                <div class="col-md-4 pt-2">
+                                    <a href="javascript:void(0);" onclick="deleteFromCarlist('<?php echo $row['cource_id']; ?>');">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>

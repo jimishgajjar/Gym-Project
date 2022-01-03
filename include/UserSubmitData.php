@@ -285,7 +285,25 @@ if (!empty($_REQUEST['moduleMethod'])) {
             );
             $cartAddDataResponse = insertData($moduleMethod, $cartAddData);
             if (!empty($cartAddDataResponse)) {
-                include "../../../loadWishlist.php";
+                include "../loadWishlist.php";
+            }
+        } else {
+            echo "<script>alert('Something want wrong please try again!.');</script>";
+        }
+    }
+
+    // Delete From Cartlist
+    if ($module == "deleteFromCarlist" && $moduleMethod == "cart") {
+        if (!empty($_REQUEST['cource_id'])) {
+            if (empty($_SESSION["userId"]) && empty($_SESSION["userEmail"])) {
+                $Condition['user_ip'] = $ip;
+                $Condition['user_id'] = null;
+                $Condition['cource_id'] = $_REQUEST['cource_id'];
+                $deleteFromCarlist = deleteData($moduleMethod, $Condition);
+            }
+
+            if (!empty($deleteFromCarlist)) {
+                include "../loadCartlist.php";
             }
         } else {
             echo "<script>alert('Something want wrong please try again!.');</script>";

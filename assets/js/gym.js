@@ -30,6 +30,19 @@ function loadCartlist() {
     });
 }
 
+function deleteFromCarlist(cource_id_) {
+    alert(cource_id_);
+    $.ajax({
+        url: "include/UserSubmitData.php",
+        method: "POST",
+        data: { module: "deleteFromCarlist", moduleMethod: "cart", cource_id: cource_id_ },
+        success: function (response) {
+            $("#cartlist-data").empty();
+            $("#cartlist-data").append(response);
+        }
+    });
+}
+
 function addToCartFromWishlist(cource_id_) {
     $.ajax({
         url: "include/UserSubmitData.php",
