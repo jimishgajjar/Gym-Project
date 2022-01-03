@@ -6,23 +6,11 @@ $categoryPath = "assets/category/";
 $thumbnailPath = "assets/thumbnail/";
 ?>
 
-
 <?php
 $WhishlistCondition['user_id'] = $_SESSION["userId"];
 $wishlistData = getData('wishlist', $WhishlistCondition);
-if (empty($wishlistData)) {
+if ($wishlistData->num_rows > 0) {
 ?>
-    <div class="xs-empty-content">
-        <h3 class="widget-title">Whislist</h3>
-        <h4 class="xs-title">No products in your wishlist.</h4>
-        <p class="empty-cart-icon">
-            <i class="far fa-heart"></i>
-        </p>
-        <p class="xs-btn-wraper">
-            <a class="btn btn-primary" href="index.php">Return To Shop</a>
-        </p>
-    </div>
-<?php } else { ?>
     <div class="user-cart">
         <ul>
             <?php
@@ -82,5 +70,16 @@ if (empty($wishlistData)) {
                 <h5>Total: ₹<?php echo $total; ?><s class="pl-2">₹<?php echo $totalAll; ?></s></h5>
             </li>
         </ul>
+    </div>
+<?php } else { ?>
+    <div class="xs-empty-content">
+        <h3 class="widget-title">Whislist</h3>
+        <h4 class="xs-title">No products in your wishlist.</h4>
+        <p class="empty-cart-icon">
+            <i class="far fa-heart"></i>
+        </p>
+        <p class="xs-btn-wraper">
+            <a class="btn btn-primary" href="index.php">Return To Shop</a>
+        </p>
     </div>
 <?php } ?>

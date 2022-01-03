@@ -60,7 +60,7 @@ include('header.php');
                                             Add to cart
                                         </a>
                                     <?php } else { ?>
-                                        <a href="include/UserSubmitData.php" class="detail-btn cart pl-5 pr-5">
+                                        <a href="javascript:void(0);" onclick="loadWishlist();" class="offset-side-bar-wishlist xs-modal-popup detail-btn cart pl-5 pr-5">
                                             Go to cart
                                         </a>
                                     <?php } ?>
@@ -89,7 +89,7 @@ include('header.php');
                                             Add to cart
                                         </a>
                                     <?php } else { ?>
-                                        <a href="include/UserSubmitData.php" class="detail-btn cart pl-5 pr-5">
+                                        <a href="javascript:void(0);" onclick="loadCartlist();" class="offset-side-bar-cart xs-modal-popup detail-btn cart pl-5 pr-5">
                                             Go to cart
                                         </a>
                                     <?php } ?>

@@ -58,7 +58,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 if (!empty($response)) {
                     $_SESSION["userId"] = $response['id'];
                     $_SESSION["userEmail"] = $response['email'];
-                    echo "<script>window.location.replace('../userDashboard.php');</script>";
+                    echo "<script>window.location.replace('../index.php');</script>";
                 } else {
                     $alert_type = "alert-danger";
                     $alert_message = "Incorrect username or password.";
