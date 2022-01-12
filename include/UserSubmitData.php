@@ -303,7 +303,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
             }
 
             if (!empty($deleteFromCarlist)) {
-                include "../loadCartlist.php";
+                header("Location: ../loadCartlist.php");
             }
         } else {
             echo "<script>alert('Something want wrong please try again!.');</script>";
