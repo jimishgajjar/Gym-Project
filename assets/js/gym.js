@@ -31,7 +31,6 @@ function loadCartlist() {
 }
 
 function deleteFromCarlist(cource_id_) {
-    alert(cource_id_);
     $.ajax({
         url: "include/UserSubmitData.php",
         method: "POST",
@@ -53,4 +52,17 @@ function addToCartFromWishlist(cource_id_) {
             $("#cartlist-data").append(response);
         }
     });
-} 
+}
+
+function deleteFromWishlist(cource_id_) {
+    alert('****');
+    $.ajax({
+        url: "include/UserSubmitData.php",
+        method: "POST",
+        data: { module: "deleteFromWishlist", moduleMethod: "wishlist", cource_id: cource_id_ },
+        success: function (response) {
+            $("#whislist-data").empty();
+            $("#whislist-data").append(response);
+        }
+    });
+}

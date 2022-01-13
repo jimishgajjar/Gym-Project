@@ -300,10 +300,36 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 $Condition['user_id'] = null;
                 $Condition['cource_id'] = $_REQUEST['cource_id'];
                 $deleteFromCarlist = deleteData($moduleMethod, $Condition);
-            }
 
-            if (!empty($deleteFromCarlist)) {
-                header("Location: ../loadCartlist.php");
+                if (!empty($deleteFromCarlist)) {
+                    header("Location: ../loadCartlist.php");
+                }
+            } else {
+                $Condition['user_ip'] = $ip;
+                $Condition['user_id'] = $_SESSION["userId"];
+                $Condition['cource_id'] = $_REQUEST['cource_id'];
+                $deleteFromCarlist = deleteData($moduleMethod, $Condition);
+
+                if (!empty($deleteFromCarlist)) {
+                    header("Location: ../loadCartlist.php");
+                }
+            }
+        } else {
+            echo "<script>alert('Something want wrong please try again!.');</script>";
+        }
+    }
+
+    // Delete From Wishlist
+    if ($module == "deleteFromWishlist" && $moduleMethod == "wishlist") {
+        if (!empty($_REQUEST['cource_id'])) {
+            if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
+                $Condition['user_id'] = $_SESSION["userId"];
+                $Condition['cource_id'] = $_REQUEST['cource_id'];
+                $deleteFromWishlist = deleteData($moduleMethod, $Condition);
+
+                if (!empty($deleteFromWishlist)) {
+                    header("Location: ../loadWishlist.php");
+                }
             }
         } else {
             echo "<script>alert('Something want wrong please try again!.');</script>";

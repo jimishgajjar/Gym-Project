@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 include "include/dbConfig.php";
 include "include/queryFunction.php";
 $categoryPath = "assets/category/";
@@ -59,11 +59,6 @@ if ($cartDataResponse->num_rows > 0) {
                                         $totalAll += $response['price'];
                                         ?>
                                     </h6>
-                                </div>
-                                <div class="col-md-4 pt-2">
-                                    <a href="javascript:void(0);" onclick="deleteFromCarlist('<?php echo $row['cource_id']; ?>');">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
                                 </div>
                             </div>
                         </div>

@@ -58,7 +58,7 @@ if ($wishlistData->num_rows > 0) {
                                 <a href="javascript:void(0);" onclick="addToCartFromWishlist('<?php echo $row['cource_id']; ?>');" class="tp-btn btn-block">
                                     Add to cart
                                 </a>
-                                <a href="" class="tp-btn" style="width: 50px;">
+                                <a href="javascript:void(0);" onclick="deleteFromWishlist('<?php echo $row['cource_id']; ?>');" class="tp-btn" style="width: 50px;">
                                     <i class="fas fa-heart"></i>
                                 </a>
                             </div>
