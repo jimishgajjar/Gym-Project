@@ -711,7 +711,7 @@ button:focus {
 
 .sidebar-textwidget {
     padding: 0px;
-    padding-top: 40px
+    padding-top: 60px
 }
 
 .close-side-widget {
@@ -3675,7 +3675,7 @@ button:focus {
 }
 
 .btn-primary {
-    width: 100%;
+    /* width: 100%; */
     padding: 10px;
     border: 0;
     border-radius: 5px;
@@ -4191,7 +4191,7 @@ button:focus {
 
 .xs-form .input-label {
     position: absolute;
-    bottom: 13px;
+    bottom: 0px;
     color: #666565;
     -webkit-transition: all .4s ease;
     -o-transition: all .4s ease;
@@ -4888,6 +4888,11 @@ a {
     box-shadow: 0px 10px 20px rgb(0 0 0 / 10%);
 }
 
+#div-message #message {
+    font-weight: 550 !important;
+    letter-spacing: .5px !important;
+}
+
 /* ***************************************
         Course View
 *************************************** */
@@ -5345,4 +5350,24 @@ Breadcum
 .tp-btn:hover {
     color: #000;
     background-color: #c4c4c487;
+}
+
+.btn-100 {
+    width: 100%;
+}
+
+/* User Dashboard */
+.user-dashboard {
+    padding-bottom: 90px;
+}
+
+.user-dashboard .dashboard-panel {
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0px 10px 20px rgb(0 0 0 / 25%);
+}
+
+.user-dashboard .dashboard-panel .title {
+    font-weight: 550;
+    letter-spacing: 1px;
 }

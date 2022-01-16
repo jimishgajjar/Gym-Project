@@ -47,7 +47,7 @@ include('header.php');
                         <div class="mb-3" id="div-message">
                             <h6 id="message"></h6>
                         </div>
-                        <button type="submit" name="userChangePasswordSub" id="userChangePasswordSub" class="btn btn-primary btn-lg">Change Password</button>
+                        <button type="submit" name="userResetPasswordSub" id="userResetPasswordSub" class="btn btn-primary btn-lg">Change Password</button>
                     </form>
                     <hr>
                     <div class="mb-3 text-center">
@@ -66,45 +66,6 @@ include('header.php');
     </section>
 
     <?php include('footer.php'); ?>
-    <script>
-        $(document).ready(function() {
-            $("#div-message").css("display", "none");
-        });
-
-        $(document).ready(function() {
-            $('#password, #confirm_password').on('keyup', function() {
-                if ($('#password').val() == "" || $('#confirm_password').val() == "") {
-                    $("#div-message").css("display", "block");
-                    $('#message').html('Pasword can not be empty').css('color', 'red');
-                } else if ($('#password').val() == $('#confirm_password').val()) {
-                    $("#div-message").css("display", "block");
-                    $('#message').html('Password matching').css('color', 'green');
-                } else {
-                    $("#div-message").css("display", "block");
-                    $('#message').html('Password not matching').css('color', 'red');
-                }
-            });
-
-            $('#userChangePasswordSub').on('click', function() {
-                if ($('#password').val() == "" || $('#confirm_password').val() == "") {
-                    $("#divpass").css("margin-bottom", "0px");
-                    $("#div-message").css("display", "block");
-                    $('#message').html('Pasword can not be empty').css('color', 'red');
-                    return false;
-                } else if ($('#password').val() == $('#confirm_password').val()) {
-                    $("#divpass").css("margin-bottom", "0px");
-                    $("#div-message").css("display", "block");
-                    $('#message').html('Password matching').css('color', 'green');
-                    $('#changePass').submit();
-                } else {
-                    $("#divpass").css("margin-bottom", "0px");
-                    $("#div-message").css("display", "block");
-                    $('#message').html('Password not matching').css('color', 'red');
-                    return false;
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>

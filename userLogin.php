@@ -42,7 +42,7 @@ include('header.php');
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                         </div>
-                        <button type="submit" name="userLoginSub" class="btn btn-primary btn-lg">Log In</button>
+                        <button type="submit" name="userLoginSub" class="btn btn-primary btn-lg btn-100">Log In</button>
                     </form>
                     <hr>
                     <div class="mb-3 text-center">

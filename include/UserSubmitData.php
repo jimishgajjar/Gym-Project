@@ -68,7 +68,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
         }
     }
 
-    // User Forgot Password
+    // User Forgot Password Link Generate
     if ($module == "userForgotPassword" && $moduleMethod == "user") {
         if (isset($_POST['userForgotPasswordSub'])) {
             if (!empty($_POST['email'])) {
@@ -148,32 +148,68 @@ if (!empty($_REQUEST['moduleMethod'])) {
         }
     }
 
-    // User Rest Password Page
-    if ($module == "userResetPass" && $moduleMethod == "user") {
+    // User Change Password
+    if ($module == "userChangePass" && $moduleMethod == "user") {
         if (isset($_POST['userChangePasswordSub'])) {
-            if (!empty($_REQUEST['email']) && !empty($_REQUEST['reset_key']) && $_REQUEST['password'] == $_REQUEST['confirm_password']) {
-                $Condition['reset_key']  = $_REQUEST['reset_key'];
-                $Condition['reset_status']  = 1;
+            if (!empty($_POST['cureent_pwd']) && !empty($_POST['password']) && $_POST['confirm_password']) {
+                $Condition['password']  = md5($_POST['cureent_pwd']);
+                $Condition['id']  = $_SESSION["userId"];
+                $Condition['email']  = $_SESSION["userEmail"];
                 $response = getData($moduleMethod, $Condition);
                 $response = $response->fetch_assoc();
-                if (!empty($response) && md5($response['email']) == $_REQUEST['email'] && $response['reset_key'] == $_REQUEST['reset_key']) {
-                    $passwordRestData = array(
-                        'password' => md5($_REQUEST['password']),
+                if (!empty($response)) {
+                    $passwordChangeData = array(
+                        'password' => md5($_POST['password']),
                         'reset_key' => 'NOT SET',
                         'reset_status' => 0,
                     );
-                    $Condition['email'] = $response['email'];
-                    $passwordRestResponse = updateData($moduleMethod, $passwordRestData, $Condition);
+                    $passwordChangeResponse = updateData($moduleMethod, $passwordChangeData, $Condition);
+                    if (!empty($passwordChangeResponse)) {
+                        $alert_type = "alert-success";
+                        $alert_message = "Your password had been changed.";
+                        echo "<script>window.location.replace('../userProfile.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    } else {
+                        $alert_type = "alert-danger";
+                        $alert_message = "Something went wrong please try again.";
+                        echo "<script>window.location.replace('../userProfile.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    }
+                } else {
+                    $alert_type = "alert-danger";
+                    $alert_message = "Cureent password is not matched.";
+                    echo "<script>window.location.replace('../userProfile.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                }
+            }
+        } else {
+            $alert_type = "alert-danger";
+            $alert_message = "Something went wrong please try again.";
+            echo "<script>window.location.replace('../userProfile.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+        }
+    }
 
+    // User Detail Update
+    if ($module == "userDetailUpdate" && $moduleMethod == "user") {
+        if (isset($_POST['userDetailUpdateSub'])) {
+            if (!empty($_POST['full_name']) && !empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
+                $Condition['id']  = $_SESSION["userId"];
+                $Condition['email']  = $_SESSION["userEmail"];
+                $userDetailUpdateData = array(
+                    'full_name' => $_POST['full_name'],
+                );
+                $userDetailUpdateResponse = updateData($moduleMethod, $userDetailUpdateData, $Condition);
+                if (!empty($userDetailUpdateResponse)) {
                     $alert_type = "alert-success";
-                    $alert_message = "Your password had been changed.";
-                    echo "<script>window.location.replace('../userLogin.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    $alert_message = "Your details is updated.";
+                    echo "<script>window.location.replace('../userProfile.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                 } else {
                     $alert_type = "alert-danger";
                     $alert_message = "Something went wrong please try again.";
-                    echo "<script>window.location.replace('../userForgotPassword.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    echo "<script>window.location.replace('../userProfile.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                 }
             }
+        } else {
+            $alert_type = "alert-danger";
+            $alert_message = "Something went wrong please try again.";
+            echo "<script>window.location.replace('../userProfile.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
         }
     }
 
@@ -285,7 +321,12 @@ if (!empty($_REQUEST['moduleMethod'])) {
             );
             $cartAddDataResponse = insertData($moduleMethod, $cartAddData);
             if (!empty($cartAddDataResponse)) {
-                include "../loadWishlist.php";
+                $Condition['cource_id'] = $_REQUEST['cource_id'];
+                $Condition['user_id'] = $_SESSION["userId"];
+                $wishlistDeleteResponse = deleteData($moduleMethod, $Condition);
+                if (!empty($wishlistDeleteResponse)) {
+                    header("Location: ../loadWishlist.php");
+                }
             }
         } else {
             echo "<script>alert('Something want wrong please try again!.');</script>";
@@ -333,6 +374,35 @@ if (!empty($_REQUEST['moduleMethod'])) {
             }
         } else {
             echo "<script>alert('Something want wrong please try again!.');</script>";
+        }
+    }
+
+    // User Change Password
+    if ($module == "userChangePass" && $moduleMethod == "user") {
+        if (isset($_POST['userChangePasswordSub'])) {
+            if (!empty($_REQUEST['email']) && !empty($_REQUEST['reset_key']) && $_REQUEST['password'] == $_REQUEST['confirm_password']) {
+                $Condition['reset_key']  = $_REQUEST['reset_key'];
+                $Condition['reset_status']  = 1;
+                $response = getData($moduleMethod, $Condition);
+                $response = $response->fetch_assoc();
+                if (!empty($response) && md5($response['email']) == $_REQUEST['email'] && $response['reset_key'] == $_REQUEST['reset_key']) {
+                    $passwordRestData = array(
+                        'password' => md5($_REQUEST['password']),
+                        'reset_key' => 'NOT SET',
+                        'reset_status' => 0,
+                    );
+                    $Condition['email'] = $response['email'];
+                    $passwordRestResponse = updateData($moduleMethod, $passwordRestData, $Condition);
+
+                    $alert_type = "alert-success";
+                    $alert_message = "Your password had been changed.";
+                    echo "<script>window.location.replace('../userLogin.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                } else {
+                    $alert_type = "alert-danger";
+                    $alert_message = "Something went wrong please try again.";
+                    echo "<script>window.location.replace('../userForgotPassword.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                }
+            }
         }
     }
 }

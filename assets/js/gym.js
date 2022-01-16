@@ -55,7 +55,6 @@ function addToCartFromWishlist(cource_id_) {
 }
 
 function deleteFromWishlist(cource_id_) {
-    alert('****');
     $.ajax({
         url: "include/UserSubmitData.php",
         method: "POST",
@@ -66,3 +65,41 @@ function deleteFromWishlist(cource_id_) {
         }
     });
 }
+
+$(document).ready(function () {
+    $("#div-message").css("display", "none");
+});
+
+$(document).ready(function () {
+    $('#password, #confirm_password').on('keyup', function () {
+        if ($('#password').val() == "" || $('#confirm_password').val() == "") {
+            $("#div-message").css("display", "block");
+            $('#message').html('Pasword can not be empty').css('color', 'red');
+        } else if ($('#password').val() == $('#confirm_password').val()) {
+            $("#div-message").css("display", "block");
+            $('#message').html('Password matching').css('color', 'green');
+        } else {
+            $("#div-message").css("display", "block");
+            $('#message').html('Password not matching').css('color', 'red');
+        }
+    });
+
+    $('#userChangePasswordSub').on('click', function () {
+        if ($('#password').val() == "" || $('#confirm_password').val() == "") {
+            $("#divpass").css("margin-bottom", "0px");
+            $("#div-message").css("display", "block");
+            $('#message').html('Pasword can not be empty').css('color', 'red');
+            return false;
+        } else if ($('#password').val() == $('#confirm_password').val()) {
+            $("#divpass").css("margin-bottom", "0px");
+            $("#div-message").css("display", "block");
+            $('#message').html('Password matching').css('color', 'green');
+            $('#changePass').submit();
+        } else {
+            $("#divpass").css("margin-bottom", "0px");
+            $("#div-message").css("display", "block");
+            $('#message').html('Password not matching').css('color', 'red');
+            return false;
+        }
+    });
+});

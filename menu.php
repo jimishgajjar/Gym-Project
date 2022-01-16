@@ -24,10 +24,14 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
                             <li>
                                 <a href="userLogin.php">Login</a>
                             </li>
-                        <?php } ?>
+                        <?php } else {
+                            $userCondition['id'] = $_SESSION["userId"];
+                            $userCondition['email'] = $_SESSION["userEmail"];
+                            $userDataResponse = getData('user', $userCondition);
+                            $userDataResponse = $userDataResponse->fetch_assoc();
+                        } ?>
                     </ul>
                     <div class="elementskit-nav-identity-panel">
-
                         <button class="elementskit-menu-close elementskit-menu-toggler" type="button">
                             <i class="icon icon-cancel"></i>
                         </button>
@@ -148,7 +152,7 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
             <div class="sidebar-textwidget">
                 <ul class="user-menu">
                     <li>
-                        <a href="javascript:void(0);"><i class="far fa-user pr-20"></i> My Profile</a>
+                        <a href="userProfile.php"><i class="far fa-user pr-20"></i> My Profile</a>
                     </li>
                     <li>
                         <a href="javascript:void(0);"><i class="far fa-heart pr-20"></i> Whish List</a>
