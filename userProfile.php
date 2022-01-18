@@ -3,6 +3,11 @@ date_default_timezone_set("Asia/Kolkata");
 include('checkSession.php');
 include('header.php');
 ?>
+<style>
+    #profile_pic {
+        display: none;
+    }
+</style>
 
 <body>
     <?php include('menu.php'); ?>
@@ -39,56 +44,41 @@ include('header.php');
                                 </div>
                             </div>
                             <hr>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="text-center">
-                                        <img src="assets/images/user-profile/default_pic.png" alt="" width="15z0" style="border-radius: 50%;" />
-                                        <input type="file" class="form-control mt-4" id="full_name" name="full_name" required>
-                                    </div>
+                            <style>
+                                .upload-pic {
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                }
+                            </style>
+                            <div class="row justify-content-md-center">
+                                <div class="col-md-5">
+                                    <form action="include/UserSubmitData.php" method="POST" class="xs-form">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <img src="assets/images/user-profile/default_pic.png" alt="" width="150" style="border-radius: 50%;" />
+                                            </div>
+                                            <div class="col-md-12 text-center pt-3">
+                                                <button type="submit" name="upload_pic" id="upload_pic" class="pr-4 pl-4 btn btn-primary">Upload Pic</button>
+                                                <!-- <button type="submit" name="upload_pic" class="pr-4 pl-4 m-1 btn btn-primary">Upload</button> -->
+                                                <input type="file" class="mt-4" id="profile_pic" name="profile_pic" required>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="col-md-8">
-                                    <h6>Basic Details</h6>
-                                    <form action="include/UserSubmitData.php" method="POST">
+                                <div class="col-md-7">
+                                    <form action="include/UserSubmitData.php" method="POST" class="xs-form">
                                         <input type="hidden" name="module" value="userDetailUpdate">
                                         <input type="hidden" name="moduleMethod" value="user">
-                                        <div class="form-group xs-form-anim pt-1">
+                                        <div class="form-group xs-form-anim active">
                                             <label class="input-label" for="full_name">Full Name</label>
                                             <input type="text" id="full_name" name="full_name" value="<?php echo $userDataResponse['full_name']; ?>" class="form-control" required>
                                         </div>
-                                        <div class="form-group mt-30">
+                                        <div class="form-group xs-form-anim active pt-1">
+                                            <label class="input-label" for="full_name">Full Name</label>
+                                            <input type="text" id="full_name" name="full_name" value="<?php echo $userDataResponse['full_name']; ?>" class="form-control" required>
+                                        </div>
+                                        <div class="form-group text-center mt-30">
                                             <button type="submit" name="userDetailUpdateSub" class="pr-4 pl-4 btn btn-primary">Save</button>
-                                        </div>
-                                    </form>
-
-                                    <h6>Change Password</h6>
-                                    <form action="include/UserSubmitData.php" method="POST">
-                                        <input type="hidden" name="module" value="userChangePass">
-                                        <input type="hidden" name="moduleMethod" value="user">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group xs-form-anim pt-1">
-                                                    <label class="input-label" for="cureent_pwd">Cureent Password</label>
-                                                    <input type="password" id="cureent_pwd" name="cureent_pwd" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group xs-form-anim">
-                                                    <label class="input-label" for="password">New Password</label>
-                                                    <input type="password" id="password" name="password" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group xs-form-anim">
-                                                    <label class="input-label" for="confirm_password">Confirm New Password</label>
-                                                    <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 mt-3" id="div-message">
-                                                <h6 id="message"></h6>
-                                            </div>
-                                        </div>
-                                        <div class="form-group mt-30">
-                                            <button type="submit" id="userChangePasswordSub" name="userChangePasswordSub" class="btn btn-primary">Change Password</button>
                                         </div>
                                     </form>
                                 </div>
@@ -101,6 +91,11 @@ include('header.php');
     </section>
 
     <?php include('footer.php'); ?>
+    <script>
+        $("#upload_pic").click(function() {
+            $("#profile_pic").click();
+        });
+    </script>
 </body>
 
 </html>
