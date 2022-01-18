@@ -69,13 +69,17 @@ include('header.php');
                                     <form action="include/UserSubmitData.php" method="POST" class="xs-form">
                                         <input type="hidden" name="module" value="userDetailUpdate">
                                         <input type="hidden" name="moduleMethod" value="user">
+                                        <div class="row mb-4">
+                                            <div class="col-md-3">
+                                                <b>Email:</b>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <?php echo $userDataResponse['email']; ?>
+                                            </div>
+                                        </div>
                                         <div class="form-group xs-form-anim active">
                                             <label class="input-label" for="full_name">Full Name</label>
-                                            <input type="text" id="full_name" name="full_name" value="<?php echo $userDataResponse['full_name']; ?>" class="form-control" required>
-                                        </div>
-                                        <div class="form-group xs-form-anim active pt-1">
-                                            <label class="input-label" for="full_name">Full Name</label>
-                                            <input type="text" id="full_name" name="full_name" value="<?php echo $userDataResponse['full_name']; ?>" class="form-control" required>
+                                            <input type="text" id="full_name" class="form-control" value="<?php echo $userDataResponse['full_name']; ?>">
                                         </div>
                                         <div class="form-group text-center mt-30">
                                             <button type="submit" name="userDetailUpdateSub" class="pr-4 pl-4 btn btn-primary">Save</button>
