@@ -50,18 +50,18 @@ include('header.php');
                                     flex-wrap: wrap;
                                 }
                             </style>
-                            <div class="row justify-content-md-center">
+                            <div class="row">
                                 <div class="col-md-5">
                                     <form action="include/UserSubmitData.php" method="POST" class="xs-form">
-                                        <div class="row">
+                                        <div class="row justify-content-md-center">
                                             <div class="col-md-12 text-center">
-                                                <img src="assets/images/user-profile/default_pic.png" alt="" width="150" style="border-radius: 50%;" />
+                                                <img src="assets/images/user-profile/<?php echo $userDataResponse['profile_pic']; ?>" alt="" width="150" style="border-radius: 50%;" />
                                             </div>
-                                            <div class="col-md-12 text-center pt-3">
-                                                <button type="submit" name="upload_pic" id="upload_pic" class="pr-4 pl-4 btn btn-primary">Upload Pic</button>
-                                                <!-- <button type="submit" name="upload_pic" class="pr-4 pl-4 m-1 btn btn-primary">Upload</button> -->
-                                                <input type="file" class="mt-4" id="profile_pic" name="profile_pic" required>
+                                            <div class="col-md-12 d-flex justify-content-center mt-3">
+                                                <button align="center" type="submit" name="upload_pic" id="upload_pic" class="btn btn-primary m-1">Upload Photo</button>
+                                                <button align="center" type="submit" name="remove_pic" id="remove_pic" class="btn btn-primary m-1">Remove Photo</button>
                                             </div>
+                                            <input type="file" class="mt-4" id="profile_pic" name="profile_pic" required>
                                         </div>
                                     </form>
                                 </div>
@@ -98,6 +98,19 @@ include('header.php');
     <script>
         $("#upload_pic").click(function() {
             $("#profile_pic").click();
+        });
+
+        $("#profile_pic").change(function() {
+            var file = document.getElementById("profile_pic");
+            if (file.files.length != 0) {
+                alert("Some file is selected");
+                document.getElementById("upload_pic").style.display = "none";
+                document.getElementById("remove_pic").style.display = "block";
+            } else {
+                alert("No files selected");
+                document.getElementById("upload_pic").style.display = "block";
+                document.getElementById("remove_pic").style.display = "none";
+            }
         });
     </script>
 </body>
