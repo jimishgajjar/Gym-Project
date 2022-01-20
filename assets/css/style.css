@@ -3683,7 +3683,7 @@ button:focus {
     font-size: 15px;
     font-weight: 700;
     line-height: 1.5rem;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: #fff;
     background-color: #f63c25;
     -webkit-transition: all .4s ease;
@@ -4165,7 +4165,7 @@ button:focus {
 
 .xs-form .xs-form-anim {
     position: relative;
-    padding-top: 25px;
+    padding-top: 30px;
     margin-bottom: 0
 }
 
@@ -4199,7 +4199,7 @@ button:focus {
 }
 
 .xs-form .btn-primary {
-    padding: 8px 45px
+    padding: 5px 20px;
 }
 
 .xs-form-dark .form-control {

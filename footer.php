@@ -105,3 +105,4 @@
 <script src="assets/js/vivus.min.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/gym.js"></script>
+<script src="https://foliotek.github.io/Croppie/croppie.js"></script>

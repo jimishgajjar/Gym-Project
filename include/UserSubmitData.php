@@ -189,22 +189,33 @@ if (!empty($_REQUEST['moduleMethod'])) {
     // User Detail Update
     if ($module == "userDetailUpdate" && $moduleMethod == "user") {
         if (isset($_POST['userDetailUpdateSub'])) {
-            if (!empty($_POST['full_name']) && !empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
+            if (!empty($_FILES["profile_pic"]["tmp_name"])) {
                 $Condition['id']  = $_SESSION["userId"];
                 $Condition['email']  = $_SESSION["userEmail"];
-                $userDetailUpdateData = array(
-                    'full_name' => $_POST['full_name'],
-                );
-                $userDetailUpdateResponse = updateData($moduleMethod, $userDetailUpdateData, $Condition);
-                if (!empty($userDetailUpdateResponse)) {
-                    $alert_type = "alert-success";
-                    $alert_message = "Your details is updated.";
-                    echo "<script>window.location.replace('../userProfile.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
-                } else {
-                    $alert_type = "alert-danger";
-                    $alert_message = "Something went wrong please try again.";
-                    echo "<script>window.location.replace('../userProfile.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                $response = getData($moduleMethod, $Condition);
+                $response = $response->fetch_assoc();
+            } else {
+                if (!empty($_POST['full_name']) && !empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
+                    $Condition['id']  = $_SESSION["userId"];
+                    $Condition['email']  = $_SESSION["userEmail"];
+                    $userDetailUpdateData = array(
+                        'full_name' => $_POST['full_name'],
+                        'mobile_no' => $_POST['mobile_no'],
+                        'height' => $_POST['height'],
+                        'weight' => $_POST['weight'],
+                        'age' => $_POST['age'],
+                    );
+                    $userDetailUpdateResponse = updateData($moduleMethod, $userDetailUpdateData, $Condition);
                 }
+            }
+            if (!empty($userDetailUpdateResponse)) {
+                $alert_type = "alert-success";
+                $alert_message = "Your details is updated.";
+                echo "<script>window.location.replace('../userProfile.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            } else {
+                $alert_type = "alert-danger";
+                $alert_message = "Something went wrong please try again.";
+                echo "<script>window.location.replace('../userProfile.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
         } else {
             $alert_type = "alert-danger";

@@ -120,6 +120,7 @@ include('header.php');
                     $('#category_img_view').attr('src', e.target.result);
                 }
                 reader.readAsDataURL(input.files[0]);
+                alert(reader.readAsDataURL(input.files[0]));
             }
         }
 
