@@ -9,6 +9,9 @@ $module = $_REQUEST['module'];
 
 $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
 
+$userProfilePath = "../assets/userprofile/";
+
+
 if (!empty($_REQUEST['moduleMethod'])) {
     // User Sign Up
     if ($module == "userSignup" && $moduleMethod == "user") {
@@ -190,10 +193,74 @@ if (!empty($_REQUEST['moduleMethod'])) {
     if ($module == "userDetailUpdate" && $moduleMethod == "user") {
         if (isset($_POST['userDetailUpdateSub'])) {
             if (!empty($_FILES["profile_pic"]["tmp_name"])) {
-                $Condition['id']  = $_SESSION["userId"];
-                $Condition['email']  = $_SESSION["userEmail"];
-                $response = getData($moduleMethod, $Condition);
-                $response = $response->fetch_assoc();
+                if (!empty($_POST['full_name']) && !empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
+                    $Condition['id']  = $_SESSION["userId"];
+                    $Condition['email']  = $_SESSION["userEmail"];
+                    $userDataResponse = getData($moduleMethod, $Condition);
+                    $userDataResponse = $userDataResponse->fetch_assoc();
+                    if ($userDataResponse["profile_pic"] != "userprofile.png") {
+                        unlink($userProfilePath . $userDataResponse['profile_pic']);
+                    }
+                    $target_dir = $userProfilePath;
+                    $target_file = $target_dir . basename($_FILES["profile_pic"]["name"]);
+                    $uploadOk = 1;
+                    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+                    // Check if image file is a actual image or fake image
+                    $check = getimagesize($_FILES["profile_pic"]["tmp_name"]);
+                    if ($check !== false) {
+                        echo "File is an image - " . $check["mime"] . ".";
+                        $uploadOk = 1;
+                    } else {
+                        echo "File is not an image.";
+                        $uploadOk = 0;
+                    }
+
+                    // Check if file already exists
+                    if (file_exists($target_file)) {
+                        echo "Sorry, file already exists.";
+                        $uploadOk = 0;
+                    }
+
+                    // Check file size
+                    if ($_FILES["profile_pic"]["size"] > 500000) {
+                        echo "Sorry, your file is too large.";
+                        $uploadOk = 0;
+                    }
+
+                    // Allow certain file formats
+                    if (
+                        $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+                    ) {
+                        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                        $uploadOk = 0;
+                    }
+
+                    // Check if $uploadOk is set to 0 by an error
+                    if ($uploadOk == 0) {
+                        echo "Sorry, your file was not uploaded.";
+                        // if everything is ok, try to upload file
+                    } else {
+                        $extension = pathinfo($_FILES["profile_pic"]["name"], PATHINFO_EXTENSION);
+                        $path = $userProfilePath . $userDataResponse['id'] . "." . $extension;
+                        if (move_uploaded_file($_FILES["profile_pic"]["tmp_name"], $path)) {
+                            echo "The file " . htmlspecialchars(basename($_FILES["profile_pic"]["name"])) . " has been uploaded.";
+                            $Condition['id']  = $_SESSION["userId"];
+                            $Condition['email']  = $_SESSION["userEmail"];
+                            $userDetailUpdateData = array(
+                                'full_name' => $_POST['full_name'],
+                                'mobile_no' => $_POST['mobile_no'],
+                                'profile_pic' => $userDataResponse['id'] . "." . $extension,
+                                'height' => $_POST['height'],
+                                'weight' => $_POST['weight'],
+                                'age' => $_POST['age'],
+                            );
+                            $userDetailUpdateResponse = updateData($moduleMethod, $userDetailUpdateData, $Condition);
+                        } else {
+                            echo "Sorry, there was an error uploading your file.";
+                        }
+                    }
+                }
             } else {
                 if (!empty($_POST['full_name']) && !empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
                     $Condition['id']  = $_SESSION["userId"];

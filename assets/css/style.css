@@ -5371,3 +5371,17 @@ Breadcum
     font-weight: 550;
     letter-spacing: 1px;
 }
+
+.pr-btn {
+    text-decoration: none;
+    color: #000;
+    font-weight: 520;
+    letter-spacing: 0.5px;
+    -webkit-box-shadow: 0 0 15px rgb(0 0 0 / 20%) !important;
+    box-shadow: 0 0 15px rgb(0 0 0 / 20%) !important;
+}
+
+.pr-btn-active {
+    background: #f63c25;
+    color: #fff;
+}
