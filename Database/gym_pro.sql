@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2022 at 02:18 PM
+-- Generation Time: Jan 23, 2022 at 07:46 PM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 7.3.31
+-- PHP Version: 7.4.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -181,7 +181,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `full_name`, `email`, `mobile_no`, `profile_pic`, `height`, `weight`, `age`, `gender`, `password`, `reset_key`, `reset_status`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61adfd8c73697', 'Jimish Gajjar', 'jimish.gajjar@gmail.com', '9737956805', '61adfd8c73697.png', '5.5', '65', '24', 'Male', 'f3599dba24e40c1ff9367e56b386b87e', 'NOT SET', 0, '2021-12-06 17:39:48', '2021-12-06 17:39:48', '61adfd8c73696', '61adfd8c73696', 0),
+('61adfd8c73697', 'Jimish Gajjar', 'jimish.gajjar@gmail.com', '9737956805', '61adfd8c73697.png', '1.3', '65', '24', 'Male', 'f3599dba24e40c1ff9367e56b386b87e', 'NOT SET', 0, '2021-12-06 17:39:48', '2021-12-06 17:39:48', '61adfd8c73696', '61adfd8c73696', 0),
 ('61ae56262a7cd', 'Parth Nayi', 'parthnayi786@gmail.com', '9409354805', 'userprofile.png', '5.5', '65', '24', 'Male', '04788c4f5295bc48719eb9d8d3dec40d', 'NOT SET', 0, '2021-12-06 23:57:50', '2021-12-06 23:57:50', '61ae56262a7cb', '61ae56262a7cb', 0),
 ('61c357ec53a61', 'Nikunj Panchal', 'nikunj@gmail.com', '1234567899', 'userprofile.png', '6', '6', '23', 'Male', 'e6422e3c2a047e9537107e84c325aad1', 'NOT SET', 0, '2021-12-22 22:23:00', '2021-12-22 22:23:00', '61c357ec53a60', '61c357ec53a60', 0);
 
@@ -207,9 +207,8 @@ CREATE TABLE `wishlist` (
 --
 
 INSERT INTO `wishlist` (`id`, `user_id`, `cource_id`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61c73f01ea397', '61adfd8c73697', '61ae0f7abf646', '2021-12-25 21:25:45', '2021-12-25 21:25:45', '61adfd8c73697', '61adfd8c73697', 0),
-('61c73f086c82b', '61adfd8c73697', '61ae0f9e103d7', '2021-12-25 21:25:52', '2021-12-25 21:25:52', '61adfd8c73697', '61adfd8c73697', 0),
-('61c73f215c8d8', '61adfd8c73697', '61ae1000549e3', '2021-12-25 21:26:17', '2021-12-25 21:26:17', '61adfd8c73697', '61adfd8c73697', 0);
+('61ed9ed5e5f0d', '61adfd8c73697', '61ae0f9e103d7', '2022-01-24 00:00:45', '2022-01-24 00:00:45', '61adfd8c73697', '61adfd8c73697', 0),
+('61ed9ee52644d', '61adfd8c73697', '61ae1000549e3', '2022-01-24 00:01:01', '2022-01-24 00:01:01', '61adfd8c73697', '61adfd8c73697', 0);
 
 --
 -- Indexes for dumped tables

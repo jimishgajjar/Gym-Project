@@ -38,7 +38,7 @@ include('header.php');
                             <label for="email" class="form-label">Email address</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                         </div>
-                        <button type="submit" name="userForgotPasswordSub" class="btn btn-primary btn-lg">Reset Password</button>
+                        <button type="submit" name="userForgotPasswordSub" class="btn btn-primary btn-100 btn-lg">Reset Password</button>
                     </form>
                     <hr>
                     <div class="mb-3 text-center">

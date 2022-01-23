@@ -151,41 +151,41 @@ if (!empty($_REQUEST['moduleMethod'])) {
         }
     }
 
-    // User Change Password
-    if ($module == "userChangePass" && $moduleMethod == "user") {
-        if (isset($_POST['userChangePasswordSub'])) {
-            if (!empty($_POST['cureent_pwd']) && !empty($_POST['password']) && $_POST['confirm_password']) {
-                $Condition['password']  = md5($_POST['cureent_pwd']);
-                $Condition['id']  = $_SESSION["userId"];
-                $Condition['email']  = $_SESSION["userEmail"];
+    // User Reset Password
+    if ($module == "userResetPass" && $moduleMethod == "user") {
+        if (isset($_POST['userResetPasswordSub'])) {
+            if (!empty($_REQUEST['email']) && !empty($_REQUEST['reset_key']) && $_REQUEST['password'] == $_REQUEST['confirm_password']) {
+                $Condition['reset_key']  = $_REQUEST['reset_key'];
+                $Condition['reset_status']  = 1;
                 $response = getData($moduleMethod, $Condition);
                 $response = $response->fetch_assoc();
-                if (!empty($response)) {
-                    $passwordChangeData = array(
-                        'password' => md5($_POST['password']),
+                if (!empty($response) && md5($response['email']) == $_REQUEST['email'] && $response['reset_key'] == $_REQUEST['reset_key']) {
+                    $passwordRestData = array(
+                        'password' => md5($_REQUEST['password']),
                         'reset_key' => 'NOT SET',
                         'reset_status' => 0,
                     );
-                    $passwordChangeResponse = updateData($moduleMethod, $passwordChangeData, $Condition);
-                    if (!empty($passwordChangeResponse)) {
-                        $alert_type = "alert-success";
-                        $alert_message = "Your password had been changed.";
-                        echo "<script>window.location.replace('../userDashboard.php?dasboard=changepassword&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
-                    } else {
-                        $alert_type = "alert-danger";
-                        $alert_message = "Something went wrong please try again.";
-                        echo "<script>window.location.replace('../userDashboard.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
-                    }
+                    $Condition['email'] = $response['email'];
+                    $passwordRestResponse = updateData($moduleMethod, $passwordRestData, $Condition);
+
+                    $alert_type = "alert-success";
+                    $alert_message = "Your password had been changed.";
+                    echo "<script>window.location.replace('../userLogin.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                 } else {
                     $alert_type = "alert-danger";
-                    $alert_message = "Cureent password is not matched.";
-                    echo "<script>window.location.replace('../userDashboard.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    $alert_message = "Something went wrong please try again.";
+                    echo "<script>window.location.replace('../userForgotPassword.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                 }
             }
-        } else {
-            $alert_type = "alert-danger";
-            $alert_message = "Something went wrong please try again.";
-            echo "<script>window.location.replace('../userDashboard.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+        }
+    }
+
+    // User Logout
+    if ($module == "userLogout" && $moduleMethod == "logout") {
+        if ($_REQUEST['logout'] == 1) {
+            session_unset();
+            session_destroy();
+            echo "<script>window.location.replace('../index.php');</script>";
         }
     }
 
@@ -278,54 +278,54 @@ if (!empty($_REQUEST['moduleMethod'])) {
             if (!empty($userDetailUpdateResponse)) {
                 $alert_type = "alert-success";
                 $alert_message = "Your details is updated.";
-                echo "<script>window.location.replace('../userDashboard.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                echo "<script>window.location.replace('../userDashboard.php?dasboard=userprofile&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             } else {
                 $alert_type = "alert-danger";
                 $alert_message = "Something went wrong please try again.";
-                echo "<script>window.location.replace('../userDashboard.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                echo "<script>window.location.replace('../userDashboard.php?dasboard=userprofile&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
         } else {
             $alert_type = "alert-danger";
             $alert_message = "Something went wrong please try again.";
-            echo "<script>window.location.replace('../userDashboard.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            echo "<script>window.location.replace('../userDashboard.php?dasboard=userprofile&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
         }
     }
 
     // User Change Password
     if ($module == "userChangePass" && $moduleMethod == "user") {
         if (isset($_POST['userChangePasswordSub'])) {
-            if (!empty($_REQUEST['email']) && !empty($_REQUEST['reset_key']) && $_REQUEST['password'] == $_REQUEST['confirm_password']) {
-                $Condition['reset_key']  = $_REQUEST['reset_key'];
-                $Condition['reset_status']  = 1;
+            if (!empty($_POST['cureent_pwd']) && !empty($_POST['password']) && $_POST['confirm_password']) {
+                $Condition['password']  = md5($_POST['cureent_pwd']);
+                $Condition['id']  = $_SESSION["userId"];
+                $Condition['email']  = $_SESSION["userEmail"];
                 $response = getData($moduleMethod, $Condition);
                 $response = $response->fetch_assoc();
-                if (!empty($response) && md5($response['email']) == $_REQUEST['email'] && $response['reset_key'] == $_REQUEST['reset_key']) {
-                    $passwordRestData = array(
-                        'password' => md5($_REQUEST['password']),
+                if (!empty($response)) {
+                    $passwordChangeData = array(
+                        'password' => md5($_POST['password']),
                         'reset_key' => 'NOT SET',
                         'reset_status' => 0,
                     );
-                    $Condition['email'] = $response['email'];
-                    $passwordRestResponse = updateData($moduleMethod, $passwordRestData, $Condition);
-
-                    $alert_type = "alert-success";
-                    $alert_message = "Your password had been changed.";
-                    echo "<script>window.location.replace('../userLogin.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    $passwordChangeResponse = updateData($moduleMethod, $passwordChangeData, $Condition);
+                    if (!empty($passwordChangeResponse)) {
+                        $alert_type = "alert-success";
+                        $alert_message = "Your password had been changed.";
+                        echo "<script>window.location.replace('../userDashboard.php?dasboard=changepassword&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    } else {
+                        $alert_type = "alert-danger";
+                        $alert_message = "Something went wrong please try again.";
+                        echo "<script>window.location.replace('../userDashboard.php?dasboard=changepassword&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    }
                 } else {
                     $alert_type = "alert-danger";
-                    $alert_message = "Something went wrong please try again.";
-                    echo "<script>window.location.replace('../userForgotPassword.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    $alert_message = "Cureent password is not matched.";
+                    echo "<script>window.location.replace('../userDashboard.php?dasboard=changepassword&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                 }
             }
-        }
-    }
-
-    // User Logout
-    if ($module == "userLogout" && $moduleMethod == "logout") {
-        if ($_REQUEST['logout'] == 1) {
-            session_unset();
-            session_destroy();
-            echo "<script>window.location.replace('../index.php');</script>";
+        } else {
+            $alert_type = "alert-danger";
+            $alert_message = "Something went wrong please try again.";
+            echo "<script>window.location.replace('../userDashboard.php?dasboard=changepassword&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
         }
     }
 
@@ -459,29 +459,59 @@ if (!empty($_REQUEST['moduleMethod'])) {
     }
 
     // Delete Course From Dashboard Cart 
-    if ($module == "deleteCourseFromDashboard" && $moduleMethod == "cart") {
+    if ($module == "deleteCartFromDash" && $moduleMethod == "cart") {
         if (!empty($_REQUEST['cource_id'])) {
-            if (empty($_SESSION["userId"]) && empty($_SESSION["userEmail"])) {
-                $Condition['user_ip'] = $ip;
-                $Condition['user_id'] = null;
-                $Condition['cource_id'] = $_REQUEST['cource_id'];
-                $deleteFromCarlist = deleteData($moduleMethod, $Condition);
+            $Condition['user_ip'] = $ip;
+            $Condition['user_id'] = $_SESSION["userId"];
+            $Condition['cource_id'] = $_REQUEST['cource_id'];
+            $deleteFromCartlist = deleteData($moduleMethod, $Condition);
 
-                if (!empty($deleteFromCarlist)) {
-                    header("Location: ../loadCartlist.php");
-                }
-            } else {
-                $Condition['user_ip'] = $ip;
-                $Condition['user_id'] = $_SESSION["userId"];
-                $Condition['cource_id'] = $_REQUEST['cource_id'];
-                $deleteFromCarlist = deleteData($moduleMethod, $Condition);
+            if (!empty($deleteFromCartlist)) {
+                $alert_type = "alert-success";
+                $alert_message = "Course remove successfully.";
+                echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            }
+        } else {
+            $alert_type = "alert-danger";
+            $alert_message = "Something want wrong <span>please try again!</span>";
+            echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+        }
+    }
 
-                if (!empty($deleteFromCarlist)) {
-                    header("Location: ../loadCartlist.php");
+    // Move Course From Dashboard Cart to Wishlist
+    if ($module == "moveCartToWishlist" && $moduleMethod == "wishlist") {
+        if (!empty($_REQUEST['cource_id']) && !empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
+            $Condition['user_ip'] = $ip;
+            $Condition['user_id'] = $_SESSION["userId"];
+            $Condition['cource_id'] = $_REQUEST['cource_id'];
+            $moveCartToWishlist = deleteData("cart", $Condition);
+            if (!empty($moveCartToWishlist)) {
+                $uniqid = uniqid();
+                $whishlistAddData = array(
+                    'id' => $uniqid,
+                    'user_id' => $_SESSION["userId"],
+                    'cource_id' => $_REQUEST['cource_id'],
+                    'date_entered' => date("Y-m-d H:i:s"),
+                    'date_modified' => date("Y-m-d H:i:s"),
+                    'modified_user_id' => $_SESSION["userId"],
+                    'created_by' => $_SESSION["userId"],
+                    'deleted' => 0,
+                );
+                $whishlistAddDataResponse = insertData($moduleMethod, $whishlistAddData);
+                if (!empty($whishlistAddDataResponse)) {
+                    $alert_type = "alert-success";
+                    $alert_message = "Course move to wishlist.";
+                    echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                } else {
+                    $alert_type = "alert-danger";
+                    $alert_message = "Something want wrong <span>please try again!</span>";
+                    echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                 }
             }
         } else {
-            echo "<script>alert('Something want wrong please try again!.');</script>";
+            $alert_type = "alert-danger";
+            $alert_message = "Something want wrong <span>please try again!</span>";
+            echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
         }
     }
 }

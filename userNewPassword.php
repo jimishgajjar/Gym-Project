@@ -47,7 +47,7 @@ include('header.php');
                         <div class="mb-3" id="div-message">
                             <h6 id="message"></h6>
                         </div>
-                        <button type="submit" name="userResetPasswordSub" id="userResetPasswordSub" class="btn btn-primary btn-lg">Change Password</button>
+                        <button type="submit" name="userResetPasswordSub" id="userResetPasswordSub" class="btn-100 btn btn-primary btn-lg">Change Password</button>
                     </form>
                     <hr>
                     <div class="mb-3 text-center">
