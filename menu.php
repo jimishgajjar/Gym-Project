@@ -152,13 +152,13 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
             <div class="sidebar-textwidget">
                 <ul class="user-menu">
                     <li>
-                        <a href="userProfile.php"><i class="far fa-user pr-20"></i> My Profile</a>
+                        <a href="userDashboard.php?dasboard=userprofile"><i class="far fa-user pr-20"></i> My Profile</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);"><i class="far fa-heart pr-20"></i> Whish List</a>
+                        <a href="userDashboard.php?dasboard=wishlist"><i class="far fa-heart pr-20"></i> Whish List</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);"><i class="far fa-shopping-cart pr-20"></i> Cart</a>
+                        <a href="userDashboard.php?dasboard=cart"><i class="far fa-shopping-cart pr-20"></i> Cart</a>
                     </li>
                     <li>
                         <a href="include/userSubmitData.php?moduleMethod=logout&module=userLogout&logout=1"><i class="fal fa-power-off pr-20"></i> Logout</a>

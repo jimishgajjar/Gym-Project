@@ -3676,7 +3676,7 @@ button:focus {
 
 .btn-primary {
     /* width: 100%; */
-    padding: 10px;
+    /* padding: 10px; */
     border: 0;
     border-radius: 5px;
     font-family: barlow, sans-serif;
@@ -5381,7 +5381,88 @@ Breadcum
     box-shadow: 0 0 15px rgb(0 0 0 / 20%) !important;
 }
 
+.pr-btn:hover {
+    color: #fff;
+    background-color: #f63c25;
+}
+
 .pr-btn-active {
     background: #f63c25;
     color: #fff;
+}
+
+.bt-boder-0{
+    border-radius: 0px;
+}
+
+/* ***************************************
+                Dashboard Wishlist
+*************************************** */
+.wishlist .wishlist-data .cource-img .cource-img-overlay,
+.cartlist .cartlist-data .cource-img .cource-img-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.wishlist .wishlist-data .cource-img,
+.cartlist .cartlist-data .cource-img {
+    position: relative;
+    display: inline-block;
+}
+
+.wishlist .wishlist-data .cource-img:hover .cource-img-overlay,
+.cartlist .cartlist-data .cource-img:hover .cource-img-overlay {
+    background-color: #0000007d;
+    opacity: 1;
+}
+
+.wishlist .wishlist-data .cource-img:hover .heart,
+.carlist .cartlist-data .cource-img:hover .heart {
+    display: block;
+}
+
+.wishlist .wishlist-data .cource-img .heart,
+.cartlist .cartlist-data .cource-img .heart {
+    padding-top: 7px;
+    padding-right: 7px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+}
+
+.wishlist .wishlist-data .cource-img .heart a,
+.cartlist .cartlist-data .cource-img .heart a {
+    color: #fff;
+}
+
+.wishlist .wishlist-data p,
+.cartlist .cartlist-data p {
+    color: #000;
+    font-size: 19px;
+    font-weight: 550;
+    margin-bottom: 0px;
+}
+
+.wishlist .wishlist-data .course-rating,
+.cartlist .cartlist-data .course-rating {
+    display: flex;
+}
+
+.wishlist .wishlist-data .course-rating .course-rating-num,
+.cartlist .cartlist-data .course-rating .course-rating-num {
+    font-size: 15px;
+    font-weight: 700;
+    color: #b47405;
+    padding: 11px 5px 0 0;
+}
+
+.cartlist .cartlist-data .cartlist-content {
+    /* margin: 0 2px 5px 0; */
+    border: 1px solid #000;
 }

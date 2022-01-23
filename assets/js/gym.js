@@ -30,26 +30,26 @@ function loadCartlist() {
     });
 }
 
-function deleteFromCarlist(cource_id_) {
-    $.ajax({
-        url: "include/UserSubmitData.php",
-        method: "POST",
-        data: { module: "deleteFromCarlist", moduleMethod: "cart", cource_id: cource_id_ },
-        success: function (response) {
-            $("#cartlist-data").empty();
-            $("#cartlist-data").append(response);
-        }
-    });
-}
+// function deleteFromCarlist(cource_id_) {
+//     $.ajax({
+//         url: "include/UserSubmitData.php",
+//         method: "POST",
+//         data: { module: "deleteFromCarlist", moduleMethod: "cart", cource_id: cource_id_ },
+//         success: function (response) {
+//             $("#cartlist-data").empty();
+//             $("#cartlist-data").append(response);
+//         }
+//     });
+// }
 
 function addToCartFromWishlist(cource_id_) {
     $.ajax({
         url: "include/UserSubmitData.php",
         method: "POST",
-        data: { module: "addToCartFromWishlist", moduleMethod: "cart", cource_id: cource_id_ },
+        data: { module: "addToCartFromWishlist", moduleMethod: "wishlist", cource_id: cource_id_ },
         success: function (response) {
-            $("#cartlist-data").empty();
-            $("#cartlist-data").append(response);
+            $("#whislist-data").empty();
+            $("#whislist-data").append(response);
         }
     });
 }

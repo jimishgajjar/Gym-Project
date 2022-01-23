@@ -84,7 +84,7 @@ include('header.php');
                     </div>
                 </div>
             </div>
-            <div id="rate"></div>
+            <!-- <div id="rate"></div> -->
 
             <div class="row">
                 <?php
