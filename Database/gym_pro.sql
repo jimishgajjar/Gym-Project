@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2022 at 07:46 PM
+-- Generation Time: Feb 03, 2022 at 06:20 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -63,6 +63,13 @@ CREATE TABLE `cart` (
   `created_by` varchar(255) NOT NULL,
   `deleted` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `user_ip`, `course_id`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('61f2c0b20a0aa', '61adfd8c73697', '127.0.0.1', '61ae0f7abf646', '2022-01-27 21:26:34', '2022-01-27 21:26:34', '61adfd8c73697', '61adfd8c73697', 0);
 
 -- --------------------------------------------------------
 
@@ -126,7 +133,7 @@ INSERT INTO `course` (`id`, `category_id`, `title`, `small_description`, `descri
 ('61ae0f7abf646', '61ae0b26d28c8', '2022 Complete Python Bootcamp From Zero to Hero', 'Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'Course 1', '61ae0f7abf646.jpg', '1.0', '520', '0', '2021-12-06 18:56:18', '2021-12-30 23:16:52', '61952d7816277', '61952d7816277', 0),
 ('61ae0f9e103d7', '61ae0b7228135', 'Machine Learning A-Z™: Hands-On Python & R In Data', 'Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'Course 2', '61ae0f9e103d7.jpg', '2.0', '525', '10', '2021-12-06 18:56:54', '2021-12-06 23:23:39', '61952d7816277', '61952d7816277', 0),
 ('61ae1000549e3', '61ae0b7b8ca42', 'Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.', 'Learn how to use NumPy, Pandas, Seaborn , Matplotlib , Plotly , Scikit-Learn , Machine Learning, Tensorflow , and more!', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'Course 3', '61ae1000549e3.jpg', '3.0', '525', '0', '2021-12-06 18:58:32', '2021-12-06 23:23:48', '61952d7816277', '61952d7816277', 0),
-('61ae1027e738a', '61ae0b82ec211', '100 Days of Code: The Complete Python Pro Bootcamp for 2022', 'This Python For Beginners Course Teaches You The Python Language Fast. Includes Python Online Training With Python 3', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'course 4', '61ae1027e738a.jpg', '4.0', '525', '10', '2021-12-06 18:59:11', '2021-12-06 23:23:57', '61952d7816277', '61952d7816277', 0),
+('61ae1027e738a', '61ae0b82ec211', '100 Days of Code: The Complete Python Pro Bootcamp for 2022', 'This Python For Beginners Course Teaches You The Python Language Fast. Includes Python Online Training With Python 3', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'Cource 4', '61ae1027e738a.jpg', '4.0', '525', '10', '2021-12-06 18:59:11', '2021-12-06 23:23:57', '61952d7816277', '61952d7816277', 0),
 ('61ae105cb949a', '61ae0b8b3f476', 'Learning Python for Data Analysis and Visualization', 'Learn python and how to use it to analyze,visualize and present data. Includes tons of sample code and hours of video!', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'Course 5', '61ae105cb949a.jpg', '5.0', '525', '0', '2021-12-06 19:00:04', '2021-12-15 22:21:25', '61952d7816277', '61952d7816277', 0),
 ('61ae10ac70735', '61ae0b977d08e', 'Python for Data Structures, Algorithms, and Interviews!', 'Get a kick start on your career and ace your coding interviews!', '<p>qwqwqwqwwqwqwq</p><p>&nbsp;</p><p><strong>dddddddddddddddddddddddd</strong></p><p>&nbsp;</p><p>&nbsp;</p>', 'Course 6', '61ae10ac70735.jpg', '4.2', '525', '10', '2021-12-06 19:01:24', '2021-12-15 00:30:29', '61952d7816277', '61952d7816277', 0),
 ('61b8e7615a900', '61ae0b977d08e', 'Django 2.2 & Python | The Ultimate Web Development Bootcamp', 'Build three complete websites, learn back and front-end web development, and publish your site online with DigitalOcean', '<p>Test <strong>1</strong>1<strong>1</strong>1 Hello</p><h2>123</h2><p>&nbsp;</p><p><a href=\"jimishgajjar.in\">jimishgajjar.in</a></p>', '123,456,789', '61b8e7615a900.jpg', '0.0', '525', '0', '2021-12-15 00:20:09', '2021-12-15 00:25:14', '61952d7816277', '61952d7816277', 0);
@@ -142,13 +149,47 @@ CREATE TABLE `course_review` (
   `course_id` varchar(255) NOT NULL,
   `user_id` varchar(255) NOT NULL,
   `rating` varchar(10) NOT NULL,
-  `review` text NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `description` text NOT NULL,
   `date_entered` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
   `modified_user_id` varchar(255) NOT NULL,
   `created_by` varchar(255) NOT NULL,
   `deleted` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `course_review`
+--
+
+INSERT INTO `course_review` (`id`, `course_id`, `user_id`, `rating`, `title`, `description`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('61fba96899c35', '61ae0f7abf646', '61adfd8c73697', '2', 'Test Title', 'Test Description...', '2022-02-03 15:37:36', '2022-02-03 15:37:36', '61adfd8c73697', '61adfd8c73697', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment` (
+  `id` varchar(255) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `transection_id` varchar(255) NOT NULL,
+  `transection_status` varchar(255) NOT NULL,
+  `transection_date` datetime NOT NULL,
+  `date_entered` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  `modified_user_id` varchar(255) NOT NULL,
+  `created_by` varchar(255) NOT NULL,
+  `deleted` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`id`, `user_id`, `transection_id`, `transection_status`, `transection_date`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('61f1908fbdb2d', '61adfd8c73697', 'Test Demo', 'Complete', '2022-01-26 23:48:55', '2022-01-26 23:48:55', '2022-01-26 23:48:55', '61adfd8c73697', '61adfd8c73697', 0);
 
 -- --------------------------------------------------------
 
@@ -188,6 +229,37 @@ INSERT INTO `user` (`id`, `full_name`, `email`, `mobile_no`, `profile_pic`, `hei
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `user_courses`
+--
+
+CREATE TABLE `user_courses` (
+  `id` varchar(255) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `course_id` varchar(255) NOT NULL,
+  `course_amount` varchar(255) NOT NULL,
+  `discount_given` varchar(255) NOT NULL,
+  `final_amount` varchar(255) NOT NULL,
+  `payment_id` varchar(255) NOT NULL,
+  `payment_date` datetime NOT NULL,
+  `date_entered` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  `modified_user_id` varchar(255) NOT NULL,
+  `created_by` varchar(255) NOT NULL,
+  `deleted` tinyint(4) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_courses`
+--
+
+INSERT INTO `user_courses` (`id`, `user_id`, `course_id`, `course_amount`, `discount_given`, `final_amount`, `payment_id`, `payment_date`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('61f1908fc9623', '61adfd8c73697', '61ae0f7abf646', '520', '0', '520', '61f1908fbdb2d', '2022-01-26 23:48:55', '2022-01-26 23:48:55', '2022-01-26 23:48:55', '61adfd8c73697', '61adfd8c73697', 0),
+('61f1908fd8abe', '61adfd8c73697', '61ae1000549e3', '525', '0', '525', '61f1908fbdb2d', '2022-01-26 23:48:55', '2022-01-26 23:48:55', '2022-01-26 23:48:55', '61adfd8c73697', '61adfd8c73697', 0),
+('61f1908fe7cfe', '61adfd8c73697', '61ae0f9e103d7', '525', '52.5', '472.5', '61f1908fbdb2d', '2022-01-26 23:48:55', '2022-01-26 23:48:55', '2022-01-26 23:48:55', '61adfd8c73697', '61adfd8c73697', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `wishlist`
 --
 
@@ -201,14 +273,6 @@ CREATE TABLE `wishlist` (
   `created_by` varchar(255) NOT NULL,
   `deleted` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `wishlist`
---
-
-INSERT INTO `wishlist` (`id`, `user_id`, `course_id`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61ed9ed5e5f0d', '61adfd8c73697', '61ae0f9e103d7', '2022-01-24 00:00:45', '2022-01-24 00:00:45', '61adfd8c73697', '61adfd8c73697', 0),
-('61ed9ee52644d', '61adfd8c73697', '61ae1000549e3', '2022-01-24 00:01:01', '2022-01-24 00:01:01', '61adfd8c73697', '61adfd8c73697', 0);
 
 --
 -- Indexes for dumped tables
@@ -245,12 +309,24 @@ ALTER TABLE `course_review`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `mobile_no` (`mobile_no`),
   ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `user_courses`
+--
+ALTER TABLE `user_courses`
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Indexes for table `wishlist`
