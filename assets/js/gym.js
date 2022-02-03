@@ -1,5 +1,5 @@
 // Set this to the width of one star.
-var starWidth = 15;
+var starWidth = 25;
 
 $.fn.stars = function () {
     return $(this).each(function () {
@@ -30,11 +30,11 @@ function loadCartlist() {
     });
 }
 
-// function deleteFromCarlist(cource_id_) {
+// function deleteFromCarlist(course_id_) {
 //     $.ajax({
 //         url: "include/UserSubmitData.php",
 //         method: "POST",
-//         data: { module: "deleteFromCarlist", moduleMethod: "cart", cource_id: cource_id_ },
+//         data: { module: "deleteFromCarlist", moduleMethod: "cart", course_id: course_id_ },
 //         success: function (response) {
 //             $("#cartlist-data").empty();
 //             $("#cartlist-data").append(response);
@@ -42,11 +42,11 @@ function loadCartlist() {
 //     });
 // }
 
-function addToCartFromWishlist(cource_id_) {
+function addToCartFromWishlist(course_id_) {
     $.ajax({
         url: "include/UserSubmitData.php",
         method: "POST",
-        data: { module: "addToCartFromWishlist", moduleMethod: "wishlist", cource_id: cource_id_ },
+        data: { module: "addToCartFromWishlist", moduleMethod: "wishlist", course_id: course_id_ },
         success: function (response) {
             $("#whislist-data").empty();
             $("#whislist-data").append(response);
@@ -54,11 +54,11 @@ function addToCartFromWishlist(cource_id_) {
     });
 }
 
-function deleteFromWishlist(cource_id_) {
+function deleteFromWishlist(course_id_) {
     $.ajax({
         url: "include/UserSubmitData.php",
         method: "POST",
-        data: { module: "deleteFromWishlist", moduleMethod: "wishlist", cource_id: cource_id_ },
+        data: { module: "deleteFromWishlist", moduleMethod: "wishlist", course_id: course_id_ },
         success: function (response) {
             $("#whislist-data").empty();
             $("#whislist-data").append(response);

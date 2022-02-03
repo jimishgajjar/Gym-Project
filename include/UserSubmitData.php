@@ -122,7 +122,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                         }
                     } else {
                         $alert_type = "alert-danger";
-                        $alert_message = "Something went wrong please try again.";
+                        $alert_message = "Something want wrong <span>please try again!</span>";
                         echo "<script>window.location.replace('../userForgotPassword.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                     }
                 } else {
@@ -145,7 +145,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 header("Location: ../userNewPassword.php?moduleMethod=user&module=userResetPass&email=" . $_REQUEST['email'] . "&reset_key=" . $_REQUEST['reset_key']);
             } else {
                 $alert_type = "alert-danger";
-                $alert_message = "Something went wrong please try again.";
+                $alert_message = "Something want wrong <span>please try again!</span>";
                 echo "<script>window.location.replace('../userForgotPassword.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
         }
@@ -173,7 +173,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     echo "<script>window.location.replace('../userLogin.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                 } else {
                     $alert_type = "alert-danger";
-                    $alert_message = "Something went wrong please try again.";
+                    $alert_message = "Something want wrong <span>please try again!</span>";
                     echo "<script>window.location.replace('../userForgotPassword.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                 }
             }
@@ -281,12 +281,12 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 echo "<script>window.location.replace('../userDashboard.php?dasboard=userprofile&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             } else {
                 $alert_type = "alert-danger";
-                $alert_message = "Something went wrong please try again.";
+                $alert_message = "Something want wrong <span>please try again!</span>";
                 echo "<script>window.location.replace('../userDashboard.php?dasboard=userprofile&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
         } else {
             $alert_type = "alert-danger";
-            $alert_message = "Something went wrong please try again.";
+            $alert_message = "Something want wrong <span>please try again!</span>";
             echo "<script>window.location.replace('../userDashboard.php?dasboard=userprofile&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
         }
     }
@@ -313,7 +313,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                         echo "<script>window.location.replace('../userDashboard.php?dasboard=changepassword&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                     } else {
                         $alert_type = "alert-danger";
-                        $alert_message = "Something went wrong please try again.";
+                        $alert_message = "Something want wrong <span>please try again!</span>";
                         echo "<script>window.location.replace('../userDashboard.php?dasboard=changepassword&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                     }
                 } else {
@@ -324,7 +324,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
             }
         } else {
             $alert_type = "alert-danger";
-            $alert_message = "Something went wrong please try again.";
+            $alert_message = "Something want wrong <span>please try again!</span>";
             echo "<script>window.location.replace('../userDashboard.php?dasboard=changepassword&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
         }
     }
@@ -336,7 +336,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
             $whishlistAddData = array(
                 'id' => $uniqid,
                 'user_id' => $_SESSION["userId"],
-                'cource_id' => $_REQUEST['whislistId'],
+                'course_id' => $_REQUEST['whislistId'],
                 'date_entered' => date("Y-m-d H:i:s"),
                 'date_modified' => date("Y-m-d H:i:s"),
                 'modified_user_id' => $_SESSION["userId"],
@@ -348,16 +348,16 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 echo "<script>window.location.replace('../courseDetailView.php?view=" . $_REQUEST['whislistId'] . "');</script>";
             } else {
                 $alert_type = "alert-danger";
-                $alert_message = "Category is not updated.";
-                echo "<script>window.location.replace('../index.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                $alert_message = "Something want wrong <span>please try again!</span>";
+                echo "<script>window.location.replace('../courseDetailView.php?view=" . $_REQUEST['whislistId'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
         }
     }
 
-    // Wishlist Delete Course
+    // Wishlist Delete From Course & Dashboard
     if ($module == "wishlistDelete" && $moduleMethod == "wishlist") {
         if (!empty($_REQUEST['whislistId'])) {
-            $Condition['cource_id'] = $_REQUEST['whislistId'];
+            $Condition['course_id'] = $_REQUEST['whislistId'];
             $Condition['user_id'] = $_SESSION["userId"];
             $wishlistDeleteResponse = deleteData($moduleMethod, $Condition);
 
@@ -365,8 +365,25 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 echo "<script>window.location.replace('../courseDetailView.php?view=" . $_REQUEST['whislistId'] . "');</script>";
             } else {
                 $alert_type = "alert-danger";
-                $alert_message = "Category is not updated.";
+                $alert_message = "Something want wrong <span>please try again!</span>";
                 echo "<script>window.location.replace('../index.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            }
+        }
+
+
+        if (!empty($_REQUEST['whislistIdFromDash'])) {
+            $Condition['course_id'] = $_REQUEST['whislistIdFromDash'];
+            $Condition['user_id'] = $_SESSION["userId"];
+            $wishlistDeleteResponse = deleteData($moduleMethod, $Condition);
+
+            if (!empty($wishlistDeleteResponse)) {
+                $alert_type = "alert-success";
+                $alert_message = "Course removed from wishlist.";
+                echo "<script>window.location.replace('../userDashboard.php?dasboard=wishlist&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            } else {
+                $alert_type = "alert-danger";
+                $alert_message = "Something want wrong <span>please try again!</span>";
+                echo "<script>window.location.replace('../userDashboard.php?dasboard=wishlist&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
         }
     }
@@ -381,7 +398,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     'id' => $uniqid,
                     'user_id' => $_SESSION["userId"],
                     'user_ip' => $ip,
-                    'cource_id' => $_REQUEST['cartId'],
+                    'course_id' => $_REQUEST['cartId'],
                     'date_entered' => date("Y-m-d H:i:s"),
                     'date_modified' => date("Y-m-d H:i:s"),
                     'modified_user_id' => $_SESSION["userId"],
@@ -392,7 +409,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 $cartAddData = array(
                     'id' => $uniqid,
                     'user_ip' => $ip,
-                    'cource_id' => $_REQUEST['cartId'],
+                    'course_id' => $_REQUEST['cartId'],
                     'date_entered' => date("Y-m-d H:i:s"),
                     'date_modified' => date("Y-m-d H:i:s"),
                     'modified_user_id' => $ip,
@@ -405,7 +422,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 echo "<script>window.location.replace('../courseDetailView.php?view=" . $_REQUEST['cartId'] . "');</script>";
             } else {
                 $alert_type = "alert-danger";
-                $alert_message = "Category is not updated.";
+                $alert_message = "Something want wrong <span>please try again!</span>";
                 echo "<script>window.location.replace('../index.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
         }
@@ -413,13 +430,13 @@ if (!empty($_REQUEST['moduleMethod'])) {
 
     // Add To Cart From Wishlist Sidebar
     if ($module == "addToCartFromWishlist" && $moduleMethod == "wishlist") {
-        if (!empty($_REQUEST['cource_id'])) {
+        if (!empty($_REQUEST['course_id'])) {
             $uniqid = uniqid();
             $cartAddData = array(
                 'id' => $uniqid,
                 'user_id' => $_SESSION["userId"],
                 'user_ip' => $ip,
-                'cource_id' => $_REQUEST['cource_id'],
+                'course_id' => $_REQUEST['course_id'],
                 'date_entered' => date("Y-m-d H:i:s"),
                 'date_modified' => date("Y-m-d H:i:s"),
                 'modified_user_id' => $_SESSION["userId"],
@@ -428,7 +445,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
             );
             $cartAddDataResponse = insertData('cart', $cartAddData);
             if (!empty($cartAddDataResponse)) {
-                $Condition['cource_id'] = $_REQUEST['cource_id'];
+                $Condition['course_id'] = $_REQUEST['course_id'];
                 $Condition['user_id'] = $_SESSION["userId"];
                 $wishlistDeleteResponse = deleteData($moduleMethod, $Condition);
                 if (!empty($wishlistDeleteResponse)) {
@@ -443,10 +460,10 @@ if (!empty($_REQUEST['moduleMethod'])) {
 
     // Delete Wishlist From Sidebar
     if ($module == "deleteFromWishlist" && $moduleMethod == "wishlist") {
-        if (!empty($_REQUEST['cource_id'])) {
+        if (!empty($_REQUEST['course_id'])) {
             if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
                 $Condition['user_id'] = $_SESSION["userId"];
-                $Condition['cource_id'] = $_REQUEST['cource_id'];
+                $Condition['course_id'] = $_REQUEST['course_id'];
                 $deleteFromWishlist = deleteData($moduleMethod, $Condition);
 
                 if (!empty($deleteFromWishlist)) {
@@ -460,10 +477,10 @@ if (!empty($_REQUEST['moduleMethod'])) {
 
     // Delete Course From Dashboard Cart 
     if ($module == "deleteCartFromDash" && $moduleMethod == "cart") {
-        if (!empty($_REQUEST['cource_id'])) {
+        if (!empty($_REQUEST['course_id'])) {
             $Condition['user_ip'] = $ip;
             $Condition['user_id'] = $_SESSION["userId"];
-            $Condition['cource_id'] = $_REQUEST['cource_id'];
+            $Condition['course_id'] = $_REQUEST['course_id'];
             $deleteFromCartlist = deleteData($moduleMethod, $Condition);
 
             if (!empty($deleteFromCartlist)) {
@@ -479,18 +496,18 @@ if (!empty($_REQUEST['moduleMethod'])) {
     }
 
     // Move Course From Dashboard Cart to Wishlist
-    if ($module == "moveCartToWishlist" && $moduleMethod == "wishlist") {
-        if (!empty($_REQUEST['cource_id']) && !empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
+    if ($module == "moveCartToWishlistDash" && $moduleMethod == "wishlist") {
+        if (!empty($_REQUEST['course_id']) && !empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
             $Condition['user_ip'] = $ip;
             $Condition['user_id'] = $_SESSION["userId"];
-            $Condition['cource_id'] = $_REQUEST['cource_id'];
+            $Condition['course_id'] = $_REQUEST['course_id'];
             $moveCartToWishlist = deleteData("cart", $Condition);
             if (!empty($moveCartToWishlist)) {
                 $uniqid = uniqid();
                 $whishlistAddData = array(
                     'id' => $uniqid,
                     'user_id' => $_SESSION["userId"],
-                    'cource_id' => $_REQUEST['cource_id'],
+                    'course_id' => $_REQUEST['course_id'],
                     'date_entered' => date("Y-m-d H:i:s"),
                     'date_modified' => date("Y-m-d H:i:s"),
                     'modified_user_id' => $_SESSION["userId"],
@@ -512,6 +529,179 @@ if (!empty($_REQUEST['moduleMethod'])) {
             $alert_type = "alert-danger";
             $alert_message = "Something want wrong <span>please try again!</span>";
             echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+        }
+    }
+
+    // Move Course From Dashboard Wishlist to Cart
+    if ($module == "moveWishToCartDash" && $moduleMethod == "cart") {
+        if (!empty($_REQUEST['Dashcourse_id']) && !empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
+            $Condition['user_id'] = $_SESSION["userId"];
+            $Condition['course_id'] = $_REQUEST['Dashcourse_id'];
+            $moveWishlistToCart = deleteData("wishlist", $Condition);
+            if (!empty($moveWishlistToCart)) {
+                $uniqid = uniqid();
+                $cartAddData = array(
+                    'id' => $uniqid,
+                    'user_id' => $_SESSION["userId"],
+                    'user_ip' => $ip,
+                    'course_id' => $_REQUEST['Dashcourse_id'],
+                    'date_entered' => date("Y-m-d H:i:s"),
+                    'date_modified' => date("Y-m-d H:i:s"),
+                    'modified_user_id' => $_SESSION["userId"],
+                    'created_by' => $_SESSION["userId"],
+                    'deleted' => 0,
+                );
+                $cartAddDataResponse = insertData($moduleMethod, $cartAddData);
+                if (!empty($cartAddDataResponse)) {
+                    $alert_type = "alert-success";
+                    $alert_message = "Course move to cart.";
+                    echo "<script>window.location.replace('../userDashboard.php?dasboard=wishlist&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                } else {
+                    $alert_type = "alert-danger";
+                    $alert_message = "Something want wrong <span>please try again!</span>";
+                    echo "<script>window.location.replace('../userDashboard.php?dasboard=wishlist&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                }
+            }
+        } else {
+            $alert_type = "alert-danger";
+            $alert_message = "Something want wrong <span>please try again!</span>";
+            echo "<script>window.location.replace('../userDashboard.php?dasboard=wishlist&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+        }
+    }
+
+    // User Course Payment
+    if ($module == "coursesPayment" && $moduleMethod == "payment") {
+        $total = 0;
+        $totalAll = 0;
+        $discountAmount = 0;
+
+        $cartListCondition['user_id'] = $_SESSION["userId"];
+        $userCartData = getData('cart', $cartListCondition);
+        if ($userCartData->num_rows > 0) {
+            while ($row = $userCartData->fetch_assoc()) {
+                $Condition['id'] = $row['course_id'];
+                $response = getData('course', $Condition);
+                $response = $response->fetch_assoc();
+                if (!empty($response)) {
+                    if ($response['discount'] != 0) {
+                        $discountAmount = ($response['price'] * $response['discount'] / 100);
+                        $discountPrice = $response['price'] - ($response['price'] * $response['discount'] / 100);
+                        $total += $discountPrice;
+                    } else {
+                        $total += $response['price'];
+                    }
+                    $totalAll += $response['price'];
+                }
+            }
+        }
+
+        $payment_status = "Complete";
+        if ($payment_status == "Complete") {
+            $payment_uniqid = uniqid();
+            $userPaymentData = array(
+                'id' => $payment_uniqid,
+                'user_id' => $_SESSION["userId"],
+                'transection_id' => "Test Demo",
+                'transection_status' => $payment_status,
+                'transection_date' => date("Y-m-d H:i:s"),
+                'date_entered' => date("Y-m-d H:i:s"),
+                'date_modified' => date("Y-m-d H:i:s"),
+                'modified_user_id' => $_SESSION["userId"],
+                'created_by' => $_SESSION["userId"],
+                'deleted' => 0,
+            );
+            $userPaymentDataResponse = insertData($moduleMethod, $userPaymentData);
+
+            if (!empty($userPaymentDataResponse)) {
+                $courseDiscountAmount = 0;
+                $courseDiscountPrice = 0;
+                $courseTotal = 0;
+                $courseTotalAll = 0;
+                $userCartData = getData('cart', $cartListCondition);
+                if ($userCartData->num_rows > 0) {
+                    while ($row = $userCartData->fetch_assoc()) {
+                        $Condition['id'] = $row['course_id'];
+                        $response = getData('course', $Condition);
+                        $response = $response->fetch_assoc();
+                        if (!empty($response)) {
+                            if ($response['discount'] != 0) {
+                                $courseDiscountAmount = ($response['price'] * $response['discount'] / 100);
+                                $courseDiscountPrice = $response['price'] - ($response['price'] * $response['discount'] / 100);
+                            } else {
+                                $courseDiscountPrice = $response['price'];
+                            }
+                        }
+
+                        $userCoursesData = array(
+                            'id' => uniqid(),
+                            'user_id' => $_SESSION["userId"],
+                            'course_id' => $row['course_id'],
+                            'course_amount' => $response['price'],
+                            'discount_given' => $courseDiscountAmount,
+                            'final_amount' => $courseDiscountPrice,
+                            'payment_id' => $payment_uniqid,
+                            'payment_date' => date("Y-m-d H:i:s"),
+                            'date_entered' => date("Y-m-d H:i:s"),
+                            'date_modified' => date("Y-m-d H:i:s"),
+                            'modified_user_id' => $_SESSION["userId"],
+                            'created_by' => $_SESSION["userId"],
+                            'deleted' => 0,
+                        );
+                        $userCoursesResponse = insertData("user_courses", $userCoursesData);
+                        $courseDeleteCondition['user_id'] = $_SESSION["userId"];
+                        $courseDeleteCondition['course_id'] = $row['course_id'];
+                        $cartCoursesDelete = deleteData("cart", $courseDeleteCondition);
+                        $wishListCoursesDelete = deleteData('wishlist', $courseDeleteCondition);
+                    }
+                }
+                if (!empty($userCoursesResponse) && !empty($cartCoursesDelete) && !empty($wishListCoursesDelete)) {
+                    $alert_type = "alert-success";
+                    $alert_message = "Payment successful.";
+                    echo "<script>window.location.replace('../userDashboard.php?dasboard=userprofile&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                } else {
+                    $alert_type = "alert-danger";
+                    $alert_message = "Something want wrong <span>please try again!</span>";
+                    echo "<script>window.location.replace('../userDashboard.php?dasboard=userprofile&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                }
+            } else {
+                $alert_type = "alert-danger";
+                $alert_message = "Something want wrong <span>please try again!</span>";
+                echo "<script>window.location.replace('../userDashboard.php?dasboard=userprofile&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            }
+        } else {
+            $alert_type = "alert-danger";
+            $alert_message = "Something want wrong <span>please try again!</span>";
+            echo "<script>window.location.replace('../userDashboard.php?dasboard=userprofile&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+        }
+    }
+
+    // User Review Insert
+    if ($module == "course_reviewAdd" && $moduleMethod == "course_review") {
+        if (isset($_POST['reviewSub'])) {
+            $reviewData = array(
+                'id' => uniqid(),
+                'course_id' => $_POST["course_id"],
+                'user_id' => $_SESSION["userId"],
+                'rating' => $_POST['rating'],
+                'title' => $_POST['title'],
+                'description' => $_POST['description'],
+                'date_entered' => date("Y-m-d H:i:s"),
+                'date_modified' => date("Y-m-d H:i:s"),
+                'modified_user_id' => $_SESSION["userId"],
+                'created_by' => $_SESSION["userId"],
+                'deleted' => 0,
+            );
+            $reviewDataResponse = insertData($moduleMethod, $reviewData);
+
+            if (!empty($reviewDataResponse)) {
+                $alert_type = "alert-success";
+                $alert_message = "Review added successful.";
+                echo "<script>window.location.replace('../courseDetailView.php?view=" . $_POST['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            } else {
+                $alert_type = "alert-danger";
+                $alert_message = "Something want wrong <span>please try again!</span>";
+                echo "<script>window.location.replace('../courseDetailView.php?view=" . $_POST['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            }
         }
     }
 }

@@ -3675,15 +3675,11 @@ button:focus {
 }
 
 .btn-primary {
-    /* width: 100%; */
-    /* padding: 10px; */
     border: 0;
-    border-radius: 5px;
     font-family: barlow, sans-serif;
     font-size: 15px;
     font-weight: 700;
     line-height: 1.5rem;
-    /* text-transform: uppercase; */
     color: #fff;
     background-color: #f63c25;
     -webkit-transition: all .4s ease;
@@ -4170,7 +4166,11 @@ button:focus {
 }
 
 .xs-form .xs-form-anim.active .input-label {
-    bottom: 35px
+    bottom: 25px;
+}
+
+.xs-form .xs-form-anim.active .input-label-textarea {
+    bottom: 50px;
 }
 
 .xs-form .xs-form-anim.active input {
@@ -4181,6 +4181,7 @@ button:focus {
     margin-top: 10px;
     border: 0;
     border-radius: 0;
+    padding: .375rem 0px !important;
     border-bottom: 1px solid #e5e5e5;
     color: #101010;
     background-color: transparent;
@@ -4954,11 +4955,11 @@ span.stars,
 span.stars span {
     display: block;
     background: url(../images/icons/star-black.svg) 0 0 repeat-x;
-    width: 75px;
+    width: 125px;
     /* width of a star multiplied by 5 */
     height: 40px;
     /* the height of the star */
-    background-size: 15px 40px;
+    background-size: 25px 40px;
 }
 
 span.stars span {
@@ -5123,7 +5124,7 @@ Breadcum
 }
 
 .course-detail .course-rating .course-rating-num {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 700;
     color: #b47405;
     padding: 11px 5px 0 0;
@@ -5168,7 +5169,8 @@ Breadcum
 }
 
 .course-detail .course-description h4,
-.course-detail .course-video h4 {
+.course-detail .course-video h4,
+.course-detail .course-review h4 {
     font-weight: 600;
 }
 
@@ -5176,7 +5178,7 @@ Breadcum
     text-align: justify;
 }
 
-.cource-chapter {
+.course-chapter {
     background-color: #f7f9fa;
     flex-direction: row-reverse;
     border-left: 1px solid #d1d7dc;
@@ -5184,11 +5186,11 @@ Breadcum
     border-top: 1px solid #d1d7dc;
 }
 
-.cource-chapter:last-child {
+.course-chapter:last-child {
     border-bottom: 1px solid #d1d7dc;
 }
 
-.cource-chapter .cource-chapter-title {
+.course-chapter .course-chapter-title {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -5199,24 +5201,24 @@ Breadcum
     padding: 0.5rem 1rem;
 }
 
-.cource-chapter .cource-chapter-title i {
+.course-chapter .course-chapter-title i {
     padding-top: 2px;
 }
 
-.cource-chapter .cource-chapter-title h4 {
+.course-chapter .course-chapter-title h4 {
     padding-bottom: 0px !important;
     margin-bottom: 0px !important;
     font-size: 0px;
 }
 
-.cource-chapter .cource-chapter-title h4 a {
+.course-chapter .course-chapter-title h4 a {
     color: #000;
     font-weight: 550;
     letter-spacing: 1px;
     font-size: 24px;
 }
 
-.cource-chapter .cource-chapter-body {
+.course-chapter .course-chapter-body {
     padding: 0.5rem 1rem;
     background-color: #fff;
     font-weight: 550;
@@ -5225,7 +5227,7 @@ Breadcum
     border-top: 1px solid #d1d7dc;
 }
 
-.cource-chapter .cource-chapter-body ul li {
+.course-chapter .course-chapter-body ul li {
     display: flex;
     align-items: center;
     width: 100%;
@@ -5237,16 +5239,43 @@ Breadcum
     white-space: normal;
 }
 
-.cource-chapter .cource-chapter-body ul li a {
+.course-chapter .course-chapter-body ul li a {
     text-decoration: none;
     color: #1c1d1f;
 }
 
-.cource-chapter .cource-chapter-body ul li a:hover {
+.course-chapter .course-chapter-body ul li a:hover {
     text-decoration: none;
     color: #f63c25;
 }
 
+/* ***************************************
+                Course Review
+*************************************** */
+.course-detail .course-review .course-reviewlist .user-profile img {
+    width: 4.8rem;
+    height: 4.8rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #f63c25;
+}
+
+.course-detail .course-review .course-reviewlist .review-detail h5 {
+    font-family: sf pro display, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 1.2rem;
+}
+
+.course-detail .course-review .course-reviewlist .review-detail h6 {
+    font-family: sf pro display, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 1.1rem;
+}
 /* ***************************************
                 User Menu
 *************************************** */
@@ -5391,15 +5420,15 @@ Breadcum
     color: #fff;
 }
 
-.bt-boder-0{
+.bt-boder-0 {
     border-radius: 0px;
 }
 
 /* ***************************************
                 Dashboard Wishlist
 *************************************** */
-.wishlist .wishlist-data .cource-img .cource-img-overlay,
-.cartlist .cartlist-data .cource-img .cource-img-overlay {
+.wishlist .wishlist-data .course-img .course-img-overlay,
+.cartlist .cartlist-data .course-img .course-img-overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -5409,25 +5438,25 @@ Breadcum
     width: 100%;
 }
 
-.wishlist .wishlist-data .cource-img,
-.cartlist .cartlist-data .cource-img {
+.wishlist .wishlist-data .course-img,
+.cartlist .cartlist-data .course-img {
     position: relative;
     display: inline-block;
 }
 
-.wishlist .wishlist-data .cource-img:hover .cource-img-overlay,
-.cartlist .cartlist-data .cource-img:hover .cource-img-overlay {
+.wishlist .wishlist-data .course-img:hover .course-img-overlay,
+.cartlist .cartlist-data .course-img:hover .course-img-overlay {
     background-color: #0000007d;
     opacity: 1;
 }
 
-.wishlist .wishlist-data .cource-img:hover .heart,
-.carlist .cartlist-data .cource-img:hover .heart {
+.wishlist .wishlist-data .course-img:hover .heart,
+.carlist .cartlist-data .course-img:hover .heart {
     display: block;
 }
 
-.wishlist .wishlist-data .cource-img .heart,
-.cartlist .cartlist-data .cource-img .heart {
+.wishlist .wishlist-data .course-img .heart,
+.cartlist .cartlist-data .course-img .heart {
     padding-top: 7px;
     padding-right: 7px;
     position: absolute;
@@ -5436,8 +5465,8 @@ Breadcum
     display: none;
 }
 
-.wishlist .wishlist-data .cource-img .heart a,
-.cartlist .cartlist-data .cource-img .heart a {
+.wishlist .wishlist-data .course-img .heart a,
+.cartlist .cartlist-data .course-img .heart a {
     color: #fff;
 }
 

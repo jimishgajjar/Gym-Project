@@ -17,7 +17,7 @@ if ($wishlistData->num_rows > 0) {
             $total = 0;
             $totalAll = 0;
             while ($row = $wishlistData->fetch_assoc()) {
-                $Condition['id'] = $row['cource_id'];
+                $Condition['id'] = $row['course_id'];
                 $response = getData('course', $Condition);
                 $response = $response->fetch_assoc();
                 if (!empty($response)) { ?>
@@ -54,10 +54,10 @@ if ($wishlistData->num_rows > 0) {
                             </div>
                         </div>
                         <div class="user-cart-content">
-                            <a href="javascript:void(0);" onclick="addToCartFromWishlist('<?php echo $row['cource_id']; ?>');" class="tp-btn btn-block">
+                            <a href="javascript:void(0);" onclick="addToCartFromWishlist('<?php echo $row['course_id']; ?>');" class="tp-btn btn-block">
                                 Add to cart
                             </a>
-                            <a href="javascript:void(0);" onclick="deleteFromWishlist('<?php echo $row['cource_id']; ?>');" class="tp-btn" style="width: 50px;">
+                            <a href="javascript:void(0);" onclick="deleteFromWishlist('<?php echo $row['course_id']; ?>');" class="tp-btn" style="width: 50px;">
                                 <i class="fas fa-heart"></i>
                             </a>
                         </div>

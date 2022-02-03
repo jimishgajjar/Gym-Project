@@ -4,6 +4,7 @@ include "include/queryFunction.php";
 
 $categoryPath = "assets/category/";
 $thumbnailPath = "assets/thumbnail/";
+$userProfilePath = "assets/userprofile/";
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -36,5 +37,8 @@ $thumbnailPath = "assets/thumbnail/";
     <link rel="stylesheet" href="assets/css/responsive.css" />
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!-- <script src="assets/js/jquery-3.2.1.min.js"></script> -->
 
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="jquery.rating.js"></script>
 </head>

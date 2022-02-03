@@ -97,11 +97,11 @@ include('header.php');
                                             <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept="image/png, image/jpeg" />
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="price">Cource Price</label>
+                                            <label for="price">course Price</label>
                                             <input type="text" class="form-control" name="price" id="price" placeholder="Course Price" value="<?php echo $response['price'] ?>" required>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="discount">Cource Discount</label>
+                                            <label for="discount">course Discount</label>
                                             <input type="text" class="form-control" name="discount" id="discount" placeholder="Course Discount" value="<?php echo $response['discount'] ?>" required>
                                         </div>
                                     </div>
@@ -154,11 +154,11 @@ include('header.php');
                                             <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept="image/png, image/jpeg" />
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="price">Cource Price</label>
+                                            <label for="price">course Price</label>
                                             <input type="text" class="form-control" name="price" id="price" placeholder="Course Price" value="" required>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="discount">Cource Discount</label>
+                                            <label for="discount">course Discount</label>
                                             <input type="text" class="form-control" name="discount" id="discount" placeholder="Course Discount" value="" required>
                                         </div>
                                     </div>

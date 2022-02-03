@@ -44,6 +44,7 @@ include('header.php');
                     <div id="dashboardMenu" class="d-flex flex-wrap justify-content-center pb-4">
                         <a href="javascript:void(0);" id="userprofile" class="btn pr-btn m-2">Profile</a>
                         <a href="javascript:void(0);" id="changepassword" class="btn pr-btn m-2">Change Password</a>
+                        <a href="javascript:void(0);" id="mycourse" class="btn pr-btn m-2">My Course</a>
                         <a href="javascript:void(0);" id="wishlist" class="btn pr-btn m-2">Wishlist</a>
                         <a href="javascript:void(0);" id="cartlist" class="btn pr-btn m-2">Cart</a>
                     </div>
@@ -61,7 +62,7 @@ include('header.php');
                                     <div class="col-md-4">
                                         <div class="row justify-content-md-center">
                                             <div class="col-md-12 text-center">
-                                                <img src="assets/userprofile/<?php echo $userDataResponse['profile_pic']; ?>" id="user_pic" alt="user_pic" width="150" height="150" style="border-radius: 50%;" />
+                                                <img src="<?php echo $userProfilePath . $userDataResponse['profile_pic']; ?>" id="user_pic" alt="user_pic" width="150" height="150" style="border-radius: 50%;" />
                                             </div>
                                             <div class="col-md-12 d-flex flex-wrap justify-content-center mt-3" id="upload_div">
                                                 <a href="#" name="upload_pic" id="upload_pic" class="btn btn-primary m-1">Upload Photo</a>
@@ -158,6 +159,72 @@ include('header.php');
                             </form>
                         </div>
 
+                        <div class="mycourse">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <h4 class="title">My Course</h4>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="mycourse-data">
+                                <?php
+                                $user_coursesCondition['user_id'] = $_SESSION["userId"];
+                                $user_coursesData = getData('user_courses', $user_coursesCondition);
+                                $total = 0;
+                                $totalAll = 0;
+                                if ($user_coursesData->num_rows > 0) { ?>
+                                    <div class="row">
+                                        <?php while ($row = $user_coursesData->fetch_assoc()) {
+                                            $Condition['id'] = $row['course_id'];
+                                            $response = getData('course', $Condition);
+                                            $response = $response->fetch_assoc();
+                                            if (!empty($response)) {
+                                                $categoryCondition['id'] = $response['category_id'];
+                                                $categoryResponse = getData('category', $categoryCondition);
+                                                $categoryResponse = $categoryResponse->fetch_assoc();
+                                        ?>
+                                                <div class="col-md-3 mb-25">
+                                                    <div class="course">
+                                                        <a href="" class="course-link">
+                                                            <img class="course-thumbline" src="assets/thumbnail/<?php echo $response['thumbnail']; ?>" alt="course1" />
+                                                            <div class="course-content">
+                                                                <div style="height: 130px;">
+                                                                    <div class="course-category mb-1">
+                                                                        <?php echo $categoryResponse['category_name']; ?>
+                                                                    </div>
+                                                                    <div class="course-title mb-1">
+                                                                        <?php
+                                                                        if (strlen($response['title']) >= 85) {
+                                                                            echo substr($response['title'], 0, 85) . "...";
+                                                                        } else {
+                                                                            echo substr($response['title'], 0, 85);
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                    <div class="course-rating mb-1">
+                                                                        <h6 class="course-rating-num">(<?php echo $response['rating']; ?>)</h6>
+                                                                        <span class="stars"><?php echo $response['rating']; ?></span>
+                                                                    </div>
+                                                                </div>
+                                                                <a href="courseDetailView.php?view=<?php echo $response['id'] ?>" class="btn btn-primary btn-100">View Course</a>
+                                                            </div>
+                                                            <!-- </a> -->
+                                                    </div>
+                                                </div>
+                                        <?php }
+                                        } ?>
+                                    </div>
+                                <?php } else { ?>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <h4 class="p-5">No products in your course.</h4>
+                                            <a class="mb-20 btn btn-primary" href="index.php">Browse courses now</a>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+
                         <div class="wishlist">
                             <div class="row">
                                 <div class="col-md-12 text-center">
@@ -173,17 +240,17 @@ include('header.php');
                                 $totalAll = 0;
                                 if ($wishlistData->num_rows > 0) {
                                     while ($row = $wishlistData->fetch_assoc()) {
-                                        $Condition['id'] = $row['cource_id'];
+                                        $Condition['id'] = $row['course_id'];
                                         $response = getData('course', $Condition);
                                         $response = $response->fetch_assoc();
                                         if (!empty($response)) { ?>
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <div class="cource-img">
+                                                    <div class="course-img">
                                                         <img src="<?php echo $thumbnailPath . $response['thumbnail']; ?>" />
-                                                        <div class="cource-img-overlay">
+                                                        <div class="course-img-overlay">
                                                         </div>
-                                                        <div class="heart"><a href="#"><i class="fas fa-heart fa-lg"></i></a></div>
+                                                        <div class="heart"><a href="include/UserSubmitData.php?moduleMethod=cart&module=moveWishToCartDash&Dashcourse_id=<?php echo $response['id']; ?>"><i class="fas fa-heart fa-lg"></i></a></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-9">
@@ -213,6 +280,9 @@ include('header.php');
                                                         $totalAll += $response['price'];
                                                         ?>
                                                     </h6>
+                                                    <div class="d-flex bd-highlight">
+                                                        <div class="pr-2 flex-fill bd-highlight"><a href="include/UserSubmitData.php?moduleMethod=cart&module=moveWishToCartDash&Dashcourse_id=<?php echo $row['course_id']; ?>">Add to cart</a></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <hr>
@@ -237,7 +307,6 @@ include('header.php');
                             </div>
                             <hr>
                             <div class="cartlist-data">
-
                                 <?php
                                 $WhishlistCondition['user_id'] = $_SESSION["userId"];
                                 $userCartData = getData('cart', $WhishlistCondition);
@@ -247,15 +316,15 @@ include('header.php');
                                     <div class="row">
                                         <div class="col-md-9">
                                             <?php while ($row = $userCartData->fetch_assoc()) {
-                                                $Condition['id'] = $row['cource_id'];
+                                                $Condition['id'] = $row['course_id'];
                                                 $response = getData('course', $Condition);
                                                 $response = $response->fetch_assoc();
                                                 if (!empty($response)) { ?>
                                                     <div class="row">
                                                         <div class="col-md-3">
-                                                            <div class="cource-img">
+                                                            <div class="course-img">
                                                                 <img src="<?php echo $thumbnailPath . $response['thumbnail']; ?>" />
-                                                                <div class="cource-img-overlay">
+                                                                <div class="course-img-overlay">
                                                                 </div>
                                                                 <div class="heart"><a href="#"><i class="fas fa-heart fa-lg"></i></a></div>
                                                             </div>
@@ -288,8 +357,8 @@ include('header.php');
                                                                 ?>
                                                             </h6>
                                                             <div class="d-flex bd-highlight">
-                                                                <div class="pr-2 flex-fill bd-highlight"><a href="include/UserSubmitData.php?moduleMethod=cart&module=deleteCartFromDash&cource_id=<?php echo $row['cource_id']; ?>">Remove</a></div>
-                                                                <div class="pl-2 flex-fill bd-highlight"><a href="include/UserSubmitData.php?moduleMethod=wishlist&module=moveCartToWishlist&cource_id=<?php echo $row['cource_id']; ?>">Move to Wishlist</a></div>
+                                                                <div class="pr-2 flex-fill bd-highlight"><a href="include/UserSubmitData.php?moduleMethod=cart&module=deleteCartFromDash&course_id=<?php echo $row['course_id']; ?>">Remove</a></div>
+                                                                <div class="pl-2 flex-fill bd-highlight"><a href="include/UserSubmitData.php?moduleMethod=wishlist&module=moveCartToWishlistDash&course_id=<?php echo $row['course_id']; ?>">Move to Wishlist</a></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -305,7 +374,7 @@ include('header.php');
                                                         <h4 style="letter-spacing: 0.5px; font-weight: 600;">₹<?php echo $total; ?></h4>
                                                         <h5 style="letter-spacing: 0.5px; font-weight: 600; color: #8c8c8c;"><s>₹<?php echo $totalAll; ?></s></h5>
                                                     </h3>
-                                                    <a href="courseDetailView.php?module=&moduleMethod=" class="mt-3 bt-boder-0 btn btn-primary btn-100">Checkout</a>
+                                                    <a href="payment.php" class="mt-3 bt-boder-0 btn btn-primary btn-100">Checkout</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -334,6 +403,7 @@ include('header.php');
 
             $(".userprofile").show();
             $(".changepassword").hide();
+            $(".mycourse").hide();
             $(".wishlist").hide();
             $(".cartlist").hide();
         <?php } ?>
@@ -344,6 +414,18 @@ include('header.php');
 
             $(".changepassword").show();
             $(".userprofile").hide();
+            $(".mycourse").hide();
+            $(".wishlist").hide();
+            $(".cartlist").hide();
+        <?php } ?>
+
+        <?php if ($_REQUEST['dasboard'] == "mycourse") { ?>
+            $('#dashboardMenu a').removeClass("pr-btn-active");
+            $('#mycourse').addClass("pr-btn-active");
+
+            $(".mycourse").show();
+            $(".userprofile").hide();
+            $(".changepassword").hide();
             $(".wishlist").hide();
             $(".cartlist").hide();
         <?php } ?>
@@ -355,6 +437,7 @@ include('header.php');
             $(".wishlist").show();
             $(".userprofile").hide();
             $(".changepassword").hide();
+            $(".mycourse").hide();
             $(".cartlist").hide();
         <?php } ?>
 
@@ -365,6 +448,7 @@ include('header.php');
             $(".cartlist").show();
             $(".userprofile").hide();
             $(".changepassword").hide();
+            $(".mycourse").hide();
             $(".wishlist").hide();
         <?php } ?>
 
@@ -374,6 +458,7 @@ include('header.php');
 
             $(".userprofile").show();
             $(".changepassword").hide();
+            $(".mycourse").hide();
             $(".wishlist").hide();
             $(".cartlist").hide();
         });
@@ -384,8 +469,20 @@ include('header.php');
 
             $(".changepassword").show();
             $(".userprofile").hide();
+            $(".mycourse").hide();
             $(".wishlist").hide();
             $(".cartlist").hide();
+        });
+
+        $("#mycourse").click(function() {
+            $('#dashboardMenu a').removeClass("pr-btn-active");
+            $(this).addClass("pr-btn-active");
+
+            $(".mycourse").show();
+            $(".cartlist").hide();
+            $(".userprofile").hide();
+            $(".changepassword").hide();
+            $(".wishlist").hide();
         });
 
         $("#wishlist").click(function() {
@@ -394,6 +491,7 @@ include('header.php');
 
             $(".wishlist").show();
             $(".userprofile").hide();
+            $(".mycourse").hide();
             $(".changepassword").hide();
             $(".cartlist").hide();
         });
@@ -404,6 +502,7 @@ include('header.php');
 
             $(".cartlist").show();
             $(".userprofile").hide();
+            $(".mycourse").hide();
             $(".changepassword").hide();
             $(".wishlist").hide();
         });
@@ -431,7 +530,7 @@ include('header.php');
         });
 
         $("#remove_pic").click(function() {
-            $('#user_pic').attr('src', "assets/userprofile/<?php echo $userDataResponse['profile_pic']; ?>");
+            $('#user_pic').attr('src', "<?php echo $userProfilePath . $userDataResponse['profile_pic']; ?>");
             $("#profile_pic").val("");
             $("#remove_pic").css('display', 'none');
         });

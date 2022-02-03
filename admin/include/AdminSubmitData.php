@@ -286,11 +286,11 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     }
                     if (!empty($courseAddDataResponse)) {
                         $alert_type = "alert-success";
-                        $alert_message = "Cource added successfully.";
+                        $alert_message = "course added successfully.";
                         echo "<script>window.location.replace('../course.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                     } else {
                         $alert_type = "alert-danger";
-                        $alert_message = "Cource is not added.";
+                        $alert_message = "course is not added.";
                         echo "<script>window.location.replace('../course.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                     }
                 }

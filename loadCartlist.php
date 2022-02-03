@@ -26,7 +26,7 @@ if ($cartDataResponse->num_rows > 0) {
             $total = 0;
             $totalAll = 0;
             while ($row = $cartDataResponse->fetch_assoc()) {
-                $Condition['id'] = $row['cource_id'];
+                $Condition['id'] = $row['course_id'];
                 $response = getData('course', $Condition);
                 $response = $response->fetch_assoc();
                 if (!empty($response)) {                        ?>
