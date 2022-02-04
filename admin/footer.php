@@ -27,6 +27,7 @@
 <script src="assets/js/pages/form-advance-custom.js"></script>
 <!-- file-upload Js -->
 <script src="assets/js/plugins/dropzone-amd-module.min.js"></script>
+<script src="assets/js/gym-admin.js"></script>
 <script>
     // $(document).ready(function() {
     //     checkCookie();

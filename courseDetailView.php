@@ -63,39 +63,53 @@ include('header.php');
                                             Go to cart
                                         </a>
                                     <?php } ?>
+                                    <a href="#" class="detail-btn buy pl-5 pr-5">
+                                        Buy now
+                                    </a>
                                 <?php } else { ?>
                                     <?php
-                                    $WACondition['user_id'] = $_SESSION["userId"];
-                                    $WACondition['course_id'] = $_GET['view'];
-                                    $wishlistDataResponse = getData('wishlist', $WACondition);
-                                    $wishlistDataResponse = $wishlistDataResponse->fetch_assoc();
-                                    if (empty($wishlistDataResponse)) {
-                                    ?>
-                                        <a href="include/UserSubmitData.php?moduleMethod=wishlist&module=wishlistAdd&whislistId=<?php echo $response['id']; ?>" class="detail-btn wishlist">
-                                            <i class="far fa-heart"></i>
-                                        </a>
-                                    <?php } else { ?>
-                                        <a href="include/UserSubmitData.php?moduleMethod=wishlist&module=wishlistDelete&whislistId=<?php echo $response['id']; ?>" class="detail-btn wishlist">
-                                            <i class="fas fa-heart"></i>
-                                        </a>
-                                    <?php } ?>
-                                    <?php
-                                    $cartDataResponse = getData('cart', $WACondition);
-                                    $cartDataResponse = $cartDataResponse->fetch_assoc();
-                                    if (empty($cartDataResponse)) {
-                                    ?>
+                                    $userCoursesCondition['user_id'] = $_SESSION["userId"];
+                                    $userCoursesCondition['course_id'] = $_GET['view'];
+                                    $userCoursesResponse = getData('user_courses', $userCoursesCondition);
+                                    $userCoursesResponse = $userCoursesResponse->fetch_assoc();
+                                    if (!empty($userCoursesResponse)) { ?>
                                         <a href="include/UserSubmitData.php?moduleMethod=cart&module=cartAdd&cartId=<?php echo $response['id']; ?>" class="detail-btn pl-5 pr-5">
-                                            Add to cart
+                                            Go to course
                                         </a>
-                                    <?php } else { ?>
-                                        <a href="javascript:void(0);" onclick="loadCartlist();" class="offset-side-bar-cart xs-modal-popup detail-btn cart pl-5 pr-5">
-                                            Go to cart
+                                        <?php } else {
+                                        $WACondition['user_id'] = $_SESSION["userId"];
+                                        $WACondition['course_id'] = $_GET['view'];
+                                        $wishlistDataResponse = getData('wishlist', $WACondition);
+                                        $wishlistDataResponse = $wishlistDataResponse->fetch_assoc();
+                                        if (empty($wishlistDataResponse)) {
+                                        ?>
+                                            <a href="include/UserSubmitData.php?moduleMethod=wishlist&module=wishlistAdd&whislistId=<?php echo $response['id']; ?>" class="detail-btn wishlist">
+                                                <i class="far fa-heart"></i>
+                                            </a>
+                                        <?php } else { ?>
+                                            <a href="include/UserSubmitData.php?moduleMethod=wishlist&module=wishlistDelete&whislistId=<?php echo $response['id']; ?>" class="detail-btn wishlist">
+                                                <i class="fas fa-heart"></i>
+                                            </a>
+                                        <?php } ?>
+                                        <?php
+                                        $cartDataResponse = getData('cart', $WACondition);
+                                        $cartDataResponse = $cartDataResponse->fetch_assoc();
+                                        if (empty($cartDataResponse)) {
+                                        ?>
+                                            <a href="include/UserSubmitData.php?moduleMethod=cart&module=cartAdd&cartId=<?php echo $response['id']; ?>" class="detail-btn pl-5 pr-5">
+                                                Add to cart
+                                            </a>
+                                        <?php } else { ?>
+                                            <a href="javascript:void(0);" onclick="loadCartlist();" class="offset-side-bar-cart xs-modal-popup detail-btn cart pl-5 pr-5">
+                                                Go to cart
+                                            </a>
+                                        <?php } ?>
+                                        <a href="#" class="detail-btn buy pl-5 pr-5">
+                                            Buy now
                                         </a>
-                                    <?php } ?>
-                                <?php } ?>
-                                <a href="#" class="detail-btn buy pl-5 pr-5">
-                                    Buy now
-                                </a>
+                                <?php
+                                    }
+                                } ?>
                             </div>
                         </div>
                         <div class="col-md-4 col-md-pull-4">
@@ -154,7 +168,7 @@ include('header.php');
                                 $checkReviewCondition['course_id'] = $_GET['view'];
                                 $checkReviewResponse = getData('user_courses', $checkReviewCondition);
                                 $checkReviewResponse = $checkReviewResponse->fetch_assoc();
-                                
+
                                 if (!empty($checkReviewResponse)) { ?>
                                     <form action="include/UserSubmitData.php" method="POST" class="xs-form">
                                         <input type="hidden" name="module" value="course_reviewAdd">
@@ -195,7 +209,7 @@ include('header.php');
                                                 <h5><?php echo $userDataResponse['full_name']; ?></h5>
                                                 <div class="course-rating mb-2">
                                                     <h6 class="course-rating-num">(<?php echo $reviewResponseRow['rating']; ?>)</h6>
-                                                    <span class="stars">reviewResponseRow</span>
+                                                    <span class="stars"><?php echo $reviewResponseRow['rating']; ?></span>
                                                 </div>
                                                 <h6><?php echo $reviewResponseRow['title']; ?></h6>
                                                 <p style="font-size: 1.1rem;"><?php echo $reviewResponseRow['description']; ?></p>

@@ -9,6 +9,7 @@ $module = $_REQUEST['module'];
 
 $categoryPath = "../../assets/category/";
 $thumbnailPath = "../../assets/thumbnail/";
+$coursePath = "../../assets/coursedocumnets/";
 
 if (!empty($_REQUEST['moduleMethod'])) {
     // admin Login
@@ -415,6 +416,71 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 $alert_type = "alert-danger";
                 $alert_message = "Course is not deleted.";
                 echo "<script>window.location.replace('../categoryList.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            }
+        }
+    }
+
+    // Course Content Upload 
+    if ($module == "courseUpload" && $moduleMethod == "course_chapter") {
+        if (isset($_POST['courseUploadSub'])) {
+            $uniqid = uniqid();
+            $courseChapter = array(
+                'id' => $uniqid,
+                'course_id' => $_POST['course_id'],
+                'chapter_title' => $_POST['chapter_title'],
+                'date_entered' => date("Y-m-d H:i:s"),
+                'date_modified' => date("Y-m-d H:i:s"),
+                'modified_user_id' => $_SESSION["adminId"],
+                'created_by' => $_SESSION["adminId"],
+                'deleted' => 0,
+            );
+            $courseChapterResponse = insertData($moduleMethod, $courseChapter);
+            if (!empty($courseChapterResponse)) {
+                $maxsize = 5242880; // 5MB
+                for ($x = 0; $x <= $_POST['course_content_count']; $x++) {
+                    echo 'upload_doc~' . $x;
+                    if (isset($_FILES['upload_doc~' . $x]['name']) && $_FILES['upload_doc~' . $x]['name'] != '') {
+                        $name = $_FILES['upload_doc~' . $x]['name'];
+                        $target_dir = $coursePath;
+                        $target_file = $target_dir . $_FILES['upload_doc~' . $x]["name"];
+
+                        // Select file type
+                        $extension = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+                        // Valid file extensions
+                        $extensions_arr = array("mp4", "avi", "3gp", "mov", "mpeg");
+
+                        // Check extension
+                        if (in_array($extension, $extensions_arr)) {
+                            // Check file size
+                            if (($_FILES['upload_doc~' . $x]['size'] >= $maxsize) || ($_FILES['upload_doc~' . $x]["size"] == 0)) {
+                                $_SESSION['message'] = "File too large. File must be less than 5MB.";
+                            } else {
+                                // Upload
+                                $extension = pathinfo($_FILES['upload_doc~' . $x]["name"], PATHINFO_EXTENSION);
+                                $path = $target_dir . $_POST['course_id'] . "_" . $x . "." . $extension;
+                                if (move_uploaded_file($_FILES['upload_doc~' . $x]["tmp_name"], $path)) {
+                                    $courseContent = array(
+                                        'id' => uniqid(),
+                                        'chapter_id' => $uniqid,
+                                        'doc_title' => $_POST['doc_title~' . $x],
+                                        'document_path' => $_POST['course_id'] . "_" . $x . "." . $extension,
+                                        'date_entered' => date("Y-m-d H:i:s"),
+                                        'date_modified' => date("Y-m-d H:i:s"),
+                                        'modified_user_id' => $_SESSION["adminId"],
+                                        'created_by' => $_SESSION["adminId"],
+                                        'deleted' => 0,
+                                    );
+                                    $courseContentResponse = insertData('course_content', $courseContent);
+                                }
+                            }
+                        } else {
+                            $_SESSION['message'] = "Invalid file extension.";
+                        }
+                    } else {
+                        $_SESSION['message'] = "Please select a file.";
+                    }
+                }
             }
         }
     }

@@ -81,19 +81,47 @@ include('header.php');
                                 </div>
                                 <div class="card-body">
                                     <form action="include/AdminSubmitData.php" method="POST" enctype="multipart/form-data">
-                                        <input type="hidden" name="module" value="courseAdd">
-                                        <input type="hidden" name="moduleMethod" value="course">
+                                        <input type="hidden" name="module" value="courseUpload">
+                                        <input type="hidden" name="moduleMethod" value="course_chapter">
+                                        <input type="hidden" name="course_id" value="<?php echo $response['id']; ?>">
+                                        <input type="hidden" name="course_content_count" id="course_content_count" value="0">
                                         <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="title">Title (required)</label>
-                                                <input type="text" class="form-control" name="title" id="title" placeholder="Course title" value="" required>
+                                            <div class="form-group col-md-12">
+                                                <label for="chapter_title">Main Chapter Title (required)</label>
+                                                <input type="text" class="form-control" name="chapter_title" id="chapter_title" placeholder="Course Title" value="" required>
                                             </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="small_description">Course Small Description</label>
-                                                <textarea class="form-control" id="small_description" name="small_description" rows="3" placeholder="Course Small Description" required></textarea>
+                                            <!-- <div class="form-group col-md-12">
+                                                <label for="upload_doc">Upload Video & Files</label>
+                                                <input type="file" class="form-control" name="documents[]" id="documents" placeholder="Upload Video & Files" value="" multiple required>
+                                            </div> -->
+                                        </div>
+
+                                        <div class="row mt-5 mb-2">
+                                            <div class="col-md-12">
+                                                <h5>Upload Multiple Video Course</h5>
                                             </div>
                                         </div>
-                                        <button type="submit" name="courseub" value="courseub" class="btn btn-primary">Submit</button>
+
+                                        <div class="row mb-4">
+                                            <div class="col-md-12 text-center">
+                                                <a id="addContentRow" style="color: #fff;" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                                                <a id="deleteContentRow" style="color: #fff;" class="btn btn-primary"><i class="fas fa-minus"></i></a>
+                                            </div>
+                                        </div>
+
+                                        <div id="course_content">
+                                            <div class="row" id="content~0">
+                                                <div class="col-md-6 form-group">
+                                                    <label for="doc_title~0">Document Title</label>
+                                                    <input type="text" class="form-control" name="doc_title~0" id="doc_title~0" placeholder="Document Title" value="" required>
+                                                </div>
+                                                <div class="col-md-6 form-group">
+                                                    <label for="upload_doc~0">Upload Video & Files</label>
+                                                    <input type="file" class="form-control" name="upload_doc~0" id="upload_doc~0" placeholder="Upload Video & Files" value="" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" name="courseUploadSub" class="btn btn-primary">Submit</button>
                                     </form>
                                 </div>
                             </div>
