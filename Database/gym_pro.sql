@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2022 at 06:20 PM
+-- Generation Time: Feb 04, 2022 at 07:21 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -137,6 +137,57 @@ INSERT INTO `course` (`id`, `category_id`, `title`, `small_description`, `descri
 ('61ae105cb949a', '61ae0b8b3f476', 'Learning Python for Data Analysis and Visualization', 'Learn python and how to use it to analyze,visualize and present data. Includes tons of sample code and hours of video!', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'Course 5', '61ae105cb949a.jpg', '5.0', '525', '0', '2021-12-06 19:00:04', '2021-12-15 22:21:25', '61952d7816277', '61952d7816277', 0),
 ('61ae10ac70735', '61ae0b977d08e', 'Python for Data Structures, Algorithms, and Interviews!', 'Get a kick start on your career and ace your coding interviews!', '<p>qwqwqwqwwqwqwq</p><p>&nbsp;</p><p><strong>dddddddddddddddddddddddd</strong></p><p>&nbsp;</p><p>&nbsp;</p>', 'Course 6', '61ae10ac70735.jpg', '4.2', '525', '10', '2021-12-06 19:01:24', '2021-12-15 00:30:29', '61952d7816277', '61952d7816277', 0),
 ('61b8e7615a900', '61ae0b977d08e', 'Django 2.2 & Python | The Ultimate Web Development Bootcamp', 'Build three complete websites, learn back and front-end web development, and publish your site online with DigitalOcean', '<p>Test <strong>1</strong>1<strong>1</strong>1 Hello</p><h2>123</h2><p>&nbsp;</p><p><a href=\"jimishgajjar.in\">jimishgajjar.in</a></p>', '123,456,789', '61b8e7615a900.jpg', '0.0', '525', '0', '2021-12-15 00:20:09', '2021-12-15 00:25:14', '61952d7816277', '61952d7816277', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course_chapter`
+--
+
+CREATE TABLE `course_chapter` (
+  `id` varchar(255) NOT NULL,
+  `course_id` varchar(255) NOT NULL,
+  `chapter_title` varchar(255) NOT NULL,
+  `date_entered` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  `modified_user_id` varchar(255) NOT NULL,
+  `created_by` varchar(255) NOT NULL,
+  `deleted` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `course_chapter`
+--
+
+INSERT INTO `course_chapter` (`id`, `course_id`, `chapter_title`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('61fd6ea6da174', '61ae0f7abf646', 'Test', '2022-02-04 23:51:26', '2022-02-04 23:51:26', '61952d7816277', '61952d7816277', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course_content`
+--
+
+CREATE TABLE `course_content` (
+  `id` varchar(255) NOT NULL,
+  `chapter_id` varchar(255) NOT NULL,
+  `doc_title` text NOT NULL,
+  `document_path` text NOT NULL,
+  `date_entered` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  `modified_user_id` varchar(255) NOT NULL,
+  `created_by` varchar(255) NOT NULL,
+  `deleted` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `course_content`
+--
+
+INSERT INTO `course_content` (`id`, `chapter_id`, `doc_title`, `document_path`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('61fd6ea6dd718', '61fd6ea6da174', 'video 1', '61ae0f7abf646_0.mp4', '2022-02-04 23:51:26', '2022-02-04 23:51:26', '61952d7816277', '61952d7816277', 0),
+('61fd6ea6de0ba', '61fd6ea6da174', 'video 2', '61ae0f7abf646_1.mp4', '2022-02-04 23:51:26', '2022-02-04 23:51:26', '61952d7816277', '61952d7816277', 0),
+('61fd6ea6e4c34', '61fd6ea6da174', 'video 3', '61ae0f7abf646_2.mp4', '2022-02-04 23:51:26', '2022-02-04 23:51:26', '61952d7816277', '61952d7816277', 0);
 
 -- --------------------------------------------------------
 
@@ -300,6 +351,18 @@ ALTER TABLE `category`
 -- Indexes for table `course`
 --
 ALTER TABLE `course`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `course_chapter`
+--
+ALTER TABLE `course_chapter`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `course_content`
+--
+ALTER TABLE `course_content`
   ADD PRIMARY KEY (`id`);
 
 --
