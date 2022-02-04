@@ -10,6 +10,7 @@ $module = $_REQUEST['module'];
 $categoryPath = "../../assets/category/";
 $thumbnailPath = "../../assets/thumbnail/";
 $coursePath = "../../assets/coursedocumnets/";
+$errorMSG = "";
 
 if (!empty($_REQUEST['moduleMethod'])) {
     // admin Login
@@ -42,33 +43,35 @@ if (!empty($_REQUEST['moduleMethod'])) {
             // Check if image file is a actual image or fake image
             $check = getimagesize($_FILES["category_img"]["tmp_name"]);
             if ($check !== false) {
-                echo "File is an image - " . $check["mime"] . ".";
+                $errorMSG = "File is an image - " . $check["mime"] . ".";
                 $uploadOk = 1;
             } else {
-                echo "File is not an image.";
+                $errorMSG = "File is not an image.";
                 $uploadOk = 0;
             }
 
             // Check if file already exists
             if (file_exists($target_file)) {
-                echo "Sorry, file already exists.";
+                $errorMSG = "Sorry, file already exists.";
                 $uploadOk = 0;
             }
 
             // Check file size
             if ($_FILES["category_img"]["size"] > 500000) {
-                echo "Sorry, your file is too large.";
+                $errorMSG = "Sorry, your file is too large.";
                 $uploadOk = 0;
             }
 
             // Allow certain file formats
             if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-                echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                $errorMSG = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
                 $uploadOk = 0;
             }
             // Check if $uploadOk is set to 0 by an error
             if ($uploadOk == 0) {
-                echo "Sorry, your file was not uploaded.";
+                $alert_type = "alert-danger";
+                $alert_message = "Sorry, your file was not uploaded. due to <span>" . $errorMSG . "</span>";
+                echo "<script>window.location.replace('../category.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                 // if everything is ok, try to upload file
             } else {
                 $uniqid = uniqid();
@@ -120,22 +123,22 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     // Check if image file is a actual image or fake image
                     $check = getimagesize($_FILES["category_img"]["tmp_name"]);
                     if ($check !== false) {
-                        echo "File is an image - " . $check["mime"] . ".";
+                        $errorMSG = "File is an image - " . $check["mime"] . ".";
                         $uploadOk = 1;
                     } else {
-                        echo "File is not an image.";
+                        $errorMSG = "File is not an image.";
                         $uploadOk = 0;
                     }
 
                     // Check if file already exists
                     if (file_exists($target_file)) {
-                        echo "Sorry, file already exists.";
+                        $errorMSG = "Sorry, file already exists.";
                         $uploadOk = 0;
                     }
 
                     // Check file size
                     if ($_FILES["category_img"]["size"] > 500000) {
-                        echo "Sorry, your file is too large.";
+                        $errorMSG = "Sorry, your file is too large.";
                         $uploadOk = 0;
                     }
 
@@ -143,13 +146,15 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     if (
                         $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                     ) {
-                        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                        $errorMSG = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
                         $uploadOk = 0;
                     }
 
                     // Check if $uploadOk is set to 0 by an error
                     if ($uploadOk == 0) {
-                        echo "Sorry, your file was not uploaded.";
+                        $alert_type = "alert-danger";
+                        $alert_message = "Sorry, your file was not uploaded. due to <span>" . $errorMSG . "</span>";
+                        echo "<script>window.location.replace('../categoryList.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                         // if everything is ok, try to upload file
                     } else {
                         $extension = pathinfo($_FILES["category_img"]["name"], PATHINFO_EXTENSION);
@@ -166,7 +171,9 @@ if (!empty($_REQUEST['moduleMethod'])) {
                             $Condition['id'] = $_POST["edit"];
                             $categoryEditResponse = updateData($moduleMethod, $categoryEditData, $Condition);
                         } else {
-                            echo "Sorry, there was an error uploading your file.";
+                            $alert_type = "alert-danger";
+                            $alert_message = "Sorry, your file was not uploaded. due to <span>" . $errorMSG . "</span>";
+                            echo "<script>window.location.replace('../categoryList.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                         }
                     }
                 }
@@ -226,22 +233,22 @@ if (!empty($_REQUEST['moduleMethod'])) {
             if (isset($_POST["courseub"])) {
                 $check = getimagesize($_FILES["thumbnail"]["tmp_name"]);
                 if ($check !== false) {
-                    echo "File is an image - " . $check["mime"] . ".";
+                    $errorMSG = "File is an image - " . $check["mime"] . ".";
                     $uploadOk = 1;
                 } else {
-                    echo "File is not an image.";
+                    $errorMSG = "File is not an image.";
                     $uploadOk = 0;
                 }
 
                 // Check if file already exists
                 if (file_exists($target_file)) {
-                    echo "Sorry, file already exists.";
+                    $errorMSG = "Sorry, file already exists.";
                     $uploadOk = 0;
                 }
 
                 // Check file size
                 if ($_FILES["thumbnail"]["size"] > 500000) {
-                    echo "Sorry, your file is too large.";
+                    $errorMSG = "Sorry, your file is too large.";
                     $uploadOk = 0;
                 }
 
@@ -250,13 +257,15 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                     && $imageFileType != "gif"
                 ) {
-                    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                    $errorMSG = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
                     $uploadOk = 0;
                 }
 
                 // Check if $uploadOk is set to 0 by an error
                 if ($uploadOk == 0) {
-                    echo "Sorry, your file was not uploaded.";
+                    $alert_type = "alert-danger";
+                    $alert_message = "Sorry, your file was not uploaded. due to <span>" . $errorMSG . "</span>";
+                    echo "<script>window.location.replace('../course.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                     // if everything is ok, try to upload file
                 } else {
                     $uniqid = uniqid();
@@ -283,7 +292,9 @@ if (!empty($_REQUEST['moduleMethod'])) {
                         );
                         $courseAddDataResponse = insertData($moduleMethod, $courseAddData);
                     } else {
-                        echo "Sorry, there was an error uploading your file.";
+                        $alert_type = "alert-danger";
+                        $alert_message = "Sorry, your file was not uploaded. due to <span>" . $errorMSG . "</span>";
+                        echo "<script>window.location.replace('../course.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                     }
                     if (!empty($courseAddDataResponse)) {
                         $alert_type = "alert-success";
@@ -316,22 +327,22 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     // Check if image file is a actual image or fake image
                     $check = getimagesize($_FILES["thumbnail"]["tmp_name"]);
                     if ($check !== false) {
-                        echo "File is an image - " . $check["mime"] . ".";
+                        $errorMSG = "File is an image - " . $check["mime"] . ".";
                         $uploadOk = 1;
                     } else {
-                        echo "File is not an image.";
+                        $errorMSG = "File is not an image.";
                         $uploadOk = 0;
                     }
 
                     // Check if file already exists
                     if (file_exists($target_file)) {
-                        echo "Sorry, file already exists.";
+                        $errorMSG = "Sorry, file already exists.";
                         $uploadOk = 0;
                     }
 
                     // Check file size
                     if ($_FILES["thumbnail"]["size"] > 500000) {
-                        echo "Sorry, your file is too large.";
+                        $errorMSG = "Sorry, your file is too large.";
                         $uploadOk = 0;
                     }
 
@@ -339,13 +350,15 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     if (
                         $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                     ) {
-                        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                        $errorMSG = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
                         $uploadOk = 0;
                     }
 
                     // Check if $uploadOk is set to 0 by an error
                     if ($uploadOk == 0) {
-                        echo "Sorry, your file was not uploaded.";
+                        $alert_type = "alert-danger";
+                        $alert_message = "Sorry, your file was not uploaded. due to <span>" . $errorMSG . "</span>";
+                        echo "<script>window.location.replace('../courseList.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                         // if everything is ok, try to upload file
                     } else {
                         $extension = pathinfo($_FILES["thumbnail"]["name"], PATHINFO_EXTENSION);
@@ -368,7 +381,9 @@ if (!empty($_REQUEST['moduleMethod'])) {
                             $Condition['id '] = $_POST["course_id"];
                             $courseEditDataResponse = updateData($moduleMethod, $courseEditData, $Condition);
                         } else {
-                            echo "Sorry, there was an error uploading your file.";
+                            $alert_type = "alert-danger";
+                            $alert_message = "Sorry, your file was not uploaded. due to <span>" . $errorMSG . "</span>";
+                            echo "<script>window.location.replace('../courseList.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                         }
                     }
                 }
