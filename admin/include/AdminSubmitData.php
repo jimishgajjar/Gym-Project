@@ -474,12 +474,17 @@ if (!empty($_REQUEST['moduleMethod'])) {
                                     $courseContentResponse = insertData('course_content', $courseContent);
                                 }
                             }
-                        } else {
-                            $_SESSION['message'] = "Invalid file extension.";
                         }
-                    } else {
-                        $_SESSION['message'] = "Please select a file.";
                     }
+                }
+                if (!empty($courseContentResponse)) {
+                    $alert_type = "alert-success";
+                    $alert_message = "Course video uploded successfully.";
+                    echo "<script>window.location.replace('../courseView.php?view=" . $_POST['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                } else {
+                    $alert_type = "alert-danger";
+                    $alert_message = "Course video is not uploded.";
+                    echo "<script>window.location.replace('../courseView.php?view=" . $_POST['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                 }
             }
         }
