@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 04, 2022 at 07:21 PM
+-- Generation Time: Feb 10, 2022 at 12:52 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -63,13 +63,6 @@ CREATE TABLE `cart` (
   `created_by` varchar(255) NOT NULL,
   `deleted` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id`, `user_id`, `user_ip`, `course_id`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61f2c0b20a0aa', '61adfd8c73697', '127.0.0.1', '61ae0f7abf646', '2022-01-27 21:26:34', '2022-01-27 21:26:34', '61adfd8c73697', '61adfd8c73697', 0);
 
 -- --------------------------------------------------------
 
@@ -132,7 +125,7 @@ CREATE TABLE `course` (
 INSERT INTO `course` (`id`, `category_id`, `title`, `small_description`, `description`, `tags`, `thumbnail`, `rating`, `price`, `discount`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
 ('61ae0f7abf646', '61ae0b26d28c8', '2022 Complete Python Bootcamp From Zero to Hero', 'Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'Course 1', '61ae0f7abf646.jpg', '1.0', '520', '0', '2021-12-06 18:56:18', '2021-12-30 23:16:52', '61952d7816277', '61952d7816277', 0),
 ('61ae0f9e103d7', '61ae0b7228135', 'Machine Learning A-Z™: Hands-On Python & R In Data', 'Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'Course 2', '61ae0f9e103d7.jpg', '2.0', '525', '10', '2021-12-06 18:56:54', '2021-12-06 23:23:39', '61952d7816277', '61952d7816277', 0),
-('61ae1000549e3', '61ae0b7b8ca42', 'Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.', 'Learn how to use NumPy, Pandas, Seaborn , Matplotlib , Plotly , Scikit-Learn , Machine Learning, Tensorflow , and more!', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'Course 3', '61ae1000549e3.jpg', '3.0', '525', '0', '2021-12-06 18:58:32', '2021-12-06 23:23:48', '61952d7816277', '61952d7816277', 0),
+('61ae1000549e3', '61ae0b7b8ca42', 'Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.', 'Learn how to use NumPy, Pandas, Seaborn , Matplotlib , Plotly , Scikit-Learn , Machine Learning, Tensorflow , and more!', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'Course 3', '61ae1000549e3.jpg', '3.0', '525', '0', '2021-12-06 18:58:32', '2022-02-05 00:09:34', '61952d7816277', '61952d7816277', 0),
 ('61ae1027e738a', '61ae0b82ec211', '100 Days of Code: The Complete Python Pro Bootcamp for 2022', 'This Python For Beginners Course Teaches You The Python Language Fast. Includes Python Online Training With Python 3', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'Cource 4', '61ae1027e738a.jpg', '4.0', '525', '10', '2021-12-06 18:59:11', '2021-12-06 23:23:57', '61952d7816277', '61952d7816277', 0),
 ('61ae105cb949a', '61ae0b8b3f476', 'Learning Python for Data Analysis and Visualization', 'Learn python and how to use it to analyze,visualize and present data. Includes tons of sample code and hours of video!', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'Course 5', '61ae105cb949a.jpg', '5.0', '525', '0', '2021-12-06 19:00:04', '2021-12-15 22:21:25', '61952d7816277', '61952d7816277', 0),
 ('61ae10ac70735', '61ae0b977d08e', 'Python for Data Structures, Algorithms, and Interviews!', 'Get a kick start on your career and ace your coding interviews!', '<p>qwqwqwqwwqwqwq</p><p>&nbsp;</p><p><strong>dddddddddddddddddddddddd</strong></p><p>&nbsp;</p><p>&nbsp;</p>', 'Course 6', '61ae10ac70735.jpg', '4.2', '525', '10', '2021-12-06 19:01:24', '2021-12-15 00:30:29', '61952d7816277', '61952d7816277', 0),
@@ -160,7 +153,7 @@ CREATE TABLE `course_chapter` (
 --
 
 INSERT INTO `course_chapter` (`id`, `course_id`, `chapter_title`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61fd6ea6da174', '61ae0f7abf646', 'Test', '2022-02-04 23:51:26', '2022-02-04 23:51:26', '61952d7816277', '61952d7816277', 0);
+('61fd6ea6da174', '61ae0f7abf646', 'Test 1 Change', '2022-02-08 23:45:15', '2022-02-08 23:45:15', '61952d7816277', '61952d7816277', 0);
 
 -- --------------------------------------------------------
 
@@ -171,6 +164,7 @@ INSERT INTO `course_chapter` (`id`, `course_id`, `chapter_title`, `date_entered`
 CREATE TABLE `course_content` (
   `id` varchar(255) NOT NULL,
   `chapter_id` varchar(255) NOT NULL,
+  `course_id` varchar(255) NOT NULL,
   `doc_title` text NOT NULL,
   `document_path` text NOT NULL,
   `date_entered` datetime NOT NULL,
@@ -184,10 +178,10 @@ CREATE TABLE `course_content` (
 -- Dumping data for table `course_content`
 --
 
-INSERT INTO `course_content` (`id`, `chapter_id`, `doc_title`, `document_path`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61fd6ea6dd718', '61fd6ea6da174', 'video 1', '61ae0f7abf646_0.mp4', '2022-02-04 23:51:26', '2022-02-04 23:51:26', '61952d7816277', '61952d7816277', 0),
-('61fd6ea6de0ba', '61fd6ea6da174', 'video 2', '61ae0f7abf646_1.mp4', '2022-02-04 23:51:26', '2022-02-04 23:51:26', '61952d7816277', '61952d7816277', 0),
-('61fd6ea6e4c34', '61fd6ea6da174', 'video 3', '61ae0f7abf646_2.mp4', '2022-02-04 23:51:26', '2022-02-04 23:51:26', '61952d7816277', '61952d7816277', 0);
+INSERT INTO `course_content` (`id`, `chapter_id`, `course_id`, `doc_title`, `document_path`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('61fd6ea6e4c34', '61fd6ea6da174', '61ae0f7abf646', 'video 3', '61ae0f7abf646_2.mp4', '2022-02-04 23:51:26', '2022-02-04 23:51:26', '61952d7816277', '61952d7816277', 0),
+('6202b2f5adf03', '61fd6ea6da174', '61ae0f7abf646', 'Video 1', '61ae0f7abf646_6202b2f5adf0b.mp4', '2022-02-08 23:44:13', '2022-02-08 23:44:13', '61952d7816277', '61952d7816277', 0),
+('6202b333cb5d8', '61fd6ea6da174', '61ae0f7abf646', 'video 3', '61ae0f7abf646_6202b333cb5e3.mp4', '2022-02-08 23:45:15', '2022-02-08 23:45:15', '61952d7816277', '61952d7816277', 0);
 
 -- --------------------------------------------------------
 
