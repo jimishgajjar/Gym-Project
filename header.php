@@ -41,4 +41,7 @@ $userProfilePath = "assets/userprofile/";
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="jquery.rating.js"></script>
+
+    <!--====== Video Player ======-->
+    <link rel="stylesheet" href="https://unpkg.com/plyr@3/dist/plyr.css" />
 </head>

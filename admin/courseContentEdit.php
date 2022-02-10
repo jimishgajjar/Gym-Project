@@ -29,8 +29,8 @@ include('header.php');
             <!-- [ Main Content ] start -->
             <div class="row">
                 <!-- [ sample-page ] start -->
-                <?php if (isset($_GET['view'])) {
-                    $Condition['id'] = $_GET['view'];
+                <?php if (isset($_GET['edit'])) {
+                    $Condition['id'] = $_GET['edit'];
                     $response = getData('course', $Condition);
                     $response = $response->fetch_assoc();
                     if (!empty($response)) {
@@ -90,7 +90,7 @@ include('header.php');
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                    $CourseContentCondition['course_id'] = $_GET['view'];
+                                                    $CourseContentCondition['course_id'] = $_GET['edit'];
                                                     $CourseContentResponse = getData('course_chapter', $CourseContentCondition);
                                                     if ($CourseContentResponse->num_rows > 0) {
                                                         while ($row = $CourseContentResponse->fetch_assoc()) {

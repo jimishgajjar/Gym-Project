@@ -137,7 +137,8 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     }
 
                     // Check file size
-                    if ($_FILES["category_img"]["size"] > 500000) {
+                    $maxsize = 76618028; // 5MB
+                    if ($_FILES["category_img"]["size"] > $maxsize) {
                         $errorMSG = "Sorry, your file is too large.";
                         $uploadOk = 0;
                     }
@@ -438,7 +439,11 @@ if (!empty($_REQUEST['moduleMethod'])) {
     // Course Content Upload 
     if ($module == "courseUpload" && $moduleMethod == "course_chapter") {
         if (isset($_POST['courseUploadSub'])) {
-            $uniqid = uniqid();
+            if ($_POST['edit']) {
+                $uniqid = $_POST['edit'];
+            } else {
+                $uniqid = uniqid();
+            }
             $courseChapter = array(
                 'id' => $uniqid,
                 'course_id' => $_POST['course_id'],
@@ -449,37 +454,38 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 'created_by' => $_SESSION["adminId"],
                 'deleted' => 0,
             );
+
             $courseChapterResponse = insertData($moduleMethod, $courseChapter);
             if (!empty($courseChapterResponse)) {
-                $maxsize = 5242880; // 5MB
+                $maxsize = 76618028; // 5MB
                 for ($x = 0; $x <= $_POST['course_content_count']; $x++) {
-                    echo 'upload_doc~' . $x;
-                    if (isset($_FILES['upload_doc~' . $x]['name']) && $_FILES['upload_doc~' . $x]['name'] != '') {
-                        $name = $_FILES['upload_doc~' . $x]['name'];
+                    if (isset($_FILES['upload_doc-' . $x]['name']) && $_FILES['upload_doc-' . $x]['name'] != '') {
+                        $name = $_FILES['upload_doc-' . $x]['name'];
                         $target_dir = $coursePath;
-                        $target_file = $target_dir . $_FILES['upload_doc~' . $x]["name"];
+                        $target_file = $target_dir . $_FILES['upload_doc-' . $x]["name"];
 
                         // Select file type
                         $extension = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
                         // Valid file extensions
-                        $extensions_arr = array("mp4", "avi", "3gp", "mov", "mpeg");
+                        $extensions_arr = array("pdf", "mp4", "avi", "3gp", "mov", "mpeg");
 
                         // Check extension
                         if (in_array($extension, $extensions_arr)) {
                             // Check file size
-                            if (($_FILES['upload_doc~' . $x]['size'] >= $maxsize) || ($_FILES['upload_doc~' . $x]["size"] == 0)) {
+                            if (($_FILES['upload_doc-' . $x]['size'] >= $maxsize) || ($_FILES['upload_doc-' . $x]["size"] == 0)) {
                                 $_SESSION['message'] = "File too large. File must be less than 5MB.";
                             } else {
                                 // Upload
-                                $extension = pathinfo($_FILES['upload_doc~' . $x]["name"], PATHINFO_EXTENSION);
+                                $extension = pathinfo($_FILES['upload_doc-' . $x]["name"], PATHINFO_EXTENSION);
                                 $path = $target_dir . $_POST['course_id'] . "_" . $x . "." . $extension;
-                                if (move_uploaded_file($_FILES['upload_doc~' . $x]["tmp_name"], $path)) {
+                                if (move_uploaded_file($_FILES['upload_doc-' . $x]["tmp_name"], $path)) {
                                     $courseContent = array(
                                         'id' => uniqid(),
                                         'chapter_id' => $uniqid,
-                                        'doc_title' => $_POST['doc_title~' . $x],
-                                        'document_path' => $_POST['course_id'] . "_" . $x . "." . $extension,
+                                        'course_id' => $_POST['course_id'],
+                                        'doc_title' => $_POST['doc_title-' . $x],
+                                        'document_path' => $_POST['course_id'] . "_" . uniqid() . "." . $extension,
                                         'date_entered' => date("Y-m-d H:i:s"),
                                         'date_modified' => date("Y-m-d H:i:s"),
                                         'modified_user_id' => $_SESSION["adminId"],
@@ -501,6 +507,26 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     $alert_message = "Course video is not uploded.";
                     echo "<script>window.location.replace('../courseView.php?view=" . $_POST['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                 }
+            }
+        }
+    }
+
+    // Course Content Delete 
+    if ($module == "courseContentDelete" && $moduleMethod == "course_content") {
+        if (isset($_GET['delete'])) {
+            $Condition['id'] = $_REQUEST['delete'];
+            $response = getData($moduleMethod, $Condition);
+            $response = $response->fetch_assoc();
+
+            $courseDeleteResponse = deleteData($moduleMethod, $Condition);
+            if (!empty($courseDeleteResponse) && unlink($coursePath . $response['document_path'])) {
+                $alert_type = "alert-success";
+                $alert_message = "Document deleted successfully.";
+                echo "<script>window.location.replace('../courseView.php?view=" . $response['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            } else {
+                $alert_type = "alert-danger";
+                $alert_message = "Document is not deleted.";
+                echo "<script>window.location.replace('../courseView.php?view=" . $response['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
         }
     }

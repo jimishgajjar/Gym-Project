@@ -63,6 +63,7 @@ include('header.php');
                                                 <label for="category_img">Category Image</label><br>
                                                 <img class="thumbnail" id="category_img_view" src="../assets/category/<?php echo $response['category_img'] ?>" alt="" />
                                                 <input type="file" class="form-control" id="category_img" name="category_img" accept="image/png, image/jpeg" />
+                                                <h6 class="mt-2" style="color: red;" id="category_img_error"></h6>
                                             </div>
                                         </div>
                                         <button type="submit" name="categorySub" value="categorySub" class="btn btn-primary">Submit</button>
@@ -96,6 +97,7 @@ include('header.php');
                                             <label for="category_img">Category Image</label><br>
                                             <img class="thumbnail" id="category_img_view" src="" alt="" />
                                             <input type="file" class="form-control" id="category_img" name="category_img" accept="image/png, image/jpeg" />
+                                            <h6 class="mt-2" style="color: red;" id="category_img_error"></h6>
                                         </div>
                                     </div>
                                     <button type="submit" name="categorySub" value="categorySub" class="btn btn-primary">Submit</button>
@@ -125,7 +127,14 @@ include('header.php');
         }
 
         $("#category_img").change(function() {
-            readURL(this);
+            if (this.files[0].size > 2097152) {
+                // alert("Try to upload file less than 2MB!");
+                $("#category_img_error").text("Try to upload file less than 2MB!");
+                $("#category_img").value = "";
+            } else {
+                $("#category_img_error").text("");
+                readURL(this);
+            }
         });
     </script>
 </body>

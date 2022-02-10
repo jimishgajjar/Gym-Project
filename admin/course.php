@@ -95,6 +95,7 @@ include('header.php');
                                             <label for="thumbnail">Course Thumbnail</label><br>
                                             <img class="thumbnail" id="thumbnail_view" src="../assets/thumbnail/<?php echo $response['thumbnail'] ?>" alt="" />
                                             <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept="image/png, image/jpeg" />
+                                            <h6 class="mt-2" style="color: red;" id="thumbnail_error"></h6>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="price">course Price</label>
@@ -152,6 +153,7 @@ include('header.php');
                                             <label for="thumbnail">Course Thumbnail</label><br>
                                             <img class="thumbnail" id="thumbnail_view" src="" alt="" />
                                             <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept="image/png, image/jpeg" />
+                                            <h6 class="mt-2" style="color: red;" id="thumbnail_error"></h6>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="price">course Price</label>
@@ -180,17 +182,22 @@ include('header.php');
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-
                 reader.onload = function(e) {
                     $('#thumbnail_view').attr('src', e.target.result);
                 }
-
                 reader.readAsDataURL(input.files[0]);
             }
         }
 
         $("#thumbnail").change(function() {
-            readURL(this);
+            if (this.files[0].size > 76618028) {
+                // alert("Try to upload file less than 2MB!");
+                $("#thumbnail_error").text("Try to upload file less than 70MB!");
+                $("#thumbnail").value = "";
+            } else {
+                $("#thumbnail_error").text("");
+                readURL(this);
+            }
         });
     </script>
     <!-- Ckeditor js -->

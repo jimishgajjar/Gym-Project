@@ -68,6 +68,7 @@ include('header.php');
                                                 <a href="#" name="upload_pic" id="upload_pic" class="btn btn-primary m-1">Upload Photo</a>
                                                 <a href="#" name="remove_pic" id="remove_pic" class="btn btn-primary m-1" style="display: none;">Remove Photo</a>
                                             </div>
+                                            <h6 class="mt-2" style="color: red;" id="profile_pic_error"></h6>
                                             <input type="file" class="mt-4" id="profile_pic" name="profile_pic">
                                         </div>
                                     </div>
@@ -526,6 +527,14 @@ include('header.php');
             if (file.files.length != 0) {
                 readURL(this);
                 $("#remove_pic").css('display', 'block');
+                if (this.files[0].size > 2097152) {
+                    // alert("Try to upload file less than 2MB!");
+                    $("#profile_pic_error").text("Try to upload file less than 2MB!");
+                    $("#profile_pic").value = "";
+                } else {
+                    $("#profile_pic_error").text("");
+                    readURL(this);
+                }
             }
         });
 

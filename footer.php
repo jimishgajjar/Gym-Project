@@ -104,3 +104,17 @@
 <script src="assets/js/main.js"></script>
 <script src="assets/js/gym.js"></script>
 <script src="https://foliotek.github.io/Croppie/croppie.js"></script>
+
+<!--====== Video Player JS ======-->
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL">
+</script>
+<script src="https://unpkg.com/plyr@3"></script>
+<script>
+    // Change the second argument to your options:
+    // https://github.com/sampotts/plyr/#options
+    var player = new Plyr('.container video', {
+        muted: false,
+        volume: 1,
+        controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
+    });
+</script>

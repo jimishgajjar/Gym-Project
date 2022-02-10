@@ -73,7 +73,7 @@ include('header.php');
                                     $userCoursesResponse = getData('user_courses', $userCoursesCondition);
                                     $userCoursesResponse = $userCoursesResponse->fetch_assoc();
                                     if (!empty($userCoursesResponse)) { ?>
-                                        <a href="include/UserSubmitData.php?moduleMethod=cart&module=cartAdd&cartId=<?php echo $response['id']; ?>" class="detail-btn pl-5 pr-5">
+                                        <a href="courseContentView.php?view=<?php echo $response['id']; ?>" class="detail-btn pl-5 pr-5">
                                             Go to course
                                         </a>
                                         <?php } else {
