@@ -704,4 +704,36 @@ if (!empty($_REQUEST['moduleMethod'])) {
             }
         }
     }
+
+    // User Course Search
+    if ($module == "courseSearch" && $moduleMethod == "course") {
+        if (isset($_POST['searchVal'])) {
+            // $_POST['searchVal']
+            $sql = "SELECT * FROM course WHERE title LIKE '%" . $_POST['searchVal'] . "%'";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                echo "<ul>";
+                while ($row = $result->fetch_assoc()) {
+                    echo "
+                    <li>
+                        <a href='courseDetailView.php?view=" . $row['id'] . "'>
+                            " . $row['title'] . "
+                        </a>
+                    </li>";
+                }
+                echo "</ul>";
+            } else {
+                echo "<ul>";
+                while ($row = $result->fetch_assoc()) {
+                    echo "
+                    <li>
+                        <a href='javascript:void(0)'>
+                            No Data Found...!
+                        </a>
+                    </li>";
+                }
+                echo "</ul>";
+            }
+        }
+    }
 }

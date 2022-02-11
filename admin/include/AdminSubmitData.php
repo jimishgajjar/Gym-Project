@@ -436,26 +436,35 @@ if (!empty($_REQUEST['moduleMethod'])) {
         }
     }
 
-    // Course Content Upload 
+    // Course Content Upload With Chapter
     if ($module == "courseUpload" && $moduleMethod == "course_chapter") {
         if (isset($_POST['courseUploadSub'])) {
-            if ($_POST['edit']) {
-                $uniqid = $_POST['edit'];
+            if (isset($_POST['chapter_id'])) {
+                $uniqid = $_POST['chapter_id'];
+                $courseChapter = array(
+                    'course_id' => $_POST['course_id'],
+                    'chapter_title' => $_POST['chapter_title'],
+                    'date_modified' => date("Y-m-d H:i:s"),
+                    'modified_user_id' => $_SESSION["adminId"],
+                    'deleted' => 0,
+                );
+
+                $Condition['id'] = $_POST['chapter_id'];
+                $courseChapterResponse = updateData($moduleMethod, $courseChapter, $Condition);
             } else {
                 $uniqid = uniqid();
+                $courseChapter = array(
+                    'id' => $uniqid,
+                    'course_id' => $_POST['course_id'],
+                    'chapter_title' => $_POST['chapter_title'],
+                    'date_entered' => date("Y-m-d H:i:s"),
+                    'date_modified' => date("Y-m-d H:i:s"),
+                    'modified_user_id' => $_SESSION["adminId"],
+                    'created_by' => $_SESSION["adminId"],
+                    'deleted' => 0,
+                );
+                $courseChapterResponse = insertData($moduleMethod, $courseChapter);
             }
-            $courseChapter = array(
-                'id' => $uniqid,
-                'course_id' => $_POST['course_id'],
-                'chapter_title' => $_POST['chapter_title'],
-                'date_entered' => date("Y-m-d H:i:s"),
-                'date_modified' => date("Y-m-d H:i:s"),
-                'modified_user_id' => $_SESSION["adminId"],
-                'created_by' => $_SESSION["adminId"],
-                'deleted' => 0,
-            );
-
-            $courseChapterResponse = insertData($moduleMethod, $courseChapter);
             if (!empty($courseChapterResponse)) {
                 $maxsize = 76618028; // 5MB
                 for ($x = 0; $x <= $_POST['course_content_count']; $x++) {
@@ -477,15 +486,16 @@ if (!empty($_REQUEST['moduleMethod'])) {
                                 $_SESSION['message'] = "File too large. File must be less than 5MB.";
                             } else {
                                 // Upload
+                                $courseUniqid = uniqid();
                                 $extension = pathinfo($_FILES['upload_doc-' . $x]["name"], PATHINFO_EXTENSION);
-                                $path = $target_dir . $_POST['course_id'] . "_" . $x . "." . $extension;
+                                $path = $target_dir . $_POST['course_id'] . "_" . $uniqid . "_" . $courseUniqid . "." . $extension;
                                 if (move_uploaded_file($_FILES['upload_doc-' . $x]["tmp_name"], $path)) {
                                     $courseContent = array(
-                                        'id' => uniqid(),
+                                        'id' => $courseUniqid,
                                         'chapter_id' => $uniqid,
                                         'course_id' => $_POST['course_id'],
                                         'doc_title' => $_POST['doc_title-' . $x],
-                                        'document_path' => $_POST['course_id'] . "_" . uniqid() . "." . $extension,
+                                        'document_path' => $_POST['course_id'] . "_" . $uniqid . "_" . $courseUniqid . "." . $extension,
                                         'date_entered' => date("Y-m-d H:i:s"),
                                         'date_modified' => date("Y-m-d H:i:s"),
                                         'modified_user_id' => $_SESSION["adminId"],
@@ -501,33 +511,81 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 if (!empty($courseContentResponse)) {
                     $alert_type = "alert-success";
                     $alert_message = "Course video uploded successfully.";
-                    echo "<script>window.location.replace('../courseView.php?view=" . $_POST['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    if (isset($_POST['chapter_id'])) {
+                        echo "<script>window.location.replace('../courseContentEdit.php?edit=" . $_POST['chapter_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    } else {
+                        echo "<script>window.location.replace('../courseView.php?view=" . $_POST['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    }
                 } else {
                     $alert_type = "alert-danger";
                     $alert_message = "Course video is not uploded.";
-                    echo "<script>window.location.replace('../courseView.php?view=" . $_POST['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    if (isset($_POST['chapter_id'])) {
+                        echo "<script>window.location.replace('../courseContentEdit.php?edit=" . $_POST['chapter_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    } else {
+                        echo "<script>window.location.replace('../courseView.php?view=" . $_POST['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    }
                 }
             }
         }
     }
 
-    // Course Content Delete 
-    if ($module == "courseContentDelete" && $moduleMethod == "course_content") {
-        if (isset($_GET['delete'])) {
-            $Condition['id'] = $_REQUEST['delete'];
-            $response = getData($moduleMethod, $Condition);
-            $response = $response->fetch_assoc();
+    // Course Chapter Delete With Content
+    if ($module == "courseChapterDelete" && $moduleMethod == "course_chapter") {
+        if (isset($_REQUEST['delete'])) {
+            $courseContentCondition['chapter_id'] = $_REQUEST['delete'];
+            $courseContentResponse = getData('course_content', $courseContentCondition);
 
-            $courseDeleteResponse = deleteData($moduleMethod, $Condition);
-            if (!empty($courseDeleteResponse) && unlink($coursePath . $response['document_path'])) {
-                $alert_type = "alert-success";
-                $alert_message = "Document deleted successfully.";
-                echo "<script>window.location.replace('../courseView.php?view=" . $response['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            if ($courseContentResponse->num_rows > 0) {
+                while ($row = $courseContentResponse->fetch_assoc()) {
+                    if (unlink($coursePath . $row['document_path'])) {
+                        $courseContentDelCondition['id'] = $row['id'];
+                        $courseContentDelCondition['chapter_id'] = $_REQUEST['delete'];
+                        $courseContentDel = deleteData('course_content', $courseContentDelCondition);
+                    }
+                }
+                $chapterDeleteCondition['id'] = $_REQUEST['delete'];
+                $chapterDeleteResponse = deleteData($moduleMethod, $chapterDeleteCondition);
+                if (!empty($chapterDeleteResponse)) {
+                    $alert_type = "alert-success";
+                    $alert_message = "Chapter deleted successfully.";
+                    echo "<script>window.location.replace('../courseView.php?view=" . $_REQUEST['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                } else {
+                    $alert_type = "alert-danger";
+                    $alert_message = "Chapter is not deleted.";
+                    echo "<script>window.location.replace('../courseView.php?view=" . $_REQUEST['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                }
+            }
+        }
+    }
+
+    // Course Content Delete
+    if ($module == "courseContentDelete" && $moduleMethod == "course_content") {
+        if (isset($_REQUEST['delete']) && isset($_REQUEST['chapter_id'])) {
+            $courseContentCondition['id'] = $_REQUEST['delete'];
+            $courseContentCondition['chapter_id'] = $_REQUEST['chapter_id'];
+            $courseContentResponse = getData($moduleMethod, $courseContentCondition);
+            $courseContentResponse = $courseContentResponse->fetch_assoc();
+
+            if (unlink($coursePath . $courseContentResponse['document_path'])) {
+                $courseContentDel = deleteData($moduleMethod, $courseContentCondition);
+                if (!empty($courseContentDel)) {
+                    $alert_type = "alert-success";
+                    $alert_message = "Document deleted successfully.";
+                    echo "<script>window.location.replace('../courseContentEdit.php?edit=" . $_REQUEST['chapter_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                } else {
+                    $alert_type = "alert-danger";
+                    $alert_message = "Document is not deleted.";
+                    echo "<script>window.location.replace('../courseContentEdit.php?edit=" . $_REQUEST['chapter_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                }
             } else {
                 $alert_type = "alert-danger";
                 $alert_message = "Document is not deleted.";
-                echo "<script>window.location.replace('../courseView.php?view=" . $response['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                echo "<script>window.location.replace('../courseContentEdit.php?edit=" . $_REQUEST['chapter_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
+        } else {
+            $alert_type = "alert-danger";
+            $alert_message = "Document is not deleted.";
+            echo "<script>window.location.replace('../courseContentEdit.php?edit=" . $_REQUEST['chapter_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
         }
     }
 

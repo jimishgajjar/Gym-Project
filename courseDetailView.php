@@ -72,8 +72,16 @@ include('header.php');
                                     $userCoursesCondition['course_id'] = $_GET['view'];
                                     $userCoursesResponse = getData('user_courses', $userCoursesCondition);
                                     $userCoursesResponse = $userCoursesResponse->fetch_assoc();
-                                    if (!empty($userCoursesResponse)) { ?>
-                                        <a href="courseContentView.php?view=<?php echo $response['id']; ?>" class="detail-btn pl-5 pr-5">
+                                    if (!empty($userCoursesResponse)) {
+                                        $courseChapterCondition['course_id'] = $_GET['view'];
+                                        $courseChapterResponse = getData('course_chapter', $courseChapterCondition);
+                                        $courseChapterResponse = $courseChapterResponse->fetch_assoc();
+
+                                        $courseCountentCondition['chapter_id'] = $courseChapterResponse['id'];
+                                        $courseCountentResponse = getData('course_content', $courseCountentCondition);
+                                        $courseCountentResponse = $courseCountentResponse->fetch_assoc();
+                                    ?>
+                                        <a href="courseContentView.php?view=<?php echo $courseCountentResponse['course_id']; ?>&course_content_id=<?php echo $courseCountentResponse['id']; ?>" class="detail-btn pl-5 pr-5">
                                             Go to course
                                         </a>
                                         <?php } else {
@@ -134,29 +142,93 @@ include('header.php');
 
                         <div class="col-md-12 mt-20">
                             <hr>
-                            <div class="course-video">
-                                <h4 class="mb-20">Course content</h4>
-                                <div class="panel-group">
-                                    <div class="panel panel-default course-chapter">
-                                        <a class="course-chapter-click" data-toggle="collapse" href="#collapse1">
-                                            <div class="course-chapter-title">
-                                                <i class="fal fa-chevron-down pr-20"></i>
-                                                Course content
+                            <?php
+                            if (!empty($userCoursesResponse)) { ?>
+                                <div class="course-video">
+                                    <?php
+                                    $courseChapterCondition['course_id'] = $_GET['view'];
+                                    $courseChapterResponse = getData('course_chapter', $courseChapterCondition);
+                                    if ($courseChapterResponse->num_rows > 0) {
+                                        while ($row = $courseChapterResponse->fetch_assoc()) {
+                                    ?>
+                                            <div class="panel-group">
+                                                <div class="panel panel-default course-chapter">
+                                                    <a class="course-chapter-click" data-toggle="collapse" href="#<?php echo $row['id']; ?>">
+                                                        <div class="course-chapter-title">
+                                                            <i class="fal fa-chevron-down pr-20"></i>
+                                                            <?php echo $row['chapter_title']; ?>
+                                                        </div>
+                                                    </a>
+                                                    <div id="<?php echo $row['id']; ?>" class="panel-collapse collapse">
+                                                        <div class="course-chapter-body">
+                                                            <ul>
+                                                                <?php
+                                                                $courseContentCondition['chapter_id'] = $row['id'];
+                                                                $courseContentResponse = getData('course_content', $courseContentCondition);
+                                                                if ($courseContentResponse->num_rows > 0) {
+                                                                    while ($courseContentRow = $courseContentResponse->fetch_assoc()) {
+                                                                ?>
+                                                                        <li>
+                                                                            <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>">
+                                                                                <i class="fas fa-play-circle pr-20"></i>
+                                                                                <?php echo $courseContentRow['doc_title']; ?>
+                                                                            </a>
+                                                                        </li>
+                                                                <?php
+                                                                    }
+                                                                }
+                                                                ?>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </a>
-                                        <div id="collapse1" class="panel-collapse collapse">
-                                            <div class="course-chapter-body">
-                                                <ul>
-                                                    <li>
-                                                        <i class="fas fa-play-circle pr-20"></i>
-                                                        <a href="">Course content</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php }
+                                    } ?>
                                 </div>
-                            </div>
+                            <?php } else {
+                            ?>
+                                <div class="course-video">
+                                    <?php
+                                    $courseChapterCondition['course_id'] = $_GET['view'];
+                                    $courseChapterResponse = getData('course_chapter', $courseChapterCondition);
+                                    if ($courseChapterResponse->num_rows > 0) {
+                                        while ($row = $courseChapterResponse->fetch_assoc()) {
+                                    ?>
+                                            <div class="panel-group">
+                                                <div class="panel panel-default course-chapter">
+                                                    <a class="course-chapter-click" data-toggle="collapse" href="#<?php echo $row['id']; ?>">
+                                                        <div class="course-chapter-title">
+                                                            <i class="fal fa-chevron-down pr-20"></i>
+                                                            <?php echo $row['chapter_title']; ?>
+                                                        </div>
+                                                    </a>
+                                                    <div id="<?php echo $row['id']; ?>" class="panel-collapse collapse">
+                                                        <div class="course-chapter-body">
+                                                            <ul>
+                                                                <?php
+                                                                $courseContentCondition['chapter_id'] = $row['id'];
+                                                                $courseContentResponse = getData('course_content', $courseContentCondition);
+                                                                if ($courseContentResponse->num_rows > 0) {
+                                                                    while ($courseContentRow = $courseContentResponse->fetch_assoc()) {
+                                                                ?>
+                                                                        <li>
+                                                                            <i class="fas fa-play-circle pr-20"></i>
+                                                                            <?php echo $courseContentRow['doc_title']; ?>
+                                                                        </li>
+                                                                <?php
+                                                                    }
+                                                                }
+                                                                ?>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    <?php }
+                                    } ?>
+                                </div>
+                            <?php } ?>
                         </div>
 
                         <div class="col-md-12 mt-20">

@@ -42,6 +42,19 @@ function loadCartlist() {
 //     });
 // }
 
+function courseSearch(searchVal) {
+    // alert(searchVal.value);
+    $.ajax({
+        url: "include/UserSubmitData.php",
+        method: "POST",
+        data: { module: "courseSearch", moduleMethod: "course", searchVal: searchVal.value },
+        success: function (response) {
+            $("#search_content").empty();
+            $("#search_content").append(response);
+        }
+    });
+}
+
 function addToCartFromWishlist(course_id_) {
     $.ajax({
         url: "include/UserSubmitData.php",

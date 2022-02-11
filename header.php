@@ -5,6 +5,7 @@ include "include/queryFunction.php";
 $categoryPath = "assets/category/";
 $thumbnailPath = "assets/thumbnail/";
 $userProfilePath = "assets/userprofile/";
+$coursePath = "assets/coursedocumnets/";
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">

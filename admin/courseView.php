@@ -84,7 +84,7 @@ include('header.php');
                                             <table id="dom-jqry" class="table table-striped table-bordered nowrap">
                                                 <thead>
                                                     <tr>
-                                                        <th>Content Title</th>
+                                                        <th>Chapter Title</th>
                                                         <th>Options</th>
                                                     </tr>
                                                 </thead>
@@ -99,7 +99,7 @@ include('header.php');
                                                                 <td><?php echo $row['chapter_title'] ?></td>
                                                                 <td>
                                                                     <a href="courseContentEdit.php?edit=<?php echo $row['id']; ?>" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
-                                                                    <a href="include/AdminSubmitData.php?moduleMethod=course_content&module=courseContentDelete&delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete</a>
+                                                                    <a href="include/AdminSubmitData.php?moduleMethod=course_chapter&module=courseChapterDelete&delete=<?php echo $row['id']; ?>&course_id=<?php echo $_GET['view']; ?>" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete</a>
                                                                 </td>
                                                             </tr>
                                                     <?php }

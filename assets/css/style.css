@@ -280,7 +280,7 @@ button:focus {
 .modal-searchPanel .xs-search-group input:not([type=submit]) {
     height: 70px;
     background-color: transparent;
-    border-radius: 50px;
+    /* border-radius: 50px; */
     border: 2px solid #fff;
     color: #fff;
     padding: 0 30px;
@@ -311,13 +311,31 @@ button:focus {
     position: absolute;
     right: 0;
     cursor: pointer;
-    top: 50%;
+    top: 30%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     height: 100%;
     width: 70px;
     border-radius: 0 50px 50px 0
+}
+
+.modal-searchPanel .xs-search-group-content {
+    padding: 15px;
+    border: 2px solid #fff;
+}
+
+.modal-searchPanel .xs-search-group-content ul li {
+    padding: 5px;
+}
+
+.modal-searchPanel .xs-search-group-content ul li a {
+    color: #fff;
+    font-weight: 600;
+}
+
+.modal-searchPanel .xs-search-group-content ul li a:hover {
+    color: #f63c25;
 }
 
 .modal-searchPanel .xs-search-panel {
@@ -5229,10 +5247,11 @@ Breadcum
 
 .course-chapter .course-chapter-body ul li {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 100;
+    padding-bottom: 5px;
     height: auto;
     text-align: left;
     letter-spacing: normal;
@@ -5276,6 +5295,7 @@ Breadcum
     line-height: 1.2;
     font-size: 1.1rem;
 }
+
 /* ***************************************
                 User Menu
 *************************************** */

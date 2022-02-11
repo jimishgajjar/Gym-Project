@@ -97,10 +97,33 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
 
 <div class="zoom-anim-dialog mfp-hide modal-searchPanel" id="modal-popup-2">
     <div class="xs-search-panel">
-        <form action="#" method="POST" class="xs-search-group">
-            <input type="search" class="form-control" name="search" id="search" placeholder="Search">
-            <button type="submit" class="search-button"><i class="far fa-search"></i></button>
-        </form>
+        <!-- <form action="#" method="POST" class="xs-search-group"> -->
+        <div class="xs-search-group">
+            <div class="mb-4">
+                <input type="search" class="form-control" name="search" id="search" onkeyup="courseSearch(this);" placeholder="Search">
+                <!-- <button type="submit" class="search-button"><i class="far fa-search"></i></button> -->
+            </div>
+            <div class="xs-search-group-content" id="search_content">
+                <!-- <ul>
+                    <li>
+                        <a href="#">
+                            2022 Complete Python Bootcamp From Zero to Hero
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            2022 Complete Python Bootcamp From Zero to Hero
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            2022 Complete Python Bootcamp From Zero to Hero
+                        </a>
+                    </li>
+                </ul> -->
+            </div>
+        </div>
+        <!-- </form> -->
     </div>
 </div>
 

@@ -19,10 +19,6 @@ include('header.php');
         if (empty($categoryresponse)) {
             echo "<script>window.location.replace('index.php');</script>";
         }
-
-        $categoryCondition['id'] = $response['category_id'];
-        $categoryresponse = getData('category', $categoryCondition);
-        $categoryresponse = $categoryresponse->fetch_assoc();
     ?>
         <section class="course-detail" style="padding-bottom: 0px;">
             <div class="course-detail-header">
@@ -48,13 +44,61 @@ include('header.php');
                     </div>
                     <div class="row pb-5">
                         <div class="col-md-8">
+                            <?php
+                            $courseVideoCondition['id'] = $_REQUEST['course_content_id'];
+                            $courseVideoResponse = getData('course_content', $courseVideoCondition);
+                            $courseVideoResponse = $courseVideoResponse->fetch_assoc();
+                            ?>
                             <video autoplay crossorigin playsinline poster="<?php echo $thumbnailPath . $response['thumbnail']; ?>">
-                                <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4">
+                                <source src="<?php echo $coursePath . $courseVideoResponse['document_path']; ?>" type="video/mp4">
                             </video>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="course-video">
+                                <?php
+                                $courseChapterCondition['course_id'] = $_GET['view'];
+                                $courseChapterResponse = getData('course_chapter', $courseChapterCondition);
+                                if ($courseChapterResponse->num_rows > 0) {
+                                    while ($row = $courseChapterResponse->fetch_assoc()) {
+                                ?>
+                                        <div class="panel-group">
+                                            <div class="panel panel-default course-chapter">
+                                                <a class="course-chapter-click" data-toggle="collapse" href="#<?php echo $row['id']; ?>">
+                                                    <div class="course-chapter-title">
+                                                        <i class="fal fa-chevron-down pr-20"></i>
+                                                        <?php echo $row['chapter_title']; ?>
+                                                    </div>
+                                                </a>
+                                                <div id="<?php echo $row['id']; ?>" class="panel-collapse collapse">
+                                                    <div class="course-chapter-body">
+                                                        <ul>
+                                                            <?php
+                                                            $courseContentCondition['chapter_id'] = $row['id'];
+                                                            $courseContentResponse = getData('course_content', $courseContentCondition);
+                                                            if ($courseContentResponse->num_rows > 0) {
+                                                                while ($courseContentRow = $courseContentResponse->fetch_assoc()) {
+                                                            ?>
+                                                                    <li>
+                                                                        <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>">
+                                                                            <i class="fas fa-play-circle pr-20"></i>
+                                                                            <?php echo $courseContentRow['doc_title']; ?>
+                                                                        </a>
+                                                                    </li>
+                                                            <?php
+                                                                }
+                                                            }
+                                                            ?>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                <?php }
+                                } ?>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
     <?php } else { ?>
         <section class="course-detail">
