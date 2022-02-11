@@ -145,6 +145,7 @@ include('header.php');
                             <?php
                             if (!empty($userCoursesResponse)) { ?>
                                 <div class="course-video">
+                                    <h4>Course content</h4>
                                     <?php
                                     $courseChapterCondition['course_id'] = $_GET['view'];
                                     $courseChapterResponse = getData('course_chapter', $courseChapterCondition);
