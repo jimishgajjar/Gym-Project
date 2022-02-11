@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2022 at 12:59 PM
+-- Generation Time: Feb 11, 2022 at 06:08 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -63,6 +63,13 @@ CREATE TABLE `cart` (
   `created_by` varchar(255) NOT NULL,
   `deleted` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `user_ip`, `course_id`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('620652a6ea818', '', '127.0.0.1', '61ae0f7abf646', '2022-02-11 17:42:22', '2022-02-11 17:42:22', '127.0.0.1', '127.0.0.1', 0);
 
 -- --------------------------------------------------------
 
@@ -154,7 +161,7 @@ CREATE TABLE `course_chapter` (
 
 INSERT INTO `course_chapter` (`id`, `course_id`, `chapter_title`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
 ('6205fc62111de', '61ae0f7abf646', 'Chapter 1 New', '2022-02-11 11:34:18', '2022-02-11 11:57:49', '61952d7816277', '61952d7816277', 0),
-('62062ab05a056', '61ae0f7abf646', 'Chapter 2', '2022-02-11 14:51:52', '2022-02-11 14:51:52', '61952d7816277', '61952d7816277', 0),
+('62062ab05a056', '61ae0f7abf646', 'Chapter 2', '2022-02-11 14:51:52', '2022-02-11 22:18:05', '61952d7816277', '61952d7816277', 0),
 ('620637caea634', '61ae0f9e103d7', 'Chapter 1', '2022-02-11 15:47:46', '2022-02-11 15:47:46', '61952d7816277', '61952d7816277', 0);
 
 -- --------------------------------------------------------
@@ -187,7 +194,8 @@ INSERT INTO `course_content` (`id`, `chapter_id`, `course_id`, `doc_title`, `doc
 ('62062ab05ac34', '62062ab05a056', '61ae0f7abf646', 'Chapter 2 Video 1', '61ae0f7abf646_62062ab05a056_62062ab05ac34.mp4', '2022-02-11 14:51:52', '2022-02-11 14:51:52', '61952d7816277', '61952d7816277', 0),
 ('62062ab05dee9', '62062ab05a056', '61ae0f7abf646', 'Chapter 2 Video 2', '61ae0f7abf646_62062ab05a056_62062ab05dee9.mp4', '2022-02-11 14:51:52', '2022-02-11 14:51:52', '61952d7816277', '61952d7816277', 0),
 ('620637caee7e4', '620637caea634', '61ae0f9e103d7', 'Chapter 1 Video 1', '61ae0f9e103d7_620637caea634_620637caee7e4.mp4', '2022-02-11 15:47:47', '2022-02-11 15:47:47', '61952d7816277', '61952d7816277', 0),
-('620637cb0d94e', '620637caea634', '61ae0f9e103d7', 'Chapter 1 Video 2', '61ae0f9e103d7_620637caea634_620637cb0d94e.mp4', '2022-02-11 15:47:47', '2022-02-11 15:47:47', '61952d7816277', '61952d7816277', 0);
+('620637cb0d94e', '620637caea634', '61ae0f9e103d7', 'Chapter 1 Video 2', '61ae0f9e103d7_620637caea634_620637cb0d94e.mp4', '2022-02-11 15:47:47', '2022-02-11 15:47:47', '61952d7816277', '61952d7816277', 0),
+('620693453ed99', '62062ab05a056', '61ae0f7abf646', 'Pdf Document', '61ae0f7abf646_62062ab05a056_620693453ed99.pdf', '2022-02-11 22:18:05', '2022-02-11 22:18:05', '61952d7816277', '61952d7816277', 0);
 
 -- --------------------------------------------------------
 
@@ -214,7 +222,8 @@ CREATE TABLE `course_review` (
 --
 
 INSERT INTO `course_review` (`id`, `course_id`, `user_id`, `rating`, `title`, `description`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61fba96899c35', '61ae0f7abf646', '61adfd8c73697', '2', 'Test Title', 'Test Description...', '2022-02-03 15:37:36', '2022-02-03 15:37:36', '61adfd8c73697', '61adfd8c73697', 0);
+('61fba96899c35', '61ae0f7abf646', '61adfd8c73697', '2', 'Test Title', 'Test Description...', '2022-02-03 15:37:36', '2022-02-03 15:37:36', '61adfd8c73697', '61adfd8c73697', 0),
+('62066e181c807', '61ae0f9e103d7', '61adfd8c73697', '4', 'Nice course', 'I learn a lot from this course', '2022-02-11 19:39:28', '2022-02-11 19:39:28', '61adfd8c73697', '61adfd8c73697', 0);
 
 -- --------------------------------------------------------
 

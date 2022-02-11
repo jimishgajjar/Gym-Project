@@ -167,14 +167,28 @@ include('header.php');
                                                                 $courseContentResponse = getData('course_content', $courseContentCondition);
                                                                 if ($courseContentResponse->num_rows > 0) {
                                                                     while ($courseContentRow = $courseContentResponse->fetch_assoc()) {
-                                                                ?>
-                                                                        <li>
-                                                                            <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>">
-                                                                                <i class="fas fa-play-circle pr-20"></i>
-                                                                                <?php echo $courseContentRow['doc_title']; ?>
-                                                                            </a>
-                                                                        </li>
+                                                                        $file_extension = explode(".", $courseContentRow['document_path']);
+                                                                        if ($file_extension[1] == "pdf") { ?>
+                                                                            <li>
+                                                                                <a href="<?php echo $coursePath . $courseContentRow['document_path']; ?>" target="_blank" class="text-center">
+                                                                                    <i class="fas fa-file-pdf pr-20"></i>
+                                                                                </a>
+                                                                                <a href="<?php echo $coursePath . $courseContentRow['document_path']; ?>" target="_blank">
+                                                                                    <?php echo $courseContentRow['doc_title']; ?>
+                                                                                </a>
+                                                                            </li>
+                                                                        <?php } else {
+                                                                        ?>
+                                                                            <li>
+                                                                                <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>" class="text-center">
+                                                                                    <i class="fas fa-play-circle pr-20"></i>
+                                                                                </a>
+                                                                                <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>">
+                                                                                    <?php echo $courseContentRow['doc_title']; ?>
+                                                                                </a>
+                                                                            </li>
                                                                 <?php
+                                                                        }
                                                                     }
                                                                 }
                                                                 ?>
@@ -236,34 +250,67 @@ include('header.php');
                             <div class="course-review">
                                 <h4 class="mb-20">Reviews</h4>
                                 <?php
-                                $checkReviewCondition['user_id'] = $_SESSION["userId"];
-                                $checkReviewCondition['course_id'] = $_GET['view'];
-                                $checkReviewResponse = getData('user_courses', $checkReviewCondition);
-                                $checkReviewResponse = $checkReviewResponse->fetch_assoc();
+                                if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
+                                    $checkCourseExistCondition['user_id'] = $_SESSION["userId"];
+                                    $checkCourseExistCondition['course_id'] = $_GET['view'];
+                                    $checkCourseExistResponse = getData('user_courses', $checkCourseExistCondition);
+                                    $checkCourseExistResponse = $checkCourseExistResponse->fetch_assoc();
 
-                                if (!empty($checkReviewResponse)) { ?>
-                                    <form action="include/UserSubmitData.php" method="POST" class="xs-form">
-                                        <input type="hidden" name="module" value="course_reviewAdd">
-                                        <input type="hidden" name="moduleMethod" value="course_review">
-                                        <input type="hidden" name="course_id" value="<?php echo $_GET['view'] ?>">
-                                        <div class="form-group xs-form-anim">
-                                            <label class="input-label" for="rating">Rating</label>
-                                            <input type="number" id="rating" name="rating" class="form-control">
+                                    $checkReviewCondition['user_id'] = $_SESSION["userId"];
+                                    $checkReviewCondition['course_id'] = $_GET['view'];
+                                    $checkReviewResponse = getData('course_review', $checkReviewCondition);
+                                    $checkReviewResponse = $checkReviewResponse->fetch_assoc();
+                                    if (!empty($checkCourseExistResponse) && !empty($checkReviewResponse)) { ?>
+                                        <?php
+                                        $userCondition['id'] = $checkReviewResponse["user_id"];
+                                        $userDataResponse = getData('user', $userCondition);
+                                        $userDataResponse = $userDataResponse->fetch_assoc();
+                                        ?>
+                                        <div id="userReview">
+                                            <div class="d-flex flex-row course-reviewlist">
+                                                <div class="text-center user-profile pr-4">
+                                                    <img src="<?php echo $userProfilePath . $userDataResponse['profile_pic']; ?>" alt="">
+                                                </div>
+                                                <div class="review-detail">
+                                                    <h5><?php echo $userDataResponse['full_name']; ?></h5>
+                                                    <div class="course-rating mb-2">
+                                                        <h6 class="course-rating-num">(<?php echo $checkReviewResponse['rating']; ?>)</h6>
+                                                        <span class="stars"><?php echo $checkReviewResponse['rating']; ?></span>
+                                                    </div>
+                                                    <h6><?php echo $checkReviewResponse['title']; ?></h6>
+                                                    <p style="font-size: 1.1rem; margin-bottom: 5px;"><?php echo $checkReviewResponse['description']; ?></p>
+
+                                                    <?php $reviewId = $checkReviewResponse['id']; ?>
+                                                    <a href="javascript:void(0);" id="<?php echo $reviewId ?>" onclick="editReview(this.id);">Edit</a>
+                                                </div>
+                                            </div>
+                                            <hr>
                                         </div>
-                                        <div class="form-group xs-form-anim">
-                                            <label class="input-label" for="title">Title</label>
-                                            <input type="text" id="title" name="title" class="form-control">
-                                        </div>
-                                        <div class="form-group xs-form-anim xs-message-box">
-                                            <label class="input-label input-label-textarea" for="description">Description</label>
-                                            <textarea id="description" name="description" class="form-control"></textarea>
-                                        </div>
-                                        <div class="form-group mt-30">
-                                            <button type="submit" id="reviewSub" name="reviewSub" style="border-radius: 0px; font-size: 17px;" class="pr-3 pl-3 pt-2 pb-2 btn btn-primary">Submit Now</button>
-                                        </div>
-                                    </form>
-                                    <hr>
-                                <?php } ?>
+                                    <?php } else { ?>
+                                        <form action="include/UserSubmitData.php" method="POST" class="xs-form">
+                                            <input type="hidden" name="module" value="course_reviewAdd">
+                                            <input type="hidden" name="moduleMethod" value="course_review">
+                                            <input type="hidden" name="course_id" value="<?php echo $_GET['view'] ?>">
+                                            <div class="form-group xs-form-anim">
+                                                <label class="input-label" for="rating">Rating</label>
+                                                <input type="number" id="rating" name="rating" class="form-control">
+                                            </div>
+                                            <div class="form-group xs-form-anim">
+                                                <label class="input-label" for="title">Title</label>
+                                                <input type="text" id="title" name="title" class="form-control">
+                                            </div>
+                                            <div class="form-group xs-form-anim xs-message-box">
+                                                <label class="input-label input-label-textarea" for="description">Description</label>
+                                                <textarea id="description" name="description" class="form-control"></textarea>
+                                            </div>
+                                            <div class="form-group mt-30">
+                                                <button type="submit" id="reviewSub" name="reviewSub" style="border-radius: 0px; font-size: 17px;" class="pr-3 pl-3 pt-2 pb-2 btn btn-primary">Submit Now</button>
+                                            </div>
+                                        </form>
+                                        <hr>
+                                <?php }
+                                } ?>
+
                                 <?php
                                 $reviewCondition['course_id'] = $_GET['view'];
                                 $reviewResponse = getData('course_review', $reviewCondition);
@@ -272,23 +319,25 @@ include('header.php');
                                         $userCondition['id'] = $reviewResponseRow["user_id"];
                                         $userDataResponse = getData('user', $userCondition);
                                         $userDataResponse = $userDataResponse->fetch_assoc();
+                                        if ($reviewResponseRow['user_id'] != $_SESSION["userId"]) {
                                 ?>
-                                        <div class="d-flex flex-row course-reviewlist">
-                                            <div class="text-center user-profile pr-4">
-                                                <img src="<?php echo $userProfilePath . $userDataResponse['profile_pic']; ?>" alt="">
-                                            </div>
-                                            <div class="review-detail">
-                                                <h5><?php echo $userDataResponse['full_name']; ?></h5>
-                                                <div class="course-rating mb-2">
-                                                    <h6 class="course-rating-num">(<?php echo $reviewResponseRow['rating']; ?>)</h6>
-                                                    <span class="stars"><?php echo $reviewResponseRow['rating']; ?></span>
+                                            <div class="d-flex flex-row course-reviewlist">
+                                                <div class="text-center user-profile pr-4">
+                                                    <img src="<?php echo $userProfilePath . $userDataResponse['profile_pic']; ?>" alt="">
                                                 </div>
-                                                <h6><?php echo $reviewResponseRow['title']; ?></h6>
-                                                <p style="font-size: 1.1rem;"><?php echo $reviewResponseRow['description']; ?></p>
+                                                <div class="review-detail">
+                                                    <h5><?php echo $userDataResponse['full_name']; ?></h5>
+                                                    <div class="course-rating mb-2">
+                                                        <h6 class="course-rating-num">(<?php echo $reviewResponseRow['rating']; ?>)</h6>
+                                                        <span class="stars"><?php echo $reviewResponseRow['rating']; ?></span>
+                                                    </div>
+                                                    <h6><?php echo $reviewResponseRow['title']; ?></h6>
+                                                    <p style="font-size: 1.1rem;"><?php echo $reviewResponseRow['description']; ?></p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <hr>
+                                            <hr>
                                 <?php }
+                                    }
                                 } ?>
                             </div>
                         </div>

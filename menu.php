@@ -104,23 +104,13 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
                 <!-- <button type="submit" class="search-button"><i class="far fa-search"></i></button> -->
             </div>
             <div class="xs-search-group-content" id="search_content">
-                <!-- <ul>
+                <ul>
                     <li>
-                        <a href="#">
-                            2022 Complete Python Bootcamp From Zero to Hero
+                        <a href="javascript:void(0);">
+                            Search Something...
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            2022 Complete Python Bootcamp From Zero to Hero
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            2022 Complete Python Bootcamp From Zero to Hero
-                        </a>
-                    </li>
-                </ul> -->
+                </ul>
             </div>
         </div>
         <!-- </form> -->

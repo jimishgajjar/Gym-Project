@@ -705,6 +705,39 @@ if (!empty($_REQUEST['moduleMethod'])) {
         }
     }
 
+    // User Review Edit Ajax
+    if ($module == "editReviewAjax" && $moduleMethod == "course_review") {
+        if ($_REQUEST['review_id'] != "") {
+            $checkReviewCondition['user_id'] = $_SESSION["userId"];
+            $checkReviewCondition['id'] = $_REQUEST['review_id'];
+            $checkReviewResponse = getData('course_review', $checkReviewCondition);
+            $checkReviewResponse = $checkReviewResponse->fetch_assoc();
+            if (!empty($checkReviewResponse)) {
+                echo '<form action="include/UserSubmitData.php" method="POST" class="xs-form">
+                <input type="hidden" name="module" value="course_reviewAdd">
+                <input type="hidden" name="moduleMethod" value="course_review">
+                <input type="hidden" name="course_id" value="' . $checkReviewResponse['course_id'] . '">
+                <div class="form-group xs-form-anim">
+                    <label class="input-label" for="rating">Rating</label>
+                    <input type="number" id="rating" name="rating" class="form-control">
+                </div>
+                <div class="form-group xs-form-anim">
+                    <label class="input-label" for="title">Title</label>
+                    <input type="text" id="title" name="title" class="form-control">
+                </div>
+                <div class="form-group xs-form-anim xs-message-box">
+                    <label class="input-label input-label-textarea" for="description">Description</label>
+                    <textarea id="description" name="description" class="form-control"></textarea>
+                </div>
+                <div class="form-group mt-30">
+                    <button type="submit" id="reviewSub" name="reviewSub" style="border-radius: 0px; font-size: 17px;" class="pr-3 pl-3 pt-2 pb-2 btn btn-primary">Submit Now</button>
+                </div>
+            </form>
+            <hr>';
+            }
+        }
+    }
+
     // User Course Search
     if ($module == "courseSearch" && $moduleMethod == "course") {
         if (isset($_POST['searchVal'])) {

@@ -77,14 +77,28 @@ include('header.php');
                                                             $courseContentResponse = getData('course_content', $courseContentCondition);
                                                             if ($courseContentResponse->num_rows > 0) {
                                                                 while ($courseContentRow = $courseContentResponse->fetch_assoc()) {
-                                                            ?>
-                                                                    <li>
-                                                                        <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>">
-                                                                            <i class="fas fa-play-circle pr-20"></i>
-                                                                            <?php echo $courseContentRow['doc_title']; ?>
-                                                                        </a>
-                                                                    </li>
+                                                                    $file_extension = explode(".", $courseContentRow['document_path']);
+                                                                    if ($file_extension[1] == "pdf") { ?>
+                                                                        <li>
+                                                                            <a href="<?php echo $coursePath . $courseContentRow['document_path']; ?>" target="_blank" class="text-center">
+                                                                                <i class="fas fa-file-pdf pr-20"></i>
+                                                                            </a>
+                                                                            <a href="<?php echo $coursePath . $courseContentRow['document_path']; ?>" target="_blank">
+                                                                                <?php echo $courseContentRow['doc_title']; ?>
+                                                                            </a>
+                                                                        </li>
+                                                                    <?php } else {
+                                                                    ?>
+                                                                        <li>
+                                                                            <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>" class="text-center">
+                                                                                <i class="fas fa-play-circle pr-20"></i>
+                                                                            </a>
+                                                                            <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>">
+                                                                                <?php echo $courseContentRow['doc_title']; ?>
+                                                                            </a>
+                                                                        </li>
                                                             <?php
+                                                                    }
                                                                 }
                                                             }
                                                             ?>

@@ -16,12 +16,12 @@ include('header.php');
                     <div class="row align-items-center">
                         <div class="col-md-12">
                             <div class="page-header-title">
-                                <h5 class="m-b-10">Sample Page</h5>
+                                <h5 class="m-b-10">Dashboard</h5>
                             </div>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a>
+                                <li class="breadcrumb-item"><a href="index.php"><i class="feather icon-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#!">Sample Page</a></li>
+                                <li class="breadcrumb-item"><a href="#!">Dashboard</a></li>
                             </ul>
                         </div>
                     </div>
@@ -31,7 +31,7 @@ include('header.php');
             <!-- [ Main Content ] start -->
             <div class="row">
                 <!-- [ sample-page ] start -->
-                <div class="col-sm-12">
+                <!-- <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header">
                             <h5>Hello card</h5>
@@ -62,7 +62,7 @@ include('header.php');
                             </p>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- [ sample-page ] end -->
             </div>
             <!-- [ Main Content ] end -->

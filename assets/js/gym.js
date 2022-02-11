@@ -42,19 +42,6 @@ function loadCartlist() {
 //     });
 // }
 
-function courseSearch(searchVal) {
-    // alert(searchVal.value);
-    $.ajax({
-        url: "include/UserSubmitData.php",
-        method: "POST",
-        data: { module: "courseSearch", moduleMethod: "course", searchVal: searchVal.value },
-        success: function (response) {
-            $("#search_content").empty();
-            $("#search_content").append(response);
-        }
-    });
-}
-
 function addToCartFromWishlist(course_id_) {
     $.ajax({
         url: "include/UserSubmitData.php",
@@ -75,6 +62,31 @@ function deleteFromWishlist(course_id_) {
         success: function (response) {
             $("#whislist-data").empty();
             $("#whislist-data").append(response);
+        }
+    });
+}
+
+function courseSearch(searchVal) {
+    // alert(searchVal.value);
+    $.ajax({
+        url: "include/UserSubmitData.php",
+        method: "POST",
+        data: { module: "courseSearch", moduleMethod: "course", searchVal: searchVal.value },
+        success: function (response) {
+            $("#search_content").empty();
+            $("#search_content").append(response);
+        }
+    });
+}
+
+function editReview(review_id) {
+    $.ajax({
+        url: "include/UserSubmitData.php",
+        method: "POST",
+        data: { module: "editReviewAjax", moduleMethod: "course_review", review_id: review_id },
+        success: function (response) {
+            $("#userReview").empty();
+            $("#userReview").append(response);
         }
     });
 }
