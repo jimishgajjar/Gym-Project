@@ -201,8 +201,7 @@ include('header.php');
                                     <?php }
                                     } ?>
                                 </div>
-                            <?php } else {
-                            ?>
+                            <?php } else { ?>
                                 <div class="course-video">
                                     <?php
                                     $courseChapterCondition['course_id'] = $_GET['view'];
@@ -226,12 +225,34 @@ include('header.php');
                                                                 $courseContentResponse = getData('course_content', $courseContentCondition);
                                                                 if ($courseContentResponse->num_rows > 0) {
                                                                     while ($courseContentRow = $courseContentResponse->fetch_assoc()) {
-                                                                ?>
-                                                                        <li>
-                                                                            <i class="fas fa-play-circle pr-20"></i>
-                                                                            <?php echo $courseContentRow['doc_title']; ?>
-                                                                        </li>
-                                                                <?php
+                                                                        if ($courseContentRow['is_trailer'] == "true") {
+                                                                            $file_extension = explode(".", $courseContentRow['document_path']);
+                                                                            if ($file_extension[1] == "pdf") { ?>
+                                                                                <li>
+                                                                                    <a href="<?php echo $coursePath . $courseContentRow['document_path']; ?>" target="_blank" class="text-center">
+                                                                                        <i class="fas fa-file-pdf pr-20"></i>
+                                                                                    </a>
+                                                                                    <a href="<?php echo $coursePath . $courseContentRow['document_path']; ?>" target="_blank">
+                                                                                        <?php echo $courseContentRow['doc_title']; ?>
+                                                                                    </a>
+                                                                                </li>
+                                                                            <?php } else { ?>
+                                                                                <li>
+                                                                                    <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>" class="text-center">
+                                                                                        <i class="fas fa-play-circle pr-20"></i>
+                                                                                    </a>
+                                                                                    <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>">
+                                                                                        <?php echo $courseContentRow['doc_title']; ?>
+                                                                                    </a>
+                                                                                </li>
+                                                                            <?php
+                                                                            }
+                                                                        } else { ?>
+                                                                            <li>
+                                                                                <i class="fas fa-play-circle pr-20"></i>
+                                                                                <?php echo $courseContentRow['doc_title']; ?>
+                                                                            </li>
+                                                                <?php }
                                                                     }
                                                                 }
                                                                 ?>
@@ -320,8 +341,26 @@ include('header.php');
                                         $userCondition['id'] = $reviewResponseRow["user_id"];
                                         $userDataResponse = getData('user', $userCondition);
                                         $userDataResponse = $userDataResponse->fetch_assoc();
-                                        if ($reviewResponseRow['user_id'] != $_SESSION["userId"]) {
+                                        if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
+                                            if ($reviewResponseRow['user_id'] != $_SESSION["userId"]) {
                                 ?>
+                                                <div class="d-flex flex-row course-reviewlist">
+                                                    <div class="text-center user-profile pr-4">
+                                                        <img src="<?php echo $userProfilePath . $userDataResponse['profile_pic']; ?>" alt="">
+                                                    </div>
+                                                    <div class="review-detail">
+                                                        <h5><?php echo $userDataResponse['full_name']; ?></h5>
+                                                        <div class="course-rating mb-2">
+                                                            <h6 class="course-rating-num">(<?php echo $reviewResponseRow['rating']; ?>)</h6>
+                                                            <span class="stars"><?php echo $reviewResponseRow['rating']; ?></span>
+                                                        </div>
+                                                        <h6><?php echo $reviewResponseRow['title']; ?></h6>
+                                                        <p style="font-size: 1.1rem;"><?php echo $reviewResponseRow['description']; ?></p>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                            <?php }
+                                        } else { ?>
                                             <div class="d-flex flex-row course-reviewlist">
                                                 <div class="text-center user-profile pr-4">
                                                     <img src="<?php echo $userProfilePath . $userDataResponse['profile_pic']; ?>" alt="">

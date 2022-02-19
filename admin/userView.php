@@ -44,7 +44,7 @@ include('header.php');
                                 ?>
                                     <div class="form-group row">
                                         <label for="user_name" class="col-sm-2 col-form-label">Full Name :</label>
-                                        <div class="col-sm-10">
+                                        <div class="col-sm-4">
                                             <input type="text" readonly class="form-control-plaintext" id="user_name" value="<?php echo $response['full_name'] ?>">
                                         </div>
 
@@ -52,6 +52,91 @@ include('header.php');
                                         <div class="col-sm-4">
                                             <input type="text" readonly class="form-control-plaintext" id="user_email" value="<?php echo $response['email'] ?>">
                                         </div>
+
+                                        <label for="mobile_no" class="col-sm-2 col-form-label">Mobile No :</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" readonly class="form-control-plaintext" id="mobile_no" value="<?php echo $response['mobile_no'] ?>">
+                                        </div>
+
+                                        <label for="gender" class="col-sm-2 col-form-label">Gender :</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" readonly class="form-control-plaintext" id="gender" value="<?php echo $response['gender'] ?>">
+                                        </div>
+
+                                        <label for="height" class="col-sm-2 col-form-label">Height :</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" readonly class="form-control-plaintext" id="height" value="<?php echo $response['height'] ?>">
+                                        </div>
+
+                                        <label for="weight" class="col-sm-2 col-form-label">Weight :</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" readonly class="form-control-plaintext" id="weight" value="<?php echo $response['weight'] ?>">
+                                        </div>
+                                    </div>
+
+                                    <h5 class="mt-5">User Courses</h5>
+
+                                    <div class="table-responsive dt-responsive">
+                                        <table id="dom-jqry" class="table table-striped table-bordered nowrap">
+                                            <thead>
+                                                <tr>
+                                                    <th>Thumbnail</th>
+                                                    <th>Title</th>
+                                                    <th>Course Completed</th>
+                                                    <th>Amount</th>
+                                                    <th>Discounted Amount</th>
+                                                    <th>Final Amount</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $userCoursesCondition['user_id'] = $_GET['view'];
+                                                $userCourses = getData('user_courses', $userCoursesCondition);
+                                                if ($userCourses->num_rows > 0) {
+                                                    while ($row = $userCourses->fetch_assoc()) {
+                                                        $courseCondition['id'] = $row['course_id'];
+                                                        $courseResponse = getData('course', $courseCondition);
+                                                        $courseResponse = $courseResponse->fetch_assoc();
+                                                ?>
+                                                        <tr>
+                                                            <td><img class="thumbnail" src="../assets/thumbnail/<?php echo $courseResponse['thumbnail']; ?>" alt="" /></td>
+                                                            <td>
+                                                                <?php
+                                                                if (strlen($courseResponse['title']) >= 50) {
+                                                                    echo substr($courseResponse['title'], 0, 50) . "...";
+                                                                } else {
+                                                                    echo substr($courseResponse['title'], 0, 50);
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php
+                                                                $courseCountCondition['course_id']  = $row['course_id'];
+                                                                $courseCount = getData('course_content', $courseCountCondition);
+                                                                $courseCount = $courseCount->num_rows;
+                                                                $coursePercentage = 100 / $courseCount;
+
+                                                                $courseProgressCondition['user_id']  = $_SESSION["userId"];
+                                                                $courseProgressCondition['course_id']  = $row['course_id'];
+                                                                $courseProgress = getData('course_progress', $courseProgressCondition);
+                                                                $courseProgress = $courseProgress->num_rows;
+                                                                $userCoursePer = $courseProgress * $coursePercentage;
+
+                                                                echo round($userCoursePer);
+                                                                ?>
+                                                            </td>
+                                                            <td><?php echo $row['course_amount']; ?></td>
+                                                            <td><?php echo $row['discount_given']; ?></td>
+                                                            <td><?php echo $row['final_amount']; ?></td>
+                                                        </tr>
+                                                    <?php }
+                                                } else { ?>
+                                                    <tr>
+                                                        <td colspan="6" align="center">No data avalible.</td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 <?php } else { ?>
                                     <div class="col-md-12">

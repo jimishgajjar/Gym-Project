@@ -18,10 +18,9 @@ $coursePath = "assets/coursedocumnets/";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Barlow:400,600,700,800,900%7CMontserrat:800" rel="stylesheet">
-    <link rel="icon" type="image/png" href="favicon.html">
+
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/x-icon">
-    <link rel="apple-touch-icon" href="apple-touch-icon.html">
     <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
@@ -38,10 +37,10 @@ $coursePath = "assets/coursedocumnets/";
     <link rel="stylesheet" href="assets/css/responsive.css" />
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <!-- <script src="assets/js/jquery-3.2.1.min.js"></script> -->
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="jquery.rating.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/js/jquery.rating.js"></script>
 
     <!--====== Video Player ======-->
     <link rel="stylesheet" href="https://unpkg.com/plyr@3/dist/plyr.css" />

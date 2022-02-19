@@ -84,7 +84,6 @@ include('header.php');
                     </div>
                 </div>
             </div>
-            <!-- <div id="rate"></div> -->
 
             <div class="row">
                 <?php
@@ -97,7 +96,6 @@ include('header.php');
                 ?>
                         <div class="col-md-3 mb-25">
                             <div class="course">
-                                <!-- <a href="" class="course-link"> -->
                                 <img class="course-thumbline" src="assets/thumbnail/<?php echo $row['thumbnail']; ?>" alt="course1" />
                                 <div class="course-content">
                                     <div class="course-category mb-1">
@@ -118,7 +116,6 @@ include('header.php');
                                     </div>
                                     <a href="courseDetailView.php?view=<?php echo $row['id'] ?>" class="btn btn-primary btn-100">Know More</a>
                                 </div>
-                                <!-- </a> -->
                             </div>
                         </div>
                 <?php }
@@ -144,7 +141,7 @@ include('header.php');
                 <div class="xs-classes-light">
                     <div class="row">
                         <?php
-                        $categoryList = getData('category');
+                        $categoryList = getData('category', $Condition = array(), 6);
                         if ($categoryList->num_rows > 0) {
                             while ($row = $categoryList->fetch_assoc()) {
                         ?>
@@ -157,9 +154,8 @@ include('header.php');
                                                     <i class="icon icon-dumble"></i>
                                                 </div>
                                                 <h3><?php echo $row['category_name']; ?></h3>
-                                                <p>We have heap of fun piece of equi to build down every inh of your for body.
-                                                </p>
-                                                <a href="#" class="btn btn-primary">
+                                                <p><?php echo $row['category_description']; ?></p>
+                                                <a href="category.php?category=<?php echo $row['id']; ?>&category_name=<?php echo $row['category_name']; ?>" class="btn btn-primary">
                                                     <i class="icon icon-arrow"></i>
                                                 </a>
                                             </div>

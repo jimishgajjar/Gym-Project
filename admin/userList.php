@@ -41,7 +41,7 @@ include('header.php');
                                         <tr>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Options</th>
+                                            <!-- <th>Options</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -53,10 +53,10 @@ include('header.php');
                                                 <tr>
                                                     <td><a href="userView.php?view=<?php echo $row['id'] ?>"><?php echo $row['full_name'] ?></a></td>
                                                     <td><?php echo $row['email'] ?></td>
-                                                    <td>
+                                                    <!-- <td>
                                                         <a href="category.php?edit=<?php echo $row['id']; ?>" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
                                                         <a href="include/AdminSubmitData.php?moduleMethod=category&module=categoryDelete&delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
-                                                    </td>
+                                                    </td> -->
                                                 </tr>
                                             <?php
                                             }

@@ -1,5 +1,5 @@
 <?php
-function getData($tablename, $where = array())
+function getData($tablename, $where = array(), $limit = null)
 {
     include 'dbConfig.php';
 
@@ -9,16 +9,26 @@ function getData($tablename, $where = array())
             $wherestr = $wherestr . $field . " = '" . $condition . "' And ";
         }
         $wherestr = preg_replace('/\W\w+\s*(\W*)$/', '$1', $wherestr);
-        $query = "SELECT * FROM " . $tablename . " WHERE " . $wherestr;
+
+        if (!empty($limit)) {
+            $query = "SELECT * FROM " . $tablename . " WHERE " . $wherestr . "and limit " . $limit;
+        } else {
+            $query = "SELECT * FROM " . $tablename . " WHERE " . $wherestr;
+        }
+
         $result = $conn->query($query);
     }
 
     if (empty($where)) {
-        $query = "SELECT * FROM " . $tablename;
+        if (!empty($limit)) {
+            $query = "SELECT * FROM " . $tablename . " limit " . $limit;
+        } else {
+            $query = "SELECT * FROM " . $tablename;
+        }
         $result = $conn->query($query);
     }
 
-    //  echo $query."<br>";
+    // echo $query . "<br>";
     return $result;
     // if ($result->num_rows > 0) {
     //     while ($row = $result->fetch_assoc()) {
@@ -63,7 +73,7 @@ function updateData($tablename, $input, $where = array())
     }
     $set = rtrim($set, ', ');
 
-    echo $query = "UPDATE " . $tablename . " SET " . $set . " WHERE " . $wherestr;
+    $query = "UPDATE " . $tablename . " SET " . $set . " WHERE " . $wherestr;
     if ($conn->query($query) === TRUE) {
         return $tablename . " updated successfully";
     }

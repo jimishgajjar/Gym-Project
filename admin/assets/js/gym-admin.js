@@ -23,3 +23,26 @@ $(document).ready(function () {
         }
     });
 });
+
+function is_trailer(content_checkbox) {
+    var split_val = content_checkbox.split("_");
+    var content_id = split_val[0];
+    var chapter_id = split_val[1];
+
+    var content_check = document.getElementById(content_checkbox);
+    $.ajax({
+        url: "include/AdminSubmitData.php",
+        method: "POST",
+        data: {
+            module: "isTrailerAjax",
+            moduleMethod: "course_content",
+            content_id: content_id,
+            chapter_id: chapter_id,
+            content_check_val: content_check.checked
+        },
+        success: function (response) {
+            $("#content_list").empty();
+            $("#content_list").append(response);
+        }
+    });
+}

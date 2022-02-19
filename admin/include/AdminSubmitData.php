@@ -589,6 +589,56 @@ if (!empty($_REQUEST['moduleMethod'])) {
         }
     }
 
+    // Is Trailer
+    if ($module == "isTrailerAjax" && $moduleMethod == "course_content") {
+        if (isset($_POST['content_id']) && isset($_POST['chapter_id']) && isset($_POST['content_check_val'])) {
+            $course_content = array(
+                'is_trailer' => $_POST['content_check_val'],
+                'date_modified' => date("Y-m-d H:i:s"),
+                'modified_user_id' => $_SESSION["adminId"],
+            );
+
+            $Condition['id'] = $_POST["content_id"];
+            $course_contentUpdate = updateData($moduleMethod, $course_content, $Condition);
+
+            if (!empty($course_contentUpdate)) {
+                $CourseContentCondition['chapter_id'] = $_POST['chapter_id'];
+                $CourseContentResponse = getData('course_content', $CourseContentCondition);
+                if ($CourseContentResponse->num_rows > 0) {
+                    echo '
+                    <table id="dom-jqry" class="table table-striped table-bordered nowrap">
+                    <thead>
+                        <tr>
+                            <th>Course Title</th>
+                            <th>Course Path</th>
+                            <th>Options</th>
+                            <th>Is Trailer</th>
+                        </tr>
+                    </thead>
+                    <tbody>';
+                    while ($row = $CourseContentResponse->fetch_assoc()) {
+                        echo '<tr>
+                        <td>'.$row["doc_title"].'</td>
+                        <td></td>
+                        <td>
+                            <a href="include/AdminSubmitData.php?moduleMethod=course_content&module=courseContentDelete&delete=' . $row["id"] . '&chapter_id=' . $_POST['chapter_id'] . '" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete</a>
+                        </td>
+                        <td>';
+                        if ($row['is_trailer'] == 'true') {
+                            echo '<input type="checkbox" id="' . $row['id'] . '_' . $row['chapter_id'] . '" onchange="is_trailer(this.id)" checked>';
+                        } else {
+                            echo '<input type="checkbox" id="' . $row['id'] . "_" . $row['chapter_id'] . '" onchange="is_trailer(this.id)">';
+                        }
+                        echo '</td>' .
+                            '</tr>';
+                    }
+                    echo '</tbody>
+                    </table>';
+                }
+            }
+        }
+    }
+
     // Admin Logout
     if ($module == "adminLogout" && $moduleMethod == "logout") {
         if ($_REQUEST['logout'] == 1) {

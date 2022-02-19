@@ -55,33 +55,44 @@ include('header.php');
                                         </div>
                                     </div>
 
-                                    <table id="dom-jqry" class="table table-striped table-bordered nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th>Course Title</th>
-                                                <th>Course Path</th>
-                                                <th>Options</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $CourseContentCondition['chapter_id'] = $response['id'];
-                                            $CourseContentResponse = getData('course_content', $CourseContentCondition);
-                                            if ($CourseContentResponse->num_rows > 0) {
-                                                while ($row = $CourseContentResponse->fetch_assoc()) {
-                                            ?>
-                                                    <tr>
-                                                        <td><?php echo $row['doc_title'] ?></td>
-                                                        <td></td>
-                                                        <td>
-                                                            <a href="include/AdminSubmitData.php?moduleMethod=course_content&module=courseContentDelete&delete=<?php echo $row['id']; ?>&chapter_id=<?php echo $response['id']; ?>" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete</a>
-                                                        </td>
-                                                    </tr>
-                                            <?php }
-                                            }
-                                            ?>
-                                        </tbody>
-                                    </table>
+                                    <div id="content_list">
+                                        <table id="dom-jqry" class="table table-striped table-bordered nowrap">
+                                            <thead>
+                                                <tr>
+                                                    <th>Course Title</th>
+                                                    <th>Course Path</th>
+                                                    <th>Options</th>
+                                                    <th>Is Trailer</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $CourseContentCondition['chapter_id'] = $response['id'];
+                                                $CourseContentResponse = getData('course_content', $CourseContentCondition);
+                                                if ($CourseContentResponse->num_rows > 0) {
+                                                    while ($row = $CourseContentResponse->fetch_assoc()) {
+                                                ?>
+                                                        <tr>
+                                                            <td><?php echo $row['doc_title'] ?></td>
+                                                            <td></td>
+                                                            <td>
+                                                                <a href="include/AdminSubmitData.php?moduleMethod=course_content&module=courseContentDelete&delete=<?php echo $row['id']; ?>&chapter_id=<?php echo $response['id']; ?>" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete</a>
+                                                            </td>
+                                                            <td>
+                                                                <?php
+                                                                if ($row['is_trailer'] == "true") { ?>
+                                                                    <input type="checkbox" id="<?php echo $row['id'] . "_" . $row['chapter_id']; ?>" onchange="is_trailer(this.id)" checked>
+                                                                <?php } else { ?>
+                                                                    <input type="checkbox" id="<?php echo $row['id'] . "_" . $row['chapter_id']; ?>" onchange="is_trailer(this.id)">
+                                                                <?php } ?>
+                                                            </td>
+                                                        </tr>
+                                                <?php }
+                                                }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
 
                                     <div class="row mt-5 mb-2">
                                         <div class="col-md-12">

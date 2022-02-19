@@ -477,21 +477,33 @@ if (!empty($_REQUEST['moduleMethod'])) {
 
     // Delete Course From Dashboard Cart 
     if ($module == "deleteCartFromDash" && $moduleMethod == "cart") {
-        if (!empty($_REQUEST['course_id'])) {
+        if (!empty($_REQUEST['remove'])) {
             $Condition['user_ip'] = $ip;
-            $Condition['user_id'] = $_SESSION["userId"];
-            $Condition['course_id'] = $_REQUEST['course_id'];
+            if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
+                $Condition['user_id'] = $_SESSION["userId"];
+            } else {
+                $Condition['user_id'] = null;
+            }
+            $Condition['id'] = $_REQUEST['remove'];
             $deleteFromCartlist = deleteData($moduleMethod, $Condition);
 
             if (!empty($deleteFromCartlist)) {
                 $alert_type = "alert-success";
                 $alert_message = "Course remove successfully.";
-                echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
+                    echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                } else {
+                    echo "<script>window.location.replace('../checkout.php');</script>";
+                }
             }
         } else {
             $alert_type = "alert-danger";
             $alert_message = "Something want wrong <span>please try again!</span>";
-            echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
+                echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            } else {
+                echo "<script>window.location.replace('../checkout.php');</script>";
+            }
         }
     }
 
@@ -705,6 +717,50 @@ if (!empty($_REQUEST['moduleMethod'])) {
         }
     }
 
+    // User Review Insert
+    if ($module == "course_reviewAdd" && $moduleMethod == "course_review") {
+        if (isset($_POST['reviewSub'])) {
+            if (isset($_POST['edit'])) {
+                $reviewData = array(
+                    'course_id' => $_POST["course_id"],
+                    'user_id' => $_SESSION["userId"],
+                    'rating' => $_POST['rating'],
+                    'title' => $_POST['title'],
+                    'description' => $_POST['description'],
+                    'date_modified' => date("Y-m-d H:i:s"),
+                    'modified_user_id' => $_SESSION["userId"],
+                    'deleted' => 0,
+                );
+                $reviewUpdateCondition['id'] = $_POST['edit'];
+                $reviewUpdateResponse = updateData($moduleMethod, $reviewData, $reviewUpdateCondition);
+            } else {
+                $reviewData = array(
+                    'id' => uniqid(),
+                    'course_id' => $_POST["course_id"],
+                    'user_id' => $_SESSION["userId"],
+                    'rating' => $_POST['rating'],
+                    'title' => $_POST['title'],
+                    'description' => $_POST['description'],
+                    'date_entered' => date("Y-m-d H:i:s"),
+                    'date_modified' => date("Y-m-d H:i:s"),
+                    'modified_user_id' => $_SESSION["userId"],
+                    'created_by' => $_SESSION["userId"],
+                    'deleted' => 0,
+                );
+                $reviewDataResponse = insertData($moduleMethod, $reviewData);
+            }
+            if (!empty($reviewDataResponse)) {
+                $alert_type = "alert-success";
+                $alert_message = "Review added successful.";
+                echo "<script>window.location.replace('../courseDetailView.php?view=" . $_POST['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            } else {
+                $alert_type = "alert-danger";
+                $alert_message = "Something want wrong <span>please try again!</span>";
+                echo "<script>window.location.replace('../courseDetailView.php?view=" . $_POST['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            }
+        }
+    }
+
     // User Review Edit Ajax
     if ($module == "editReviewAjax" && $moduleMethod == "course_review") {
         if ($_REQUEST['review_id'] != "") {
@@ -716,18 +772,19 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 echo '<form action="include/UserSubmitData.php" method="POST" class="xs-form">
                 <input type="hidden" name="module" value="course_reviewAdd">
                 <input type="hidden" name="moduleMethod" value="course_review">
+                <input type="hidden" name="edit" value="' . $_REQUEST['review_id'] . '">
                 <input type="hidden" name="course_id" value="' . $checkReviewResponse['course_id'] . '">
-                <div class="form-group xs-form-anim">
+                <div class="form-group xs-form-anim active">
                     <label class="input-label" for="rating">Rating</label>
-                    <input type="number" id="rating" name="rating" class="form-control">
+                    <input type="number" id="rating" name="rating" class="form-control" value="' . $checkReviewResponse['rating'] . '">
                 </div>
-                <div class="form-group xs-form-anim">
+                <div class="form-group xs-form-anim active">
                     <label class="input-label" for="title">Title</label>
-                    <input type="text" id="title" name="title" class="form-control">
+                    <input type="text" id="title" name="title" class="form-control" value="' . $checkReviewResponse['title'] . '">
                 </div>
-                <div class="form-group xs-form-anim xs-message-box">
+                <div class="form-group xs-form-anim active xs-message-box">
                     <label class="input-label input-label-textarea" for="description">Description</label>
-                    <textarea id="description" name="description" class="form-control"></textarea>
+                    <textarea id="description" name="description" class="form-control">' . $checkReviewResponse['description'] . '</textarea>
                 </div>
                 <div class="form-group mt-30">
                     <button type="submit" id="reviewSub" name="reviewSub" style="border-radius: 0px; font-size: 17px;" class="pr-3 pl-3 pt-2 pb-2 btn btn-primary">Submit Now</button>
@@ -766,6 +823,102 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     </li>";
                 }
                 echo "</ul>";
+            }
+        }
+    }
+
+    // Course Content Progress Insert
+    if ($module == "videoWatched" && $moduleMethod == "course_progress") {
+        if (isset($_POST['course_position']) && isset($_POST['course_id']) && isset($_POST['content_id']) && isset($_POST['chapter_id'])) {
+            // die('***');
+            $Condition['user_id'] = $_SESSION["userId"];
+            $Condition['course_id']  = $_POST['course_id'];
+            $Condition['chapter_id']  = $_POST['chapter_id'];
+            $Condition['content_id']  = $_POST['content_id'];
+            $response = getData($moduleMethod, $Condition);
+            $response = $response->fetch_assoc();
+            if (empty($response)) {
+                $uniqid = uniqid();
+                $course_progress = array(
+                    'id' => $uniqid,
+                    'user_id' => $_SESSION["userId"],
+                    'course_id' => $_REQUEST['course_id'],
+                    'chapter_id' => $_REQUEST['chapter_id'],
+                    'content_id' => $_REQUEST['content_id'],
+                    'date_entered' => date("Y-m-d H:i:s"),
+                    'date_modified' => date("Y-m-d H:i:s"),
+                    'modified_user_id' => $_SESSION["userId"],
+                    'created_by' => $_SESSION["userId"],
+                    'deleted' => 0,
+                );
+                $courseProgressResponse = insertData($moduleMethod, $course_progress);
+                if (!empty($courseProgressResponse)) {
+                    $contentPos = $_POST['course_position'];
+                    $contentPos++;
+
+                    $courseContentCondition['course_id']  = $_POST['course_id'];
+                    $courseContentCondition['chapter_id']  = $_POST['chapter_id'];
+                    $courseContentCondition['position_order']  = $contentPos;
+                    $courseContent = getData('course_content', $courseContentCondition);
+                    $courseContent = $courseContent->fetch_assoc();
+                    if (!empty($courseContent)) {
+                        echo "courseContentView.php?view=" . $courseContent['course_id'] . "&course_content_id=" . $courseContent['id'];
+                    } else {
+                        $courseChapterCondition['id'] = $_POST['chapter_id'];
+                        $courseChapter = getData('course_chapter', $courseChapterCondition);
+                        $courseChapter = $courseChapter->fetch_assoc();
+                        if (!empty($courseChapter)) {
+                            $chapterPosition = $courseChapter['position_order'];
+                            $chapterPosition++;
+
+                            $courseChapternewCondition['course_id']  = $_POST['course_id'];
+                            $courseChapternewCondition['position_order']  = $chapterPosition;
+                            $coursenewChapter = getData('course_chapter', $courseChapternewCondition);
+                            $coursenewChapter = $coursenewChapter->fetch_assoc();
+                            if ($coursenewChapter) {
+                                $newChapterConCondition['course_id']  = $_POST['course_id'];
+                                $newChapterConCondition['chapter_id']  = $coursenewChapter['id'];
+                                $newChapterConCondition['position_order']  = 1;
+                                $newChapterCon = getData('course_content', $newChapterConCondition);
+                                $newChapterCon = $newChapterCon->fetch_assoc();
+                                echo "courseContentView.php?view=" . $newChapterCon['course_id'] . "&course_content_id=" . $newChapterCon['id'];
+                            }
+                        }
+                    }
+                }
+            } else {
+                $contentPos = $_POST['course_position'];
+                $contentPos++;
+
+                $courseContentCondition['course_id']  = $_POST['course_id'];
+                $courseContentCondition['chapter_id']  = $_POST['chapter_id'];
+                $courseContentCondition['position_order']  = $contentPos;
+                $courseContent = getData('course_content', $courseContentCondition);
+                $courseContent = $courseContent->fetch_assoc();
+                if (!empty($courseContent)) {
+                    echo "courseContentView.php?view=" . $courseContent['course_id'] . "&course_content_id=" . $courseContent['id'];
+                } else {
+                    $courseChapterCondition['id']  = $_POST['chapter_id'];
+                    $courseChapter = getData('course_chapter', $courseChapterCondition);
+                    $courseChapter = $courseChapter->fetch_assoc();
+                    if (!empty($courseChapter)) {
+                        $chapterPosition = $courseChapter['position_order'];
+                        $chapterPosition++;
+
+                        $courseChapternewCondition['course_id'] = $_POST['course_id'];
+                        $courseChapternewCondition['position_order'] = $chapterPosition;
+                        $coursenewChapter = getData('course_chapter', $courseChapternewCondition);
+                        $coursenewChapter = $coursenewChapter->fetch_assoc();
+                        if (!empty($coursenewChapter)) {
+                            $newChapterConCondition['course_id'] = $_POST['course_id'];
+                            $newChapterConCondition['chapter_id'] = $coursenewChapter['id'];
+                            $newChapterConCondition['position_order']  = 1;
+                            $newChapterCon = getData('course_content', $newChapterConCondition);
+                            $newChapterCon = $newChapterCon->fetch_assoc();
+                            echo "courseContentView.php?view=" . $newChapterCon['course_id'] . "&course_content_id=" . $newChapterCon['id'];
+                        }
+                    }
+                }
             }
         }
     }

@@ -68,6 +68,17 @@ if ($cartDataResponse->num_rows > 0) {
             <li class="cart-total">
                 <h5>Total: ₹<?php echo $total; ?><s class="pl-2">₹<?php echo $totalAll; ?></s></h5>
             </li>
+            <li class="cart-total">
+                <?php if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) { ?>
+                    <a href="userDashboard.php?dasboard=cartlist" class="tp-btn btn-block">
+                        Checkout
+                    </a>
+                <?php } else { ?>
+                    <a href="checkout.php" class="tp-btn btn-block">
+                        Checkout
+                    </a>
+                <?php } ?>
+            </li>
         </ul>
     </div>
 <?php } else { ?>

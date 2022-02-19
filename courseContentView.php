@@ -49,9 +49,13 @@ include('header.php');
                             $courseVideoResponse = getData('course_content', $courseVideoCondition);
                             $courseVideoResponse = $courseVideoResponse->fetch_assoc();
                             ?>
-                            <video autoplay crossorigin playsinline poster="<?php echo $thumbnailPath . $response['thumbnail']; ?>">
+                            <video id="courseVideo" autoplay crossorigin playsinline poster="<?php echo $thumbnailPath . $response['thumbnail']; ?>">
                                 <source src="<?php echo $coursePath . $courseVideoResponse['document_path']; ?>" type="video/mp4">
                             </video>
+                            <input type="hidden" name="course_position" id="course_position" value="<?php echo $courseVideoResponse['position_order']; ?>" />
+                            <input type="hidden" name="course_id" id="course_id" value="<?php echo $courseVideoResponse['course_id']; ?>" />
+                            <input type="hidden" name="content_id" id="content_id" value="<?php echo $courseVideoResponse['id']; ?>" />
+                            <input type="hidden" name="chapter_id" id="chapter_id" value="<?php echo $courseVideoResponse['chapter_id']; ?>" />
                         </div>
                         <div class="col-md-4">
                             <div class="course-video">

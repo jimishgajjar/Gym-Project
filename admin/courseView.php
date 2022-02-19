@@ -84,25 +84,30 @@ include('header.php');
                                             <table id="dom-jqry" class="table table-striped table-bordered nowrap">
                                                 <thead>
                                                     <tr>
+                                                        <th>#</th>
                                                         <th>Chapter Title</th>
                                                         <th>Options</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody class="row_position">
                                                     <?php
+                                                    $rowCount = 1;
                                                     $CourseContentCondition['course_id'] = $_GET['view'];
                                                     $CourseContentResponse = getData('course_chapter', $CourseContentCondition);
                                                     if ($CourseContentResponse->num_rows > 0) {
                                                         while ($row = $CourseContentResponse->fetch_assoc()) {
                                                     ?>
                                                             <tr>
+                                                                <td><?php echo $rowCount; ?></td>
                                                                 <td><?php echo $row['chapter_title'] ?></td>
                                                                 <td>
                                                                     <a href="courseContentEdit.php?edit=<?php echo $row['id']; ?>" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
                                                                     <a href="include/AdminSubmitData.php?moduleMethod=course_chapter&module=courseChapterDelete&delete=<?php echo $row['id']; ?>&course_id=<?php echo $_GET['view']; ?>" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete</a>
                                                                 </td>
                                                             </tr>
-                                                    <?php }
+                                                    <?php
+                                                            $rowCount++;
+                                                        }
                                                     }
                                                     ?>
                                                 </tbody>
@@ -185,7 +190,6 @@ include('header.php');
     <!-- [ Main Content ] end -->
 
     <?php include('footer.php'); ?>
-
 </body>
 
 </html>

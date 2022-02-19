@@ -4958,6 +4958,15 @@ a {
     color: #000;
 }
 
+.course .progress {
+    height: 0.3rem !important;
+    background-color: #d1d7dc;
+}
+
+.course .progress .progress-bar {
+    background-color: #f63c25;
+}
+
 .course .course-rating {
     display: flex;
 }

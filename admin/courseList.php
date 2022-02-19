@@ -57,8 +57,25 @@ include('header.php');
                                         ?>
                                                 <tr>
                                                     <td><img class="thumbnail" src="../assets/thumbnail/<?php echo $row['thumbnail']; ?>" alt="" /></td>
-                                                    <td><a href="courseView.php?view=<?php echo $row['id'] ?>"><?php echo $row['title']; ?></a></td>
-                                                    <td><?php echo $row['small_description']; ?></td>
+                                                    <td>
+                                                        <a href="courseView.php?view=<?php echo $row['id'] ?>">
+                                                            <?php
+                                                            if (strlen($row['title']) >= 50) {
+                                                                echo substr($row['title'], 0, 50) . "...";
+                                                            } else {
+                                                                echo substr($row['title'], 0, 50);
+                                                            }
+                                                            ?>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                        if (strlen($row['small_description']) >= 50) {
+                                                            echo substr($row['small_description'], 0, 50) . "...";
+                                                        } else {
+                                                            echo substr($row['small_description'], 0, 50);
+                                                        }
+                                                        ?>
                                                     <td><?php echo $response['category_name']; ?></td>
                                                     <td>
                                                         <a href=" course.php?edit=<?php echo $row['id']; ?>" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>

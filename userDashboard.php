@@ -189,16 +189,16 @@ include('header.php');
                                                         <a href="" class="course-link">
                                                             <img class="course-thumbline" src="assets/thumbnail/<?php echo $response['thumbnail']; ?>" alt="course1" />
                                                             <div class="course-content">
-                                                                <div style="height: 130px;">
+                                                                <div>
                                                                     <div class="course-category mb-1">
                                                                         <?php echo $categoryResponse['category_name']; ?>
                                                                     </div>
                                                                     <div class="course-title mb-1">
                                                                         <?php
-                                                                        if (strlen($response['title']) >= 85) {
-                                                                            echo substr($response['title'], 0, 85) . "...";
+                                                                        if (strlen($response['title']) >= 65) {
+                                                                            echo substr($response['title'], 0, 65) . "...";
                                                                         } else {
-                                                                            echo substr($response['title'], 0, 85);
+                                                                            echo substr($response['title'], 0, 65);
                                                                         }
                                                                         ?>
                                                                     </div>
@@ -207,6 +207,23 @@ include('header.php');
                                                                         <span class="stars"><?php echo $response['rating']; ?></span>
                                                                     </div>
                                                                 </div>
+                                                                <?php
+                                                                $courseCountCondition['course_id']  = $row['course_id'];
+                                                                $courseCount = getData('course_content', $courseCountCondition);
+                                                                $courseCount = $courseCount->num_rows;
+                                                                $coursePercentage = 100 / $courseCount;
+
+                                                                $courseProgressCondition['user_id']  = $_SESSION["userId"];
+                                                                $courseProgressCondition['course_id']  = $row['course_id'];
+                                                                $courseProgress = getData('course_progress', $courseProgressCondition);
+                                                                $courseProgress = $courseProgress->num_rows;
+                                                                $userCoursePer = $courseProgress * $coursePercentage;
+                                                                ?>
+                                                                <div class="progress mt-2 mb-1">
+                                                                    <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo round($userCoursePer); ?>" aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round($userCoursePer); ?>%">
+                                                                    </div>
+                                                                </div>
+                                                                <h6 style="font-size: 12px; font-weight: 600;"><?php echo round($userCoursePer); ?>% Complete</h6>
                                                                 <a href="courseDetailView.php?view=<?php echo $response['id'] ?>" class="btn btn-primary btn-100">View Course</a>
                                                             </div>
                                                             <!-- </a> -->
@@ -358,7 +375,7 @@ include('header.php');
                                                                 ?>
                                                             </h6>
                                                             <div class="d-flex bd-highlight">
-                                                                <div class="pr-2 flex-fill bd-highlight"><a href="include/UserSubmitData.php?moduleMethod=cart&module=deleteCartFromDash&course_id=<?php echo $row['course_id']; ?>">Remove</a></div>
+                                                                <div class="pr-2 flex-fill bd-highlight"><a href="include/UserSubmitData.php?moduleMethod=cart&module=deleteCartFromDash&remove=<?php echo $row['id']; ?>">Remove</a></div>
                                                                 <div class="pl-2 flex-fill bd-highlight"><a href="include/UserSubmitData.php?moduleMethod=wishlist&module=moveCartToWishlistDash&course_id=<?php echo $row['course_id']; ?>">Move to Wishlist</a></div>
                                                             </div>
                                                         </div>

@@ -128,3 +128,49 @@ $(document).ready(function () {
         }
     });
 });
+
+function getvideo() {
+    var video = document.getElementById("courseVideo");
+    var course_position = document.getElementById("course_position").value;
+    var chapter_id = document.getElementById("chapter_id").value;
+    var content_id = document.getElementById("content_id").value;
+    var course_id = document.getElementById("course_id").value;
+    // alert(course_position + "*********" + chapter_id);
+    // var videoLength = video.duration;
+    // var currentVideotime = video.currentTime;
+
+    // var videoCheck = videoLength - 30;
+    // if (currentVideotime >= videoCheck) {
+    //     $.ajax({
+    //         url: "include/UserSubmitData.php",
+    //         method: "POST",
+    //         data: { module: "editReviewAjax", moduleMethod: "course_review", review_id: review_id },
+    //         success: function (response) {
+    //             $("#userReview").empty();
+    //             $("#userReview").append(response);
+    //         }
+    //     });
+    // }
+    if (video.ended == true) {
+        // alert('**');
+        $.ajax({
+            url: "include/UserSubmitData.php",
+            method: "POST",
+            data: {
+                module: "videoWatched",
+                moduleMethod: "course_progress",
+                course_position: course_position,
+                content_id: content_id,
+                chapter_id: chapter_id,
+                course_id: course_id
+            },
+            success: function (response) {
+                window.location = response;
+            }
+        });
+    }
+}
+
+$(document).ready(function () {
+    setInterval(getvideo, 5000);
+});
