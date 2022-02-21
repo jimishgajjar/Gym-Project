@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2022 at 04:35 PM
+-- Generation Time: Feb 21, 2022 at 08:36 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -186,8 +186,8 @@ CREATE TABLE `course_content` (
 
 INSERT INTO `course_content` (`id`, `position_order`, `chapter_id`, `course_id`, `doc_title`, `document_path`, `is_trailer`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
 ('6205fc62160fd', 1, '6205fc62111de', '61ae0f7abf646', 'Chapter 1 Video 1', '61ae0f7abf646_6205fc62111de_6205fc62160fd.mp4', 'true', '2022-02-11 11:34:18', '2022-02-18 19:55:07', '61952d7816277', '61952d7816277', 0),
-('62060135f12db', 2, '6205fc62111de', '61ae0f7abf646', 'Chapter 1 Video 2', '61ae0f7abf646_6205fc62111de_62060135f12db.mp4', 'false', '2022-02-11 11:54:53', '2022-02-18 19:54:57', '61952d7816277', '61952d7816277', 0),
-('620601e515a70', 3, '6205fc62111de', '61ae0f7abf646', 'Chapter 1 Video 3', '61ae0f7abf646_6205fc62111de_620601e515a70.mp4', 'true', '2022-02-11 11:57:49', '2022-02-18 19:55:08', '61952d7816277', '61952d7816277', 0),
+('62060135f12db', 2, '6205fc62111de', '61ae0f7abf646', 'Chapter 1 Video 2', '61ae0f7abf646_6205fc62111de_62060135f12db.mp4', 'true', '2022-02-11 11:54:53', '2022-02-20 14:49:35', '61952d7816277', '61952d7816277', 0),
+('620601e515a70', 3, '6205fc62111de', '61ae0f7abf646', 'Chapter 1 Video 3', '61ae0f7abf646_6205fc62111de_620601e515a70.mp4', 'false', '2022-02-11 11:57:49', '2022-02-20 14:49:33', '61952d7816277', '61952d7816277', 0),
 ('62062ab05ac34', 1, '62062ab05a056', '61ae0f7abf646', 'Chapter 2 Video 1', '61ae0f7abf646_62062ab05a056_62062ab05ac34.mp4', 'false', '2022-02-11 14:51:52', '2022-02-11 14:51:52', '61952d7816277', '61952d7816277', 0),
 ('62062ab05dee9', 2, '62062ab05a056', '61ae0f7abf646', 'Chapter 2 Video 2', '61ae0f7abf646_62062ab05a056_62062ab05dee9.mp4', 'false', '2022-02-11 14:51:52', '2022-02-11 14:51:52', '61952d7816277', '61952d7816277', 0),
 ('620637caee7e4', 1, '620637caea634', '61ae0f9e103d7', 'Chapter 1 Video 1', '61ae0f9e103d7_620637caea634_620637caee7e4.mp4', 'false', '2022-02-11 15:47:47', '2022-02-11 15:47:47', '61952d7816277', '61952d7816277', 0),
@@ -208,35 +208,6 @@ CREATE TABLE `course_progress` (
   `course_id` varchar(255) NOT NULL,
   `chapter_id` varchar(255) NOT NULL,
   `content_id` varchar(255) NOT NULL,
-  `date_entered` datetime NOT NULL,
-  `date_modified` datetime NOT NULL,
-  `modified_user_id` varchar(255) NOT NULL,
-  `created_by` varchar(255) NOT NULL,
-  `deleted` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `course_progress`
---
-
-INSERT INTO `course_progress` (`id`, `user_id`, `course_id`, `chapter_id`, `content_id`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('6210f3b82e5b3', '61adfd8c73697', '61ae0f7abf646', '6205fc62111de', '6205fc62160fd', '2022-02-19 19:12:16', '2022-02-19 19:12:16', '61adfd8c73697', '61adfd8c73697', 0),
-('6210f3ccb97ad', '61adfd8c73697', '61ae0f7abf646', '6205fc62111de', '62060135f12db', '2022-02-19 19:12:36', '2022-02-19 19:12:36', '61adfd8c73697', '61adfd8c73697', 0),
-('6210f3ff4ff25', '61adfd8c73697', '61ae0f7abf646', '6205fc62111de', '620601e515a70', '2022-02-19 19:13:27', '2022-02-19 19:13:27', '61adfd8c73697', '61adfd8c73697', 0),
-('6210f5b757887', '61adfd8c73697', '61ae0f7abf646', '6205fc62111de', '620a9b5e998c6', '2022-02-19 19:20:47', '2022-02-19 19:20:47', '61adfd8c73697', '61adfd8c73697', 0),
-('6210f614c14c4', '61adfd8c73697', '61ae0f7abf646', '62062ab05a056', '62062ab05ac34', '2022-02-19 19:22:20', '2022-02-19 19:22:20', '61adfd8c73697', '61adfd8c73697', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `course_progress_user`
---
-
-CREATE TABLE `course_progress_user` (
-  `id` varchar(255) NOT NULL,
-  `user_id` varchar(255) NOT NULL,
-  `course_id` varchar(255) NOT NULL,
-  `course_percentage` varchar(10) NOT NULL,
   `date_entered` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
   `modified_user_id` varchar(255) NOT NULL,
@@ -393,6 +364,33 @@ INSERT INTO `user_courses` (`id`, `user_id`, `course_id`, `course_amount`, `disc
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `user_report`
+--
+
+CREATE TABLE `user_report` (
+  `id` varchar(255) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `height` varchar(10) NOT NULL,
+  `weight` varchar(10) NOT NULL,
+  `reg_month` varchar(10) NOT NULL,
+  `reg_year` varchar(10) NOT NULL,
+  `date_entered` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  `modified_user_id` varchar(255) NOT NULL,
+  `created_by` varchar(255) NOT NULL,
+  `deleted` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_report`
+--
+
+INSERT INTO `user_report` (`id`, `user_id`, `height`, `weight`, `reg_month`, `reg_year`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('6213e51b862d3', '61adfd8c73697', '5.2', '58', '02', '2022', '2022-02-22 00:46:43', '2022-02-22 00:46:43', '61adfd8c73697', '61adfd8c73697', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `wishlist`
 --
 
@@ -461,12 +459,6 @@ ALTER TABLE `course_progress`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `course_progress_user`
---
-ALTER TABLE `course_progress_user`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `course_review`
 --
 ALTER TABLE `course_review`
@@ -497,6 +489,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `user_courses`
   ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `user_report`
+--
+ALTER TABLE `user_report`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `wishlist`

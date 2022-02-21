@@ -830,7 +830,6 @@ if (!empty($_REQUEST['moduleMethod'])) {
     // Course Content Progress Insert
     if ($module == "videoWatched" && $moduleMethod == "course_progress") {
         if (isset($_POST['course_position']) && isset($_POST['course_id']) && isset($_POST['content_id']) && isset($_POST['chapter_id'])) {
-            // die('***');
             $Condition['user_id'] = $_SESSION["userId"];
             $Condition['course_id']  = $_POST['course_id'];
             $Condition['chapter_id']  = $_POST['chapter_id'];
@@ -919,6 +918,31 @@ if (!empty($_REQUEST['moduleMethod'])) {
                         }
                     }
                 }
+            }
+        }
+    }
+
+    // User Monthly Report
+    if ($module == "user_monthly_report" && $moduleMethod == "user_report") {
+        if (isset($_POST['userMonthReport'])) {
+            $user_report = array(
+                'id' => uniqid(),
+                'user_id' => $_SESSION["userId"],
+                'height' => $_POST['height'],
+                'weight' => $_POST['weight'],
+                'reg_month' => date("m"),
+                'reg_year' => date("Y"),
+                'date_entered' => date("Y-m-d H:i:s"),
+                'date_modified' => date("Y-m-d H:i:s"),
+                'modified_user_id' => $_SESSION["userId"],
+                'created_by' => $_SESSION["userId"],
+                'deleted' => 0,
+            );
+            $user_reportResponse = insertData($moduleMethod, $user_report);
+            if (!empty($user_reportResponse)) {
+                $alert_type = "alert-success";
+                $alert_message = "Your monthly report is submited.";
+                echo "<script>window.location.replace('../index.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
         }
     }

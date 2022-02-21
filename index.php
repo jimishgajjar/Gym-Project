@@ -5,7 +5,64 @@ include('header.php');
 
 <body>
     <?php include('menu.php'); ?>
+    <?php
+    $currentMonth = date("m");
+    $currentYear = date("Y");
 
+    $userProCondition['user_id'] = $_SESSION["userId"];
+    $userProCondition['reg_month'] = $currentMonth;
+    $userProCondition['reg_year'] = $currentYear;
+    $userProResponse = getData('user_report', $userProCondition);
+    $userProResponse = $userProResponse->fetch_assoc();
+    if (empty($userProResponse)) {
+    ?>
+        <script>
+            $(document).ready(function() {
+                $("#progressReport").modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
+                $('#progressReport').modal('show');
+            });
+        </script>
+        <!-- Button trigger modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="progressReport" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header justify-content-center">
+                        <h5 class="modal-title" id="">Enter Your Monthly Report</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form action="include/UserSubmitData.php" method="POST">
+                            <input type="hidden" name="module" value="user_monthly_report">
+                            <input type="hidden" name="moduleMethod" value="user_report">
+
+                            <div class="row justify-content-md-center">
+                                <div class="col-md-6">
+                                    <label for="height" class="form-label">Height</label>
+                                    <input type="number" class="form-control" id="height" name="height" placeholder="Height" step="0.01" minlength="1" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="weight" class="form-label">Weight</label>
+                                    <input type="number" class="form-control" id="weight" name="weight" placeholder="weight" step="0.01" minlength="1" required>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group text-center">
+                                        <button type="submit" id="userMonthReport" name="userMonthReport" class="btn btn-primary">Submit Your Report</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
     <section class="xs-light-bg position-relative" data-scrollax-parent="true" id="home">
         <div class="container xs-clips-wraper">
             <div class="xs-clips">

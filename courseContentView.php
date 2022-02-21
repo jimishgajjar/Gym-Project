@@ -48,14 +48,43 @@ include('header.php');
                             $courseVideoCondition['id'] = $_REQUEST['course_content_id'];
                             $courseVideoResponse = getData('course_content', $courseVideoCondition);
                             $courseVideoResponse = $courseVideoResponse->fetch_assoc();
+
+                            if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
+                                $userCoursesCondition['user_id'] = $_SESSION["userId"];
+                                $userCoursesCondition['course_id'] = $_REQUEST['view'];
+                                $userCoursesResponse = getData('user_courses', $userCoursesCondition);
+                                $userCoursesResponse = $userCoursesResponse->fetch_assoc();
+                                if (!empty($userCoursesResponse)) {
                             ?>
-                            <video id="courseVideo" autoplay crossorigin playsinline poster="<?php echo $thumbnailPath . $response['thumbnail']; ?>">
-                                <source src="<?php echo $coursePath . $courseVideoResponse['document_path']; ?>" type="video/mp4">
-                            </video>
-                            <input type="hidden" name="course_position" id="course_position" value="<?php echo $courseVideoResponse['position_order']; ?>" />
-                            <input type="hidden" name="course_id" id="course_id" value="<?php echo $courseVideoResponse['course_id']; ?>" />
-                            <input type="hidden" name="content_id" id="content_id" value="<?php echo $courseVideoResponse['id']; ?>" />
-                            <input type="hidden" name="chapter_id" id="chapter_id" value="<?php echo $courseVideoResponse['chapter_id']; ?>" />
+                                    <video id="courseVideo" autoplay crossorigin playsinline poster="<?php echo $thumbnailPath . $response['thumbnail']; ?>">
+                                        <source src="<?php echo $coursePath . $courseVideoResponse['document_path']; ?>" type="video/mp4">
+                                    </video>
+                                    <input type="hidden" name="course_position" id="course_position" value="<?php echo $courseVideoResponse['position_order']; ?>" />
+                                    <input type="hidden" name="course_id" id="course_id" value="<?php echo $courseVideoResponse['course_id']; ?>" />
+                                    <input type="hidden" name="content_id" id="content_id" value="<?php echo $courseVideoResponse['id']; ?>" />
+                                    <input type="hidden" name="chapter_id" id="chapter_id" value="<?php echo $courseVideoResponse['chapter_id']; ?>" />
+                                    <script>
+                                        $(document).ready(function() {
+                                            setInterval(getvideo, 5000);
+                                        });
+                                    </script>
+                                    <!-- <a href="courseDetailView.php?view=61ae105cb949a" class="mt-4 col-md-4 btn btn-primary btn-100">Upload Your Report</a> -->
+                                <?php } else {
+                                    echo "You can not access this video";
+                                }
+                            } else {
+                                if ($courseVideoResponse['is_trailer'] == "true") { ?>
+                                    <video id="courseVideo" autoplay crossorigin playsinline poster="<?php echo $thumbnailPath . $response['thumbnail']; ?>">
+                                        <source src="<?php echo $coursePath . $courseVideoResponse['document_path']; ?>" type="video/mp4">
+                                    </video>
+                                    <input type="hidden" name="course_position" id="course_position" value="<?php echo $courseVideoResponse['position_order']; ?>" />
+                                    <input type="hidden" name="course_id" id="course_id" value="<?php echo $courseVideoResponse['course_id']; ?>" />
+                                    <input type="hidden" name="content_id" id="content_id" value="<?php echo $courseVideoResponse['id']; ?>" />
+                                    <input type="hidden" name="chapter_id" id="chapter_id" value="<?php echo $courseVideoResponse['chapter_id']; ?>" />
+                            <?php } else {
+                                    echo "You can not access this video";
+                                }
+                            } ?>
                         </div>
                         <div class="col-md-4">
                             <div class="course-video">
@@ -84,22 +113,43 @@ include('header.php');
                                                                     $file_extension = explode(".", $courseContentRow['document_path']);
                                                                     if ($file_extension[1] == "pdf") { ?>
                                                                         <li>
-                                                                            <a href="<?php echo $coursePath . $courseContentRow['document_path']; ?>" target="_blank" class="text-center">
+                                                                            <?php
+                                                                            if (!empty($userCoursesResponse)) { ?>
+                                                                                <a href="<?php echo $coursePath . $courseContentRow['document_path']; ?>" target="_blank" class="text-center">
+                                                                                    <i class="fas fa-file-pdf pr-20"></i>
+                                                                                </a>
+                                                                                <a href="<?php echo $coursePath . $courseContentRow['document_path']; ?>" target="_blank">
+                                                                                    <?php echo $courseContentRow['doc_title']; ?>
+                                                                                </a>
+                                                                            <?php } else { ?>
                                                                                 <i class="fas fa-file-pdf pr-20"></i>
-                                                                            </a>
-                                                                            <a href="<?php echo $coursePath . $courseContentRow['document_path']; ?>" target="_blank">
                                                                                 <?php echo $courseContentRow['doc_title']; ?>
-                                                                            </a>
+                                                                            <?php } ?>
                                                                         </li>
                                                                     <?php } else {
                                                                     ?>
                                                                         <li>
-                                                                            <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>" class="text-center">
-                                                                                <i class="fas fa-play-circle pr-20"></i>
-                                                                            </a>
-                                                                            <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>">
-                                                                                <?php echo $courseContentRow['doc_title']; ?>
-                                                                            </a>
+                                                                            <?php
+                                                                            if (!empty($userCoursesResponse)) { ?>
+                                                                                <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>" class="text-center">
+                                                                                    <i class="fas fa-play-circle pr-20"></i>
+                                                                                </a>
+                                                                                <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>">
+                                                                                    <?php echo $courseContentRow['doc_title']; ?>
+                                                                                </a>
+                                                                                <?php } else {
+                                                                                if ($courseContentRow['is_trailer'] == "true") { ?>
+                                                                                    <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>" class="text-center">
+                                                                                        <i class="fas fa-play-circle pr-20"></i>
+                                                                                    </a>
+                                                                                    <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>">
+                                                                                        <?php echo $courseContentRow['doc_title']; ?>
+                                                                                    </a>
+                                                                                <?php } else { ?>
+                                                                                    <i class="fas fa-play-circle pr-20"></i>
+                                                                                    <?php echo $courseContentRow['doc_title']; ?>
+                                                                            <?php }
+                                                                            } ?>
                                                                         </li>
                                                             <?php
                                                                     }

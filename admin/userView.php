@@ -72,6 +72,62 @@ include('header.php');
                                         <div class="col-sm-4">
                                             <input type="text" readonly class="form-control-plaintext" id="weight" value="<?php echo $response['weight'] ?>">
                                         </div>
+
+                                        <label for="weight" class="col-sm-2 col-form-label">User Report :</label>
+                                        <div class="col-sm-4">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#progressReport">
+                                                Check Report
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="progressReport" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header justify-content-center">
+                                                    <h5 class="modal-title" id=""><?php echo $response['full_name']; ?> Progress Report</h5>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <table id="dom-jqry" class="table table-striped table-bordered nowrap">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Date & Time</th>
+                                                                <th>Height</th>
+                                                                <th>Weight</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php
+                                                            $userReportQuery = "SELECT * FROM user_report WHERE user_id = '" . $_GET['view'] . "' ORDER BY date_entered ASC;";
+                                                            $userReport = $conn->query($userReportQuery);
+
+                                                            if ($userReport->num_rows > 0) {
+                                                                while ($row = $userReport->fetch_assoc()) {
+                                                            ?>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <?php
+                                                                            $s = $row['date_entered'];
+                                                                            $dt = new DateTime($s);
+
+                                                                            echo $dt->format('d/m/Y');
+                                                                            ?>
+                                                                        </td>
+                                                                        <td><?php echo $row['height']; ?></td>
+                                                                        <td><?php echo $row['weight']; ?></td>
+                                                                    </tr>
+                                                                <?php }
+                                                            } else { ?>
+                                                                <tr>
+                                                                    <td colspan="6" align="center">No data avalible.</td>
+                                                                </tr>
+                                                            <?php } ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <h5 class="mt-5">User Courses</h5>
@@ -116,7 +172,7 @@ include('header.php');
                                                                 $courseCount = $courseCount->num_rows;
                                                                 $coursePercentage = 100 / $courseCount;
 
-                                                                $courseProgressCondition['user_id']  = $_SESSION["userId"];
+                                                                $courseProgressCondition['user_id']  = $_GET['view'];
                                                                 $courseProgressCondition['course_id']  = $row['course_id'];
                                                                 $courseProgress = getData('course_progress', $courseProgressCondition);
                                                                 $courseProgress = $courseProgress->num_rows;

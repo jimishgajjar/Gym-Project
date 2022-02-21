@@ -170,7 +170,3 @@ function getvideo() {
         });
     }
 }
-
-$(document).ready(function () {
-    setInterval(getvideo, 5000);
-});
