@@ -105,9 +105,14 @@
 <script src="assets/js/gym.js"></script>
 <script src="https://foliotek.github.io/Croppie/croppie.js"></script>
 
+<!-- datatable Js -->
+<script src="admin/assets/js/plugins/jquery.dataTables.min.js"></script>
+<script src="admin/assets/js/plugins/dataTables.bootstrap4.min.js"></script>
+<script src="admin/assets/js/pages/data-advance-custom.js"></script>
+
 <!--====== Video Player JS ======-->
-<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL">
-</script>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"></script>
+
 <script src="https://unpkg.com/plyr@3"></script>
 <script>
     // Change the second argument to your options:

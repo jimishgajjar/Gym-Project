@@ -45,6 +45,7 @@ include('header.php');
                         <a href="javascript:void(0);" id="userprofile" class="btn pr-btn m-2">Profile</a>
                         <a href="javascript:void(0);" id="changepassword" class="btn pr-btn m-2">Change Password</a>
                         <a href="javascript:void(0);" id="mycourse" class="btn pr-btn m-2">My Course</a>
+                        <a href="javascript:void(0);" id="myprogress" class="btn pr-btn m-2">My Progress</a>
                         <a href="javascript:void(0);" id="wishlist" class="btn pr-btn m-2">Wishlist</a>
                         <a href="javascript:void(0);" id="cartlist" class="btn pr-btn m-2">Cart</a>
                     </div>
@@ -90,15 +91,15 @@ include('header.php');
                                             </div>
                                             <div class="col-md-4 form-group xs-form-anim active">
                                                 <label class="input-label" for="height">Height</label>
-                                                <input type="number" id="height" name="height" placeholder="Height" class="form-control" value="<?php echo $userDataResponse['height']; ?>" step="0.01" minlength="1" required>
+                                                <input type="number" id="height" name="height" placeholder="Height" class="form-control" value="<?php echo $userDataResponse['height']; ?>" step="0.01" minlength="1" min="1" required>
                                             </div>
                                             <div class="col-md-4 form-group xs-form-anim active">
                                                 <label class="input-label" for="weight">Weight</label>
-                                                <input type="number" id="weight" name="weight" placeholder="Weight" class="form-control" value="<?php echo $userDataResponse['weight']; ?>" step="0.01" minlength="1" required>
+                                                <input type="number" id="weight" name="weight" placeholder="Weight" class="form-control" value="<?php echo $userDataResponse['weight']; ?>" step="0.01" minlength="1" min="1" required>
                                             </div>
                                             <div class="col-md-4 form-group xs-form-anim active">
                                                 <label class="input-label" for="age">Age</label>
-                                                <input type="number" id="age" name="age" placeholder="Age" class="form-control" value="<?php echo $userDataResponse['age']; ?>" step="0.01" minlength="1" required>
+                                                <input type="number" id="age" name="age" placeholder="Age" class="form-control" value="<?php echo $userDataResponse['age']; ?>" step="0.01" minlength="1" min="1" required>
                                             </div>
                                         </div>
                                     </div>
@@ -240,6 +241,51 @@ include('header.php');
                                         </div>
                                     </div>
                                 <?php } ?>
+                            </div>
+                        </div>
+
+                        <div class="myprogress">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <h4 class="title">My Progress</h4>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="mycourse-data">
+                                <table id="dom-jqry" class="table table-striped table-bordered nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Height</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $userReportQuery = "SELECT * FROM user_report WHERE user_id = '" . $_SESSION["userId"]  . "' ORDER BY date_entered ASC;";
+                                        $userReport = $conn->query($userReportQuery);
+
+                                        if ($userReport->num_rows > 0) {
+                                            while ($row = $userReport->fetch_assoc()) {
+                                        ?>
+                                                <tr>
+                                                    <td>
+                                                        <?php
+                                                        $s = $row['date_entered'];
+                                                        $dt = new DateTime($s);
+
+                                                        echo $dt->format('d/m/Y');
+                                                        ?>
+                                                    </td>
+                                                    <td><?php echo $row['weight']; ?></td>
+                                                </tr>
+                                            <?php }
+                                        } else { ?>
+                                            <tr>
+                                                <td colspan="6" align="center">No data avalible.</td>
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
 
@@ -422,6 +468,7 @@ include('header.php');
             $(".userprofile").show();
             $(".changepassword").hide();
             $(".mycourse").hide();
+            $(".myprogress").hide();
             $(".wishlist").hide();
             $(".cartlist").hide();
         <?php } ?>
@@ -433,6 +480,7 @@ include('header.php');
             $(".changepassword").show();
             $(".userprofile").hide();
             $(".mycourse").hide();
+            $(".myprogress").hide();
             $(".wishlist").hide();
             $(".cartlist").hide();
         <?php } ?>
@@ -442,6 +490,19 @@ include('header.php');
             $('#mycourse').addClass("pr-btn-active");
 
             $(".mycourse").show();
+            $(".myprogress").hide();
+            $(".userprofile").hide();
+            $(".changepassword").hide();
+            $(".wishlist").hide();
+            $(".cartlist").hide();
+        <?php } ?>
+
+        <?php if ($_REQUEST['dasboard'] == "myprogress") { ?>
+            $('#dashboardMenu a').removeClass("pr-btn-active");
+            $('#myprogress').addClass("pr-btn-active");
+
+            $(".myprogress").show();
+            $(".mycourse").hide();
             $(".userprofile").hide();
             $(".changepassword").hide();
             $(".wishlist").hide();
@@ -456,6 +517,7 @@ include('header.php');
             $(".userprofile").hide();
             $(".changepassword").hide();
             $(".mycourse").hide();
+            $(".myprogress").hide();
             $(".cartlist").hide();
         <?php } ?>
 
@@ -467,6 +529,7 @@ include('header.php');
             $(".userprofile").hide();
             $(".changepassword").hide();
             $(".mycourse").hide();
+            $(".myprogress").hide();
             $(".wishlist").hide();
         <?php } ?>
 
@@ -477,6 +540,7 @@ include('header.php');
             $(".userprofile").show();
             $(".changepassword").hide();
             $(".mycourse").hide();
+            $(".myprogress").hide();
             $(".wishlist").hide();
             $(".cartlist").hide();
         });
@@ -488,6 +552,7 @@ include('header.php');
             $(".changepassword").show();
             $(".userprofile").hide();
             $(".mycourse").hide();
+            $(".myprogress").hide();
             $(".wishlist").hide();
             $(".cartlist").hide();
         });
@@ -497,6 +562,19 @@ include('header.php');
             $(this).addClass("pr-btn-active");
 
             $(".mycourse").show();
+            $(".myprogress").hide();
+            $(".cartlist").hide();
+            $(".userprofile").hide();
+            $(".changepassword").hide();
+            $(".wishlist").hide();
+        });
+
+        $("#myprogress").click(function() {
+            $('#dashboardMenu a').removeClass("pr-btn-active");
+            $(this).addClass("pr-btn-active");
+
+            $(".myprogress").show();
+            $(".mycourse").hide();
             $(".cartlist").hide();
             $(".userprofile").hide();
             $(".changepassword").hide();
@@ -510,6 +588,7 @@ include('header.php');
             $(".wishlist").show();
             $(".userprofile").hide();
             $(".mycourse").hide();
+            $(".myprogress").hide();
             $(".changepassword").hide();
             $(".cartlist").hide();
         });
@@ -521,6 +600,7 @@ include('header.php');
             $(".cartlist").show();
             $(".userprofile").hide();
             $(".mycourse").hide();
+            $(".myprogress").hide();
             $(".changepassword").hide();
             $(".wishlist").hide();
         });

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2022 at 08:36 PM
+-- Generation Time: Feb 22, 2022 at 08:02 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -328,7 +328,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `full_name`, `email`, `mobile_no`, `profile_pic`, `height`, `weight`, `age`, `gender`, `password`, `reset_key`, `reset_status`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
 ('61adfd8c73697', 'Jimish Gajjar', 'jimish.gajjar@gmail.com', '9737956805', '61adfd8c73697.png', '1.3', '65', '24', 'Male', 'f3599dba24e40c1ff9367e56b386b87e', 'NOT SET', 0, '2021-12-06 17:39:48', '2021-12-06 17:39:48', '61adfd8c73696', '61adfd8c73696', 0),
 ('61ae56262a7cd', 'Parth Nayi', 'parthnayi786@gmail.com', '9409354805', 'userprofile.png', '5.5', '65', '24', 'Male', '04788c4f5295bc48719eb9d8d3dec40d', 'NOT SET', 0, '2021-12-06 23:57:50', '2021-12-06 23:57:50', '61ae56262a7cb', '61ae56262a7cb', 0),
-('61c357ec53a61', 'Nikunj Panchal', 'nikunj@gmail.com', '1234567899', 'userprofile.png', '6', '6', '23', 'Male', 'e6422e3c2a047e9537107e84c325aad1', 'NOT SET', 0, '2021-12-22 22:23:00', '2021-12-22 22:23:00', '61c357ec53a60', '61c357ec53a60', 0);
+('61c357ec53a61', 'Nikunj Panchal', 'nikunj@gmail.com', '1234567899', 'userprofile.png', '6', '6', '23', 'Male', 'e6422e3c2a047e9537107e84c325aad1', 'NOT SET', 0, '2021-12-22 22:23:00', '2021-12-22 22:23:00', '61c357ec53a60', '61c357ec53a60', 0),
+('6214899f7c26c', 'Raj Bhavsar', 'raj@gmail.com', '8401258551', 'userpic.png', '5.5', '60', '25', 'Male', 'c62ac98937679cd7fa090c411b5bba9c', 'NOT SET', 0, '2022-02-22 12:28:39', '2022-02-22 12:28:39', '6214899f7c26c', '6214899f7c26c', 0);
 
 -- --------------------------------------------------------
 
@@ -370,7 +371,6 @@ INSERT INTO `user_courses` (`id`, `user_id`, `course_id`, `course_amount`, `disc
 CREATE TABLE `user_report` (
   `id` varchar(255) NOT NULL,
   `user_id` varchar(255) NOT NULL,
-  `height` varchar(10) NOT NULL,
   `weight` varchar(10) NOT NULL,
   `reg_month` varchar(10) NOT NULL,
   `reg_year` varchar(10) NOT NULL,
@@ -385,8 +385,9 @@ CREATE TABLE `user_report` (
 -- Dumping data for table `user_report`
 --
 
-INSERT INTO `user_report` (`id`, `user_id`, `height`, `weight`, `reg_month`, `reg_year`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('6213e51b862d3', '61adfd8c73697', '5.2', '58', '02', '2022', '2022-02-22 00:46:43', '2022-02-22 00:46:43', '61adfd8c73697', '61adfd8c73697', 0);
+INSERT INTO `user_report` (`id`, `user_id`, `weight`, `reg_month`, `reg_year`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('6213e51b862d3', '61adfd8c73697', '58', '02', '2022', '2022-02-22 00:46:43', '2022-02-22 00:46:43', '61adfd8c73697', '61adfd8c73697', 0),
+('6214899f7c284', '6214899f7c26c', '60', '02', '2022', '2022-02-22 12:28:39', '2022-02-22 12:28:39', '6214899f7c26c', '6214899f7c26c', 0);
 
 -- --------------------------------------------------------
 

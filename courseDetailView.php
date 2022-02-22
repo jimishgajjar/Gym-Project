@@ -27,7 +27,7 @@ include('header.php');
                         <div class="col-md-12 mb-10">
                             <ol class="cd-breadcrumb">
                                 <li><a href="index.php">Home</a></li>
-                                <li><a href="courseCategory.php"><?php echo $categoryresponse['category_name']; ?></a></li>
+                                <li><a href="category.php?category=<?php echo $categoryresponse['id']; ?>&category_name=<?php echo $categoryresponse['category_name']; ?>"><?php echo $categoryresponse['category_name']; ?></a></li>
                             </ol>
                         </div>
                         <div class="col-md-8 col-md-push-8">

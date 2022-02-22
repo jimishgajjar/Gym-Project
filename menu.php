@@ -168,7 +168,13 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
                         <a href="userDashboard.php?dasboard=userprofile"><i class="far fa-user pr-20"></i> My Profile</a>
                     </li>
                     <li>
-                        <a href="userDashboard.php?dasboard=wishlist"><i class="far fa-heart pr-20"></i> Whish List</a>
+                        <a href="userDashboard.php?dasboard=mycourse"><i class="fas fa-play pr-20"></i> My Course</a>
+                    </li>
+                    <li>
+                        <a href="userDashboard.php?dasboard=myprogress"><i class="fas fa-tasks pr-20"></i> My Progress</a>
+                    </li>
+                    <li>
+                        <a href="userDashboard.php?dasboard=wishlist"><i class="far fa-heart pr-20"></i> Wishlist</a>
                     </li>
                     <li>
                         <a href="userDashboard.php?dasboard=cartlist"><i class="far fa-shopping-cart pr-20"></i> Cart</a>

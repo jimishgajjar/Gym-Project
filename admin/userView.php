@@ -93,7 +93,6 @@ include('header.php');
                                                         <thead>
                                                             <tr>
                                                                 <th>Date & Time</th>
-                                                                <th>Height</th>
                                                                 <th>Weight</th>
                                                             </tr>
                                                         </thead>
@@ -114,7 +113,6 @@ include('header.php');
                                                                             echo $dt->format('d/m/Y');
                                                                             ?>
                                                                         </td>
-                                                                        <td><?php echo $row['height']; ?></td>
                                                                         <td><?php echo $row['weight']; ?></td>
                                                                     </tr>
                                                                 <?php }

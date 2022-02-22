@@ -44,4 +44,7 @@ $coursePath = "assets/coursedocumnets/";
 
     <!--====== Video Player ======-->
     <link rel="stylesheet" href="https://unpkg.com/plyr@3/dist/plyr.css" />
+
+    <!-- data tables css -->
+    <link rel="stylesheet" href="admin/assets/css/plugins/dataTables.bootstrap4.min.css">
 </head>

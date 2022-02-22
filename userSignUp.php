@@ -49,11 +49,11 @@ include('header.php');
                         <div class="mb-2 row">
                             <div class="col-md-6">
                                 <label for="height" class="form-label">Height</label>
-                                <input type="number" class="form-control" id="height" name="height" placeholder="Height" step="0.01" minlength="1" required>
+                                <input type="number" class="form-control" id="height" name="height" placeholder="Height" step="0.01" minlength="1" min="1" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="weight" class="form-label">Weight</label>
-                                <input type="number" class="form-control" id="weight" name="weight" placeholder="weight" step="0.01" minlength="1" required>
+                                <input type="number" class="form-control" id="weight" name="weight" placeholder="weight" step="0.01" minlength="1" min="1" required>
                             </div>
                         </div>
                         <div class="mb-2">
@@ -67,7 +67,7 @@ include('header.php');
                         </div>
                         <div class="mb-2">
                             <label for="age" class="form-label">Age</label>
-                            <input type="number" class="form-control" id="age" name="age" placeholder="Age" minlength="1" required>
+                            <input type="number" class="form-control" id="age" name="age" placeholder="Age" minlength="1" min="1" required>
                         </div>
                         <div class="mb-2">
                             <label for="password" class="form-label">Password</label>
