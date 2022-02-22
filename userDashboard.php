@@ -257,6 +257,7 @@ include('header.php');
                                         <tr>
                                             <th>Date</th>
                                             <th>Height</th>
+                                            <th>Edit</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -276,7 +277,12 @@ include('header.php');
                                                         echo $dt->format('d/m/Y');
                                                         ?>
                                                     </td>
-                                                    <td><?php echo $row['weight']; ?></td>
+                                                    <td id="w_<?php echo $row['id'] ?>"><?php echo $row['weight']; ?></td>
+                                                    <td>
+                                                        <button data-toggle="modal" data-target="#progressReport" id="<?php echo $row['id'] ?>" onclick="editReport(this.id);" class="btn btn-info btn-sm">
+                                                            <i class="far fa-edit"></i>&nbsp;Edit
+                                                        </button>
+                                                    </td>
                                                 </tr>
                                             <?php }
                                         } else { ?>
@@ -286,6 +292,39 @@ include('header.php');
                                         <?php } ?>
                                     </tbody>
                                 </table>
+                            </div>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="progressReport" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header justify-content-center">
+                                        <h5 class="modal-title" id="">Edit Your Monthly Report</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="include/UserSubmitData.php" method="POST">
+                                            <input type="hidden" name="module" value="user_monthly_report" required>
+                                            <input type="hidden" name="moduleMethod" value="user_report" required>
+                                            <input type="hidden" name="editReport" id="editReport" value="" required>
+
+                                            <div class="row justify-content-md-center">
+                                                <div class="col-md-6">
+                                                    <label for="weightEdit" class="form-label">Weight</label>
+                                                    <input type="number" class="form-control" id="weightEdit" name="weightEdit" placeholder="weight" step="0.01" minlength="1" min="1" required>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group text-center">
+                                                        <button type="submit" id="edituserMonthReport" name="edituserMonthReport" class="btn btn-primary">Edit Your Report</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -640,6 +679,12 @@ include('header.php');
             $("#profile_pic").val("");
             $("#remove_pic").css('display', 'none');
         });
+
+        function editReport(id) {
+            var weight = document.getElementById("w_" + id).innerHTML;
+            document.getElementById("weightEdit").value = weight;
+            document.getElementById("editReport").value = id;
+        }
     </script>
 </body>
 

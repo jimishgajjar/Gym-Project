@@ -43,7 +43,7 @@ include('header.php');
                         </div>
                     </div>
                     <div class="row pb-5">
-                        <div class="col-md-8">
+                        <div class="col-md-8 text-center">
                             <?php
                             $courseVideoCondition['id'] = $_REQUEST['course_content_id'];
                             $courseVideoResponse = getData('course_content', $courseVideoCondition);
@@ -69,9 +69,10 @@ include('header.php');
                                         });
                                     </script>
                                     <!-- <a href="courseDetailView.php?view=61ae105cb949a" class="mt-4 col-md-4 btn btn-primary btn-100">Upload Your Report</a> -->
-                                <?php } else {
-                                    echo "You can not access this video";
-                                }
+                                <?php } else { ?>
+                                    // echo "You can not access this video";
+                                    <h3 style="color: #fff;">You can not access this video</h3>
+                                <?php }
                             } else {
                                 if ($courseVideoResponse['is_trailer'] == "true") { ?>
                                     <video id="courseVideo" autoplay crossorigin playsinline poster="<?php echo $thumbnailPath . $response['thumbnail']; ?>">
@@ -81,9 +82,12 @@ include('header.php');
                                     <input type="hidden" name="course_id" id="course_id" value="<?php echo $courseVideoResponse['course_id']; ?>" />
                                     <input type="hidden" name="content_id" id="content_id" value="<?php echo $courseVideoResponse['id']; ?>" />
                                     <input type="hidden" name="chapter_id" id="chapter_id" value="<?php echo $courseVideoResponse['chapter_id']; ?>" />
-                            <?php } else {
-                                    echo "You can not access this video";
-                                }
+                                <?php } else { ?>
+                                    <h3 style="color: #fff;">You can not access this video</h3>
+                                    <a href="#" class="col-md-3 btn btn-primary" style="margin-top: 20px;">
+                                        Buy Course Now
+                                    </a>
+                            <?php }
                             } ?>
                         </div>
                         <div class="col-md-4">

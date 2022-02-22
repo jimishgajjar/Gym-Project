@@ -63,7 +63,7 @@ include('header.php');
                                             Go to cart
                                         </a>
                                     <?php } ?>
-                                    <a href="#" class="detail-btn buy pl-5 pr-5">
+                                    <a href="include/UserSubmitData.php?moduleMethod=cart&module=cartAdd&buynow=1&cartId=<?php echo $response['id']; ?>" class="detail-btn buy pl-5 pr-5">
                                         Buy now
                                     </a>
                                 <?php } else { ?>
@@ -112,7 +112,7 @@ include('header.php');
                                                 Go to cart
                                             </a>
                                         <?php } ?>
-                                        <a href="#" class="detail-btn buy pl-5 pr-5">
+                                        <a href="include/UserSubmitData.php?moduleMethod=cart&module=cartAdd&buynow=1&cartId=<?php echo $response['id']; ?>" class="detail-btn buy pl-5 pr-5">
                                             Buy now
                                         </a>
                                 <?php

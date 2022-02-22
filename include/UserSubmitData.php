@@ -440,13 +440,21 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 );
             }
             $cartAddDataResponse = insertData($moduleMethod, $cartAddData);
-            if (!empty($cartAddDataResponse)) {
+            if (isset($_REQUEST['buynow'])) {
+                if (!empty($cartAddDataResponse) && $_REQUEST['buynow'] == 1) {
+                    echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist');</script>";
+                }
+            } elseif (!empty($cartAddDataResponse)) {
                 echo "<script>window.location.replace('../courseDetailView.php?view=" . $_REQUEST['cartId'] . "');</script>";
             } else {
                 $alert_type = "alert-danger";
                 $alert_message = "Something want wrong <span>please try again!</span>";
                 echo "<script>window.location.replace('../index.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
+        } else {
+            $alert_type = "alert-danger";
+            $alert_message = "Something want wrong <span>please try again!</span>";
+            echo "<script>window.location.replace('../index.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
         }
     }
 
@@ -946,6 +954,28 @@ if (!empty($_REQUEST['moduleMethod'])) {
 
     // User Monthly Report
     if ($module == "user_monthly_report" && $moduleMethod == "user_report") {
+        if (isset($_POST['edituserMonthReport'])) {
+            if (!empty($_POST['editReport'])) {
+                $user_report = array(
+                    'weight' => $_POST['weightEdit'],
+                    'date_modified' => date("Y-m-d H:i:s"),
+                    'modified_user_id' => $_SESSION["userId"],
+                    'deleted' => 0,
+                );
+                $Condition['id'] = $_POST['editReport'];
+                $Condition['user_id'] = $_SESSION["userId"];
+                $user_reportResponse = updateData($moduleMethod, $user_report, $Condition);
+                if (!empty($user_reportResponse)) {
+                    $alert_type = "alert-success";
+                    $alert_message = "Your monthly report is updated.";
+                    echo "<script>window.location.replace('../userDashboard.php?dasboard=myprogress&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                } else {
+                    $alert_type = "alert-danger";
+                    $alert_message = "Something want wrong <span>please try again!</span>";
+                    echo "<script>window.location.replace('../userDashboard.php?dasboard=myprogress&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                }
+            }
+        }
         if (isset($_POST['userMonthReport'])) {
             $user_report = array(
                 'id' => uniqid(),
@@ -963,6 +993,10 @@ if (!empty($_REQUEST['moduleMethod'])) {
             if (!empty($user_reportResponse)) {
                 $alert_type = "alert-success";
                 $alert_message = "Your monthly report is submited.";
+                echo "<script>window.location.replace('../index.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            } else {
+                $alert_type = "alert-danger";
+                $alert_message = "Something want wrong <span>please try again!</span>";
                 echo "<script>window.location.replace('../index.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
         }
