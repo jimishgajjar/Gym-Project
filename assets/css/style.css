@@ -5246,7 +5246,7 @@ Breadcum
 }
 
 .course-chapter .course-chapter-body {
-    padding: 0.5rem 1rem;
+    /* padding: 0.5rem 1rem; */
     background-color: #fff;
     font-weight: 550;
     letter-spacing: 1px;
@@ -5255,12 +5255,20 @@ Breadcum
 }
 
 .course-chapter .course-chapter-body ul li {
+    padding: .4rem 1rem;
+}
+
+.course-chapter .course-chapter-body ul li:hover {
+    background: #d1d7dc;
+}
+
+.course-chapter .course-chapter-body ul li div {
     display: flex;
     align-items: baseline;
     width: 100%;
     font-size: 16px;
     font-weight: 100;
-    padding-bottom: 5px;
+    /* padding-bottom: 5px; */
     height: auto;
     text-align: left;
     letter-spacing: normal;

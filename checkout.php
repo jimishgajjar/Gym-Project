@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set("Asia/Kolkata");
 include('header.php');
-$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+$ip = getIPAddress();
 ?>
 <style>
     #profile_pic {
@@ -116,7 +116,7 @@ $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_S
                                                         <h4 style="letter-spacing: 0.5px; font-weight: 600;">₹<?php echo $total; ?></h4>
                                                         <h5 style="letter-spacing: 0.5px; font-weight: 600; color: #8c8c8c;"><s>₹<?php echo $totalAll; ?></s></h5>
                                                     </h3>
-                                                    <a href="payment.php" class="mt-3 bt-boder-0 btn btn-primary btn-100">Checkout</a>
+                                                    <a href="userLogin.php?from_checkout=1" class="mt-3 bt-boder-0 btn btn-primary btn-100">Checkout</a>
                                                 </div>
                                             </div>
                                         </div>

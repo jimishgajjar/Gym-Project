@@ -95,6 +95,11 @@ include('header.php');
                                 <?php
                                 $courseChapterCondition['course_id'] = $_GET['view'];
                                 $courseChapterResponse = getData('course_chapter', $courseChapterCondition);
+
+                                $courseContentConditionNew['id'] = $_GET['course_content_id'];
+                                $courseContentResponseNew = getData('course_content', $courseContentConditionNew);
+                                $courseContentRowNew = $courseContentResponseNew->fetch_assoc();
+
                                 if ($courseChapterResponse->num_rows > 0) {
                                     while ($row = $courseChapterResponse->fetch_assoc()) {
                                 ?>
@@ -106,71 +111,124 @@ include('header.php');
                                                         <?php echo $row['chapter_title']; ?>
                                                     </div>
                                                 </a>
-                                                <div id="<?php echo $row['id']; ?>" class="panel-collapse collapse">
-                                                    <div class="course-chapter-body">
-                                                        <ul>
-                                                            <?php
-                                                            $courseContentCondition['chapter_id'] = $row['id'];
-                                                            $courseContentResponse = getData('course_content', $courseContentCondition);
-                                                            if ($courseContentResponse->num_rows > 0) {
-                                                                while ($courseContentRow = $courseContentResponse->fetch_assoc()) {
-                                                                    $file_extension = explode(".", $courseContentRow['document_path']);
-                                                                    if ($file_extension[1] == "pdf") { ?>
-                                                                        <li>
-                                                                            <?php
-                                                                            if (!empty($userCoursesResponse)) { ?>
-                                                                                <a href="<?php echo $coursePath . $courseContentRow['document_path']; ?>" target="_blank" class="text-center">
-                                                                                    <i class="fas fa-file-pdf pr-20"></i>
-                                                                                </a>
-                                                                                <a href="<?php echo $coursePath . $courseContentRow['document_path']; ?>" target="_blank">
-                                                                                    <?php echo $courseContentRow['doc_title']; ?>
-                                                                                </a>
-                                                                            <?php } else { ?>
-                                                                                <i class="fas fa-file-pdf pr-20"></i>
-                                                                                <?php echo $courseContentRow['doc_title']; ?>
-                                                                            <?php } ?>
-                                                                        </li>
-                                                                    <?php } else {
-                                                                    ?>
-                                                                        <li>
-                                                                            <?php
-                                                                            if (!empty($userCoursesResponse)) { ?>
-                                                                                <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>" class="text-center">
-                                                                                    <i class="fas fa-play-circle pr-20"></i>
-                                                                                </a>
-                                                                                <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>">
-                                                                                    <?php echo $courseContentRow['doc_title']; ?>
-                                                                                </a>
-                                                                                <?php } else {
-                                                                                if ($courseContentRow['is_trailer'] == "true") { ?>
-                                                                                    <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>" class="text-center">
-                                                                                        <i class="fas fa-play-circle pr-20"></i>
-                                                                                    </a>
+
+                                                <?php if ($row['id'] == $courseContentRowNew['chapter_id']) { ?>
+                                                    <div id="<?php echo $row['id']; ?>" class="panel-collapse collapse show">
+                                                    <?php } else { ?>
+                                                        <div id="<?php echo $row['id']; ?>" class="panel-collapse collapse">
+                                                        <?php } ?>
+                                                        <!-- <div id="<?php echo $row['id']; ?>" class="panel-collapse collapse"> -->
+                                                        <div class="course-chapter-body">
+                                                            <ul>
+                                                                <?php
+                                                                $courseContentCondition['chapter_id'] = $row['id'];
+                                                                $courseContentResponse = getData('course_content', $courseContentCondition);
+                                                                if ($courseContentResponse->num_rows > 0) {
+                                                                    while ($courseContentRow = $courseContentResponse->fetch_assoc()) {
+                                                                        $file_extension = explode(".", $courseContentRow['document_path']);
+
+                                                                        $CourseProgressCondition['content_id'] = $courseContentRow['id'];
+                                                                        $CourseProgressCondition['user_id'] = $_SESSION["userId"];
+                                                                        $CourseProgressResponse = getData('course_progress', $CourseProgressCondition);
+                                                                        $CourseProgressResponse = $CourseProgressResponse->fetch_assoc();
+
+                                                                        if ($file_extension[1] == "pdf") { ?>
+                                                                            <li>
+                                                                                <?php
+                                                                                if (!empty($userCoursesResponse)) { ?>
+                                                                                    <input type="hidden" name="Doc_course_position-<?php echo $courseContentRow['id']; ?>" id="Doc_course_position-<?php echo $courseContentRow['id']; ?>" value="<?php echo $courseContentRow['position_order']; ?>" />
+                                                                                    <input type="hidden" name="Doc_course_id-<?php echo $courseContentRow['id']; ?>" id="Doc_course_id-<?php echo $courseContentRow['id']; ?>" value="<?php echo $courseContentRow['course_id']; ?>" />
+                                                                                    <input type="hidden" name="Doc_content_id-<?php echo $courseContentRow['id']; ?>" id="Doc_content_id-<?php echo $courseContentRow['id']; ?>" value="<?php echo $courseContentRow['id']; ?>" />
+                                                                                    <input type="hidden" name="Doc_chapter_id-<?php echo $courseContentRow['id']; ?>" id="Doc_chapter_id-<?php echo $courseContentRow['id']; ?>" value="<?php echo $courseContentRow['chapter_id']; ?>" />
+
                                                                                     <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>">
-                                                                                        <?php echo $courseContentRow['doc_title']; ?>
+                                                                                        <div>
+                                                                                            <i class="fas fa-file-pdf pr-20" style="padding-left: 2px;"></i>
+                                                                                            <div style="padding-left: 2px;">
+                                                                                                <?php echo $courseContentRow['doc_title']; ?>
+                                                                                            </div>
+                                                                                            <?php
+                                                                                            if (!empty($CourseProgressResponse)) { ?>
+                                                                                                <input type="checkbox" value="<?php echo $courseContentRow['id'] . "_" . $courseContentRow['chapter_id'] . "_" . $courseContentRow['course_id']; ?>" onclick="AddRemoveProgress(this);" checked>
+                                                                                            <?php } else { ?>
+                                                                                                <input type="checkbox" value="<?php echo $courseContentRow['id'] . "_" . $courseContentRow['chapter_id'] . "_" . $courseContentRow['course_id']; ?>" onclick="AddRemoveProgress(this);">
+                                                                                            <?php } ?>
+                                                                                        </div>
                                                                                     </a>
-                                                                                <?php } else { ?>
-                                                                                    <i class="fas fa-play-circle pr-20"></i>
-                                                                                    <?php echo $courseContentRow['doc_title']; ?>
-                                                                            <?php }
-                                                                            } ?>
-                                                                        </li>
-                                                            <?php
+                                                                                    <?php } else {
+                                                                                    if ($courseContentRow['is_trailer'] == "true") { ?>
+                                                                                        <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>">
+                                                                                            <div>
+                                                                                                <i class="fas fa-file-pdf pr-20" style="padding-left: 2px;"></i>
+                                                                                                <div style="padding-left: 2px;">
+                                                                                                    <?php echo $courseContentRow['doc_title']; ?>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </a>
+                                                                                    <?php } else { ?>
+                                                                                        <div>
+                                                                                            <i class="fas fa-file-pdf pr-20" style="padding-left: 2px;"></i>
+                                                                                            <div style="padding-left: 2px;">
+                                                                                                <?php echo $courseContentRow['doc_title']; ?>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                <?php }
+                                                                                } ?>
+                                                                            </li>
+                                                                        <?php } else { ?>
+                                                                            <li>
+                                                                                <?php
+                                                                                if (!empty($userCoursesResponse)) { ?>
+                                                                                    <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>">
+                                                                                        <div>
+                                                                                            <i class="fas fa-play-circle pr-20"></i>
+                                                                                            <div>
+                                                                                                <?php echo $courseContentRow['doc_title']; ?>
+                                                                                            </div>
+                                                                                            <?php
+                                                                                            if (!empty($CourseProgressResponse)) { ?>
+                                                                                                <input type="checkbox" value="<?php echo $courseContentRow['id'] . "_" . $courseContentRow['chapter_id'] . "_" . $courseContentRow['course_id']; ?>" onclick="AddRemoveProgress(this);" checked>
+                                                                                            <?php } else { ?>
+                                                                                                <input type="checkbox" value="<?php echo $courseContentRow['id'] . "_" . $courseContentRow['chapter_id'] . "_" . $courseContentRow['course_id']; ?>" onclick="AddRemoveProgress(this);">
+                                                                                            <?php } ?>
+                                                                                        </div>
+                                                                                    </a>
+                                                                                    <?php } else {
+                                                                                    if ($courseContentRow['is_trailer'] == "true") { ?>
+                                                                                        <a href="courseContentView.php?view=<?php echo $courseContentRow['course_id']; ?>&course_content_id=<?php echo $courseContentRow['id']; ?>">
+                                                                                            <div>
+                                                                                                <i class="fas fa-play-circle pr-20"></i>
+                                                                                                <div>
+                                                                                                    <?php echo $courseContentRow['doc_title']; ?>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </a>
+                                                                                    <?php } else { ?>
+                                                                                        <div>
+                                                                                            <i class="fas fa-play-circle pr-20"></i>
+                                                                                            <div>
+                                                                                                <?php echo $courseContentRow['doc_title']; ?>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                <?php }
+                                                                                } ?>
+                                                                            </li>
+                                                                <?php
+                                                                        }
                                                                     }
                                                                 }
-                                                            }
-                                                            ?>
-                                                        </ul>
+                                                                ?>
+                                                            </ul>
+                                                        </div>
+                                                        </div>
                                                     </div>
-                                                </div>
                                             </div>
-                                        </div>
-                                <?php }
+                                    <?php }
                                 } ?>
+                                        </div>
                             </div>
                         </div>
                     </div>
-                </div>
         </section>
     <?php } else { ?>
         <section class="course-detail">

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2022 at 08:02 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.25
+-- Generation Time: Mar 04, 2022 at 09:06 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -63,6 +63,14 @@ CREATE TABLE `cart` (
   `created_by` varchar(255) NOT NULL,
   `deleted` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `user_ip`, `course_id`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('621d1e3712795', '', '127.0.0.1', '61ae0f7abf646', '2022-03-01 00:40:47', '2022-03-01 00:40:47', '127.0.0.1', '127.0.0.1', 0),
+('621d1e6c42383', '61adfd8c73697', '127.0.0.1', '61ae105cb949a', '2022-03-01 00:41:40', '2022-03-01 00:41:40', '61adfd8c73697', '61adfd8c73697', 0);
 
 -- --------------------------------------------------------
 
@@ -214,6 +222,13 @@ CREATE TABLE `course_progress` (
   `created_by` varchar(255) NOT NULL,
   `deleted` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `course_progress`
+--
+
+INSERT INTO `course_progress` (`id`, `user_id`, `course_id`, `chapter_id`, `content_id`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('62226c714cde7', '61adfd8c73697', '61ae0f7abf646', '6205fc62111de', '62060135f12db', '2022-03-05 01:15:53', '2022-03-05 01:15:53', '61adfd8c73697', '61adfd8c73697', 0);
 
 -- --------------------------------------------------------
 
@@ -387,7 +402,8 @@ CREATE TABLE `user_report` (
 
 INSERT INTO `user_report` (`id`, `user_id`, `weight`, `reg_month`, `reg_year`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
 ('6213e51b862d3', '61adfd8c73697', '58', '02', '2022', '2022-02-22 00:46:43', '2022-02-22 00:46:43', '61adfd8c73697', '61adfd8c73697', 0),
-('6214899f7c284', '6214899f7c26c', '60', '02', '2022', '2022-02-22 12:28:39', '2022-02-22 12:28:39', '6214899f7c26c', '6214899f7c26c', 0);
+('6214899f7c284', '6214899f7c26c', '60', '02', '2022', '2022-02-22 12:28:39', '2022-02-22 12:28:39', '6214899f7c26c', '6214899f7c26c', 0),
+('621f9a5fba527', '61adfd8c73697', '60', '03', '2022', '2022-03-02 21:55:03', '2022-03-02 21:55:17', '61adfd8c73697', '61adfd8c73697', 0);
 
 -- --------------------------------------------------------
 

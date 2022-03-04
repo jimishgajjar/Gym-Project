@@ -23,7 +23,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
             if (!empty($response)) {
                 $_SESSION["adminId"] = $response['id'];
                 $_SESSION["adminEmail"] = $response['email'];
-                echo "<script>window.location.replace('../adminDashboard.php');</script>";
+                echo "<script>window.location.replace('../adminDashboard.php?welcome=true');</script>";
             } else {
                 $alert_type = "alert-danger";
                 $alert_message = "Incorrect adminname or password.";
@@ -618,7 +618,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     <tbody>';
                     while ($row = $CourseContentResponse->fetch_assoc()) {
                         echo '<tr>
-                        <td>'.$row["doc_title"].'</td>
+                        <td>' . $row["doc_title"] . '</td>
                         <td></td>
                         <td>
                             <a href="include/AdminSubmitData.php?moduleMethod=course_content&module=courseContentDelete&delete=' . $row["id"] . '&chapter_id=' . $_POST['chapter_id'] . '" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete</a>

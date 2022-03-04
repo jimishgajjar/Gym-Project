@@ -7,7 +7,7 @@ date_default_timezone_set("Asia/Kolkata");
 $moduleMethod = $_REQUEST['moduleMethod'];
 $module = $_REQUEST['module'];
 
-$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+$ip = getIPAddress();
 
 $userProfilePath = "../assets/userprofile/";
 
@@ -83,7 +83,40 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 if (!empty($response)) {
                     $_SESSION["userId"] = $response['id'];
                     $_SESSION["userEmail"] = $response['email'];
-                    echo "<script>window.location.replace('../index.php');</script>";
+
+                    if (isset($_POST['from_checkout']) && !empty($_POST['from_checkout'])) {
+                        $userCart = array(
+                            'user_id' => $response['id'],
+                            'date_modified' => date("Y-m-d H:i:s"),
+                            'modified_user_id' => $_SESSION["userId"],
+                        );
+                        $userCartCondition['user_ip'] = $ip;
+                        $userCartResponse = updateData('cart', $userCart, $userCartCondition);
+
+                        $cartCondition['user_id'] = $_SESSION["userId"];
+                        $cartCondition['user_ip'] = $ip;
+                        $cartResponse = getData('cart', $cartCondition);
+                        if ($cartResponse->num_rows > 0) {
+                            while ($row = $cartResponse->fetch_assoc()) {
+                                $userCoursesCondition['user_id'] = $_SESSION["userId"];
+                                $userCoursesCondition['course_id'] = $row["course_id"];
+                                $userCoursesResponse = getData('user_courses', $userCoursesCondition);
+                                $userCoursesResponse = $userCoursesResponse->fetch_assoc();
+
+                                if (!empty($userCoursesResponse)) {
+                                    $deleteCartCondition['course_id'] = $row["course_id"];
+                                    $deleteCartCondition['user_id'] = $_SESSION["userId"];
+                                    $deleteCartCondition['user_ip'] = $ip;
+                                    $DeleteCartResponse = deleteData('cart', $deleteCartCondition);
+                                }
+                            }
+                        }
+                    }
+                    if (!empty($response) && !empty($userCartResponse)) {
+                        echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist');</script>";
+                    } else {
+                        echo "<script>window.location.replace('../index.php?welcome=true');</script>";
+                    }
                 } else {
                     $alert_type = "alert-danger";
                     $alert_message = "Incorrect username or password.";
@@ -947,6 +980,72 @@ if (!empty($_REQUEST['moduleMethod'])) {
                             echo "courseContentView.php?view=" . $newChapterCon['course_id'] . "&course_content_id=" . $newChapterCon['id'];
                         }
                     }
+                }
+            }
+        }
+    }
+
+    // Course Content Progress Insert
+    if ($module == "documentWatched" && $moduleMethod == "course_progress") {
+        if (isset($_POST['Doc_course_position']) && isset($_POST['Doc_course_id']) && isset($_POST['Doc_content_id']) && isset($_POST['Doc_chapter_id'])) {
+            $Condition['user_id'] = $_SESSION["userId"];
+            $Condition['course_id']  = $_POST['Doc_course_id'];
+            $Condition['chapter_id']  = $_POST['Doc_chapter_id'];
+            $Condition['content_id']  = $_POST['Doc_content_id'];
+            $response = getData($moduleMethod, $Condition);
+            $response = $response->fetch_assoc();
+            if (empty($response)) {
+                $uniqid = uniqid();
+                $course_progress = array(
+                    'id' => $uniqid,
+                    'user_id' => $_SESSION["userId"],
+                    'course_id' => $_REQUEST['Doc_course_id'],
+                    'chapter_id' => $_REQUEST['Doc_chapter_id'],
+                    'content_id' => $_REQUEST['Doc_content_id'],
+                    'date_entered' => date("Y-m-d H:i:s"),
+                    'date_modified' => date("Y-m-d H:i:s"),
+                    'modified_user_id' => $_SESSION["userId"],
+                    'created_by' => $_SESSION["userId"],
+                    'deleted' => 0,
+                );
+                $courseProgressResponse = insertData($moduleMethod, $course_progress);
+                if (!empty($courseProgressResponse)) {
+                    echo "course_added_in_progress";
+                }
+            } else {
+                echo "course_notadded_in_progress";
+            }
+        }
+    }
+
+    // Course Content Checkbox
+    if ($module == "userProgress_checkbox" && $moduleMethod == "course_progress") {
+        if (isset($_POST['course_id']) && isset($_POST['content_id']) && isset($_POST['chapter_id']) && isset($_POST['add_delete'])) {
+            if ($_POST['add_delete'] == "true") {
+                $uniqid = uniqid();
+                $course_progress = array(
+                    'id' => $uniqid,
+                    'user_id' => $_SESSION["userId"],
+                    'course_id' => $_REQUEST['course_id'],
+                    'chapter_id' => $_REQUEST['chapter_id'],
+                    'content_id' => $_REQUEST['content_id'],
+                    'date_entered' => date("Y-m-d H:i:s"),
+                    'date_modified' => date("Y-m-d H:i:s"),
+                    'modified_user_id' => $_SESSION["userId"],
+                    'created_by' => $_SESSION["userId"],
+                    'deleted' => 0,
+                );
+                $courseProgressResponse = insertData($moduleMethod, $course_progress);
+                if (!empty($courseProgressResponse)) {
+                    echo "course_added_in_progress";
+                }
+            }
+            if ($_POST['add_delete'] == "false") {
+                $deleteProgressCondition['content_id'] = $_REQUEST['content_id'];
+                $deleteProgressCondition['user_id'] = $_SESSION["userId"];
+                $DeleteCartResponse = deleteData($moduleMethod, $deleteProgressCondition);
+                if (!empty($DeleteCartResponse)) {
+                    echo "course_deleted_in_progress";
                 }
             }
         }

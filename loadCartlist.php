@@ -4,7 +4,7 @@ include "include/dbConfig.php";
 include "include/queryFunction.php";
 $categoryPath = "assets/category/";
 $thumbnailPath = "assets/thumbnail/";
-$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+$ip = getIPAddress();
 ?>
 
 <?php

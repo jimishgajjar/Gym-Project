@@ -152,7 +152,6 @@ function getvideo() {
     //     });
     // }
     if (video.ended == true) {
-        // alert('**');
         $.ajax({
             url: "include/UserSubmitData.php",
             method: "POST",
@@ -168,5 +167,84 @@ function getvideo() {
                 window.location = response;
             }
         });
+    }
+}
+
+function getdocument(content_id) {
+    var Doc_course_position = document.getElementById("Doc_course_position-" + content_id).value;
+    var Doc_chapter_id = document.getElementById("Doc_chapter_id-" + content_id).value;
+    var Doc_content_id = document.getElementById("Doc_content_id-" + content_id).value;
+    var Doc_course_id = document.getElementById("Doc_course_id-" + content_id).value;
+    $.ajax({
+        url: "include/UserSubmitData.php",
+        method: "POST",
+        data: {
+            module: "documentWatched",
+            moduleMethod: "course_progress",
+            Doc_course_position: Doc_course_position,
+            Doc_content_id: Doc_content_id,
+            Doc_chapter_id: Doc_chapter_id,
+            Doc_course_id: Doc_course_id
+        },
+        success: function (response) {
+            if (response == "course_added_in_progress") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    });
+}
+
+function AddRemoveProgress(content_id_get) {
+    var content_id_ = content_id_get.value;
+
+    var content_id_split = content_id_.split("_");
+    var chapter_id = content_id_split[1];
+    var content_id = content_id_split[0];
+    var course_id = content_id_split[2];
+
+    if (content_id != "") {
+        if (content_id_get.checked == true) {
+            $.ajax({
+                url: "include/UserSubmitData.php",
+                method: "POST",
+                data: {
+                    module: "userProgress_checkbox",
+                    moduleMethod: "course_progress",
+                    content_id: content_id,
+                    chapter_id: chapter_id,
+                    course_id: course_id,
+                    add_delete: content_id_get.checked
+                },
+                success: function (response) {
+                    if (response == "course_added_in_progress") {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            });
+        } else {
+            $.ajax({
+                url: "include/UserSubmitData.php",
+                method: "POST",
+                data: {
+                    module: "userProgress_checkbox",
+                    moduleMethod: "course_progress",
+                    content_id: content_id,
+                    chapter_id: chapter_id,
+                    course_id: course_id,
+                    add_delete: content_id_get.checked
+                },
+                success: function (response) {
+                    if (response == "course_deleted_in_progress") {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            });
+        }
     }
 }

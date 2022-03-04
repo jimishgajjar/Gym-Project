@@ -45,6 +45,7 @@
                     </a>
                     <ul class="pcoded-submenu">
                         <li><a href="userList.php">User List</a></li>
+                        <li><a href="userProgressList.php">User Progress</a></li>
                     </ul>
                 </li>
                 <li class="nav-item pcoded-hasmenu">

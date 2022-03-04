@@ -6,6 +6,7 @@ include('header.php');
 <body>
     <?php include('menu.php'); ?>
 
+    
     <section class="xs-section-padding section-login">
         <div class="container">
             <div class="d-flex justify-content-center">
@@ -42,6 +43,21 @@ include('header.php');
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                         </div>
+                        <?php
+                        if (isset($_REQUEST['from_checkout'])) {
+                            if ($_REQUEST['from_checkout'] == 1) { ?>
+                                <input type="hidden" class="form-control" id="from_checkout" name="from_checkout" placeholder="from_checkout" value="1" required>
+                        <?php }
+                        }
+                        ?>
+                        <?php
+                        if (isset($_REQUEST['buynow']) && isset($_REQUEST['course_id'])) {
+                            if ($_REQUEST['buynow'] == 1 && !empty($_REQUEST['course_id'])) { ?>
+                                <input type="hidden" class="form-control" id="buynow" name="buynow" placeholder="buynow" value="1" required>
+                                <input type="hidden" class="form-control" id="course_id" name="course_id" placeholder="course_id" value="<?php echo $_REQUEST['course_id']; ?>" required>
+                        <?php }
+                        }
+                        ?>
                         <button type="submit" name="userLoginSub" class="btn btn-primary btn-lg btn-100">Log In</button>
                     </form>
                     <hr>
