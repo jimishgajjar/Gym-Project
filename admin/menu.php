@@ -77,7 +77,7 @@
         </a>
     </div>
     <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
+        <!-- <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a href="#!" class="pop-search"><i class="feather icon-search"></i></a>
                 <div class="search-bar">
@@ -87,7 +87,7 @@
                     </button>
                 </div>
             </li>
-        </ul>
+        </ul> -->
         <ul class="navbar-nav ml-auto">
             <li>
                 <div class="dropdown">
@@ -162,7 +162,7 @@
                     ?>
                     <div class="dropdown-menu dropdown-menu-right profile-notification">
                         <div class="pro-head">
-                            <img src="assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                            <!-- <img src="assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image"> -->
                             <span><?php echo $response['full_name']; ?></span>
                             <a href="include/AdminSubmitData.php?moduleMethod=logout&module=adminLogout&logout=1" class="dud-logout" title="Logout">
                                 <i class="feather icon-log-out"></i>
@@ -171,10 +171,6 @@
                         <ul class="pro-body">
                             <li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i>
                                     Profile</a></li>
-                            <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i>
-                                    My Messages</a></li>
-                            <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i>
-                                    Lock Screen</a></li>
                         </ul>
                     </div>
                 </div>

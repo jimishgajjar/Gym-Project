@@ -89,7 +89,7 @@ include('header.php');
                                                     <h5 class="modal-title" id=""><?php echo $response['full_name']; ?> Progress Report</h5>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <table id="dom-jqry" class="table table-striped table-bordered nowrap">
+                                                    <table id="dom-jqry" class="dom-jqry table table-striped table-bordered nowrap">
                                                         <thead>
                                                             <tr>
                                                                 <th>Date & Time</th>
@@ -129,9 +129,13 @@ include('header.php');
                                     </div>
 
                                     <h5 class="mt-5">User Courses</h5>
-
+                                    <div class="d-flex align-content-start flex-wrap">
+                                        <a href="userReportPrint.php?view=<?php echo $_GET['view']; ?>" target="_blank" class="btn btn-primary m-2">
+                                            <i class="fas fa-print"></i>
+                                        </a>
+                                    </div>
                                     <div class="table-responsive dt-responsive">
-                                        <table id="dom-jqry" class="table table-striped table-bordered nowrap">
+                                        <table id="dom-jqry" class="dom-jqry table table-striped table-bordered nowrap">
                                             <thead>
                                                 <tr>
                                                     <th>Thumbnail</th>

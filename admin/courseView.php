@@ -81,7 +81,7 @@ include('header.php');
                                 <div class="card-body">
                                     <div class="row mb-2">
                                         <div class="col-md-12">
-                                            <table id="dom-jqry" class="table table-striped table-bordered nowrap">
+                                            <table id="dom-jqry" class="dom-jqry table table-striped table-bordered nowrap">
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>

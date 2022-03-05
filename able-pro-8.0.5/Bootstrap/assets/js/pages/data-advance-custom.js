@@ -2,7 +2,7 @@ $(document).ready(function() {
     setTimeout(function() {
         // [ DOM/jquery ]
         var total,pageTotal;
-        var table = $('#dom-jqry').DataTable();
+        var table = $('.dom-jqry').DataTable();
         // [ column Rendering ]
         $('#colum-rendr').DataTable({
             "columnDefs": [{

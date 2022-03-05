@@ -606,7 +606,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 $CourseContentResponse = getData('course_content', $CourseContentCondition);
                 if ($CourseContentResponse->num_rows > 0) {
                     echo '
-                    <table id="dom-jqry" class="table table-striped table-bordered nowrap">
+                    <table id="dom-jqry" class="dom-jqry table table-striped table-bordered nowrap">
                     <thead>
                         <tr>
                             <th>Course Title</th>

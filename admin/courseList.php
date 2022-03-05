@@ -36,7 +36,7 @@ include('header.php');
                         </div>
                         <div class="card-body">
                             <div class="table-responsive dt-responsive">
-                                <table id="dom-jqry" class="table table-striped table-bordered nowrap">
+                                <table id="dom-jqry" class="dom-jqry table table-striped table-bordered nowrap">
                                     <thead>
                                         <tr>
                                             <th>Thumbnail</th>

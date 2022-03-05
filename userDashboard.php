@@ -252,7 +252,7 @@ include('header.php');
                             </div>
                             <hr>
                             <div class="mycourse-data">
-                                <table id="dom-jqry" class="table table-striped table-bordered nowrap">
+                                <table id="dom-jqry" class="dom-jqry table table-striped table-bordered nowrap">
                                     <thead>
                                         <tr>
                                             <th>Date</th>

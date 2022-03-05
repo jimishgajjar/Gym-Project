@@ -56,7 +56,7 @@ include('header.php');
                                     </div>
 
                                     <div id="content_list">
-                                        <table id="dom-jqry" class="table table-striped table-bordered nowrap">
+                                        <table id="dom-jqry" class="dom-jqry table table-striped table-bordered nowrap">
                                             <thead>
                                                 <tr>
                                                     <th>Course Title</th>
