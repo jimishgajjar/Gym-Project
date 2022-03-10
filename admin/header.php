@@ -13,7 +13,7 @@ include "../include/queryFunction.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="" />
     <meta name="keywords" content="">
-    <meta name="author" content="Phoenixcoded" />
+    <meta name="author" content="" />
     <!-- Favicon icon -->
     <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
 
@@ -33,6 +33,10 @@ include "../include/queryFunction.php";
     <!-- fileupload-custom css -->
     <link rel="stylesheet" href="assets/css/plugins/dropzone.min.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/js/jquery.rating.js"></script>
+
+    <script src="assets/js/gym-admin.js"></script>
+
 </head>

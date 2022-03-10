@@ -59,33 +59,34 @@ include('header.php');
                     </div>
                 </div>
             </div>
-        <?php }
-    }
+    <?php }
+    } ?>
 
-    if (isset($_REQUEST['welcome']) && !empty($_REQUEST['welcome']) && $_REQUEST['welcome'] == 'true') { ?>
-        <script>
+    <script>
+        if (getCookie("UserLogin") == "welcome") {
             $(document).ready(function() {
                 $('#welcome').modal('show');
+                setCookie("UserLogin", "notwelcome");
             });
-        </script>
-        <!-- Modal -->
-        <div class="modal fade" id="welcome" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+        }
+    </script>
+    <!-- Modal -->
+    <div class="modal fade" id="welcome" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
 
-                        <div class="text-center">
-                            <i class="far fa-check-circle mb-3" style="font-size: 70px; color: #155724;"></i>
-                            <h3 style="font-weight: 600;">Welcome <?php echo $userDataResponse['full_name']; ?></h3>
-                        </div>
+                    <div class="text-center">
+                        <i class="far fa-check-circle mb-3" style="font-size: 70px; color: #155724;"></i>
+                        <h3 style="font-weight: 600;">Welcome <?php echo $userDataResponse['full_name']; ?></h3>
                     </div>
                 </div>
             </div>
         </div>
-    <?php } ?>
+    </div>
     <section class="xs-light-bg position-relative" data-scrollax-parent="true" id="home">
         <div class="container xs-clips-wraper">
             <div class="xs-clips">

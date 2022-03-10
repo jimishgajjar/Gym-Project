@@ -19,7 +19,7 @@ include('header.php');
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.php"><i class="feather icon-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#!">User List</a></li>
+                                <li class="breadcrumb-item"><a href="#!">User Progress List</a></li>
                             </ul>
                         </div>
                     </div>
@@ -32,7 +32,7 @@ include('header.php');
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5>User List</h5>
+                            <h5>User Progress List</h5>
                         </div>
                         <div class="card-body">
                             <div class="d-flex align-content-start flex-wrap">

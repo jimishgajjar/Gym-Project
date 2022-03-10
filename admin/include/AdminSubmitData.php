@@ -23,10 +23,15 @@ if (!empty($_REQUEST['moduleMethod'])) {
             if (!empty($response)) {
                 $_SESSION["adminId"] = $response['id'];
                 $_SESSION["adminEmail"] = $response['email'];
-                echo "<script>window.location.replace('../adminDashboard.php?welcome=true');</script>";
+
+                $cookie_name = "AdminLogin";
+                $cookie_value = "welcome";
+                setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+
+                echo "<script>window.location.replace('../adminDashboard.php');</script>";
             } else {
                 $alert_type = "alert-danger";
-                $alert_message = "Incorrect adminname or password.";
+                $alert_message = "Incorrect id or password.";
                 echo "<script>window.location.replace('../index.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
         }

@@ -1,8 +1,8 @@
 /**======================================================================
 =========================================================================
 Template Name: Able pro Bootstrap Admin Template
-Author: Phoenixcoded
-Support: support@phoenixcoded.net
+Author: 
+Support: support@.net
 File: style.css
 =========================================================================
 =================================================================================== */
@@ -33595,4 +33595,20 @@ new-task label input[type=checkbox] {
 
 .tag {
     padding: 0.625rem 0
+}
+
+span.stars,
+span.stars span {
+    display: block;
+    background: url(../images/icons/star-black.svg) 0 0 repeat-x;
+    width: 125px;
+    /* width of a star multiplied by 5 */
+    height: 40px;
+    /* the height of the star */
+    background-size: 25px 40px;
+}
+
+span.stars span {
+    background-position: 0 0;
+    background-image: url(../images/icons/star.svg);
 }

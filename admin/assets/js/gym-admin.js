@@ -1,3 +1,16 @@
+// Set this to the width of one star.
+var starWidth = 25;
+
+$.fn.stars = function () {
+    return $(this).each(function () {
+        $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * starWidth));
+    });
+}
+$(document).ready(function () {
+    $('span.stars').stars();
+});
+
+
 $(document).ready(function () {
     var content_i = $("#course_content_count").val();
     $("#addContentRow").click(function () {
@@ -45,4 +58,27 @@ function is_trailer(content_checkbox) {
             $("#content_list").append(response);
         }
     });
+}
+
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }

@@ -82,14 +82,14 @@ $(document).ready(function() {
                         '<label>Breadcumb sticky</label>' +
                     '</div>' +
                 '</div>' +
-                '<a href="https://themeforest.net/user/phoenixcoded" class="btn btn-success btn-block m-r-15 m-t-10 m-b-10">Profile</a>' +
+                '<a href="https://themeforest.net/user/" class="btn btn-success btn-block m-r-15 m-t-10 m-b-10">Profile</a>' +
                 '<a href="http://ableproadmin.com/doc-7.0/" target="_blank" class="btn btn-primary btn-block m-r-15 m-t-5 m-b-10 ">Online Documentation</a>' +
                 '<div class="text-center">' +
                     '<span class="text-center f-18 m-t-15 m-b-15 d-block">Thank you for sharing !</span>' +
-                    '<a href="https://www.facebook.com/Phoenixcoded/" target="_blank" class="btn text-white bg-facebook btn-icon m-b-20">' +
+                    '<a href="https://www.facebook.com//" target="_blank" class="btn text-white bg-facebook btn-icon m-b-20">' +
                         '<i class="feather icon-facebook"></i>' +
                     '</a>' +
-                    '<a href="https://twitter.com/phoenixcoded" target="_blank" class="btn text-white bg-twitter btn-icon m-l-20 m-b-20">' +
+                    '<a href="https://twitter.com/" target="_blank" class="btn text-white bg-twitter btn-icon m-l-20 m-b-20">' +
                         '<i class="feather icon-twitter"></i>' +
                     '</a>' +
                 '</div>' +

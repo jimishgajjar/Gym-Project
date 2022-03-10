@@ -84,6 +84,10 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     $_SESSION["userId"] = $response['id'];
                     $_SESSION["userEmail"] = $response['email'];
 
+                    $cookie_name = "UserLogin";
+                    $cookie_value = "welcome";
+                    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+
                     if (isset($_POST['from_checkout']) && !empty($_POST['from_checkout'])) {
                         $userCart = array(
                             'user_id' => $response['id'],
@@ -115,7 +119,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     if (!empty($response) && !empty($userCartResponse)) {
                         echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist');</script>";
                     } else {
-                        echo "<script>window.location.replace('../index.php?welcome=true');</script>";
+                        echo "<script>window.location.replace('../index.php');</script>";
                     }
                 } else {
                     $alert_type = "alert-danger";

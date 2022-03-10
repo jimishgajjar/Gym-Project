@@ -47,4 +47,6 @@ $coursePath = "assets/coursedocumnets/";
 
     <!-- data tables css -->
     <link rel="stylesheet" href="admin/assets/css/plugins/dataTables.bootstrap4.min.css">
+
+    <script src="assets/js/gym.js"></script>
 </head>

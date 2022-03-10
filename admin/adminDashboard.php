@@ -4,33 +4,33 @@ include('header.php');
 ?>
 
 <body class="">
-
     <?php include('menu.php'); ?>
 
-    <?php if (isset($_REQUEST['welcome']) && !empty($_REQUEST['welcome']) && $_REQUEST['welcome'] == 'true') { ?>
-        <script>
+    <script>
+        if (getCookie("AdminLogin") == "welcome") {
             $(document).ready(function() {
                 $('#welcome').modal('show');
+                setCookie("AdminLogin", "notwelcome");
             });
-        </script>
-        <!-- Modal -->
-        <div class="modal fade" id="welcome" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+        }
+    </script>
+    <!-- Modal -->
+    <div class="modal fade" id="welcome" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
 
-                        <div class="text-center">
-                            <i class="far fa-check-circle mb-3" style="font-size: 70px; color: #155724;"></i>
-                            <h3>Welcome <?php echo $response['full_name']; ?></h3>
-                        </div>
+                    <div class="text-center">
+                        <i class="far fa-check-circle mb-3" style="font-size: 70px; color: #155724;"></i>
+                        <h3>Welcome <?php echo $response['full_name']; ?></h3>
                     </div>
                 </div>
             </div>
         </div>
-    <?php } ?>
+    </div>
 
     <!-- [ Main Content ] start -->
     <div class="pcoded-main-container">
