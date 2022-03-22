@@ -19,7 +19,7 @@ include('header.php');
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.php"><i class="feather icon-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#!">Category Add</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">Category Add</a></li>
                             </ul>
                         </div>
                     </div>
@@ -51,7 +51,7 @@ include('header.php');
 
                                         <label for="category_description" class="col-sm-2 col-form-label">Category Description :</label>
                                         <div class="col-sm-4">
-                                            <input type="text" readonly class="form-control-plaintext" id="category_description" value="<?php echo $response['category_description'] ?>">
+                                            <p class="form-control-plaintext"><?php echo $response['category_description'] ?></p>
                                         </div>
 
                                         <label for="category_img" class="col-sm-2 col-form-label">Category Image :</label>

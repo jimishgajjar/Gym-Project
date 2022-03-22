@@ -11,7 +11,7 @@ function getData($tablename, $where = array(), $limit = null)
         $wherestr = preg_replace('/\W\w+\s*(\W*)$/', '$1', $wherestr);
 
         if (!empty($limit)) {
-            $query = "SELECT * FROM " . $tablename . " WHERE " . $wherestr . "and limit " . $limit;
+            $query = "SELECT * FROM " . $tablename . " WHERE " . $wherestr . " limit " . $limit;
         } else {
             $query = "SELECT * FROM " . $tablename . " WHERE " . $wherestr;
         }
@@ -50,7 +50,7 @@ function insertData($tablename, $input)
     $values = rtrim($values, ', ');
 
     $query = "INSERT INTO " . $tablename . " (" . $column . ") VALUES (" . $values . ")";
-    // echo $query . "<br>";
+    echo $query . "<br>";
     if ($conn->query($query) === TRUE) {
         return $tablename . " inserted successfully";
     }
@@ -113,3 +113,9 @@ function getIPAddress()
     }
     return $ip;
 }
+
+
+ini_set('upload_max_filesize', '50M');
+ini_set('post_max_size', '50M');
+ini_set('max_input_time', 300);
+ini_set('max_execution_time', 300);

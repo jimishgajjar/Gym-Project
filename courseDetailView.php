@@ -134,9 +134,9 @@ include('header.php');
                             <hr>
                             <div class="course-description">
                                 <h4>Description</h4>
-                                <p>
-                                    <?php echo $response['description']; ?>
-                                </p>
+                                <!-- <p> -->
+                                <?php echo htmlspecialchars_decode($response['description']); ?>
+                                <!-- </p> -->
                             </div>
                         </div>
 
@@ -320,14 +320,15 @@ include('header.php');
                                             </div>
                                             <hr>
                                         </div>
-                                    <?php } else { ?>
+                                    <?php }
+                                    if (!empty($checkCourseExistResponse) && empty($checkReviewResponse)) { ?>
                                         <form action="include/UserSubmitData.php" method="POST" class="xs-form">
                                             <input type="hidden" name="module" value="course_reviewAdd">
                                             <input type="hidden" name="moduleMethod" value="course_review">
                                             <input type="hidden" name="course_id" value="<?php echo $_GET['view'] ?>">
                                             <div class="form-group xs-form-anim">
                                                 <label class="input-label" for="rating">Rating</label>
-                                                <input type="number" id="rating" name="rating" class="form-control">
+                                                <input type="number" id="rating" name="rating" class="form-control" min="1" max="5" required>
                                             </div>
                                             <div class="form-group xs-form-anim">
                                                 <label class="input-label" for="title">Title</label>
@@ -350,18 +351,18 @@ include('header.php');
                                 $reviewResponse = getData('course_review', $reviewCondition);
                                 if (!empty($reviewResponse)) {
                                     while ($reviewResponseRow = $reviewResponse->fetch_assoc()) {
-                                        $userCondition['id'] = $reviewResponseRow["user_id"];
-                                        $userDataResponse = getData('user', $userCondition);
-                                        $userDataResponse = $userDataResponse->fetch_assoc();
+                                        $userCondition1['id'] = $reviewResponseRow["user_id"];
+                                        $userDataResponse1 = getData('user', $userCondition1);
+                                        $userDataResponse1 = $userDataResponse1->fetch_assoc();
                                         if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
                                             if ($reviewResponseRow['user_id'] != $_SESSION["userId"]) {
                                 ?>
                                                 <div class="d-flex flex-row course-reviewlist">
                                                     <div class="text-center user-profile pr-4">
-                                                        <img src="<?php echo $userProfilePath . $userDataResponse['profile_pic']; ?>" alt="">
+                                                        <img src="<?php echo $userProfilePath . $userDataResponse1['profile_pic']; ?>" alt="">
                                                     </div>
                                                     <div class="review-detail">
-                                                        <h5><?php echo $userDataResponse['full_name']; ?></h5>
+                                                        <h5><?php echo $userDataResponse1['full_name']; ?></h5>
                                                         <div class="course-rating mb-2">
                                                             <h6 class="course-rating-num">(<?php echo $reviewResponseRow['rating']; ?>)</h6>
                                                             <span class="stars"><?php echo $reviewResponseRow['rating']; ?></span>
@@ -375,10 +376,10 @@ include('header.php');
                                         } else { ?>
                                             <div class="d-flex flex-row course-reviewlist">
                                                 <div class="text-center user-profile pr-4">
-                                                    <img src="<?php echo $userProfilePath . $userDataResponse['profile_pic']; ?>" alt="">
+                                                    <img src="<?php echo $userProfilePath . $userDataResponse1['profile_pic']; ?>" alt="">
                                                 </div>
                                                 <div class="review-detail">
-                                                    <h5><?php echo $userDataResponse['full_name']; ?></h5>
+                                                    <h5><?php echo $userDataResponse1['full_name']; ?></h5>
                                                     <div class="course-rating mb-2">
                                                         <h6 class="course-rating-num">(<?php echo $reviewResponseRow['rating']; ?>)</h6>
                                                         <span class="stars"><?php echo $reviewResponseRow['rating']; ?></span>

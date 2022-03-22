@@ -6,7 +6,7 @@ $(document).ready(function() {
     $('body').append('' +
         '<div id="styleSelector" class="menu-styler">' +
             '<div class="style-toggler">' +
-                '<a href="#!"></a>' +
+                '<a href="javascript:void(0);"></a>' +
             '</div>' +
             '<div class="style-block">' +
                 '<h4 class="mb-2">Able-pro <small class="font-weight-normal">v8.0 Customizer</small></h4>' +
@@ -14,37 +14,37 @@ $(document).ready(function() {
                 '<div class="m-style-scroller">' +
                     '<h6 class="mt-2">Layouts</h6>' +
                     '<div class="theme-color layout-type">' +
-                        '<a href="#!" class="" data-value="menu-dark" title="Default Layout"><span></span><span></span></a>' +
-                        '<a href="#!" class="active" data-value="menu-light" title="Light"><span></span><span></span></a>' +
-                        '<a href="#!" class="" data-value="dark" title="Dark"><span></span><span></span></a>' +
-                        '<a href="#!" class="" data-value="reset" title="Reset">Reset</a>' +
+                        '<a href="javascript:void(0);" class="" data-value="menu-dark" title="Default Layout"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="active" data-value="menu-light" title="Light"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="dark" title="Dark"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="reset" title="Reset">Reset</a>' +
                     '</div>' +
                     '<h6>background color</h6>' +
                     '<div class="theme-color background-color flat">' +
-                        '<a href="#!" class="active" data-value="background-blue"><span></span><span></span></a>' +
-                        '<a href="#!" class="" data-value="background-red"><span></span><span></span></a>' +
-                        '<a href="#!" class="" data-value="background-purple"><span></span><span></span></a>' +
-                        '<a href="#!" class="" data-value="background-info"><span></span><span></span></a>' +
-                        '<a href="#!" class="" data-value="background-green"><span></span><span></span></a>' +
-                        '<a href="#!" class="" data-value="background-dark"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="active" data-value="background-blue"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="background-red"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="background-purple"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="background-info"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="background-green"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="background-dark"><span></span><span></span></a>' +
                     '</div>' +
                     '<h6>background Gradient</h6>' +
                     '<div class="theme-color background-color gradient">' +
-                        '<a href="#!" class="" data-value="background-grd-blue"><span></span><span></span></a>' +
-                        '<a href="#!" class="" data-value="background-grd-red"><span></span><span></span></a>' +
-                        '<a href="#!" class="" data-value="background-grd-purple"><span></span><span></span></a>' +
-                        '<a href="#!" class="" data-value="background-grd-info"><span></span><span></span></a>' +
-                        '<a href="#!" class="" data-value="background-grd-green"><span></span><span></span></a>' +
-                        '<a href="#!" class="" data-value="background-grd-dark"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="background-grd-blue"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="background-grd-red"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="background-grd-purple"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="background-grd-info"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="background-grd-green"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="background-grd-dark"><span></span><span></span></a>' +
                     '</div>' +
                     '<h6>background Image</h6>' +
                     '<div class="theme-color background-color image">' +
-                        '<a href="#!" class="" data-value="background-img-1"><span></span><span></span></a>' +
-                        '<a href="#!" class="" data-value="background-img-2"><span></span><span></span></a>' +
-                        '<a href="#!" class="" data-value="background-img-3"><span></span><span></span></a>' +
-                        '<a href="#!" class="" data-value="background-img-4"><span></span><span></span></a>' +
-                        '<a href="#!" class="" data-value="background-img-5"><span></span><span></span></a>' +
-                        '<a href="#!" class="" data-value="background-img-6"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="background-img-1"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="background-img-2"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="background-img-3"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="background-img-4"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="background-img-5"><span></span><span></span></a>' +
+                        '<a href="javascript:void(0);" class="" data-value="background-img-6"><span></span><span></span></a>' +
                     '</div>' +
                     '<div class="form-group mb-2">' +
                         '<div class="switch switch-primary d-inline m-r-10">' +

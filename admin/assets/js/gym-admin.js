@@ -82,3 +82,33 @@ function getCookie(cname) {
     }
     return "";
 }
+
+function deleteCategory(category_id) {
+    $.ajax({
+        url: "include/AdminSubmitData.php",
+        method: "POST",
+        data: { module: "categoryDelete", moduleMethod: "category", delete: category_id },
+        success: function (response) {
+            if (response == "Category dependency") {
+                $("#categoryErrorMsg").empty();
+                $("#categoryErrorMsg").append(
+                    '<i class="far fa-engine-warning mb-3" style="font-size: 70px; color: #ff0000;"></i>' +
+                    '<h3 style="font-weight: 500; font-size: 20px;">You can not delete this category some course is connected to this category.</h3>'
+                );
+                $('#categoryErrorMessage').modal('show');
+            } else if (response == "Category is not deleted.") {
+                $("#categoryErrorMsg").empty();
+                $("#categoryErrorMsg").append(
+                    '<i class="far fa-engine-warning mb-3" style="font-size: 70px; color: #ff0000;"></i>' +
+                    '<h3 style="font-weight: 500; font-size: 20px;">Something went wrong please try again.</h3>'
+                );
+                $('#categoryErrorMessage').modal('show');
+            } else {
+                $("#categoryList").empty();
+                $("#categoryList").append(response);
+            }
+            // $("#whislist-data").empty();
+            // $("#whislist-data").append(response);
+        }
+    });
+}

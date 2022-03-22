@@ -5313,6 +5313,11 @@ Breadcum
     font-size: 1.1rem;
 }
 
+.course-description ul,
+.course-description li {
+    list-style: unset !important;
+}
+
 /* ***************************************
                 User Menu
 *************************************** */

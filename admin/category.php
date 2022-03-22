@@ -20,9 +20,9 @@ include('header.php');
                                 <li class="breadcrumb-item"><a href="index.php"><i class="feather icon-home"></i></a>
                                 </li>
                                 <?php if (isset($_GET['edit'])) { ?>
-                                    <li class="breadcrumb-item"><a href="#!">Category Edit</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Category Edit</a></li>
                                 <?php } else { ?>
-                                    <li class="breadcrumb-item"><a href="#!">Category Add</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Category Add</a></li>
                                 <?php } ?>
                             </ul>
                         </div>
@@ -96,7 +96,7 @@ include('header.php');
                                         <div class="form-group col-md-6">
                                             <label for="category_img">Category Image</label><br>
                                             <img class="thumbnail" id="category_img_view" src="" alt="" />
-                                            <input type="file" class="form-control" id="category_img" name="category_img" accept="image/png, image/jpeg" />
+                                            <input type="file" class="form-control" id="category_img" name="category_img" accept="image/png, image/jpeg" required />
                                             <h6 class="mt-2" style="color: red;" id="category_img_error"></h6>
                                         </div>
                                     </div>

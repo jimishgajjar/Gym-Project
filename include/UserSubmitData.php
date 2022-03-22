@@ -55,9 +55,14 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     $response = insertData($moduleMethod, $userData);
                     $userReport = insertData("user_report", $userReportData);
                     if (!empty($response) && !empty($userReport)) {
-                        $alert_type = "alert-success";
-                        $alert_message = "Your account is created.";
-                        echo "<script>window.location.replace('../userLogin.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                        $_SESSION["userId"] = $uniqid;
+                        $_SESSION["userEmail"] = $_POST['email'];
+
+                        $cookie_name = "UserLogin";
+                        $cookie_value = "welcome";
+                        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+
+                        echo "<script>window.location.replace('../index.php');</script>";
                     }
                 } else {
                     $alert_type = "alert-danger";
@@ -757,36 +762,6 @@ if (!empty($_REQUEST['moduleMethod'])) {
     // User Review Insert
     if ($module == "course_reviewAdd" && $moduleMethod == "course_review") {
         if (isset($_POST['reviewSub'])) {
-            $reviewData = array(
-                'id' => uniqid(),
-                'course_id' => $_POST["course_id"],
-                'user_id' => $_SESSION["userId"],
-                'rating' => $_POST['rating'],
-                'title' => $_POST['title'],
-                'description' => $_POST['description'],
-                'date_entered' => date("Y-m-d H:i:s"),
-                'date_modified' => date("Y-m-d H:i:s"),
-                'modified_user_id' => $_SESSION["userId"],
-                'created_by' => $_SESSION["userId"],
-                'deleted' => 0,
-            );
-            $reviewDataResponse = insertData($moduleMethod, $reviewData);
-
-            if (!empty($reviewDataResponse)) {
-                $alert_type = "alert-success";
-                $alert_message = "Review added successful.";
-                echo "<script>window.location.replace('../courseDetailView.php?view=" . $_POST['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
-            } else {
-                $alert_type = "alert-danger";
-                $alert_message = "Something want wrong <span>please try again!</span>";
-                echo "<script>window.location.replace('../courseDetailView.php?view=" . $_POST['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
-            }
-        }
-    }
-
-    // User Review Insert
-    if ($module == "course_reviewAdd" && $moduleMethod == "course_review") {
-        if (isset($_POST['reviewSub'])) {
             if (isset($_POST['edit'])) {
                 $reviewData = array(
                     'course_id' => $_POST["course_id"],
@@ -799,7 +774,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     'deleted' => 0,
                 );
                 $reviewUpdateCondition['id'] = $_POST['edit'];
-                $reviewUpdateResponse = updateData($moduleMethod, $reviewData, $reviewUpdateCondition);
+                $reviewDataResponse = updateData($moduleMethod, $reviewData, $reviewUpdateCondition);
             } else {
                 $reviewData = array(
                     'id' => uniqid(),
@@ -816,13 +791,28 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 );
                 $reviewDataResponse = insertData($moduleMethod, $reviewData);
             }
-            if (!empty($reviewDataResponse)) {
-                $alert_type = "alert-success";
-                $alert_message = "Review added successful.";
+            $overallReviewQuery = "SELECT COUNT(rating), rating, course_id FROM course_review where course_id='" . $_POST["course_id"] . "' GROUP BY rating";
+            $overallReview = $conn->query($overallReviewQuery);
+            $Scoretotal = 0;
+            $Responsetotal = 0;
+            $overallRateing = 0;
+            while ($overallReviewRow = $overallReview->fetch_assoc()) {
+                $Scoretotal += $overallReviewRow['COUNT(rating)'] * $overallReviewRow['rating'];
+                $Responsetotal += $overallReviewRow['COUNT(rating)'];
+            }
+
+            $overallRateing = $Scoretotal / $Responsetotal;
+            $overallRateingData = array(
+                'rating' => $overallRateing,
+                'date_modified' => date("Y-m-d H:i:s"),
+                'modified_user_id' => $_SESSION["userId"],
+                'deleted' => 0,
+            );
+            $overallRateingCondition['id'] = $_POST["course_id"];
+            $overallRateingResponse = updateData('course', $overallRateingData, $overallRateingCondition);
+            if (!empty($reviewDataResponse) && !empty($overallRateingResponse)) {
                 echo "<script>window.location.replace('../courseDetailView.php?view=" . $_POST['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             } else {
-                $alert_type = "alert-danger";
-                $alert_message = "Something want wrong <span>please try again!</span>";
                 echo "<script>window.location.replace('../courseDetailView.php?view=" . $_POST['course_id'] . "&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
         }
@@ -843,7 +833,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 <input type="hidden" name="course_id" value="' . $checkReviewResponse['course_id'] . '">
                 <div class="form-group xs-form-anim active">
                     <label class="input-label" for="rating">Rating</label>
-                    <input type="number" id="rating" name="rating" class="form-control" value="' . $checkReviewResponse['rating'] . '">
+                    <input type="number" id="rating" name="rating" class="form-control" value="' . $checkReviewResponse['rating'] . '" min="1" max="5" required>
                 </div>
                 <div class="form-group xs-form-anim active">
                     <label class="input-label" for="title">Title</label>

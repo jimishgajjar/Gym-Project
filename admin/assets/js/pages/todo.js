@@ -40,7 +40,7 @@ $(document).ready(function() {
         if (task == "") {
             alert("please enter task");
         } else {
-            var add_todo = $('<div class="to-do-list mb-3" id="' + i + '"><div class="d-inline-block"><label class="check-task custom-control custom-checkbox d-flex justify-content-center"><input type="checkbox" class="custom-control-input" onclick="check_task(' + i + ')" id="checkbox' + i + '"><span class="custom-control-label" for="checkbox' + i + '">' + task + '</span></label></div><div class="float-right"><a onclick="delete_todo(' + i + ');" href="#!" class="delete_todolist"><i class="far fa-trash-alt"></i></a></div></div>');
+            var add_todo = $('<div class="to-do-list mb-3" id="' + i + '"><div class="d-inline-block"><label class="check-task custom-control custom-checkbox d-flex justify-content-center"><input type="checkbox" class="custom-control-input" onclick="check_task(' + i + ')" id="checkbox' + i + '"><span class="custom-control-label" for="checkbox' + i + '">' + task + '</span></label></div><div class="float-right"><a onclick="delete_todo(' + i + ');" href="javascript:void(0);" class="delete_todolist"><i class="far fa-trash-alt"></i></a></div></div>');
             i++;
             $(add_todo).appendTo(".new-task").hide().fadeIn(300);
             $('.add_task_todo').val('');
@@ -55,7 +55,7 @@ $(document).ready(function() {
         if (saveTask == "") {
             alert("please enter task");
         } else {
-            var add_todo = $('<div class="to-do-list mb-3" id="' + i + '"><div class="d-inline-block"><label class="check-task custom-control custom-checkbox d-flex justify-content-center"><input type="checkbox" class="custom-control-input" onclick="check_task(' + i + ')" id="checkbox' + i + '"><span class="custom-control-label" for="checkbox' + i + '">' + saveTask + '</span></label></div><div class="float-right"><a onclick="delete_todo(' + i + ');" href="#!" class="delete_todolist"><i class="far fa-trash-alt"></i></a></div></div>');
+            var add_todo = $('<div class="to-do-list mb-3" id="' + i + '"><div class="d-inline-block"><label class="check-task custom-control custom-checkbox d-flex justify-content-center"><input type="checkbox" class="custom-control-input" onclick="check_task(' + i + ')" id="checkbox' + i + '"><span class="custom-control-label" for="checkbox' + i + '">' + saveTask + '</span></label></div><div class="float-right"><a onclick="delete_todo(' + i + ');" href="javascript:void(0);" class="delete_todolist"><i class="far fa-trash-alt"></i></a></div></div>');
             i++;
             $(add_todo).appendTo(".tasks-widget").hide().fadeIn(300);
             $('.save_task_todo').val('');

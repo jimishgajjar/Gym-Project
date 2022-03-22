@@ -6,7 +6,7 @@ include('header.php');
 <body>
     <?php include('menu.php'); ?>
 
-    
+
     <section class="xs-section-padding section-login">
         <div class="container">
             <div class="d-flex justify-content-center">
@@ -67,9 +67,25 @@ include('header.php');
                                 Password</a>
                         </div>
                         <div class="mt-10">
-                            <span>Don't have an account? </span><a class="sign-link" href="userSignUp.php">
-                                <b>Sign Up</b>
-                            </a>
+                            <?php
+                            if (isset($_REQUEST['from_checkout'])) {
+                                if ($_REQUEST['from_checkout'] == 1) { ?>
+                                    <span>Don't have an account? </span><a class="sign-link" href="userSignUp.php?from_checkout=1">
+                                        <b>Sign Up</b>
+                                    </a>
+                                <?php }
+                            } elseif (isset($_REQUEST['buynow']) && isset($_REQUEST['course_id'])) {
+                                if ($_REQUEST['buynow'] == 1 && !empty($_REQUEST['course_id'])) { ?>
+                                    <span>Don't have an account? </span><a class="sign-link" href="userSignUp.php?buynow=1&course_id=<?php echo $_REQUEST['course_id']; ?>">
+                                        <b>Sign Up</b>
+                                    </a>
+                                <?php }
+                            } else { ?>
+                                <span>Don't have an account? </span><a class="sign-link" href="userSignUp.php">
+                                    <b>Sign Up</b>
+                                </a>
+                            <?php }
+                            ?>
                         </div>
                     </div>
                 </div>

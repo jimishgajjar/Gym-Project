@@ -19,7 +19,7 @@ include('header.php');
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.php"><i class="feather icon-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#!">Course View</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">Course View</a></li>
                             </ul>
                         </div>
                     </div>
@@ -55,6 +55,11 @@ include('header.php');
                                         <label for="small_description" class="col-sm-2 col-form-label">Small Description :</label>
                                         <div class="col-sm-4">
                                             <p class="form-control-plaintext"><?php echo $response['small_description'] ?></p>
+                                        </div>
+
+                                        <label for="rating" class="col-sm-2 col-form-label">Rating :</label>
+                                        <div class="col-sm-4">
+                                            <p class="form-control-plaintext"><?php echo $response['rating'] ?>/5</p>
                                         </div>
 
                                         <label for="tags" class="col-sm-2 col-form-label">Tags :</label>

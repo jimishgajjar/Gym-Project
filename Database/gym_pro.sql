@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2022 at 09:06 PM
+-- Generation Time: Mar 22, 2022 at 03:25 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -64,14 +64,6 @@ CREATE TABLE `cart` (
   `deleted` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id`, `user_id`, `user_ip`, `course_id`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('621d1e3712795', '', '127.0.0.1', '61ae0f7abf646', '2022-03-01 00:40:47', '2022-03-01 00:40:47', '127.0.0.1', '127.0.0.1', 0),
-('621d1e6c42383', '61adfd8c73697', '127.0.0.1', '61ae105cb949a', '2022-03-01 00:41:40', '2022-03-01 00:41:40', '61adfd8c73697', '61adfd8c73697', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -95,12 +87,8 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `category_name`, `category_description`, `category_img`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61ae0b26d28c8', 'GRIT STRENGTH', 'GRIT STRENGTH', '61ae0b26d28c8.jpg', '2021-12-06 18:37:50', '2021-12-06 18:37:50', '61952d7816277', '61952d7816277', 0),
-('61ae0b7228135', 'ZUMBA ATHLETIC', 'ZUMBA ATHLETIC', '61ae0b7228135.jpg', '2021-12-06 18:39:06', '2021-12-06 18:39:06', '61952d7816277', '61952d7816277', 0),
-('61ae0b7b8ca42', 'FUSION YOGA', 'FUSION YOGA', '61ae0b7b8ca42.jpg', '2021-12-06 18:39:15', '2021-12-06 18:39:15', '61952d7816277', '61952d7816277', 0),
-('61ae0b82ec211', 'Meditation', 'Meditation', '61ae0b82ec211.jpg', '2021-12-06 18:39:22', '2021-12-06 18:39:22', '61952d7816277', '61952d7816277', 0),
-('61ae0b8b3f476', 'Climbing Induction', 'Climbing Induction', '61ae0b8b3f476.jpg', '2021-12-06 18:39:31', '2022-01-02 14:46:03', '61952d7816277', '61952d7816277', 0),
-('61ae0b977d08e', 'Punch Boxing', 'Punch Boxing', '61ae0b977d08e.jpg', '2021-12-06 18:39:43', '2021-12-06 18:39:43', '61952d7816277', '61952d7816277', 0);
+('6235d6a89e4a3', 'GRIT STRENGTH', 'We have heap of fun piece of equi to build down every inh of your for body.', '6235d6a89e4a3.jpg', '2022-03-19 18:42:08', '2022-03-19 18:44:26', '61952d7816277', '61952d7816277', 0),
+('6235d6bea9eb1', 'ZUMBA ATHLETIC', 'We have heap of fun piece of equi to build down every inh of your for body.', '6235d6bea9eb1.jpg', '2022-03-19 18:42:30', '2022-03-19 18:44:37', '61952d7816277', '61952d7816277', 0);
 
 -- --------------------------------------------------------
 
@@ -119,6 +107,7 @@ CREATE TABLE `course` (
   `rating` varchar(10) NOT NULL DEFAULT '0.0',
   `price` varchar(255) NOT NULL,
   `discount` varchar(255) NOT NULL,
+  `is_active` text NOT NULL DEFAULT 'true',
   `date_entered` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
   `modified_user_id` varchar(255) NOT NULL,
@@ -130,14 +119,9 @@ CREATE TABLE `course` (
 -- Dumping data for table `course`
 --
 
-INSERT INTO `course` (`id`, `category_id`, `title`, `small_description`, `description`, `tags`, `thumbnail`, `rating`, `price`, `discount`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61ae0f7abf646', '61ae0b26d28c8', '2022 Complete Python Bootcamp From Zero to Hero', 'Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'Course 1', '61ae0f7abf646.jpg', '1.0', '520', '0', '2021-12-06 18:56:18', '2021-12-30 23:16:52', '61952d7816277', '61952d7816277', 0),
-('61ae0f9e103d7', '61ae0b7228135', 'Machine Learning A-Z™: Hands-On Python & R In Data', 'Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'Course 2', '61ae0f9e103d7.jpg', '2.0', '525', '10', '2021-12-06 18:56:54', '2021-12-06 23:23:39', '61952d7816277', '61952d7816277', 0),
-('61ae1000549e3', '61ae0b7b8ca42', 'Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.', 'Learn how to use NumPy, Pandas, Seaborn , Matplotlib , Plotly , Scikit-Learn , Machine Learning, Tensorflow , and more!', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'Course 3', '61ae1000549e3.jpg', '3.0', '525', '0', '2021-12-06 18:58:32', '2022-02-05 00:09:34', '61952d7816277', '61952d7816277', 0),
-('61ae1027e738a', '61ae0b82ec211', '100 Days of Code: The Complete Python Pro Bootcamp for 2022', 'This Python For Beginners Course Teaches You The Python Language Fast. Includes Python Online Training With Python 3', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'Cource 4', '61ae1027e738a.jpg', '4.0', '525', '10', '2021-12-06 18:59:11', '2021-12-06 23:23:57', '61952d7816277', '61952d7816277', 0),
-('61ae105cb949a', '61ae0b8b3f476', 'Learning Python for Data Analysis and Visualization', 'Learn python and how to use it to analyze,visualize and present data. Includes tons of sample code and hours of video!', '<p>This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain understanding how to deploy, use, and maintain your applications on Kubernetes. If you are into DevOps, this is a technology you need to master. Kubernetes has gained a lot of popularity lately and it is a well sought skill by companies.This course will help you to gain und</p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><h3>HEEEEEEEEEEEEEEELO</h3>', 'Course 5', '61ae105cb949a.jpg', '5.0', '525', '0', '2021-12-06 19:00:04', '2021-12-15 22:21:25', '61952d7816277', '61952d7816277', 0),
-('61ae10ac70735', '61ae0b977d08e', 'Python for Data Structures, Algorithms, and Interviews!', 'Get a kick start on your career and ace your coding interviews!', '<p>qwqwqwqwwqwqwq</p><p>&nbsp;</p><p><strong>dddddddddddddddddddddddd</strong></p><p>&nbsp;</p><p>&nbsp;</p>', 'Course 6', '61ae10ac70735.jpg', '4.2', '525', '10', '2021-12-06 19:01:24', '2021-12-15 00:30:29', '61952d7816277', '61952d7816277', 0),
-('61b8e7615a900', '61ae0b977d08e', 'Django 2.2 & Python | The Ultimate Web Development Bootcamp', 'Build three complete websites, learn back and front-end web development, and publish your site online with DigitalOcean', '<p>Test <strong>1</strong>1<strong>1</strong>1 Hello</p><h2>123</h2><p>&nbsp;</p><p><a href=\"jimishgajjar.in\">jimishgajjar.in</a></p>', '123,456,789', '61b8e7615a900.jpg', '0.0', '525', '0', '2021-12-15 00:20:09', '2021-12-15 00:25:14', '61952d7816277', '61952d7816277', 0);
+INSERT INTO `course` (`id`, `category_id`, `title`, `small_description`, `description`, `tags`, `thumbnail`, `rating`, `price`, `discount`, `is_active`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
+('6235ebae7a861', '6235d6a89e4a3', 'Learn Python: The Complete Python Programming Course', 'Learn A-Z everything about Python, from the basics, to advanced topics like Python GUI, Python Data Analysis, and more!', '&lt;h4&gt;Requirements&lt;/h4&gt;&lt;ol&gt;&lt;li&gt;Macintosh (OSX)/ Windows(Vista and higher) Machine&lt;/li&gt;&lt;li&gt;Internet Connection&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;strong&gt;Do you want to become a programmer? Do you want to learn how to create games, automate your browser, visualize data, and much more?&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;If you’re looking to learn Python for the very &lt;strong&gt;first time&lt;/strong&gt; or need a &lt;strong&gt;quick brush-up&lt;/strong&gt;, this is the course for you!&lt;/p&gt;&lt;p&gt;Python has rapidly become one of the &lt;strong&gt;most popular programming languages &lt;/strong&gt;around the world. Compared to other languages such as Java or C++, Python consistently outranks and outperforms these languages in demand from businesses and job availability. The average Python developer makes &lt;strong&gt;over $100,000 &lt;/strong&gt;- this number is only going to grow in the coming years.&lt;/p&gt;&lt;p&gt;The best part? Python is one of the &lt;strong&gt;easiest coding languages &lt;/strong&gt;to learn right now. It doesn’t matter if you have no programming experience or are unfamiliar with the syntax of Python. By the time you finish this course, you&#039;ll be an &lt;strong&gt;absolute pro&lt;/strong&gt; at programming!&lt;/p&gt;&lt;p&gt;This course will cover &lt;strong&gt;all the basics&lt;/strong&gt; and &lt;strong&gt;several advanced concepts&lt;/strong&gt; of Python. We’ll go over:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;The fundamentals of Python programming&lt;/li&gt;&lt;li&gt;Writing and Reading to Files&lt;/li&gt;&lt;li&gt;Automation of Word and Excel Files&lt;/li&gt;&lt;li&gt;Web scraping with BeautifulSoup4&lt;/li&gt;&lt;li&gt;Browser automation with Selenium&lt;/li&gt;&lt;li&gt;Data Analysis and Visualization with MatPlotLib&lt;/li&gt;&lt;li&gt;Regex parsing and Task Management&lt;/li&gt;&lt;li&gt;GUI and Gaming with Tkinter&lt;/li&gt;&lt;li&gt;And much more!&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;If you read the above list and are feeling a bit confused, don’t worry! As an instructor and student on Udemy for &lt;strong&gt;almost 4 years,&lt;/strong&gt; I know what it’s like to be overwhelmed with boring and mundane. I promise you’ll have a blast learning the ins and outs of python. I’ve successfully taught over&lt;strong&gt; 200,000+ students &lt;/strong&gt;from over&lt;strong&gt; 200 countries&lt;/strong&gt; jumpstart their programming journeys through my courses.&lt;/p&gt;&lt;p&gt;Here’s what some of my students have to say:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;“I wish I started programming at a younger age like Avi. &amp;nbsp;This Python course was excellent for those that cringe at the thought of starting over from scratch with attempts to write programs once again. Python is a great building language for any beginner programmer. Thank you Avi!”&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;“I had no idea about any programming language. With Avi&#039;s lectures, I&#039;m now aware of several python concepts and I&#039;m beginning to write my own programs. Avi is crisp and clear in his lectures and it is easy to catch the concepts and the depth of it through his explanations. Thanks, Avi for the wonderful course, You&#039;re awesome! It&#039;s helping me a lot :)”&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&quot;Videos are short and concise and well-defined in their title, this makes them easy to refer back to when a refresher is needed. Explanations aren&#039;t convoluted with complicated examples, which adds to the quick pace of the videos. I am very pleased with the decision to enroll in this course. Not only has it increased the pace I&#039;m learning Python but I actively look forward to continuing the course, whenever I get the chance. Avi is friendly and energetic, absolutely delightful as an instructor.”&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;So what are you waiting for? &lt;strong&gt;Jumpstart your programming journey&lt;/strong&gt; and dive into the world of Python by&lt;strong&gt; enrolling in this course today!&lt;/strong&gt;&lt;/p&gt;&lt;h4&gt;Who this course is for:&lt;/h4&gt;&lt;ol&gt;&lt;li&gt;Even if you haven&#039;t touched coding before, it won&#039;t matter. The easy step-to-step lectures will quickly guide you through everything you&#039;ll need to know about coding, mainly Python. This course is here for you to get accustomed and familiar with Python and its syntax. And above all, Python is one of the easiest coding languages to learn, and there&#039;s a lot you can do with it.&lt;/li&gt;&lt;/ol&gt;', 'Python,Python Complete Course', '6235ebae7a861.jpg', '3', '1000', '40', 'true', '2022-03-19 20:11:50', '2022-03-22 12:14:33', '61952d7816277', '61952d7816277', 0),
+('6236063647e2f', '6235d6bea9eb1', 'Learning Python for Data Analysis and Visualization', 'Learn python and how to use it to analyze,visualize and present data. Includes tons of sample code and hours of video!', '&lt;h4&gt;Requirements&lt;/h4&gt;&lt;p&gt;Basic math skills.&lt;/p&gt;&lt;p&gt;Basic to Intermediate Python Skills&lt;/p&gt;&lt;p&gt;Have a computer (either Mac, Windows, or Linux)&lt;/p&gt;&lt;p&gt;Desire to learn!&lt;/p&gt;&lt;h4&gt;Description&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;PLEASE&amp;nbsp;READ&amp;nbsp;BEFORE&amp;nbsp;ENROLLING:&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;1.)&amp;nbsp;THERE&amp;nbsp;IS&amp;nbsp;AN&amp;nbsp;UPDATED&amp;nbsp;VERSION&amp;nbsp;OF&amp;nbsp;THIS&amp;nbsp;COURSE:&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;&quot;PYTHON&amp;nbsp;FOR&amp;nbsp;DATA&amp;nbsp;SCIENCE&amp;nbsp;AND&amp;nbsp;MACHINE&amp;nbsp;LEARNING BOOTCAMP&quot;&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;2.)&amp;nbsp;IF YOU ARE A COMPLETE BEGINNER IN PYTHON-CHECK OUT MY OTHER COURSE &quot;COMPLETE&amp;nbsp;PYTHON&amp;nbsp;MASTERCLASS&amp;nbsp;JOURNEY&quot;!&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;CLICK&amp;nbsp;ON&amp;nbsp;MY&amp;nbsp;PROFILE&amp;nbsp;TO&amp;nbsp;FIND&amp;nbsp;IT. (PLEASE&amp;nbsp;WATCH&amp;nbsp;THE&amp;nbsp;FIRST&amp;nbsp;PROMO&amp;nbsp;VIDEO&amp;nbsp;ON&amp;nbsp;THIS&amp;nbsp;PAGE&amp;nbsp;FOR&amp;nbsp;MORE&amp;nbsp;INFO)&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;**********************************************************************************************************&lt;/p&gt;&lt;p&gt;&lt;strong&gt;This course will give you the resources to learn python and effectively use it analyze and visualize data! Start your career in Data Science!&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; You&#039;ll get a full understanding of how to program with Python and how to use it in conjunction with scientific computing modules and libraries to analyze data.&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp; You will also get lifetime access to over 100 example python code notebooks, new and updated videos, as well as future additions of various data analysis projects that you can use for a portfolio to show future employers!&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; By the end of this course you will:&amp;nbsp;&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Have an understanding of how to program in Python.&lt;/li&gt;&lt;li&gt;Know how to create and manipulate arrays using numpy and Python.&lt;/li&gt;&lt;li&gt;Know how to use pandas to create and analyze data sets.&lt;/li&gt;&lt;li&gt;Know how to use matplotlib and seaborn libraries to create beautiful data visualization.&lt;/li&gt;&lt;li&gt;Have an amazing portfolio of example python data analysis projects!&lt;/li&gt;&lt;li&gt;Have an understanding of Machine Learning and SciKit Learn!&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&amp;nbsp; With 100+ lectures and over 20 hours of information and more than 100 example python code notebooks, you will be excellently prepared for a future in data science!&amp;nbsp;&lt;/p&gt;&lt;h4&gt;Who this course is for:&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;Anyone interested in learning more about python, data science, or data visualizations.&lt;/li&gt;&lt;li&gt;Anyone interested about the rapidly expanding world of data science!&lt;/li&gt;&lt;/ul&gt;', 'Data Analysis', '6236063647e2f.jpg', '0', '1400', '50', 'false', '2022-03-19 22:05:02', '2022-03-22 12:14:39', '61952d7816277', '61952d7816277', 0);
 
 -- --------------------------------------------------------
 
@@ -162,10 +146,8 @@ CREATE TABLE `course_chapter` (
 --
 
 INSERT INTO `course_chapter` (`id`, `position_order`, `course_id`, `chapter_title`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('6205fc62111de', 1, '61ae0f7abf646', 'Chapter 1 ', '2022-02-11 11:34:18', '2022-02-14 23:41:42', '61952d7816277', '61952d7816277', 0),
-('62062ab05a056', 2, '61ae0f7abf646', 'Chapter 2', '2022-02-11 14:51:52', '2022-02-11 22:18:05', '61952d7816277', '61952d7816277', 0),
-('620637caea634', 1, '61ae0f9e103d7', 'Chapter 1', '2022-02-11 15:47:46', '2022-02-11 15:47:46', '61952d7816277', '61952d7816277', 0),
-('621101955573a', 0, '61ae1000549e3', 'Chapter 1', '2022-02-19 20:11:25', '2022-02-19 20:11:25', '61952d7816277', '61952d7816277', 0);
+('6238ac236f1aa', 0, '6235ebae7a861', 'Up and Running With Python', '2022-03-21 22:17:31', '2022-03-21 22:22:22', '61952d7816277', '61952d7816277', 0),
+('6238ac7f9204f', 0, '6235ebae7a861', 'The Basics (Data Types)', '2022-03-21 22:19:03', '2022-03-21 22:19:03', '61952d7816277', '61952d7816277', 0);
 
 -- --------------------------------------------------------
 
@@ -193,16 +175,11 @@ CREATE TABLE `course_content` (
 --
 
 INSERT INTO `course_content` (`id`, `position_order`, `chapter_id`, `course_id`, `doc_title`, `document_path`, `is_trailer`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('6205fc62160fd', 1, '6205fc62111de', '61ae0f7abf646', 'Chapter 1 Video 1', '61ae0f7abf646_6205fc62111de_6205fc62160fd.mp4', 'true', '2022-02-11 11:34:18', '2022-02-18 19:55:07', '61952d7816277', '61952d7816277', 0),
-('62060135f12db', 2, '6205fc62111de', '61ae0f7abf646', 'Chapter 1 Video 2', '61ae0f7abf646_6205fc62111de_62060135f12db.mp4', 'true', '2022-02-11 11:54:53', '2022-02-20 14:49:35', '61952d7816277', '61952d7816277', 0),
-('620601e515a70', 3, '6205fc62111de', '61ae0f7abf646', 'Chapter 1 Video 3', '61ae0f7abf646_6205fc62111de_620601e515a70.mp4', 'false', '2022-02-11 11:57:49', '2022-02-20 14:49:33', '61952d7816277', '61952d7816277', 0),
-('62062ab05ac34', 1, '62062ab05a056', '61ae0f7abf646', 'Chapter 2 Video 1', '61ae0f7abf646_62062ab05a056_62062ab05ac34.mp4', 'false', '2022-02-11 14:51:52', '2022-02-11 14:51:52', '61952d7816277', '61952d7816277', 0),
-('62062ab05dee9', 2, '62062ab05a056', '61ae0f7abf646', 'Chapter 2 Video 2', '61ae0f7abf646_62062ab05a056_62062ab05dee9.mp4', 'false', '2022-02-11 14:51:52', '2022-02-11 14:51:52', '61952d7816277', '61952d7816277', 0),
-('620637caee7e4', 1, '620637caea634', '61ae0f9e103d7', 'Chapter 1 Video 1', '61ae0f9e103d7_620637caea634_620637caee7e4.mp4', 'false', '2022-02-11 15:47:47', '2022-02-11 15:47:47', '61952d7816277', '61952d7816277', 0),
-('620637cb0d94e', 2, '620637caea634', '61ae0f9e103d7', 'Chapter 1 Video 2', '61ae0f9e103d7_620637caea634_620637cb0d94e.mp4', 'false', '2022-02-11 15:47:47', '2022-02-11 15:47:47', '61952d7816277', '61952d7816277', 0),
-('620693453ed99', 3, '62062ab05a056', '61ae0f7abf646', 'Pdf Document', '61ae0f7abf646_62062ab05a056_620693453ed99.pdf', 'false', '2022-02-11 22:18:05', '2022-02-11 22:18:05', '61952d7816277', '61952d7816277', 0),
-('620a9b5e998c6', 4, '6205fc62111de', '61ae0f7abf646', 'Test Video', '61ae0f7abf646_6205fc62111de_620a9b5e998c6.mp4', 'false', '2022-02-14 23:41:42', '2022-02-18 19:55:02', '61952d7816277', '61952d7816277', 0),
-('6211019556269', 0, '621101955573a', '61ae1000549e3', 'Learn to create Machine Video 1', '61ae1000549e3_621101955573a_6211019556269.mp4', 'false', '2022-02-19 20:11:25', '2022-02-19 20:11:25', '61952d7816277', '61952d7816277', 0);
+('6238ac2373e56', 0, '6238ac236f1aa', '6235ebae7a861', 'Installing Python', '6235ebae7a861_6238ac236f1aa_6238ac2373e56.mp4', 'true', '2022-03-21 22:17:31', '2022-03-21 22:22:43', '61952d7816277', '61952d7816277', 0),
+('6238ac2384658', 0, '6238ac236f1aa', '6235ebae7a861', 'Hello World', '6235ebae7a861_6238ac236f1aa_6238ac2384658.pdf', 'false', '2022-03-21 22:17:31', '2022-03-21 22:17:43', '61952d7816277', '61952d7816277', 0),
+('6238ac7f9632b', 0, '6238ac7f9204f', '6235ebae7a861', 'Data Types and Ints', '6235ebae7a861_6238ac7f9204f_6238ac7f9632b.mp4', 'false', '2022-03-21 22:19:03', '2022-03-21 22:19:03', '61952d7816277', '61952d7816277', 0),
+('6238ac7f9a344', 0, '6238ac7f9204f', '6235ebae7a861', 'Dictionary Functions', '6235ebae7a861_6238ac7f9204f_6238ac7f9a344.pdf', 'false', '2022-03-21 22:19:03', '2022-03-21 22:19:03', '61952d7816277', '61952d7816277', 0),
+('6238ad4667e52', 0, '6238ac236f1aa', '6235ebae7a861', 'Classes! (Object Orientated Programming)', '6235ebae7a861_6238ac236f1aa_6238ad4667e52.mp4', 'false', '2022-03-21 22:22:22', '2022-03-21 22:22:22', '61952d7816277', '61952d7816277', 0);
 
 -- --------------------------------------------------------
 
@@ -222,13 +199,6 @@ CREATE TABLE `course_progress` (
   `created_by` varchar(255) NOT NULL,
   `deleted` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `course_progress`
---
-
-INSERT INTO `course_progress` (`id`, `user_id`, `course_id`, `chapter_id`, `content_id`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('62226c714cde7', '61adfd8c73697', '61ae0f7abf646', '6205fc62111de', '62060135f12db', '2022-03-05 01:15:53', '2022-03-05 01:15:53', '61adfd8c73697', '61adfd8c73697', 0);
 
 -- --------------------------------------------------------
 
@@ -255,10 +225,10 @@ CREATE TABLE `course_review` (
 --
 
 INSERT INTO `course_review` (`id`, `course_id`, `user_id`, `rating`, `title`, `description`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('62066e181c807', '61ae0f9e103d7', '61adfd8c73697', '4', 'Nice course', 'I learn a lot from this course', '2022-02-11 19:39:28', '2022-02-11 19:39:28', '61adfd8c73697', '61adfd8c73697', 0),
-('6206a003055a6', '61ae0f7abf646', '61adfd8c73697', '3', 'Nice Course For Beginners', 'Learn something new from this course you should buy this course.', '2022-02-11 23:12:27', '2022-02-11 23:13:05', '61adfd8c73697', '61adfd8c73697', 0),
-('6206a00306530', '61ae0f7abf646', '61adfd8c73697', '2', 'Nice Course', 'Learn something new from this course', '2022-02-11 23:12:27', '2022-02-11 23:12:27', '61adfd8c73697', '61adfd8c73697', 0),
-('6206a0290241f', '61ae0f7abf646', '61adfd8c73697', '3', 'Nice Course For Beginners', 'Learn something new from this course you should buy this course.', '2022-02-11 23:13:05', '2022-02-11 23:13:05', '61adfd8c73697', '61adfd8c73697', 0);
+('6238af154ca04', '6235ebae7a861', '6235e06d10799', '5', 'Nice Course', 'This is the most useful topic by udemy.', '2022-03-21 22:30:05', '2022-03-22 00:32:44', '6235e06d10799', '6235e06d10799', 0),
+('6238c473420b9', '6235ebae7a861', '6238bcd658e74', '3', 'Superb Course', 'Explanation was very clear.', '2022-03-22 00:01:15', '2022-03-22 00:01:30', '6238bcd658e74', '6238bcd658e74', 0),
+('6238c4da6d25c', '6235ebae7a861', '6238c4ac5a995', '1', 'Average Course', 'Not recomanded for biginers', '2022-03-22 00:02:58', '2022-03-22 00:02:58', '6238c4ac5a995', '6238c4ac5a995', 0),
+('6238c561b02ef', '6235ebae7a861', '6238c519116b3', '3', 'Most buy course', 'Amazing course for beginer..', '2022-03-22 00:05:13', '2022-03-22 00:05:13', '6238c519116b3', '6238c519116b3', 0);
 
 -- --------------------------------------------------------
 
@@ -284,7 +254,10 @@ CREATE TABLE `payment` (
 --
 
 INSERT INTO `payment` (`id`, `user_id`, `transection_id`, `transection_status`, `transection_date`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61f1908fbdb2d', '61adfd8c73697', 'Test Demo', 'Complete', '2022-01-26 23:48:55', '2022-01-26 23:48:55', '2022-01-26 23:48:55', '61adfd8c73697', '61adfd8c73697', 0);
+('6238ad85cea99', '6235e06d10799', 'Test Demo', 'Complete', '2022-03-21 22:23:25', '2022-03-21 22:23:25', '2022-03-21 22:23:25', '6235e06d10799', '6235e06d10799', 0),
+('6238c457ac5ba', '6238bcd658e74', 'Test Demo', 'Complete', '2022-03-22 00:00:47', '2022-03-22 00:00:47', '2022-03-22 00:00:47', '6238bcd658e74', '6238bcd658e74', 0),
+('6238c4bef2231', '6238c4ac5a995', 'Test Demo', 'Complete', '2022-03-22 00:02:30', '2022-03-22 00:02:30', '2022-03-22 00:02:30', '6238c4ac5a995', '6238c4ac5a995', 0),
+('6238c53581567', '6238c519116b3', 'Test Demo', 'Complete', '2022-03-22 00:04:29', '2022-03-22 00:04:29', '2022-03-22 00:04:29', '6238c519116b3', '6238c519116b3', 0);
 
 -- --------------------------------------------------------
 
@@ -299,17 +272,6 @@ CREATE TABLE `sorting_items` (
   `position_order` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `sorting_items`
---
-
-INSERT INTO `sorting_items` (`id`, `title`, `description`, `position_order`) VALUES
-(7, 'Test 1', 'Test 1 Description', 4),
-(8, 'Test 2', 'Test 2 Description', 5),
-(9, 'Test 3', 'Test 3 Description', 3),
-(10, 'Test 4', 'Test 4 Description', 2),
-(11, 'Test 5', 'Test 5 Description', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -321,7 +283,7 @@ CREATE TABLE `user` (
   `full_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `mobile_no` varchar(15) NOT NULL,
-  `profile_pic` varchar(255) NOT NULL DEFAULT 'userpic.png',
+  `profile_pic` varchar(255) NOT NULL DEFAULT 'userprofile.png',
   `height` varchar(10) NOT NULL,
   `weight` varchar(10) NOT NULL,
   `age` varchar(10) NOT NULL,
@@ -341,10 +303,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `full_name`, `email`, `mobile_no`, `profile_pic`, `height`, `weight`, `age`, `gender`, `password`, `reset_key`, `reset_status`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61adfd8c73697', 'Jimish Gajjar', 'jimish.gajjar@gmail.com', '9737956805', '61adfd8c73697.png', '1.3', '65', '24', 'Male', 'f3599dba24e40c1ff9367e56b386b87e', 'NOT SET', 0, '2021-12-06 17:39:48', '2021-12-06 17:39:48', '61adfd8c73696', '61adfd8c73696', 0),
-('61ae56262a7cd', 'Parth Nayi', 'parthnayi786@gmail.com', '9409354805', 'userprofile.png', '5.5', '65', '24', 'Male', '04788c4f5295bc48719eb9d8d3dec40d', 'NOT SET', 0, '2021-12-06 23:57:50', '2021-12-06 23:57:50', '61ae56262a7cb', '61ae56262a7cb', 0),
-('61c357ec53a61', 'Nikunj Panchal', 'nikunj@gmail.com', '1234567899', 'userprofile.png', '6', '6', '23', 'Male', 'e6422e3c2a047e9537107e84c325aad1', 'NOT SET', 0, '2021-12-22 22:23:00', '2021-12-22 22:23:00', '61c357ec53a60', '61c357ec53a60', 0),
-('6214899f7c26c', 'Raj Bhavsar', 'raj@gmail.com', '8401258551', 'userpic.png', '5.5', '60', '25', 'Male', 'c62ac98937679cd7fa090c411b5bba9c', 'NOT SET', 0, '2022-02-22 12:28:39', '2022-02-22 12:28:39', '6214899f7c26c', '6214899f7c26c', 0);
+('6235e06d10799', 'Jimish Gajjar', 'jimish.gajjar@gmail.com', '9737956805', 'userprofile.png', '5.5', '55', '24', 'Male', 'f3599dba24e40c1ff9367e56b386b87e', 'NOT SET', 0, '2022-03-19 19:23:49', '2022-03-19 19:23:49', '6235e06d10799', '6235e06d10799', 0),
+('6238bcd658e74', 'Raj Bhavsar', 'raj@gmail.com', '8401278551', 'userprofile.png', '5.7', '60', '25', 'Male', '65a1223dae83b8092c4edba0823a793c', 'NOT SET', 0, '2022-03-21 23:28:46', '2022-03-21 23:28:46', '6238bcd658e74', '6238bcd658e74', 0),
+('6238c4ac5a995', 'Nikunj Pachal', 'nikunj@gmail.com', '1234567982', 'userprofile.png', '5.4', '60', '23', 'Male', 'e6422e3c2a047e9537107e84c325aad1', 'NOT SET', 0, '2022-03-22 00:02:12', '2022-03-22 00:02:12', '6238c4ac5a995', '6238c4ac5a995', 0),
+('6238c519116b3', 'amit jadvani', 'amit@gmail.com', '4567891231', 'userprofile.png', '5.8', '65', '27', 'Male', '0cb1eb413b8f7cee17701a37a1d74dc3', 'NOT SET', 0, '2022-03-22 00:04:01', '2022-03-22 00:04:01', '6238c519116b3', '6238c519116b3', 0);
 
 -- --------------------------------------------------------
 
@@ -373,9 +335,10 @@ CREATE TABLE `user_courses` (
 --
 
 INSERT INTO `user_courses` (`id`, `user_id`, `course_id`, `course_amount`, `discount_given`, `final_amount`, `payment_id`, `payment_date`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('61f1908fc9623', '61adfd8c73697', '61ae0f7abf646', '520', '0', '520', '61f1908fbdb2d', '2022-01-26 23:48:55', '2022-01-26 23:48:55', '2022-01-26 23:48:55', '61adfd8c73697', '61adfd8c73697', 0),
-('61f1908fd8abe', '61adfd8c73697', '61ae1000549e3', '525', '0', '525', '61f1908fbdb2d', '2022-01-26 23:48:55', '2022-01-26 23:48:55', '2022-01-26 23:48:55', '61adfd8c73697', '61adfd8c73697', 0),
-('61f1908fe7cfe', '61adfd8c73697', '61ae0f9e103d7', '525', '52.5', '472.5', '61f1908fbdb2d', '2022-01-26 23:48:55', '2022-01-26 23:48:55', '2022-01-26 23:48:55', '61adfd8c73697', '61adfd8c73697', 0);
+('6238ad85da0e0', '6235e06d10799', '6235ebae7a861', '1000', '400', '600', '6238ad85cea99', '2022-03-21 22:23:25', '2022-03-21 22:23:25', '2022-03-21 22:23:25', '6235e06d10799', '6235e06d10799', 0),
+('6238c457b7925', '6238bcd658e74', '6235ebae7a861', '1000', '400', '600', '6238c457ac5ba', '2022-03-22 00:00:47', '2022-03-22 00:00:47', '2022-03-22 00:00:47', '6238bcd658e74', '6238bcd658e74', 0),
+('6238c4bef2fd5', '6238c4ac5a995', '6235ebae7a861', '1000', '400', '600', '6238c4bef2231', '2022-03-22 00:02:30', '2022-03-22 00:02:30', '2022-03-22 00:02:30', '6238c4ac5a995', '6238c4ac5a995', 0),
+('6238c5358c859', '6238c519116b3', '6235ebae7a861', '1000', '400', '600', '6238c53581567', '2022-03-22 00:04:29', '2022-03-22 00:04:29', '2022-03-22 00:04:29', '6238c519116b3', '6238c519116b3', 0);
 
 -- --------------------------------------------------------
 
@@ -401,9 +364,10 @@ CREATE TABLE `user_report` (
 --
 
 INSERT INTO `user_report` (`id`, `user_id`, `weight`, `reg_month`, `reg_year`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('6213e51b862d3', '61adfd8c73697', '58', '02', '2022', '2022-02-22 00:46:43', '2022-02-22 00:46:43', '61adfd8c73697', '61adfd8c73697', 0),
-('6214899f7c284', '6214899f7c26c', '60', '02', '2022', '2022-02-22 12:28:39', '2022-02-22 12:28:39', '6214899f7c26c', '6214899f7c26c', 0),
-('621f9a5fba527', '61adfd8c73697', '60', '03', '2022', '2022-03-02 21:55:03', '2022-03-02 21:55:17', '61adfd8c73697', '61adfd8c73697', 0);
+('6235e06d107b0', '6235e06d10799', '55', '03', '2022', '2022-03-19 19:23:49', '2022-03-19 19:23:49', '6235e06d10799', '6235e06d10799', 0),
+('6238bcd658e98', '6238bcd658e74', '60', '03', '2022', '2022-03-21 23:28:46', '2022-03-21 23:28:46', '6238bcd658e74', '6238bcd658e74', 0),
+('6238c4ac5a9bc', '6238c4ac5a995', '60', '03', '2022', '2022-03-22 00:02:12', '2022-03-22 00:02:12', '6238c4ac5a995', '6238c4ac5a995', 0),
+('6238c519116ca', '6238c519116b3', '65', '03', '2022', '2022-03-22 00:04:01', '2022-03-22 00:04:01', '6238c519116b3', '6238c519116b3', 0);
 
 -- --------------------------------------------------------
 
@@ -421,13 +385,6 @@ CREATE TABLE `wishlist` (
   `created_by` varchar(255) NOT NULL,
   `deleted` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `wishlist`
---
-
-INSERT INTO `wishlist` (`id`, `user_id`, `course_id`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `deleted`) VALUES
-('62077e0e7a098', '61adfd8c73697', '61ae10ac70735', '2022-02-12 14:59:50', '2022-02-12 14:59:50', '61adfd8c73697', '61adfd8c73697', 0);
 
 --
 -- Indexes for dumped tables

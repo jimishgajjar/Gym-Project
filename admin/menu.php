@@ -29,7 +29,7 @@
         <div class="navbar-content scroll-div ">
             <ul class="nav pcoded-inner-navbar ">
                 <li class="nav-item pcoded-hasmenu">
-                    <a href="#!" class="nav-link ">
+                    <a href="javascript:void(0);" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                         <span class="pcoded-mtext">Category</span>
                     </a>
@@ -39,17 +39,7 @@
                     </ul>
                 </li>
                 <li class="nav-item pcoded-hasmenu">
-                    <a href="#!" class="nav-link ">
-                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                        <span class="pcoded-mtext">Users</span>
-                    </a>
-                    <ul class="pcoded-submenu">
-                        <li><a href="userList.php">User List</a></li>
-                        <li><a href="userProgressList.php">User Progress</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item pcoded-hasmenu">
-                    <a href="#!" class="nav-link ">
+                    <a href="javascript:void(0);" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                         <span class="pcoded-mtext">Course</span>
                     </a>
@@ -60,6 +50,16 @@
                         <!-- <li><a href="course.php">Course Content</a></li> -->
                     </ul>
                 </li>
+                <li class="nav-item pcoded-hasmenu">
+                    <a href="javascript:void(0);" class="nav-link ">
+                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                        <span class="pcoded-mtext">Users</span>
+                    </a>
+                    <ul class="pcoded-submenu">
+                        <li><a href="userList.php">User List</a></li>
+                        <li><a href="userProgressList.php">User Progress</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -68,19 +68,19 @@
 <!-- [ Header ] start -->
 <header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
     <div class="m-header">
-        <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
-        <a href="#!" class="b-brand">
+        <a class="mobile-menu" id="mobile-collapse" href="javascript:void(0);"><span></span></a>
+        <a href="javascript:void(0);" class="b-brand">
             <!-- ========   change your logo hear   ============ -->
             <img src="assets/images/logo-white.png" alt="" class="logo" height="40">
         </a>
-        <a href="#!" class="mob-toggler">
+        <a href="javascript:void(0);" class="mob-toggler">
             <i class="feather icon-more-vertical"></i>
         </a>
     </div>
     <div class="collapse navbar-collapse">
         <!-- <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a href="#!" class="pop-search"><i class="feather icon-search"></i></a>
+                <a href="javascript:void(0);" class="pop-search"><i class="feather icon-search"></i></a>
                 <div class="search-bar">
                     <input type="text" class="form-control border-0 shadow-none" placeholder="Search hear">
                     <button type="button" class="close" aria-label="Close">
@@ -97,8 +97,8 @@
                         <div class="noti-head">
                             <h6 class="d-inline-block m-b-0">Notifications</h6>
                             <div class="float-right">
-                                <a href="#!" class="m-r-10">mark as read</a>
-                                <a href="#!">clear all</a>
+                                <a href="javascript:void(0);" class="m-r-10">mark as read</a>
+                                <a href="javascript:void(0);">clear all</a>
                             </div>
                         </div>
                         <ul class="noti-body">
@@ -146,7 +146,7 @@
                             </li>
                         </ul>
                         <div class="noti-footer">
-                            <a href="#!">show all</a>
+                            <a href="javascript:void(0);">show all</a>
                         </div>
                     </div>
                 </div>

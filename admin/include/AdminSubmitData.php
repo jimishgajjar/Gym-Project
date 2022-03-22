@@ -208,21 +208,70 @@ if (!empty($_REQUEST['moduleMethod'])) {
 
     // Category Delete
     if ($module == "categoryDelete" && $moduleMethod == "category") {
-        if (isset($_GET['delete'])) {
-            $Condition['id'] = $_REQUEST['delete'];
-            $response = getData('category', $Condition);
-            $response = $response->fetch_assoc();
+        if (isset($_REQUEST['delete'])) {
+            $ConditionCourse['category_id'] = $_REQUEST['delete'];
+            $CourseResponse = getData('course', $ConditionCourse);
+            $CourseResponse = $CourseResponse->fetch_assoc();
 
-            $categoryDeleteResponse = deleteData($moduleMethod, $Condition);
-
-            if (!empty($categoryDeleteResponse) && unlink($categoryPath . $response['thumbnail'])) {
-                $alert_type = "alert-success";
-                $alert_message = "Category deleted successfully.";
-                echo "<script>window.location.replace('../categoryList.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            if (!empty($CourseResponse)) {
+                echo "Category dependency";
             } else {
-                $alert_type = "alert-danger";
-                $alert_message = "Category is not deleted.";
-                echo "<script>window.location.replace('../categoryList.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                $Condition['id'] = $_REQUEST['delete'];
+                $response = getData('category', $Condition);
+                $response = $response->fetch_assoc();
+
+                $categoryDeleteResponse = deleteData($moduleMethod, $Condition);
+
+                if (!empty($categoryDeleteResponse) && unlink($categoryPath . $response['category_img'])) {
+                    echo '<link rel="stylesheet" href="assets/css/plugins/dataTables.bootstrap4.min.css">';
+                    echo '<script src="assets/js/plugins/jquery.dataTables.min.js"></script>';
+                    echo '<script src="assets/js/plugins/dataTables.bootstrap4.min.js"></script>';
+                    echo '<script src="assets/js/pages/data-advance-custom.js"></script>';
+
+                    echo '<table id="dom-jqry" class="dom-jqry table table-striped table-bordered nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>Category Img</th>
+                                            <th>Category</th>
+                                            <th>Description</th>
+                                            <th>Options</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>';
+                    $categoryList = getData('category');
+                    if ($categoryList->num_rows > 0) {
+                        while ($row = $categoryList->fetch_assoc()) {
+                            echo '<tr>
+                                                    <td>
+                                                        <a href="categoryView.php?view=' . $row['id'] . '">
+                                                            <img class="thumbnail" src="../assets/category/' . $row['category_img'] . '" alt="" />
+                                                        </a>
+                                                    </td>
+                                                    <td><a href="categoryView.php?view=' . $row['id'] . '">' . $row['category_name'] . '</a></td>
+                                                    <td>' . $row['category_description'] . '</td>
+                                                    <td>
+                                                        <a href="category.php?edit=' . $row['id'] . '" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
+                                                        <a href="javascript:void(0);" onclick="deleteCategory(this.id)" id="' . $row['id'] . '" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
+                                                    </td>
+                                                </tr>';
+                        }
+                    } else {
+                        echo '<tr>
+                                                <td colspan="6" align="center">No data avalible.</td>
+                                            </tr>';
+                    }
+                    echo '</tbody>
+                                </table>';
+                    // echo "Category deleted successfully.";
+                    // $alert_type = "alert-success";
+                    // $alert_message = "Category deleted successfully.";
+                    // echo "<script>window.location.replace('../categoryList.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                } else {
+                    echo "Category is not deleted.";
+                    // $alert_type = "alert-danger";
+                    // $alert_message = "Category is not deleted.";
+                    // echo "<script>window.location.replace('../categoryList.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                }
             }
         }
     }
@@ -284,7 +333,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                             'category_id' => $_POST['category_id'],
                             'title' => $_POST['title'],
                             'small_description' => $_POST['small_description'],
-                            'description' => $_POST['description'],
+                            'description' => htmlspecialchars($_POST['description']),
                             'tags' => implode(",", $_POST['tags']),
                             'thumbnail' => $uniqid . "." . $extension,
                             'rating' => 0.0,
@@ -297,18 +346,19 @@ if (!empty($_REQUEST['moduleMethod'])) {
                             'deleted' => 0,
                         );
                         $courseAddDataResponse = insertData($moduleMethod, $courseAddData);
+
+                        if (!empty($courseAddDataResponse)) {
+                            $alert_type = "alert-success";
+                            $alert_message = "course added successfully.";
+                            echo "<script>window.location.replace('../course.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                        } else {
+                            $alert_type = "alert-danger";
+                            $alert_message = "course is not added.";
+                            echo "<script>window.location.replace('../course.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                        }
                     } else {
                         $alert_type = "alert-danger";
                         $alert_message = "Sorry, your file was not uploaded. due to <span>" . $errorMSG . "</span>";
-                        echo "<script>window.location.replace('../course.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
-                    }
-                    if (!empty($courseAddDataResponse)) {
-                        $alert_type = "alert-success";
-                        $alert_message = "course added successfully.";
-                        echo "<script>window.location.replace('../course.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
-                    } else {
-                        $alert_type = "alert-danger";
-                        $alert_message = "course is not added.";
                         echo "<script>window.location.replace('../course.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                     }
                 }
@@ -319,6 +369,12 @@ if (!empty($_REQUEST['moduleMethod'])) {
     // Course Edit 
     if ($module == "courseEdit" && $moduleMethod == "course") {
         if (isset($_POST['courseub'])) {
+            if (isset($_POST['is_active'])) {
+                $is_active = "true";
+            } else {
+                $is_active = "false";
+            }
+
             if (!empty($_FILES["thumbnail"]["tmp_name"])) {
                 $Condition['id'] = $_POST["course_id"];
                 $response = getData('course', $Condition);
@@ -375,11 +431,12 @@ if (!empty($_REQUEST['moduleMethod'])) {
                                 'category_id' => $_POST['category_id'],
                                 'title' => $_POST['title'],
                                 'small_description' => $_POST['small_description'],
-                                'description' => $_POST['description'],
+                                'description' => htmlspecialchars($_POST['description']),
                                 'tags' => implode(",", $_POST['tags']),
                                 'thumbnail' => $response['id'] . "." . $extension,
                                 'price' => $_POST['price'],
                                 'discount' => $_POST['discount'],
+                                'is_active' => $is_active,
                                 'date_modified' => date("Y-m-d H:i:s"),
                                 'modified_user_id' => $_SESSION["adminId"],
                                 'deleted' => 0,
@@ -398,10 +455,11 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     'category_id' => $_POST['category_id'],
                     'title' => $_POST['title'],
                     'small_description' => $_POST['small_description'],
-                    'description' => $_POST['description'],
+                    'description' => htmlspecialchars($_POST['description']),
                     'tags' => implode(",", $_POST['tags']),
                     'price' => $_POST['price'],
                     'discount' => $_POST['discount'],
+                    'is_active' => $is_active,
                     'date_modified' => date("Y-m-d H:i:s"),
                     'modified_user_id' => $_SESSION["adminId"],
                     'deleted' => 0,

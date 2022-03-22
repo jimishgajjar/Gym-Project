@@ -20,9 +20,9 @@ include('header.php');
                                 <li class="breadcrumb-item"><a href="index.php"><i class="feather icon-home"></i></a>
                                 </li>
                                 <?php if (isset($_GET['edit'])) { ?>
-                                    <li class="breadcrumb-item"><a href="#!">Course Edit</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Course Edit</a></li>
                                 <?php } else { ?>
-                                    <li class="breadcrumb-item"><a href="#!">Course Add</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Course Add</a></li>
                                 <?php } ?>
                             </ul>
                         </div>
@@ -51,6 +51,16 @@ include('header.php');
                                     <input type="hidden" name="course_id" value="<?php echo $response['id']; ?>">
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
+                                            <div class="custom-control custom-switch">
+                                                <?php if ($response['is_active'] == "true") { ?>
+                                                    <input type="checkbox" class="custom-control-input" name="is_active" id="is_active" checked>
+                                                <?php } else { ?>
+                                                    <input type="checkbox" class="custom-control-input" name="is_active" id="is_active">
+                                                <?php } ?>
+                                                <label class="custom-control-label" for="is_active">Course is active or not</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
                                             <label for="title">Title (required)</label>
                                             <input type="text" class="form-control" value="<?php echo $response['title']; ?>" name="title" id="title" placeholder="Course title" required>
                                         </div>
@@ -61,12 +71,12 @@ include('header.php');
                                         <div class="form-group col-md-12">
                                             <label for="description">Course Description</label>
                                             <textarea name="description" id="classic-editor" required>
-                                            <?php echo $response['description']; ?>
+                                            <?php echo htmlspecialchars_decode($response['description']); ?>
                                             </textarea>
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="category_id">Select Category</label>
-                                            <select class="js-example-basic-single form-control" id="category_id" name="category_id">
+                                            <select class="js-example-basic-single form-control" id="category_id" name="category_id" required>
                                                 <?php
                                                 $categoryList = getData("category");
                                                 if ($categoryList->num_rows > 0) {
@@ -85,7 +95,7 @@ include('header.php');
                                             $tags = explode(",", $response['tags']);
                                             ?>
                                             <label for="tags">Course Tags</label>
-                                            <select multiple data-role="tagsinput" id="tags" name="tags[]">
+                                            <select multiple data-role="tagsinput" id="tags" name="tags[]" required>
                                                 <?php foreach ($tags as $tag) { ?>
                                                     <option value="<?php echo $tag; ?>"><?php echo $tag; ?></option>
                                                 <?php } ?>
@@ -119,6 +129,12 @@ include('header.php');
                                     <input type="hidden" name="moduleMethod" value="course">
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" name="is_active" id="is_active">
+                                                <label class="custom-control-label" for="is_active">Course is active or not</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
                                             <label for="title">Title (required)</label>
                                             <input type="text" class="form-control" name="title" id="title" placeholder="Course title" value="" required>
                                         </div>
@@ -128,7 +144,7 @@ include('header.php');
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="description">Course Description</label>
-                                            <textarea name="description" id="classic-editor">
+                                            <textarea name="description" id="classic-editor" required>
                                             </textarea>
                                         </div>
                                         <div class="form-group col-md-12">
@@ -136,7 +152,7 @@ include('header.php');
                                             $categoryList = getData("category");
                                             ?>
                                             <label for="category_id">Select Category</label>
-                                            <select class="js-example-basic-single form-control" id="category_id" name="category_id">
+                                            <select class="js-example-basic-single form-control" id="category_id" name="category_id" required>
                                                 <?php if ($categoryList->num_rows > 0) {
                                                     while ($row = $categoryList->fetch_assoc()) { ?>
                                                         <option value="<?php echo $row['id']; ?>"><?php echo $row['category_name']; ?></option>
@@ -146,13 +162,13 @@ include('header.php');
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="tags">Course Tags</label>
-                                            <select multiple data-role="tagsinput" id="tags" name="tags[]">
+                                            <select multiple data-role="tagsinput" id="tags" name="tags[]" required>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="thumbnail">Course Thumbnail</label><br>
                                             <img class="thumbnail" id="thumbnail_view" src="" alt="" />
-                                            <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept="image/png, image/jpeg" />
+                                            <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept="image/png, image/jpeg" required />
                                             <h6 class="mt-2" style="color: red;" id="thumbnail_error"></h6>
                                         </div>
                                         <div class="form-group col-md-6">

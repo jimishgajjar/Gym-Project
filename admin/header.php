@@ -39,4 +39,6 @@ include "../include/queryFunction.php";
 
     <script src="assets/js/gym-admin.js"></script>
 
+    <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+
 </head>

@@ -6,6 +6,29 @@ include('header.php');
 <body class="">
     <?php include('menu.php'); ?>
 
+    <!-- Category Not Delete Modal -->
+    <div class="modal fade" id="categoryErrorMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button> -->
+
+                    <div class="text-center">
+                        <div id="categoryErrorMsg">
+
+                        </div>
+
+                        <div class="mt-5">
+                            <button type="button" class="btn  btn-primary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- [ Main Content ] start -->
     <div class="pcoded-main-container">
         <div class="pcoded-content">
@@ -19,7 +42,7 @@ include('header.php');
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.php"><i class="feather icon-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#!">Category List</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">Category List</a></li>
                             </ul>
                         </div>
                     </div>
@@ -35,7 +58,7 @@ include('header.php');
                             <h5>Category List</h5>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive dt-responsive">
+                            <div class="table-responsive dt-responsive" id="categoryList">
                                 <table id="dom-jqry" class="dom-jqry table table-striped table-bordered nowrap">
                                     <thead>
                                         <tr>
@@ -61,7 +84,8 @@ include('header.php');
                                                     <td><?php echo $row['category_description'] ?></td>
                                                     <td>
                                                         <a href="category.php?edit=<?php echo $row['id']; ?>" class="btn btn-info btn-sm"><i class="feather icon-edit"></i>&nbsp;Edit </a>
-                                                        <a href="include/AdminSubmitData.php?moduleMethod=category&module=categoryDelete&delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
+                                                        <!-- include/AdminSubmitData.php?moduleMethod=category&module=categoryDelete&delete=<?php echo $row['id']; ?> -->
+                                                        <a href="javascript:void(0);" onclick="deleteCategory(this.id)" id="<?php echo $row['id']; ?>" class="btn btn-danger btn-sm"><i class="feather icon-trash-2"></i>&nbsp;Delete </a>
                                                     </td>
                                                 </tr>
                                             <?php

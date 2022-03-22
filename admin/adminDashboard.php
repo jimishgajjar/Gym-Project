@@ -46,7 +46,7 @@ include('header.php');
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.php"><i class="feather icon-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#!">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboard</a></li>
                             </ul>
                         </div>
                     </div>
@@ -66,12 +66,12 @@ include('header.php');
                                         <i class="feather icon-more-horizontal"></i>
                                     </button>
                                     <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                                        <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i>
+                                        <li class="dropdown-item full-card"><a href="javascript:void(0);"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i>
                                                     Restore</span></a></li>
-                                        <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i>
+                                        <li class="dropdown-item minimize-card"><a href="javascript:void(0);"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i>
                                                     expand</span></a></li>
-                                        <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
-                                        <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
+                                        <li class="dropdown-item reload-card"><a href="javascript:void(0);"><i class="feather icon-refresh-cw"></i> reload</a></li>
+                                        <li class="dropdown-item close-card"><a href="javascript:void(0);"><i class="feather icon-trash"></i> remove</a></li>
                                     </ul>
                                 </div>
                             </div>

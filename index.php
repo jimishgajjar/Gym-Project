@@ -168,7 +168,8 @@ include('header.php');
 
             <div class="row">
                 <?php
-                $courseList = getData('course');
+                $courseListCondition['is_active'] = "true";
+                $courseList = getData('course', $courseListCondition, 6);
                 if ($courseList->num_rows > 0) {
                     while ($row = $courseList->fetch_assoc()) {
                         $Condition['id'] = $row['category_id'];

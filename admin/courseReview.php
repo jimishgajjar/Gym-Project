@@ -19,7 +19,7 @@ include('header.php');
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.php"><i class="feather icon-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#!">Course Review</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">Course Review</a></li>
                             </ul>
                         </div>
                     </div>

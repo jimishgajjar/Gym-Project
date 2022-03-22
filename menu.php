@@ -86,7 +86,7 @@ $ip = getIPAddress();
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="offset-side-bar-profile xs-modal-popup">
-                            <i class="far fa-user"></i>
+                            <i class="far fa-user" style="margin-right: 10px;"></i>Welcome, <?php echo  $userDataResponse['full_name']; ?>
                         </a>
                     </li>
                 <?php } ?>
