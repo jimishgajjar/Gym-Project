@@ -34,6 +34,13 @@ include('header.php');
                     <form action="include/UserSubmitData.php" method="POST">
                         <input type="hidden" name="module" value="userSignup">
                         <input type="hidden" name="moduleMethod" value="user">
+                        <?php if (isset($_REQUEST['checkbuy']) && !empty($_REQUEST['checkbuy']) && $_REQUEST['checkbuy'] == "buynow") { ?>
+                            <input type="hidden" name="checkbuy" value="<?php echo $_REQUEST['checkbuy']; ?>">
+                            <input type="hidden" name="buynow" value="<?php echo $_REQUEST['buynow']; ?>">
+                        <?php } ?>
+                        <?php if (isset($_REQUEST['checkbuy']) && !empty($_REQUEST['checkbuy']) && $_REQUEST['checkbuy'] == "cart") { ?>
+                            <input type="hidden" name="checkbuy" value="<?php echo $_REQUEST['checkbuy']; ?>">
+                        <?php } ?>
                         <div class="mb-2">
                             <label for="full_name" class="form-label">Full Name</label>
                             <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Full Name" required>
@@ -78,10 +85,18 @@ include('header.php');
                     <hr>
                     <div class="mb-3 text-center">
                         <div class="mt-10">
-                            <span>
-                                Already have an account? </span><a class="sign-link" href="userLogin.php">
-                                <b>Log In</b>
-                            </a>
+                            <?php if (isset($_REQUEST['checkbuy']) && !empty($_REQUEST['checkbuy']) && $_REQUEST['checkbuy'] == "buynow") { ?>
+                                <span>
+                                    Already have an account? </span><a class="sign-link" href="userLogin.php?withoutLogin=<?php echo $_REQUEST['withoutLogin']; ?>&checkbuy=<?php echo $_REQUEST['checkbuy']; ?>&buynow=<?php echo $_REQUEST['buynow']; ?>">
+                                    <b>Log In</b>
+                                </a>
+                            <?php } ?>
+                            <?php if (isset($_REQUEST['checkbuy']) && !empty($_REQUEST['checkbuy']) && $_REQUEST['checkbuy'] == "cart") { ?>
+                                <span>
+                                    Already have an account? </span><a class="sign-link" href="userLogin.php?withoutLogin=<?php echo $_REQUEST['withoutLogin']; ?>&checkbuy=<?php echo $_REQUEST['checkbuy']; ?>">
+                                    <b>Log In</b>
+                                </a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

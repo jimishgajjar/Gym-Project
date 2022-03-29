@@ -44,26 +44,35 @@ include('header.php');
                                 <span class="stars"><?php echo $response['rating']; ?></span>
                             </div>
                             <div class="price-tag mb-2">
-                                <h3><span>₹</span> <?php echo $response['price']; ?>/- </h3>
+                                <h3>
+                                    <?php
+                                    if ($response['discount'] != 0) {
+                                        $discountPrice = $response['price'] - ($response['price'] * $response['discount'] / 100);
+                                        echo "₹" . $discountPrice . "<s style='color: #8c8c8c;' class='pl-2'>₹" . $response['price'] . "</s>";
+                                    } else {
+                                        echo "₹" . $response['price'];
+                                    }
+                                    ?>
+                                </h3>
                             </div>
                             <div class="course-detail-price mb-20">
                                 <?php if (empty($_SESSION["userId"]) && empty($_SESSION["userEmail"])) {
-                                    $cartCondition['user_ip'] = $ip;
-                                    $cartCondition['user_id'] = null;
-                                    $cartCondition['course_id'] = $_GET['view'];
-                                    $cartDataResponse = getData('cart', $cartCondition);
-                                    $cartDataResponse = $cartDataResponse->fetch_assoc();
-                                    if (empty($cartDataResponse)) {
+                                    // $cartCondition['user_ip'] = $ip;
+                                    // $cartCondition['user_id'] = null;
+                                    // $cartCondition['course_id'] = $_GET['view'];
+                                    // $cartDataResponse = getData('cart', $cartCondition);
+                                    // $cartDataResponse = $cartDataResponse->fetch_assoc();
+                                    if (isset($_COOKIE['cartCookie']) && in_array($_GET['view'], json_decode($_COOKIE['cartCookie']))) {
                                 ?>
-                                        <a href="include/UserSubmitData.php?moduleMethod=cart&module=cartAdd&cartId=<?php echo $response['id']; ?>" class="detail-btn cart pl-5 pr-5">
-                                            Add to cart
-                                        </a>
-                                    <?php } else { ?>
                                         <a href="javascript:void(0);" onclick="loadCartlist();" class="offset-side-bar-cart xs-modal-popup detail-btn cart pl-5 pr-5">
                                             Go to cart
                                         </a>
+                                    <?php } else { ?>
+                                        <a href="include/UserSubmitData.php?moduleMethod=cart&module=cartAdd&cartId=<?php echo $response['id']; ?>" class="detail-btn cart pl-5 pr-5">
+                                            Add to cart
+                                        </a>
                                     <?php } ?>
-                                    <a href="include/UserSubmitData.php?buynow=1&course_id=<?php echo $response['id']; ?>" class="detail-btn buy pl-5 pr-5">
+                                    <a href="userLogin.php?withoutLogin=withoutLogin&checkbuy=buynow&buynow=<?php echo $response['id']; ?>" class="detail-btn buy pl-5 pr-5">
                                         Buy now
                                     </a>
                                 <?php } else { ?>
@@ -112,7 +121,7 @@ include('header.php');
                                                 Go to cart
                                             </a>
                                         <?php } ?>
-                                        <a href="include/UserSubmitData.php?buynow=<?php echo $response['id']; ?>" class="detail-btn buy pl-5 pr-5">
+                                        <a href="payment.php?checkbuy=buynow&buynow=<?php echo $response['id']; ?>" class="detail-btn buy pl-5 pr-5">
                                             Buy now
                                         </a>
                                 <?php

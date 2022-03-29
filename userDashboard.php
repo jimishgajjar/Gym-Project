@@ -477,7 +477,7 @@ include('header.php');
                                                         <h4 style="letter-spacing: 0.5px; font-weight: 600;">₹<?php echo $total; ?></h4>
                                                         <h5 style="letter-spacing: 0.5px; font-weight: 600; color: #8c8c8c;"><s>₹<?php echo $totalAll; ?></s></h5>
                                                     </h3>
-                                                    <a href="payment.php" class="mt-3 bt-boder-0 btn btn-primary btn-100">Checkout</a>
+                                                    <a href="payment.php?checkbuy=cart" class="mt-3 bt-boder-0 btn btn-primary btn-100">Checkout</a>
                                                 </div>
                                             </div>
                                         </div>

@@ -168,6 +168,10 @@ include('header.php');
 
             <div class="row">
                 <?php
+                // if (isset($_COOKIE['cartCookie'])) {
+                //     echo "Cookie named '" . $_COOKIE['cartCookie'] . "' is set!";
+                // }
+                
                 $courseListCondition['is_active'] = "true";
                 $courseList = getData('course', $courseListCondition, 6);
                 if ($courseList->num_rows > 0) {

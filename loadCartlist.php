@@ -5,31 +5,27 @@ include "include/queryFunction.php";
 $categoryPath = "assets/category/";
 $thumbnailPath = "assets/thumbnail/";
 $ip = getIPAddress();
+
+$total = 0;
+$totalAll = 0;
 ?>
 
 <?php
-if (empty($_SESSION["userId"]) && empty($_SESSION["userEmail"])) {
-    $cartCondition['user_ip'] = $ip;
-    $cartCondition['user_id'] = null;
-    $cartDataResponse = getData('cart', $cartCondition);
-} else {
-    $cartCondition['user_ip'] = $ip;
+if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
     $cartCondition['user_id'] = $_SESSION["userId"];
     $cartDataResponse = getData('cart', $cartCondition);
 }
 
-if ($cartDataResponse->num_rows > 0) {
+if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"]) && !empty(getData('cart', $cartCondition)->fetch_assoc())) {
 ?>
     <div class="user-cart">
         <ul>
             <?php
-            $total = 0;
-            $totalAll = 0;
             while ($row = $cartDataResponse->fetch_assoc()) {
                 $Condition['id'] = $row['course_id'];
                 $response = getData('course', $Condition);
                 $response = $response->fetch_assoc();
-                if (!empty($response)) {                        ?>
+                if (!empty($response)) { ?>
                     <li>
                         <div class="user-cart-list">
                             <img src="<?php echo $thumbnailPath . $response['thumbnail']; ?>" />
@@ -69,15 +65,65 @@ if ($cartDataResponse->num_rows > 0) {
                 <h5>Total: ₹<?php echo $total; ?><s class="pl-2">₹<?php echo $totalAll; ?></s></h5>
             </li>
             <li class="cart-total">
-                <?php if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) { ?>
-                    <a href="userDashboard.php?dasboard=cartlist" class="tp-btn btn-block">
-                        Checkout
-                    </a>
-                <?php } else { ?>
-                    <a href="checkout.php" class="tp-btn btn-block">
-                        Checkout
-                    </a>
-                <?php } ?>
+                <a href="userDashboard.php?dasboard=cartlist" class="tp-btn btn-block">
+                    Checkout
+                </a>
+            </li>
+        </ul>
+    </div>
+<?php } elseif (isset($_COOKIE['cartCookie']) && !empty(json_decode($_COOKIE['cartCookie']))) {
+    $cartArray = json_decode($_COOKIE['cartCookie'])
+?>
+    <div class="user-cart">
+        <ul>
+            <?php
+            foreach ($cartArray as $course_id) {
+                $Condition['id'] = $course_id;
+                $response = getData('course', $Condition);
+                $response = $response->fetch_assoc();
+                if (!empty($response)) { ?>
+                    <li>
+                        <div class="user-cart-list">
+                            <img src="<?php echo $thumbnailPath . $response['thumbnail']; ?>" />
+                            <div class="row pl-2">
+                                <div class="col-md-12">
+                                    <p>
+                                        <?php
+                                        if (strlen($response['title']) >= 50) {
+                                            echo substr($response['title'], 0, 50) . "...";
+                                        } else {
+                                            echo $response['title'];
+                                        }
+                                        ?>
+                                    </p>
+                                </div>
+                                <div class="col-md-8 pt-2">
+                                    <h6 style="font-weight: 700;">
+                                        <?php
+                                        if ($response['discount'] != 0) {
+                                            $discountPrice = $response['price'] - ($response['price'] * $response['discount'] / 100);
+                                            $total += $discountPrice;
+                                            echo "₹" . $discountPrice . "<s class='pl-2'>₹" . $response['price'] . "</s>";
+                                        } else {
+                                            echo "₹" . $response['price'];
+                                            $total += $response['price'];
+                                        }
+                                        $totalAll += $response['price'];
+                                        ?>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+            <?php }
+            } ?>
+            <li class="cart-total">
+                <h5>Total: ₹<?php echo $total; ?><s class="pl-2">₹<?php echo $totalAll; ?></s></h5>
+            </li>
+            <li class="cart-total">
+                <a href="checkout.php" class="tp-btn btn-block">
+                    Checkout
+                </a>
             </li>
         </ul>
     </div>

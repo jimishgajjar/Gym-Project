@@ -1,6 +1,14 @@
 <?php
 session_start();
 include('header.php');
+
+if (isset($_REQUEST['withoutLogin']) && $_REQUEST['withoutLogin'] == "withoutLogin") {
+    $_SESSION["withoutLogin"] = $_REQUEST['withoutLogin'];
+}
+
+if (isset($_REQUEST['withoutLogin']) && $_REQUEST['withoutLogin'] == "login") {
+    $_SESSION["withoutLogin"] = $_REQUEST['withoutLogin'];
+}
 ?>
 
 <body>
@@ -35,6 +43,13 @@ include('header.php');
                     <form action="include/UserSubmitData.php" method="POST">
                         <input type="hidden" name="module" value="userLogin">
                         <input type="hidden" name="moduleMethod" value="user">
+                        <?php if (isset($_REQUEST['checkbuy']) && !empty($_REQUEST['checkbuy']) && $_REQUEST['checkbuy'] == "buynow") { ?>
+                            <input type="hidden" name="checkbuy" value="<?php echo $_REQUEST['checkbuy']; ?>">
+                            <input type="hidden" name="buynow" value="<?php echo $_REQUEST['buynow']; ?>">
+                        <?php } ?>
+                        <?php if (isset($_REQUEST['checkbuy']) && !empty($_REQUEST['checkbuy']) && $_REQUEST['checkbuy'] == "cart") { ?>
+                            <input type="hidden" name="checkbuy" value="<?php echo $_REQUEST['checkbuy']; ?>">
+                        <?php } ?>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
@@ -43,21 +58,6 @@ include('header.php');
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                         </div>
-                        <?php
-                        if (isset($_REQUEST['from_checkout'])) {
-                            if ($_REQUEST['from_checkout'] == 1) { ?>
-                                <input type="hidden" class="form-control" id="from_checkout" name="from_checkout" placeholder="from_checkout" value="1" required>
-                        <?php }
-                        }
-                        ?>
-                        <?php
-                        if (isset($_REQUEST['buynow']) && isset($_REQUEST['course_id'])) {
-                            if ($_REQUEST['buynow'] == 1 && !empty($_REQUEST['course_id'])) { ?>
-                                <input type="hidden" class="form-control" id="buynow" name="buynow" placeholder="buynow" value="1" required>
-                                <input type="hidden" class="form-control" id="course_id" name="course_id" placeholder="course_id" value="<?php echo $_REQUEST['course_id']; ?>" required>
-                        <?php }
-                        }
-                        ?>
                         <button type="submit" name="userLoginSub" class="btn btn-primary btn-lg btn-100">Log In</button>
                     </form>
                     <hr>
@@ -67,25 +67,16 @@ include('header.php');
                                 Password</a>
                         </div>
                         <div class="mt-10">
-                            <?php
-                            if (isset($_REQUEST['from_checkout'])) {
-                                if ($_REQUEST['from_checkout'] == 1) { ?>
-                                    <span>Don't have an account? </span><a class="sign-link" href="userSignUp.php?from_checkout=1">
-                                        <b>Sign Up</b>
-                                    </a>
-                                <?php }
-                            } elseif (isset($_REQUEST['buynow']) && isset($_REQUEST['course_id'])) {
-                                if ($_REQUEST['buynow'] == 1 && !empty($_REQUEST['course_id'])) { ?>
-                                    <span>Don't have an account? </span><a class="sign-link" href="userSignUp.php?buynow=1&course_id=<?php echo $_REQUEST['course_id']; ?>">
-                                        <b>Sign Up</b>
-                                    </a>
-                                <?php }
-                            } else { ?>
-                                <span>Don't have an account? </span><a class="sign-link" href="userSignUp.php">
+                            <?php if (isset($_REQUEST['checkbuy']) && !empty($_REQUEST['checkbuy']) && $_REQUEST['checkbuy'] == "buynow") { ?>
+                                <span>Don't have an account? </span><a class="sign-link" href="userSignUp.php?withoutLogin=<?php echo $_REQUEST['withoutLogin']; ?>&checkbuy=<?php echo $_REQUEST['checkbuy']; ?>&buynow=<?php echo $_REQUEST['buynow']; ?>">
                                     <b>Sign Up</b>
                                 </a>
-                            <?php }
-                            ?>
+                            <?php } ?>
+                            <?php if (isset($_REQUEST['checkbuy']) && !empty($_REQUEST['checkbuy']) && $_REQUEST['checkbuy'] == "cart") { ?>
+                                <span>Don't have an account? </span><a class="sign-link" href="userSignUp.php?withoutLogin=<?php echo $_REQUEST['withoutLogin']; ?>&checkbuy=<?php echo $_REQUEST['checkbuy']; ?>">
+                                    <b>Sign Up</b>
+                                </a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

@@ -22,7 +22,7 @@ $ip = getIPAddress();
                         <?php
                         if (empty($_SESSION["userId"]) && empty($_SESSION["userEmail"])) { ?>
                             <li>
-                                <a href="userLogin.php">Login</a>
+                                <a href="userLogin.php?withoutLogin=login">Login</a>
                             </li>
                         <?php } else {
                             $userCondition['id'] = $_SESSION["userId"];
@@ -49,20 +49,20 @@ $ip = getIPAddress();
                 <?php if (empty($_SESSION["userId"]) && empty($_SESSION["userEmail"])) { ?>
                     <li>
                         <?php
-                        $cartCondition['user_ip'] = $ip;
-                        $cartCondition['user_id'] = null;
-                        $cartDataResponse = getData('cart', $cartCondition);
-                        $cartCount = $cartDataResponse->num_rows;
-                        if (empty($cartDataResponse)) {
+                        // $cartCondition['user_ip'] = $ip;
+                        // $cartCondition['user_id'] = null;
+                        // $cartDataResponse = getData('cart', $cartCondition);
+                        // $cartCount = $cartDataResponse->num_rows;
+                        if (isset($_COOKIE['cartCookie']) && !empty(json_decode($_COOKIE['cartCookie']))) {
                         ?>
                             <a href="javascript:void(0);" onclick="loadCartlist();" class="offset-side-bar-cart xs-modal-popup">
                                 <i class="far fa-shopping-cart"></i>
-                                <span class="xs-badge">0</span>
+                                <span class="xs-badge"><?php echo count(json_decode($_COOKIE['cartCookie'])); ?></span>
                             </a>
                         <?php } else { ?>
                             <a href="javascript:void(0);" onclick="loadCartlist();" class="offset-side-bar-cart xs-modal-popup">
                                 <i class="far fa-shopping-cart"></i>
-                                <span class="xs-badge"><?php echo $cartCount; ?></span>
+                                <span class="xs-badge">0</span>
                             </a>
                         <?php } ?>
                     </li>

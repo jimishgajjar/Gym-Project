@@ -2,6 +2,10 @@
 date_default_timezone_set("Asia/Kolkata");
 include('checkSession.php');
 include('header.php');
+
+$total = 0;
+$totalAll = 0;
+$discountAmount = 0;
 ?>
 <style>
     #profile_pic {
@@ -40,18 +44,16 @@ include('header.php');
             <?php } ?>
 
             <div class="checkout">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <h4 class="title">Checkout</h4>
-                    </div>
-                </div>
-                <hr>
                 <form action="include/UserSubmitData.php" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="module" value="coursesPayment">
                     <input type="hidden" name="moduleMethod" value="payment">
+
                     <div class="row">
                         <div class="col-md-8">
                             <div class="row justify-content-md-center">
+                                <div class="col-md-12">
+                                    <h4 class="title">Checkout</h4>
+                                </div>
                                 <div class="col-md-12">
                                     <div class="form-group xs-form-anim">
                                         <label class="input-label" for="nameoncard">Name on card</label>
@@ -65,31 +67,119 @@ include('header.php');
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <?php
-                        $WhishlistCondition['user_id'] = $_SESSION["userId"];
-                        $userCartData = getData('cart', $WhishlistCondition);
-                        $total = 0;
-                        $totalAll = 0;
-                        $discountAmount = 0;
-                        if ($userCartData->num_rows > 0) {
-                            while ($row = $userCartData->fetch_assoc()) {
-                                $Condition['id'] = $row['course_id'];
-                                $response = getData('course', $Condition);
-                                $response = $response->fetch_assoc();
-                                if (!empty($response)) {
-                                    if ($response['discount'] != 0) {
-                                        $discountAmount = ($response['price'] * $response['discount'] / 100);
-                                        $discountPrice = $response['price'] - ($response['price'] * $response['discount'] / 100);
-                                        $total += $discountPrice;
-                                    } else {
-                                        $total += $response['price'];
+                            <div class="cartlist mt-10">
+                                <div class="cartlist-data">
+                                    <div class="row mb-5">
+                                        <div class="col-md-12">
+                                            <h5>Order Details</h5>
+                                        </div>
+                                    </div>
+                                    <?php
+                                    if (isset($_REQUEST['checkbuy']) && !empty($_REQUEST['checkbuy']) && $_REQUEST['checkbuy'] == "buynow") {
+                                        $getCourseDetailsCondition['id'] = $_REQUEST['buynow'];
+                                        $courseData = getData('course', $getCourseDetailsCondition);
+                                        $courseData = $courseData->fetch_assoc();
+                                        if (!empty($courseData)) {
+                                    ?>
+                                            <input type="hidden" name="buynow" value="<?php echo $_REQUEST['buynow']; ?>">
+                                            <input type="hidden" name="checkbuy" value="<?php echo $_REQUEST['checkbuy']; ?>">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="course-img">
+                                                        <img src="<?php echo $thumbnailPath . $courseData['thumbnail']; ?>" />
+                                                        <div class="course-img-overlay">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <p>
+                                                        <?php
+                                                        if (strlen($courseData['title']) >= 80) {
+                                                            echo substr($courseData['title'], 0, 80) . "...";
+                                                        } else {
+                                                            echo $courseData['title'];
+                                                        }
+                                                        ?>
+                                                    </p>
+                                                    <div class="course-rating">
+                                                        <h6 class="course-rating-num">(<?php echo $courseData['rating']; ?>)</h6>
+                                                        <span class="stars"><?php echo $courseData['rating']; ?></span>
+                                                    </div>
+                                                    <h6 style="font-weight: 700;">
+                                                        <?php
+                                                        if ($courseData['discount'] != 0) {
+                                                            $discountPrice = $courseData['price'] - ($courseData['price'] * $courseData['discount'] / 100);
+                                                            $total += $discountPrice;
+                                                            echo "₹" . $discountPrice . "<s style='color: #8c8c8c;' class='pl-2'>₹" . $courseData['price'] . "</s>";
+                                                        } else {
+                                                            echo "₹" . $courseData['price'];
+                                                            $total += $courseData['price'];
+                                                        }
+                                                        $totalAll += $courseData['price'];
+                                                        ?>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        <?php }
                                     }
-                                    $totalAll += $response['price'];
-                                }
-                            }
-                        }
-                        ?>
+                                    if (isset($_REQUEST['checkbuy']) && !empty($_REQUEST['checkbuy']) && $_REQUEST['checkbuy'] == "cart") {                                        
+                                        ?>
+                                        <input type="hidden" name="checkbuy" value="<?php echo $_REQUEST['checkbuy']; ?>">
+                                        <?php
+                                        $WhishlistCondition['user_id'] = $_SESSION["userId"];
+                                        $userCartData = getData('cart', $WhishlistCondition);
+                                        if ($userCartData->num_rows > 0) {
+                                            while ($row = $userCartData->fetch_assoc()) {
+                                                $getCourseDetailsCondition['id'] = $row['course_id'];
+                                                $courseData = getData('course', $getCourseDetailsCondition);
+                                                $courseData = $courseData->fetch_assoc();
+                                        ?>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="course-img">
+                                                            <img src="<?php echo $thumbnailPath . $courseData['thumbnail']; ?>" />
+                                                            <div class="course-img-overlay">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <p>
+                                                            <?php
+                                                            if (strlen($courseData['title']) >= 80) {
+                                                                echo substr($courseData['title'], 0, 80) . "...";
+                                                            } else {
+                                                                echo $courseData['title'];
+                                                            }
+                                                            ?>
+                                                        </p>
+                                                        <div class="course-rating">
+                                                            <h6 class="course-rating-num">(<?php echo $courseData['rating']; ?>)</h6>
+                                                            <span class="stars"><?php echo $courseData['rating']; ?></span>
+                                                        </div>
+                                                        <h6 style="font-weight: 700;">
+                                                            <?php
+                                                            if ($courseData['discount'] != 0) {
+                                                                $discountPrice = $courseData['price'] - ($courseData['price'] * $courseData['discount'] / 100);
+                                                                $total += $discountPrice;
+                                                                echo "₹" . $discountPrice . "<s style='color: #8c8c8c;' class='pl-2'>₹" . $courseData['price'] . "</s>";
+                                                            } else {
+                                                                echo "₹" . $courseData['price'];
+                                                                $total += $courseData['price'];
+                                                            }
+                                                            $totalAll += $courseData['price'];
+                                                            ?>
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                    <?php
+                                            }
+                                        }
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-md-4">
                             <div class="p-2" style="background-color: #ffecec; border-radius: 10px;">
                                 <h5 class="mb-4" style="font-weight: 700;"><b></b>Summary</h5>
@@ -102,7 +192,9 @@ include('header.php');
                                             ₹<?php echo $totalAll; ?>
                                         </div>
                                     </div>
-                                    <?php if ($discountAmount != 0) { ?>
+                                    <?php
+                                    $discountAmount = $totalAll - $total;
+                                    if ($discountAmount != 0) { ?>
                                         <div class="row">
                                             <div class="col-sm">
                                                 Discounted Price:

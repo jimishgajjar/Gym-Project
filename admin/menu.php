@@ -44,9 +44,9 @@
                         <span class="pcoded-mtext">Course</span>
                     </a>
                     <ul class="pcoded-submenu">
+                        <li><a href="course.php">Course Add</a></li>
                         <li><a href="courseList.php">Course List</a></li>
                         <li><a href="courseReviewList.php">Course Review</a></li>
-                        <li><a href="course.php">Course Add</a></li>
                         <!-- <li><a href="course.php">Course Content</a></li> -->
                     </ul>
                 </li>

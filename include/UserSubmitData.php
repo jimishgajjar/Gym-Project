@@ -17,6 +17,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
     if ($module == "userSignup" && $moduleMethod == "user") {
         if (isset($_POST['userSignupSub'])) {
             $Condition['email'] = $_POST["email"];
+            $Condition['mobile_no'] = $_POST["mobile_no"];
             $response = getData('user', $Condition);
             $response = $response->fetch_assoc();
             if (empty($response)) {
@@ -55,14 +56,38 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     $response = insertData($moduleMethod, $userData);
                     $userReport = insertData("user_report", $userReportData);
                     if (!empty($response) && !empty($userReport)) {
-                        $_SESSION["userId"] = $uniqid;
-                        $_SESSION["userEmail"] = $_POST['email'];
+                        setcookie('UserLogin', 'welcome', time() + (86400 * 30), "/"); // 86400 = 1 day
 
-                        $cookie_name = "UserLogin";
-                        $cookie_value = "welcome";
-                        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+                        if (isset($_COOKIE['cartCookie']) && !empty(json_decode($_COOKIE['cartCookie']))) {
+                            $cartArray = json_decode($_COOKIE['cartCookie']);
 
-                        echo "<script>window.location.replace('../index.php');</script>";
+                            foreach ($cartArray as $course_id) {
+                                $cartAddData = array(
+                                    'id' => uniqid(),
+                                    'user_id' => $uniqid,
+                                    'user_ip' => $ip,
+                                    'course_id' => $course_id,
+                                    'date_entered' => date("Y-m-d H:i:s"),
+                                    'date_modified' => date("Y-m-d H:i:s"),
+                                    'modified_user_id' => $uniqid,
+                                    'created_by' => $uniqid,
+                                    'deleted' => 0,
+                                );
+                                $cartAddDataResponse = insertData('cart', $cartAddData);
+                            }
+                            setcookie('cartCookie', "", time() + (86400), "/"); // 86400 = 1 day
+                        }
+                        if ($_SESSION["withoutLogin"] == "withoutLogin" && isset($_REQUEST['checkbuy']) && !empty($_REQUEST['checkbuy']) && $_REQUEST['checkbuy'] == "buynow" && isset($_REQUEST['buynow']) && !empty($_REQUEST['buynow'])) {
+                            $_SESSION["userId"] = $uniqid;
+                            $_SESSION["userEmail"] = $_POST['email'];
+                            echo "<script>window.location.replace('../payment.php?checkbuy=buynow&buynow=" . $_REQUEST['buynow'] . "');</script>";
+                        } elseif ($_SESSION["withoutLogin"] == "withoutLogin" && isset($_REQUEST['checkbuy']) && !empty($_REQUEST['checkbuy']) && $_REQUEST['checkbuy'] == "cart") {
+                            $_SESSION["userId"] = $uniqid;
+                            $_SESSION["userEmail"] = $_POST['email'];
+                            echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist');</script>";
+                        } else {
+                            echo "<script>window.location.replace('../index.php');</script>";
+                        }
                     }
                 } else {
                     $alert_type = "alert-danger";
@@ -71,7 +96,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 }
             } else {
                 $alert_type = "alert-danger";
-                $alert_message = "Email id already exist.";
+                $alert_message = "Email id Or Mobile no already exist.";
                 echo "<script>window.location.replace('../userSignUp.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
         }
@@ -86,50 +111,64 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 $response = getData($moduleMethod, $Condition);
                 $response = $response->fetch_assoc();
                 if (!empty($response)) {
-                    $_SESSION["userId"] = $response['id'];
-                    $_SESSION["userEmail"] = $response['email'];
+                    setcookie("UserLogin", "welcome", time() + (86400), "/"); // 86400 = 1 day
 
-                    $cookie_name = "UserLogin";
-                    $cookie_value = "welcome";
-                    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+                    if (isset($_COOKIE['cartCookie']) && !empty(json_decode($_COOKIE['cartCookie']))) {
+                        $cartArray = json_decode($_COOKIE['cartCookie']);
 
-                    if (isset($_POST['from_checkout']) && !empty($_POST['from_checkout'])) {
-                        $userCart = array(
-                            'user_id' => $response['id'],
-                            'date_modified' => date("Y-m-d H:i:s"),
-                            'modified_user_id' => $_SESSION["userId"],
-                        );
-                        $userCartCondition['user_ip'] = $ip;
-                        $userCartResponse = updateData('cart', $userCart, $userCartCondition);
-
-                        $cartCondition['user_id'] = $_SESSION["userId"];
-                        $cartCondition['user_ip'] = $ip;
-                        $cartResponse = getData('cart', $cartCondition);
-                        if ($cartResponse->num_rows > 0) {
-                            while ($row = $cartResponse->fetch_assoc()) {
-                                $userCoursesCondition['user_id'] = $_SESSION["userId"];
-                                $userCoursesCondition['course_id'] = $row["course_id"];
-                                $userCoursesResponse = getData('user_courses', $userCoursesCondition);
-                                $userCoursesResponse = $userCoursesResponse->fetch_assoc();
-
-                                if (!empty($userCoursesResponse)) {
-                                    $deleteCartCondition['course_id'] = $row["course_id"];
-                                    $deleteCartCondition['user_id'] = $_SESSION["userId"];
-                                    $deleteCartCondition['user_ip'] = $ip;
-                                    $DeleteCartResponse = deleteData('cart', $deleteCartCondition);
-                                }
+                        foreach ($cartArray as $course_id) {
+                            $CartCondition['user_id'] = $response['id'];
+                            $CartCondition['course_id']  = $course_id;
+                            $CartResponse = getData('cart', $CartCondition);
+                            $CartResponse = $CartResponse->fetch_assoc();
+                            if (empty($CartResponse)) {
+                                $cartAddData = array(
+                                    'id' => uniqid(),
+                                    'user_id' => $response['id'],
+                                    'user_ip' => $ip,
+                                    'course_id' => $course_id,
+                                    'date_entered' => date("Y-m-d H:i:s"),
+                                    'date_modified' => date("Y-m-d H:i:s"),
+                                    'modified_user_id' => $response['id'],
+                                    'created_by' => $response['id'],
+                                    'deleted' => 0,
+                                );
+                                $cartAddDataResponse = insertData('cart', $cartAddData);
                             }
                         }
+                        setcookie('cartCookie', "", time() + (86400), "/"); // 86400 = 1 day
                     }
-                    if (!empty($response) && !empty($userCartResponse)) {
+                    if ($_SESSION["withoutLogin"] == "withoutLogin" && isset($_REQUEST['checkbuy']) && !empty($_REQUEST['checkbuy']) && $_REQUEST['checkbuy'] == "buynow" && isset($_REQUEST['buynow']) && !empty($_REQUEST['buynow'])) {
+                        $_SESSION["userId"] = $response['id'];
+                        $_SESSION["userEmail"] = $response['email'];
+
+                        $checkCourseExist = getData('user_courses', $CartCondition);
+                        if (empty($checkCourseExist)) {
+                            echo "<script>window.location.replace('../payment.php?checkbuy=buynow&buynow=" . $_REQUEST['buynow'] . "');</script>";
+                        } else {
+                            $alert_type = "alert-danger";
+                            $alert_message = "Course you want to buy is already in your list.";
+                            echo "<script>window.location.replace('../index.php?dasboard=mycourse&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                        }
+                    } elseif ($_SESSION["withoutLogin"] == "withoutLogin" && isset($_REQUEST['checkbuy']) && !empty($_REQUEST['checkbuy']) && $_REQUEST['checkbuy'] == "cart") {
+                        $_SESSION["userId"] = $response['id'];
+                        $_SESSION["userEmail"] = $response['email'];
                         echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist');</script>";
                     } else {
+                        $_SESSION["userId"] = $response['id'];
+                        $_SESSION["userEmail"] = $response['email'];
                         echo "<script>window.location.replace('../index.php');</script>";
                     }
                 } else {
                     $alert_type = "alert-danger";
                     $alert_message = "Incorrect username or password.";
-                    echo "<script>window.location.replace('../userLogin.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    if ($_SESSION["withoutLogin"] == "withoutLogin" && isset($_REQUEST['checkbuy']) && !empty($_REQUEST['checkbuy']) && $_REQUEST['checkbuy'] == "buynow" && isset($_REQUEST['buynow']) && !empty($_REQUEST['buynow'])) {
+                        echo "<script>window.location.replace('../userLogin.php?checkbuy=buynow&buynow=" . $_REQUEST['buynow'] . "&withoutLogin=withoutLogin&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    } elseif ($_SESSION["withoutLogin"] == "withoutLogin" && isset($_REQUEST['checkbuy']) && !empty($_REQUEST['checkbuy']) && $_REQUEST['checkbuy'] == "cart") {
+                        echo "<script>window.location.replace('../userLogin.php?checkbuy=cart&withoutLogin=withoutLogin&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    } else {
+                        echo "<script>window.location.replace('../userLogin.php?withoutLogin=withoutLogin&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    }
                 }
             }
         }
@@ -247,6 +286,7 @@ if (!empty($_REQUEST['moduleMethod'])) {
     // User Logout
     if ($module == "userLogout" && $moduleMethod == "logout") {
         if ($_REQUEST['logout'] == 1) {
+            setcookie('UserLogin', 'notwelcome', time() + (86400 * 30), "/"); // 86400 = 1 day
             session_unset();
             session_destroy();
             echo "<script>window.location.replace('../index.php');</script>";
@@ -469,29 +509,31 @@ if (!empty($_REQUEST['moduleMethod'])) {
                     'created_by' => $_SESSION["userId"],
                     'deleted' => 0,
                 );
-            } else {
-                $cartAddData = array(
-                    'id' => $uniqid,
-                    'user_ip' => $ip,
-                    'course_id' => $_REQUEST['cartId'],
-                    'date_entered' => date("Y-m-d H:i:s"),
-                    'date_modified' => date("Y-m-d H:i:s"),
-                    'modified_user_id' => $ip,
-                    'created_by' => $ip,
-                    'deleted' => 0,
-                );
-            }
-            $cartAddDataResponse = insertData($moduleMethod, $cartAddData);
-            if (isset($_REQUEST['buynow'])) {
-                if (!empty($cartAddDataResponse) && $_REQUEST['buynow'] == 1) {
-                    echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist');</script>";
+                $cartAddDataResponse = insertData($moduleMethod, $cartAddData);
+                if (!empty($cartAddDataResponse)) {
+                    echo "<script>window.location.replace('../courseDetailView.php?view=" . $_REQUEST['cartId'] . "');</script>";
+                } else {
+                    $alert_type = "alert-danger";
+                    $alert_message = "Something want wrong <span>please try again!</span>";
+                    echo "<script>window.location.replace('../index.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                 }
-            } elseif (!empty($cartAddDataResponse)) {
-                echo "<script>window.location.replace('../courseDetailView.php?view=" . $_REQUEST['cartId'] . "');</script>";
             } else {
-                $alert_type = "alert-danger";
-                $alert_message = "Something want wrong <span>please try again!</span>";
-                echo "<script>window.location.replace('../index.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                $cartArray = array();
+                if (!isset($_COOKIE['cartCookie'])) {
+                    array_push($cartArray, $_REQUEST['cartId']);
+                    setcookie('cartCookie', json_encode($cartArray), time() + (86400), "/"); // 86400 = 1 day
+                } else {
+                    $cartArray = json_decode($_COOKIE['cartCookie']);
+                    array_push($cartArray, $_REQUEST['cartId']);
+                    setcookie('cartCookie', json_encode($cartArray), time() + (86400), "/"); // 86400 = 1 day
+                }
+                if (!empty($cartArray)) {
+                    echo "<script>window.location.replace('../courseDetailView.php?view=" . $_REQUEST['cartId'] . "');</script>";
+                } else {
+                    $alert_type = "alert-danger";
+                    $alert_message = "Something want wrong <span>please try again!</span>";
+                    echo "<script>window.location.replace('../index.php?alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                }
             }
         } else {
             $alert_type = "alert-danger";
@@ -550,18 +592,30 @@ if (!empty($_REQUEST['moduleMethod'])) {
     // Delete Course From Dashboard Cart 
     if ($module == "deleteCartFromDash" && $moduleMethod == "cart") {
         if (!empty($_REQUEST['remove'])) {
-            $Condition['user_ip'] = $ip;
             if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
+                $Condition['id'] = $_REQUEST['remove'];
                 $Condition['user_id'] = $_SESSION["userId"];
+                $deleteFromCartlist = deleteData($moduleMethod, $Condition);
             } else {
-                $Condition['user_id'] = null;
+                if (isset($_COOKIE['cartCookie']) && !empty(json_decode($_COOKIE['cartCookie']))) {
+                    $cartArray = json_decode($_COOKIE['cartCookie']);
+                    unset($cartArray[array_search($_REQUEST['remove'], $cartArray)]);
+                    setcookie('cartCookie', json_encode($cartArray), time() + (86400), "/"); // 86400 = 1 day
+                    $deleteFromCartlist = "deleted successfully";
+                }
             }
-            $Condition['id'] = $_REQUEST['remove'];
-            $deleteFromCartlist = deleteData($moduleMethod, $Condition);
 
             if (!empty($deleteFromCartlist)) {
                 $alert_type = "alert-success";
                 $alert_message = "Course remove successfully.";
+                if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
+                    echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                } else {
+                    echo "<script>window.location.replace('../checkout.php');</script>";
+                }
+            } else {
+                $alert_type = "alert-danger";
+                $alert_message = "Something want wrong <span>please try again!</span>";
                 if (!empty($_SESSION["userId"]) && !empty($_SESSION["userEmail"])) {
                     echo "<script>window.location.replace('../userDashboard.php?dasboard=cartlist&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
                 } else {
@@ -660,88 +714,74 @@ if (!empty($_REQUEST['moduleMethod'])) {
         $discountAmount = 0;
 
         $cartListCondition['user_id'] = $_SESSION["userId"];
-        $userCartData = getData('cart', $cartListCondition);
-        if ($userCartData->num_rows > 0) {
-            while ($row = $userCartData->fetch_assoc()) {
-                $Condition['id'] = $row['course_id'];
-                $response = getData('course', $Condition);
-                $response = $response->fetch_assoc();
-                if (!empty($response)) {
-                    if ($response['discount'] != 0) {
-                        $discountAmount = ($response['price'] * $response['discount'] / 100);
-                        $discountPrice = $response['price'] - ($response['price'] * $response['discount'] / 100);
-                        $total += $discountPrice;
-                    } else {
-                        $total += $response['price'];
-                    }
-                    $totalAll += $response['price'];
-                }
-            }
-        }
+        /* Payment from direct buy now */
+        if (isset($_POST['buynow']) && !empty($_POST['buynow']) && isset($_POST['checkbuy']) && $_POST['checkbuy'] == 'buynow') {
+            $payment_status = "Complete";
+            if ($payment_status == "Complete") {
+                $payment_uniqid = uniqid();
+                $userPaymentData = array(
+                    'id' => $payment_uniqid,
+                    'user_id' => $_SESSION["userId"],
+                    'transection_id' => "Test Demo",
+                    'transection_status' => $payment_status,
+                    'transection_date' => date("Y-m-d H:i:s"),
+                    'date_entered' => date("Y-m-d H:i:s"),
+                    'date_modified' => date("Y-m-d H:i:s"),
+                    'modified_user_id' => $_SESSION["userId"],
+                    'created_by' => $_SESSION["userId"],
+                    'deleted' => 0,
+                );
+                $userPaymentDataResponse = insertData($moduleMethod, $userPaymentData);
 
-        $payment_status = "Complete";
-        if ($payment_status == "Complete") {
-            $payment_uniqid = uniqid();
-            $userPaymentData = array(
-                'id' => $payment_uniqid,
-                'user_id' => $_SESSION["userId"],
-                'transection_id' => "Test Demo",
-                'transection_status' => $payment_status,
-                'transection_date' => date("Y-m-d H:i:s"),
-                'date_entered' => date("Y-m-d H:i:s"),
-                'date_modified' => date("Y-m-d H:i:s"),
-                'modified_user_id' => $_SESSION["userId"],
-                'created_by' => $_SESSION["userId"],
-                'deleted' => 0,
-            );
-            $userPaymentDataResponse = insertData($moduleMethod, $userPaymentData);
+                if (!empty($userPaymentDataResponse)) {
+                    $courseDiscountAmount = 0;
+                    $courseDiscountPrice = 0;
+                    $courseTotal = 0;
+                    $courseTotalAll = 0;
+                    // $userCartData = getData('cart', $cartListCondition);
 
-            if (!empty($userPaymentDataResponse)) {
-                $courseDiscountAmount = 0;
-                $courseDiscountPrice = 0;
-                $courseTotal = 0;
-                $courseTotalAll = 0;
-                $userCartData = getData('cart', $cartListCondition);
-                if ($userCartData->num_rows > 0) {
-                    while ($row = $userCartData->fetch_assoc()) {
-                        $Condition['id'] = $row['course_id'];
-                        $response = getData('course', $Condition);
-                        $response = $response->fetch_assoc();
-                        if (!empty($response)) {
-                            if ($response['discount'] != 0) {
-                                $courseDiscountAmount = ($response['price'] * $response['discount'] / 100);
-                                $courseDiscountPrice = $response['price'] - ($response['price'] * $response['discount'] / 100);
-                            } else {
-                                $courseDiscountPrice = $response['price'];
-                            }
+                    $Condition['id'] = $_POST['buynow'];
+                    $response = getData('course', $Condition);
+                    $response = $response->fetch_assoc();
+                    if (!empty($response)) {
+                        if ($response['discount'] != 0) {
+                            $courseDiscountAmount = ($response['price'] * $response['discount'] / 100);
+                            $courseDiscountPrice = $response['price'] - ($response['price'] * $response['discount'] / 100);
+                        } else {
+                            $courseDiscountPrice = $response['price'];
                         }
-
-                        $userCoursesData = array(
-                            'id' => uniqid(),
-                            'user_id' => $_SESSION["userId"],
-                            'course_id' => $row['course_id'],
-                            'course_amount' => $response['price'],
-                            'discount_given' => $courseDiscountAmount,
-                            'final_amount' => $courseDiscountPrice,
-                            'payment_id' => $payment_uniqid,
-                            'payment_date' => date("Y-m-d H:i:s"),
-                            'date_entered' => date("Y-m-d H:i:s"),
-                            'date_modified' => date("Y-m-d H:i:s"),
-                            'modified_user_id' => $_SESSION["userId"],
-                            'created_by' => $_SESSION["userId"],
-                            'deleted' => 0,
-                        );
-                        $userCoursesResponse = insertData("user_courses", $userCoursesData);
-                        $courseDeleteCondition['user_id'] = $_SESSION["userId"];
-                        $courseDeleteCondition['course_id'] = $row['course_id'];
-                        $cartCoursesDelete = deleteData("cart", $courseDeleteCondition);
-                        $wishListCoursesDelete = deleteData('wishlist', $courseDeleteCondition);
                     }
-                }
-                if (!empty($userCoursesResponse) && !empty($cartCoursesDelete) && !empty($wishListCoursesDelete)) {
-                    $alert_type = "alert-success";
-                    $alert_message = "Payment successful.";
-                    echo "<script>window.location.replace('../userDashboard.php?dasboard=userprofile&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+
+                    $userCoursesData = array(
+                        'id' => uniqid(),
+                        'user_id' => $_SESSION["userId"],
+                        'course_id' => $_POST['buynow'],
+                        'course_amount' => $response['price'],
+                        'discount_given' => $courseDiscountAmount,
+                        'final_amount' => $courseDiscountPrice,
+                        'payment_id' => $payment_uniqid,
+                        'payment_date' => date("Y-m-d H:i:s"),
+                        'date_entered' => date("Y-m-d H:i:s"),
+                        'date_modified' => date("Y-m-d H:i:s"),
+                        'modified_user_id' => $_SESSION["userId"],
+                        'created_by' => $_SESSION["userId"],
+                        'deleted' => 0,
+                    );
+                    $userCoursesResponse = insertData("user_courses", $userCoursesData);
+                    $courseDeleteCondition['user_id'] = $_SESSION["userId"];
+                    $courseDeleteCondition['course_id'] = $_POST['buynow'];
+                    $cartCoursesDelete = deleteData("cart", $courseDeleteCondition);
+                    $wishListCoursesDelete = deleteData('wishlist', $courseDeleteCondition);
+
+                    if (!empty($userCoursesResponse) && !empty($cartCoursesDelete) && !empty($wishListCoursesDelete)) {
+                        $alert_type = "alert-success";
+                        $alert_message = "Payment successful.";
+                        echo "<script>window.location.replace('../userDashboard.php?dasboard=mycourse&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    } else {
+                        $alert_type = "alert-danger";
+                        $alert_message = "Something want wrong <span>please try again!</span>";
+                        echo "<script>window.location.replace('../userDashboard.php?dasboard=userprofile&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    }
                 } else {
                     $alert_type = "alert-danger";
                     $alert_message = "Something want wrong <span>please try again!</span>";
@@ -752,10 +792,89 @@ if (!empty($_REQUEST['moduleMethod'])) {
                 $alert_message = "Something want wrong <span>please try again!</span>";
                 echo "<script>window.location.replace('../userDashboard.php?dasboard=userprofile&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
             }
-        } else {
-            $alert_type = "alert-danger";
-            $alert_message = "Something want wrong <span>please try again!</span>";
-            echo "<script>window.location.replace('../userDashboard.php?dasboard=userprofile&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+        }
+
+        /* Payment from cart */
+        if (isset($_POST['checkbuy']) && $_POST['checkbuy'] == 'cart') {
+            $payment_status = "Complete";
+            if ($payment_status == "Complete") {
+                $payment_uniqid = uniqid();
+                $userPaymentData = array(
+                    'id' => $payment_uniqid,
+                    'user_id' => $_SESSION["userId"],
+                    'transection_id' => "Test Demo",
+                    'transection_status' => $payment_status,
+                    'transection_date' => date("Y-m-d H:i:s"),
+                    'date_entered' => date("Y-m-d H:i:s"),
+                    'date_modified' => date("Y-m-d H:i:s"),
+                    'modified_user_id' => $_SESSION["userId"],
+                    'created_by' => $_SESSION["userId"],
+                    'deleted' => 0,
+                );
+                $userPaymentDataResponse = insertData($moduleMethod, $userPaymentData);
+
+                if (!empty($userPaymentDataResponse)) {
+                    $courseDiscountAmount = 0;
+                    $courseDiscountPrice = 0;
+                    $courseTotal = 0;
+                    $courseTotalAll = 0;
+                    // $userCartData = getData('cart', $cartListCondition);
+                    $userCartData = getData('cart', $cartListCondition);
+                    if ($userCartData->num_rows > 0) {
+                        while ($row = $userCartData->fetch_assoc()) {
+                            $Condition['id'] = $row['course_id'];
+                            $response = getData('course', $Condition);
+                            $response = $response->fetch_assoc();
+                            if (!empty($response)) {
+                                if ($response['discount'] != 0) {
+                                    $courseDiscountAmount = ($response['price'] * $response['discount'] / 100);
+                                    $courseDiscountPrice = $response['price'] - ($response['price'] * $response['discount'] / 100);
+                                } else {
+                                    $courseDiscountPrice = $response['price'];
+                                }
+                            }
+
+                            $userCoursesData = array(
+                                'id' => uniqid(),
+                                'user_id' => $_SESSION["userId"],
+                                'course_id' => $row['course_id'],
+                                'course_amount' => $response['price'],
+                                'discount_given' => $courseDiscountAmount,
+                                'final_amount' => $courseDiscountPrice,
+                                'payment_id' => $payment_uniqid,
+                                'payment_date' => date("Y-m-d H:i:s"),
+                                'date_entered' => date("Y-m-d H:i:s"),
+                                'date_modified' => date("Y-m-d H:i:s"),
+                                'modified_user_id' => $_SESSION["userId"],
+                                'created_by' => $_SESSION["userId"],
+                                'deleted' => 0,
+                            );
+                            $userCoursesResponse = insertData("user_courses", $userCoursesData);
+                            $courseDeleteCondition['user_id'] = $_SESSION["userId"];
+                            $courseDeleteCondition['course_id'] = $row['course_id'];
+                            $cartCoursesDelete = deleteData("cart", $courseDeleteCondition);
+                            $wishListCoursesDelete = deleteData('wishlist', $courseDeleteCondition);
+                        }
+                    }
+                    if (!empty($userCoursesResponse) && !empty($cartCoursesDelete) && !empty($wishListCoursesDelete)) {
+                        $alert_type = "alert-success";
+                        $alert_message = "Payment successful.";
+                        echo "<script>window.location.replace('../userDashboard.php?dasboard=mycourse&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    } else {
+                        $alert_type = "alert-danger";
+                        $alert_message = "Something want wrong <span>please try again!</span>";
+                        echo "<script>window.location.replace('../userDashboard.php?dasboard=userprofile&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                    }
+                } else {
+                    $alert_type = "alert-danger";
+                    $alert_message = "Something want wrong <span>please try again!</span>";
+                    echo "<script>window.location.replace('../userDashboard.php?dasboard=userprofile&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+                }
+            } else {
+                $alert_type = "alert-danger";
+                $alert_message = "Something want wrong <span>please try again!</span>";
+                echo "<script>window.location.replace('../userDashboard.php?dasboard=userprofile&alert_type=" . $alert_type . "&alert_message=" . $alert_message . "');</script>";
+            }
         }
     }
 

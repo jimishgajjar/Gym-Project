@@ -50,9 +50,8 @@ function insertData($tablename, $input)
     $values = rtrim($values, ', ');
 
     $query = "INSERT INTO " . $tablename . " (" . $column . ") VALUES (" . $values . ")";
-    echo $query . "<br>";
     if ($conn->query($query) === TRUE) {
-        return $tablename . " inserted successfully";
+        return $tablename . "inserted successfully";
     }
     // else {
     //     echo "Error: " . $query . "<br>" . $conn->error;
@@ -75,7 +74,7 @@ function updateData($tablename, $input, $where = array())
 
     $query = "UPDATE " . $tablename . " SET " . $set . " WHERE " . $wherestr;
     if ($conn->query($query) === TRUE) {
-        return $tablename . " updated successfully";
+        return $tablename . "updated successfully";
     }
     // else {
     //     echo "Error updating record: " . $conn->error;
@@ -92,7 +91,7 @@ function deleteData($tablename, $where = array())
 
     $query = "DELETE FROM " . $tablename . " WHERE " . $wherestr;
     if ($conn->query($query) === TRUE) {
-        return $tablename . " deleted successfully";
+        return $tablename . "deleted successfully";
     }
 }
 
@@ -113,9 +112,3 @@ function getIPAddress()
     }
     return $ip;
 }
-
-
-ini_set('upload_max_filesize', '50M');
-ini_set('post_max_size', '50M');
-ini_set('max_input_time', 300);
-ini_set('max_execution_time', 300);
