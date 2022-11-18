@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "gym_pro";
+$username = "a1611wtr_wecreate";
+$password = "[IXKm(r[6NG{";
+$dbname = "a1611wtr_gymnext";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
